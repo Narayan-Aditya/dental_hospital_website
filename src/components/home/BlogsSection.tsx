@@ -2,17 +2,12 @@ import React, { useState } from 'react';
 import { 
   BookOpen, 
   Clock, 
-  User, 
-  Tag, 
   Search, 
   ArrowRight, 
   X, 
   Share2, 
   ThumbsUp, 
-  Volume2, 
-  Calendar,
-  Sparkles,
-  ChevronRight
+  Volume2
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { BlogPost } from '../../types';
@@ -59,21 +54,21 @@ export const BlogsSection: React.FC = () => {
   };
 
   return (
-    <section id="blogs" className="py-20 bg-slate-50 relative">
+    <section id="blogs" className="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-100/80 text-teal-800 text-xs font-bold uppercase tracking-wider">
-            <BookOpen className="w-3.5 h-3.5 text-teal-600" />
+          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider">
+            <BookOpen className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
             <span>Oral Health Education & Wellness Hub</span>
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white tracking-tight">
             {language === 'hi' 
               ? 'दंत स्वास्थ्य ब्लॉग एवं विशेषज्ञ परामर्श' 
               : 'Dental Care Guides & Expert Articles'
             }
           </h2>
-          <p className="text-slate-600 text-base leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
             {language === 'hi'
               ? 'दांतों की सुरक्षा, पायरिया से बचाव, बच्चों की देखभाल और आधुनिक उपचारों पर हमारे डॉक्टरों द्वारा लिखे गए सरल लेख।'
               : 'Evidence-based oral health insights, procedure guides, and wellness tips written by our clinical specialist doctors.'
@@ -90,7 +85,7 @@ export const BlogsSection: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search topics, symptoms, RCT, Implants..."
-              className="w-full text-xs bg-white border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
+              className="w-full text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
             />
           </div>
 
@@ -102,7 +97,7 @@ export const BlogsSection: React.FC = () => {
                 className={`px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
                   activeCategory === cat
                     ? 'bg-teal-600 text-white shadow-sm'
-                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
                 }`}
               >
                 {cat === 'all' ? 'All Articles' : cat}
@@ -121,7 +116,7 @@ export const BlogsSection: React.FC = () => {
               <div
                 key={blog.id}
                 onClick={() => setSelectedBlog(blog)}
-                className="bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-2xl hover:border-teal-300 transition-all duration-300 cursor-pointer flex flex-col justify-between group"
+                className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-2xl hover:border-teal-300 dark:hover:border-teal-500 transition-all duration-300 cursor-pointer flex flex-col justify-between group"
               >
                 <div>
                   {/* Thumbnail Image */}
@@ -140,31 +135,31 @@ export const BlogsSection: React.FC = () => {
                   <div className="p-6 space-y-3">
                     <div className="flex items-center space-x-3 text-xs text-slate-400">
                       <span className="flex items-center">
-                        <Clock className="w-3.5 h-3.5 mr-1 text-teal-600" />
+                        <Clock className="w-3.5 h-3.5 mr-1 text-teal-600 dark:text-teal-400" />
                         {blog.readTime}
                       </span>
                       <span>•</span>
                       <span>{blog.date}</span>
                     </div>
 
-                    <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 group-hover:text-teal-600 transition-colors leading-snug line-clamp-2">
+                    <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug line-clamp-2">
                       {language === 'hi' ? blog.titleHi : blog.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 line-clamp-3 leading-relaxed">
                       {language === 'hi' ? blog.summaryHi : blog.summary}
                     </p>
                   </div>
                 </div>
 
                 {/* Footer metadata */}
-                <div className="px-6 py-4 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
+                <div className="px-6 py-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 flex items-center justify-between text-xs">
                   <div className="flex items-center space-x-2">
-                    <div className="w-7 h-7 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center text-[10px]">
+                    <div className="w-7 h-7 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-700 dark:text-teal-300 font-bold flex items-center justify-center text-[10px]">
                       Dr
                     </div>
                     <div>
-                      <div className="font-bold text-slate-900 text-[11px]">{blog.authorDoctor}</div>
+                      <div className="font-bold text-slate-900 dark:text-white text-[11px]">{blog.authorDoctor}</div>
                       <div className="text-[10px] text-slate-400">{blog.authorRole}</div>
                     </div>
                   </div>
@@ -173,7 +168,7 @@ export const BlogsSection: React.FC = () => {
                     <button
                       onClick={(e) => handleLike(blog.id, e)}
                       className={`flex items-center space-x-1 p-1 rounded transition-colors ${
-                        isLiked ? 'text-rose-600 font-bold' : 'text-slate-400 hover:text-slate-600'
+                        isLiked ? 'text-rose-600 font-bold' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
                       }`}
                     >
                       <ThumbsUp className="w-3.5 h-3.5" />
@@ -196,12 +191,12 @@ export const BlogsSection: React.FC = () => {
 
         {/* Full Blog Reader Modal */}
         {selectedBlog && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-fadeIn">
-            <div className="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 shadow-2xl border border-slate-200">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-fadeIn">
+            <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 shadow-2xl border border-slate-200 dark:border-slate-800">
               {/* Top Action Bar */}
-              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
                 <div className="flex items-center space-x-2">
-                  <span className="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-0.5 rounded-full">
+                  <span className="bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-300 text-xs font-bold px-2.5 py-0.5 rounded-full">
                     {selectedBlog.category}
                   </span>
                   <span className="text-xs text-slate-400">{selectedBlog.readTime}</span>
@@ -210,7 +205,7 @@ export const BlogsSection: React.FC = () => {
                   <button
                     onClick={() => setIsPlayingAudio(!isPlayingAudio)}
                     className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-colors ${
-                      isPlayingAudio ? 'bg-amber-100 text-amber-900 animate-pulse' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      isPlayingAudio ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-900 dark:text-amber-200 animate-pulse' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                     }`}
                   >
                     <Volume2 className="w-3.5 h-3.5" />
@@ -221,7 +216,7 @@ export const BlogsSection: React.FC = () => {
                       setSelectedBlog(null);
                       setIsPlayingAudio(false);
                     }}
-                    className="p-2 rounded-full hover:bg-slate-100 text-slate-500 transition-colors"
+                    className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -230,19 +225,19 @@ export const BlogsSection: React.FC = () => {
 
               {/* Title & Author header */}
               <div className="pt-6 pb-4 space-y-3">
-                <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-900 leading-tight">
+                <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white leading-tight">
                   {language === 'hi' ? selectedBlog.titleHi : selectedBlog.title}
                 </h2>
-                <div className="flex flex-wrap items-center justify-between text-xs text-slate-500 pt-1 border-b border-slate-100 pb-4 gap-2">
+                <div className="flex flex-wrap items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-1 border-b border-slate-100 dark:border-slate-800 pb-4 gap-2">
                   <div className="flex items-center space-x-2">
-                    <span className="font-bold text-slate-800">{selectedBlog.authorDoctor}</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-200">{selectedBlog.authorDoctor}</span>
                     <span>({selectedBlog.authorRole})</span>
                     <span>•</span>
                     <span>Published on {selectedBlog.date}</span>
                   </div>
                   <button
                     onClick={(e) => handleShare(selectedBlog, e)}
-                    className="inline-flex items-center text-teal-600 font-bold hover:underline space-x-1"
+                    className="inline-flex items-center text-teal-600 dark:text-teal-400 font-bold hover:underline space-x-1"
                   >
                     <Share2 className="w-3.5 h-3.5" />
                     <span>Share Article</span>
@@ -260,26 +255,17 @@ export const BlogsSection: React.FC = () => {
               </div>
 
               {/* Blog Content body */}
-              <div className="prose prose-slate max-w-none text-slate-700 text-sm sm:text-base leading-relaxed py-4 space-y-4 whitespace-pre-line">
+              <div className="prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed py-4 space-y-4 whitespace-pre-line">
                 {selectedBlog.content}
               </div>
 
-              {/* Tags */}
-              <div className="pt-4 flex flex-wrap gap-1.5 border-t border-slate-100">
-                {selectedBlog.tags.map((tag, i) => (
-                  <span key={i} className="text-xs font-semibold bg-slate-100 text-slate-600 px-2.5 py-1 rounded-lg">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-
               {/* Doctor Consultation Card CTA */}
-              <div className="mt-8 bg-gradient-to-r from-teal-50 to-cyan-50 p-6 rounded-2xl border border-teal-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="mt-8 bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-slate-800 dark:to-slate-800/80 p-6 rounded-2xl border border-teal-100 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="space-y-1 text-center sm:text-left">
-                  <h4 className="font-bold text-slate-900 text-sm">
+                  <h4 className="font-bold text-slate-900 dark:text-white text-sm">
                     Have questions about this condition?
                   </h4>
-                  <p className="text-xs text-slate-600">
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
                     Consult with {selectedBlog.authorDoctor} at Hope Dental Hospital, Sadrauna.
                   </p>
                 </div>

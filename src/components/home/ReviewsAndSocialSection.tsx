@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Star, 
-  Quote, 
   ExternalLink, 
-  CheckCircle2, 
-  Play, 
-  MessageSquare,
-  Award,
-  ChevronLeft,
-  ChevronRight
+  Play
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { HOSPITAL_INFO } from '../../data/mockData';
@@ -16,7 +10,6 @@ import { YoutubeIcon, FacebookIcon, GoogleIcon } from '../common/SocialIcons';
 
 export const ReviewsAndSocialSection: React.FC = () => {
   const { language, reviews } = useApp();
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   const videoTestimonials = [
     {
@@ -46,21 +39,21 @@ export const ReviewsAndSocialSection: React.FC = () => {
   ];
 
   return (
-    <section id="reviews" className="py-20 bg-white relative">
+    <section id="reviews" className="py-20 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
             <Star className="w-3.5 h-3.5 text-amber-600 fill-current" />
             <span>Verified Patient Testimonials</span>
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white tracking-tight">
             {language === 'hi' 
               ? 'मरीजों का विश्वास एवं वास्तविक अनुभव' 
               : 'Real Smiles, Real Patient Stories'
             }
           </h2>
-          <p className="text-slate-600 text-base leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
             {language === 'hi'
               ? 'सदरौना व पूरे लखनऊ से हजारों मरीजों द्वारा दिए गए प्रामाणिक गूगल, जस्टडायल और यूट्यूब रिव्यूज।'
               : 'Read genuine verified reviews across Google, JustDial, Facebook, and watch video success stories.'
@@ -152,7 +145,7 @@ export const ReviewsAndSocialSection: React.FC = () => {
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200/80 dark:border-slate-700 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div className="space-y-3">
                 {/* Header: Rating & Source */}
@@ -164,29 +157,29 @@ export const ReviewsAndSocialSection: React.FC = () => {
                   </div>
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                     review.verifiedSource === 'Google'
-                      ? 'bg-emerald-100 text-emerald-800'
+                      ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300'
                       : review.verifiedSource === 'JustDial'
-                      ? 'bg-orange-100 text-orange-800'
-                      : 'bg-blue-100 text-blue-800'
+                      ? 'bg-orange-100 dark:bg-orange-950/60 text-orange-800 dark:text-orange-300'
+                      : 'bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300'
                   }`}>
                     {review.verifiedSource} Verified
                   </span>
                 </div>
 
                 {/* Review Text */}
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
+                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed italic">
                   "{review.text}"
                 </p>
               </div>
 
               {/* Patient info */}
-              <div className="pt-4 border-t border-slate-200/60 mt-4 flex items-center justify-between text-xs">
+              <div className="pt-4 border-t border-slate-200/60 dark:border-slate-700 mt-4 flex items-center justify-between text-xs">
                 <div>
-                  <div className="font-bold text-slate-900">{review.patientName}</div>
-                  <div className="text-[11px] text-slate-500">{review.patientCity}</div>
+                  <div className="font-bold text-slate-900 dark:text-white">{review.patientName}</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400">{review.patientCity}</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-[11px] font-semibold text-teal-700">{review.treatmentReceived}</div>
+                  <div className="text-[11px] font-semibold text-teal-700 dark:text-teal-400">{review.treatmentReceived}</div>
                   <div className="text-[10px] text-slate-400">{review.date}</div>
                 </div>
               </div>
@@ -198,10 +191,10 @@ export const ReviewsAndSocialSection: React.FC = () => {
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h3 className="font-display font-bold text-xl text-slate-900">
+              <h3 className="font-display font-bold text-xl text-slate-900 dark:text-white">
                 Featured Video Stories from YouTube Channel
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 Watch our patient transformations and clinic walk-throughs.
               </p>
             </div>

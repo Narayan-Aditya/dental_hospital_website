@@ -37,21 +37,21 @@ export const ContactAndLocationSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white relative">
+    <section id="contact" className="py-20 bg-white dark:bg-slate-900 relative transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-100/80 text-teal-800 text-xs font-bold uppercase tracking-wider">
-            <MapPin className="w-3.5 h-3.5 text-teal-600" />
+          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-100/80 dark:bg-teal-900/40 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider">
+            <MapPin className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
             <span>Visit Hospital in Sadrauna, Lucknow</span>
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white tracking-tight">
             {language === 'hi' 
               ? 'अस्पताल का पता एवं संपर्क सूत्र' 
               : 'Location, Timings & Quick Inquiry'
             }
           </h2>
-          <p className="text-slate-600 text-base leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
             {language === 'hi'
               ? 'सदरौना, मोहन रोड लखनऊ में स्थित। आसान पार्किंग, व्हीलचेयर सुलभ और आपातकालीन सेवा उपलब्ध।'
               : 'Easily accessible on Mohan Road, Sadrauna, Lucknow with dedicated parking and rapid transit access.'
@@ -64,19 +64,19 @@ export const ContactAndLocationSection: React.FC = () => {
           {/* Left Contact & Location Cards (6 Cols) */}
           <div className="lg:col-span-6 space-y-6">
             {/* Address Card */}
-            <div className="bg-slate-50 p-6 rounded-3xl border border-slate-200/90 space-y-4 shadow-sm">
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-6 rounded-3xl border border-slate-200/90 dark:border-slate-700/80 space-y-4 shadow-sm">
               <div className="flex items-start space-x-3.5">
                 <div className="w-10 h-10 rounded-2xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-md">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-lg text-slate-900">
+                  <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
                     Hope Dental Hospital & Wellness Centre
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
                     {language === 'hi' ? HOSPITAL_INFO.addressHi : HOSPITAL_INFO.address}
                   </p>
-                  <p className="text-xs text-teal-700 font-semibold mt-1">
+                  <p className="text-xs text-teal-700 dark:text-teal-400 font-semibold mt-1">
                     Landmark: Near Sadrauna Main Market & Mohan Road Crossing
                   </p>
                 </div>
@@ -88,7 +88,7 @@ export const ContactAndLocationSection: React.FC = () => {
                   href={HOSPITAL_INFO.socialLinks.google}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center space-x-1.5"
+                  className="px-4 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center space-x-1.5"
                 >
                   <Navigation className="w-3.5 h-3.5 text-teal-400" />
                   <span>Get Driving Directions (Google Maps)</span>
@@ -108,41 +108,41 @@ export const ContactAndLocationSection: React.FC = () => {
 
             {/* Helpline & Timings Details */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
-                <div className="flex items-center space-x-2 text-teal-700 font-bold text-xs uppercase tracking-wider">
+              <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
+                <div className="flex items-center space-x-2 text-teal-700 dark:text-teal-400 font-bold text-xs uppercase tracking-wider">
                   <Phone className="w-4 h-4" />
                   <span>Phone Numbers</span>
                 </div>
-                <div className="text-sm font-bold text-slate-900">
-                  <a href={`tel:${HOSPITAL_INFO.phone}`} className="hover:text-teal-600 block">
+                <div className="text-sm font-bold text-slate-900 dark:text-white">
+                  <a href={`tel:${HOSPITAL_INFO.phone}`} className="hover:text-teal-600 dark:hover:text-teal-400 block">
                     {HOSPITAL_INFO.phone}
                   </a>
-                  <a href={`tel:${HOSPITAL_INFO.altPhone}`} className="hover:text-teal-600 block text-xs text-slate-600 font-medium mt-0.5">
+                  <a href={`tel:${HOSPITAL_INFO.altPhone}`} className="hover:text-teal-600 dark:hover:text-teal-400 block text-xs text-slate-600 dark:text-slate-400 font-medium mt-0.5">
                     {HOSPITAL_INFO.altPhone}
                   </a>
                 </div>
-                <div className="text-[11px] text-rose-600 font-bold pt-1">
+                <div className="text-[11px] text-rose-600 dark:text-rose-400 font-bold pt-1">
                   Emergency: {HOSPITAL_INFO.emergencyPhone}
                 </div>
               </div>
 
-              <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
-                <div className="flex items-center space-x-2 text-teal-700 font-bold text-xs uppercase tracking-wider">
+              <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
+                <div className="flex items-center space-x-2 text-teal-700 dark:text-teal-400 font-bold text-xs uppercase tracking-wider">
                   <Clock className="w-4 h-4" />
                   <span>OPD Timings</span>
                 </div>
-                <div className="text-xs text-slate-800 space-y-0.5">
+                <div className="text-xs text-slate-800 dark:text-slate-200 space-y-0.5">
                   <p className="font-bold">Mon – Sat: 9:00 AM – 8:00 PM</p>
-                  <p className="text-slate-600">Sunday: 10:00 AM – 2:00 PM</p>
+                  <p className="text-slate-600 dark:text-slate-400">Sunday: 10:00 AM – 2:00 PM</p>
                 </div>
-                <div className="text-[11px] text-teal-700 font-semibold pt-1">
+                <div className="text-[11px] text-teal-700 dark:text-teal-400 font-semibold pt-1">
                   24/7 Dental Trauma Active
                 </div>
               </div>
             </div>
 
             {/* Visual Location Preview Card */}
-            <div className="bg-slate-900 text-white p-6 rounded-3xl relative overflow-hidden shadow-lg border border-slate-800">
+            <div className="bg-slate-900 dark:bg-slate-950 text-white p-6 rounded-3xl relative overflow-hidden shadow-lg border border-slate-800">
               <div className="space-y-2 relative z-10">
                 <span className="text-[10px] font-extrabold uppercase tracking-wider bg-teal-500/30 text-teal-300 px-2.5 py-0.5 rounded-full border border-teal-400/30">
                   Sadrauna, Mohan Road, Lucknow
@@ -158,29 +158,29 @@ export const ContactAndLocationSection: React.FC = () => {
           </div>
 
           {/* Right Fast Inquiry Form (6 Cols) */}
-          <div className="lg:col-span-6 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl">
+          <div className="lg:col-span-6 bg-slate-50 dark:bg-slate-800/80 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xl">
             <div className="space-y-1 mb-6">
-              <span className="text-xs font-bold text-teal-600 uppercase tracking-wider">
+              <span className="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
                 Direct Dental Inquiry
               </span>
-              <h3 className="font-display font-bold text-2xl text-slate-900">
+              <h3 className="font-display font-bold text-2xl text-slate-900 dark:text-white">
                 Ask a Question to Our Specialists
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 Have a query about RCT cost, braces, or dental pain? Our team responds within 15 minutes during OPD hours.
               </p>
             </div>
 
             {isSubmitted ? (
-              <div className="bg-teal-100 border border-teal-300 text-teal-900 p-6 rounded-2xl text-center space-y-2 animate-fadeIn">
-                <CheckCircle2 className="w-10 h-10 text-teal-600 mx-auto" />
+              <div className="bg-teal-100 dark:bg-teal-950/60 border border-teal-300 dark:border-teal-700 text-teal-900 dark:text-teal-200 p-6 rounded-2xl text-center space-y-2 animate-fadeIn">
+                <CheckCircle2 className="w-10 h-10 text-teal-600 dark:text-teal-400 mx-auto" />
                 <h4 className="font-bold text-base">Inquiry Submitted Successfully!</h4>
-                <p className="text-xs text-teal-800">
+                <p className="text-xs text-teal-800 dark:text-teal-300">
                   Our front-desk reception at Sadrauna, Lucknow will contact you shortly at <strong>{formPhone}</strong>.
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="mt-2 text-xs font-bold text-teal-700 underline"
+                  className="mt-2 text-xs font-bold text-teal-700 dark:text-teal-400 underline"
                 >
                   Send another inquiry
                 </button>
@@ -188,7 +188,7 @@ export const ContactAndLocationSection: React.FC = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                     Your Full Name *
                   </label>
                   <input
@@ -197,13 +197,13 @@ export const ContactAndLocationSection: React.FC = () => {
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
                     placeholder="e.g. Rahul Sharma"
-                    className="w-full text-xs sm:text-sm bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
+                    className="w-full text-xs sm:text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                       Phone / WhatsApp Number *
                     </label>
                     <input
@@ -212,18 +212,18 @@ export const ContactAndLocationSection: React.FC = () => {
                       value={formPhone}
                       onChange={(e) => setFormPhone(e.target.value)}
                       placeholder="e.g. 98390XXXXX"
-                      className="w-full text-xs sm:text-sm bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
+                      className="w-full text-xs sm:text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                       Inquiry Category
                     </label>
                     <select
                       value={formType}
                       onChange={(e) => setFormType(e.target.value)}
-                      className="w-full text-xs sm:text-sm bg-white border border-slate-200 rounded-xl px-3 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
+                      className="w-full text-xs sm:text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-3 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
                     >
                       <option value="General Consultation">General Consultation</option>
                       <option value="Root Canal Treatment">Root Canal Treatment (RCT)</option>
@@ -237,7 +237,7 @@ export const ContactAndLocationSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                     Describe your dental problem or question
                   </label>
                   <textarea
@@ -245,7 +245,7 @@ export const ContactAndLocationSection: React.FC = () => {
                     value={formQuery}
                     onChange={(e) => setFormQuery(e.target.value)}
                     placeholder="Tell us about the pain duration, sensitivity, or procedure you're looking for..."
-                    className="w-full text-xs sm:text-sm bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm resize-none"
+                    className="w-full text-xs sm:text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm resize-none"
                   />
                 </div>
 

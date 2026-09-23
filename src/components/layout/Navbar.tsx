@@ -6,7 +6,9 @@ import {
   Menu, 
   X, 
   Calendar, 
-  Type
+  Type,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { HOSPITAL_INFO } from '../../data/mockData';
@@ -18,14 +20,13 @@ export const Navbar: React.FC = () => {
     setLanguage, 
     fontSize, 
     setFontSize, 
-    highContrast, 
-    setHighContrast,
+    darkMode,
+    toggleDarkMode,
     setIsBookingOpen
   } = useApp();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showAccessibilityMenu, setShowAccessibilityMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,7 +59,7 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Social & Language */}
+          {/* Right: Social & Language & Dark Mode */}
           <div className="flex items-center space-x-3">
             {/* Social Icons */}
             <div className="flex items-center space-x-2 border-r border-slate-700 pr-3">
@@ -101,6 +102,15 @@ export const Navbar: React.FC = () => {
               </a>
             </div>
 
+            {/* Dark / Light Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-amber-300 transition-colors"
+              title="Toggle Dark / Light Mode"
+            >
+              {darkMode ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5 text-cyan-400" />}
+            </button>
+
             {/* Language Switcher */}
             <div className="flex items-center space-x-1 bg-slate-800 rounded-lg p-0.5">
               <button
@@ -136,8 +146,8 @@ export const Navbar: React.FC = () => {
       {/* Main Sticky Navbar */}
       <nav className={`sticky top-0 z-40 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100 py-3' 
-          : 'bg-white py-4 border-b border-slate-100'
+          ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-md border-b border-slate-100 dark:border-slate-800 py-3' 
+          : 'bg-white dark:bg-slate-900 py-4 border-b border-slate-100 dark:border-slate-800'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           {/* Logo & Hospital Name */}
@@ -151,37 +161,37 @@ export const Navbar: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center space-x-1.5">
-                <span className="font-display font-extrabold text-xl text-slate-900 tracking-tight">
+                <span className="font-display font-extrabold text-xl text-slate-900 dark:text-white tracking-tight">
                   HOPE DENTAL
                 </span>
-                <span className="bg-teal-100 text-teal-800 text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">
+                <span className="bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-300 text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">
                   Lucknow
                 </span>
               </div>
-              <p className="text-[11px] text-slate-500 font-medium leading-none">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-none">
                 {language === 'hi' ? 'हॉस्पिटल एवं वेलनेस सेंटर' : 'Hospital & Wellness Centre'}
               </p>
             </div>
           </a>
 
           {/* Clean Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-600">
-            <a href="#about" className="hover:text-teal-600 transition-colors">
+          <div className="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-600 dark:text-slate-300">
+            <a href="#about" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'अस्पताल के बारे में' : 'About Hospital'}
             </a>
-            <a href="#treatments" className="hover:text-teal-600 transition-colors">
+            <a href="#treatments" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'उपचार व सेवाएं' : 'Services & Treatments'}
             </a>
-            <a href="#doctors" className="hover:text-teal-600 transition-colors">
+            <a href="#doctors" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'हमारे डॉक्टर्स' : 'Doctors Details'}
             </a>
-            <a href="#reviews" className="hover:text-teal-600 transition-colors">
+            <a href="#reviews" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'मरीज समीक्षाएं' : 'Patient Reviews'}
             </a>
-            <a href="#blogs" className="hover:text-teal-600 transition-colors">
+            <a href="#blogs" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'डेंटल ब्लॉग्स' : 'Dental Blogs'}
             </a>
-            <a href="#contact" className="hover:text-teal-600 transition-colors">
+            <a href="#contact" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'पता व संपर्क' : 'Contact & Location'}
             </a>
           </div>
@@ -207,7 +217,7 @@ export const Navbar: React.FC = () => {
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors"
+              className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -217,28 +227,28 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 mt-2 shadow-xl animate-fadeIn">
-            <div className="flex flex-col space-y-3 font-semibold text-slate-700 text-base">
-              <a href="#about" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+          <div className="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 mt-2 shadow-xl animate-fadeIn">
+            <div className="flex flex-col space-y-3 font-semibold text-slate-700 dark:text-slate-200 text-base">
+              <a href="#about" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
                 {language === 'hi' ? 'अस्पताल के बारे में' : 'About Hospital'}
               </a>
-              <a href="#treatments" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+              <a href="#treatments" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
                 {language === 'hi' ? 'उपचार व सेवाएं' : 'Services & Treatments'}
               </a>
-              <a href="#doctors" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+              <a href="#doctors" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
                 {language === 'hi' ? 'हमारे डॉक्टर्स' : 'Doctors Details'}
               </a>
-              <a href="#reviews" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+              <a href="#reviews" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
                 {language === 'hi' ? 'मरीज समीक्षाएं' : 'Patient Reviews'}
               </a>
-              <a href="#blogs" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+              <a href="#blogs" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
                 {language === 'hi' ? 'डेंटल ब्लॉग्स' : 'Dental Blogs'}
               </a>
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
                 {language === 'hi' ? 'पता व संपर्क' : 'Contact & Location'}
               </a>
 
-              <div className="pt-2 border-t border-slate-100">
+              <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);

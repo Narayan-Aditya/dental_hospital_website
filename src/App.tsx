@@ -2,7 +2,6 @@ import React from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { ThemeSwitcherBar } from './components/common/ThemeSwitcherBar';
 import { Concept1Clinical } from './components/concepts/Concept1Clinical';
-import { Concept2Luxury } from './components/concepts/Concept2Luxury';
 import { Concept3ProMax } from './components/concepts/Concept3ProMax';
 
 import { BookingModal } from './components/modals/BookingModal';
@@ -13,12 +12,11 @@ const MainContent: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative">
-      {/* 3-in-1 Website Concept Theme Switcher */}
+      {/* 2-in-1 Website Concept Theme Switcher */}
       <ThemeSwitcherBar />
 
       {/* Render Selected Website Concept */}
       {concept === 'clinical' && <Concept1Clinical />}
-      {concept === 'luxury' && <Concept2Luxury />}
       {concept === 'promax' && <Concept3ProMax />}
 
       {/* Shared Appointment Booking Modal */}

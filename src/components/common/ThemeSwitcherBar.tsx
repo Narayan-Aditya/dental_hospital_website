@@ -1,34 +1,22 @@
 import React from 'react';
-import { Sparkles, Shield, Crown, Zap, Check } from 'lucide-react';
+import { Shield, Zap, Check, Sun, Moon } from 'lucide-react';
 import { useApp, ConceptTheme } from '../../context/AppContext';
 
 export const ThemeSwitcherBar: React.FC = () => {
-  const { concept, setConcept } = useApp();
+  const { concept, setConcept, darkMode, toggleDarkMode } = useApp();
 
-  const concepts: { id: ConceptTheme; title: string; badge: string; desc: string; icon: any; color: string }[] = [
+  const concepts: { id: ConceptTheme; title: string; badge: string; icon: any }[] = [
     {
       id: 'clinical',
-      title: '1. Clinical Clean (Teal)',
+      title: '1. Modern Clinical Care',
       badge: 'Hospital & Trust',
-      desc: 'Complete medical ecosystem with fast booking, invoice PDF & bilingual triage.',
       icon: Shield,
-      color: 'from-teal-600 to-teal-500 text-teal-700 bg-teal-50 border-teal-200'
-    },
-    {
-      id: 'luxury',
-      title: '2. Luxury Aesthetic (Gold)',
-      badge: 'Cosmetic Lounge',
-      desc: 'Obsidian & Champagne gold VIP smile studio with shade selector & concierge.',
-      icon: Crown,
-      color: 'from-amber-600 to-amber-500 text-amber-800 bg-amber-50 border-amber-300'
     },
     {
       id: 'promax',
-      title: '3. UI UX Pro Max',
+      title: '2. UI UX Pro Max Masterpiece',
       badge: 'Museum-Grade AI',
-      desc: 'Editorial typography, 3D interactive tooth arch, AI scan & tele-dentistry.',
       icon: Zap,
-      color: 'from-sky-600 to-indigo-600 text-sky-800 bg-sky-50 border-sky-300'
     }
   ];
 
@@ -42,12 +30,12 @@ export const ThemeSwitcherBar: React.FC = () => {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-teal-500"></span>
           </span>
           <span className="font-extrabold uppercase tracking-wider text-slate-300 text-[11px]">
-            Explore 3 Website Design Concepts:
+            Website Version:
           </span>
         </div>
 
-        {/* Concept Switcher Buttons */}
-        <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center">
+        {/* Center: 2 Website Concept Switcher Buttons */}
+        <div className="flex items-center gap-2 flex-wrap justify-center">
           {concepts.map((item) => {
             const Icon = item.icon;
             const isActive = concept === item.id;
@@ -59,7 +47,7 @@ export const ThemeSwitcherBar: React.FC = () => {
                   setConcept(item.id);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 border ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 border ${
                   isActive
                     ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white border-teal-400 shadow-lg shadow-teal-500/30 scale-105 ring-2 ring-teal-400/40'
                     : 'bg-slate-900/90 text-slate-300 border-slate-700 hover:bg-slate-800 hover:text-white'
@@ -71,6 +59,27 @@ export const ThemeSwitcherBar: React.FC = () => {
               </button>
             );
           })}
+        </div>
+
+        {/* Right: Dark / Light Mode Toggle Button */}
+        <div className="flex items-center space-x-2">
+          <button
+            onClick={toggleDarkMode}
+            className="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-bold flex items-center space-x-1.5 transition-all text-amber-300 hover:text-amber-200"
+            title="Toggle Dark / Light Mode"
+          >
+            {darkMode ? (
+              <>
+                <Sun className="w-3.5 h-3.5 text-amber-400" />
+                <span className="text-white text-[11px]">Light Mode</span>
+              </>
+            ) : (
+              <>
+                <Moon className="w-3.5 h-3.5 text-cyan-400" />
+                <span className="text-white text-[11px]">Dark Mode</span>
+              </>
+            )}
+          </button>
         </div>
       </div>
     </div>
