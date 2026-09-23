@@ -1,28 +1,21 @@
 import React from 'react';
 import { AppProvider, useApp } from './context/AppContext';
-import { ThemeSwitcherBar } from './components/common/ThemeSwitcherBar';
-import { Concept1Clinical } from './components/concepts/Concept1Clinical';
 import { Concept3ProMax } from './components/concepts/Concept3ProMax';
-
 import { BookingModal } from './components/modals/BookingModal';
 import { MessageSquare, Calendar } from 'lucide-react';
 
 const MainContent: React.FC = () => {
-  const { concept, setIsBookingOpen } = useApp();
+  const { setIsBookingOpen } = useApp();
 
   return (
     <div className="min-h-screen flex flex-col relative">
-      {/* 2-in-1 Website Concept Theme Switcher */}
-      <ThemeSwitcherBar />
-
-      {/* Render Selected Website Concept */}
-      {concept === 'clinical' && <Concept1Clinical />}
-      {concept === 'promax' && <Concept3ProMax />}
+      {/* UI UX Pro Max Dental Hospital Website */}
+      <Concept3ProMax />
 
       {/* Shared Appointment Booking Modal */}
       <BookingModal />
 
-      {/* Floating Action Buttons for Mobile / Quick WhatsApp Connect */}
+      {/* Floating Quick Action Buttons */}
       <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end space-y-2.5">
         {/* WhatsApp Fast Connect */}
         <a
