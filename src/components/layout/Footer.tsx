@@ -6,29 +6,22 @@ import {
   Clock, 
   ShieldCheck, 
   ChevronRight,
+  Calendar
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { HOSPITAL_INFO } from '../../data/mockData';
 import { YoutubeIcon, FacebookIcon, GoogleIcon } from '../common/SocialIcons';
 
 export const Footer: React.FC = () => {
-  const { 
-    language, 
-    setIsBookingOpen, 
-    setIsInvoiceModalOpen, 
-    setIsEmergencyModalOpen,
-    setIsAdminOpen,
-    setIsCostEstimatorOpen,
-    setIsSymptomCheckerOpen
-  } = useApp();
+  const { language, setIsBookingOpen } = useApp();
 
   return (
     <footer className="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
-          {/* Col 1: Brand info & Socials */}
-          <div className="lg:col-span-2 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+          {/* Col 1: About Hospital & Socials */}
+          <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-teal-400 flex items-center justify-center text-white shadow-md">
                 <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -44,9 +37,9 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <p className="text-sm text-slate-400 leading-relaxed pr-4">
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
               {language === 'hi' 
-                ? 'सदरौना, लखनऊ में अत्याधुनिक तकनीक, जर्मन रोटरी आरसीटी, स्थायी डेंटल इम्प्लांट्स और पारदर्शी क्लियर एलाइनर्स के साथ सर्वश्रेष्ठ दंत चिकित्सा सेवा।'
+                ? 'सदरौना, लखनऊ में आधुनिक तकनीक, जर्मन रोटरी आरसीटी, स्थायी डेंटल इम्प्लांट्स और पारदर्शी क्लियर एलाइनर्स के साथ दंत चिकित्सालय।'
                 : 'Sadrauna, Lucknow’s premier center for painless root canals, European certified dental implants, cosmetic smile makeovers, and pediatric oral care.'
               }
             </p>
@@ -96,19 +89,15 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
             </div>
-
-            <div className="pt-2 text-xs text-slate-500">
-              <span className="text-slate-400 font-medium">GSTIN:</span> {HOSPITAL_INFO.gstin} | <span className="text-slate-400 font-medium">Reg:</span> {HOSPITAL_INFO.registrationNo}
-            </div>
           </div>
 
-          {/* Col 2: Treatments */}
+          {/* Col 2: Hospital Services & Treatments */}
           <div>
             <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center">
               <span className="w-2 h-2 rounded-full bg-teal-500 mr-2"></span>
-              Treatments
+              Services & Treatments
             </h3>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
               <li>
                 <a href="#treatments" className="hover:text-teal-400 transition-colors flex items-center">
                   <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
@@ -124,95 +113,80 @@ export const Footer: React.FC = () => {
               <li>
                 <a href="#treatments" className="hover:text-teal-400 transition-colors flex items-center">
                   <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
-                  Invisible Clear Aligners
+                  Invisible Clear Aligners & Braces
                 </a>
               </li>
               <li>
                 <a href="#treatments" className="hover:text-teal-400 transition-colors flex items-center">
                   <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
-                  CAD/CAM Zirconia Crowns
+                  CAD/CAM Zirconia Crowns (15 Yr Warranty)
                 </a>
               </li>
               <li>
                 <a href="#treatments" className="hover:text-teal-400 transition-colors flex items-center">
                   <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
-                  Laser Teeth Whitening
+                  Laser Teeth Whitening & Cleaning
                 </a>
               </li>
               <li>
                 <a href="#treatments" className="hover:text-teal-400 transition-colors flex items-center">
                   <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
-                  Kids & Pediatric Care
+                  Pediatric (Kids) Dentistry
                 </a>
               </li>
               <li>
                 <a href="#treatments" className="hover:text-teal-400 transition-colors flex items-center">
                   <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
-                  Wisdom Tooth Surgery
+                  Wisdom Tooth Oral Surgery
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Quick Patient Tools */}
+          {/* Col 3: Quick Navigation */}
           <div>
             <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center">
               <span className="w-2 h-2 rounded-full bg-teal-500 mr-2"></span>
-              Patient Services
+              Quick Hospital Links
             </h3>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
               <li>
+                <a href="#about" className="hover:text-teal-400 transition-colors flex items-center">
+                  <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
+                  About Hope Dental Hospital
+                </a>
+              </li>
+              <li>
+                <a href="#doctors" className="hover:text-teal-400 transition-colors flex items-center">
+                  <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
+                  Meet Our Specialist Doctors
+                </a>
+              </li>
+              <li>
+                <a href="#reviews" className="hover:text-teal-400 transition-colors flex items-center">
+                  <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
+                  Customer Reviews & YouTube Stories
+                </a>
+              </li>
+              <li>
+                <a href="#blogs" className="hover:text-teal-400 transition-colors flex items-center">
+                  <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
+                  Oral Health Educational Blogs
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-teal-400 transition-colors flex items-center">
+                  <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
+                  Location, Timings & Directions
+                </a>
+              </li>
+              <li className="pt-2">
                 <button 
                   onClick={() => setIsBookingOpen(true)}
-                  className="hover:text-teal-400 transition-colors flex items-center text-left"
+                  className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow flex items-center space-x-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
-                  Book Fast Appointment
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => setIsInvoiceModalOpen(true)}
-                  className="hover:text-teal-400 transition-colors flex items-center text-left"
-                >
-                  <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
-                  Download / View Invoices
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => setIsSymptomCheckerOpen(true)}
-                  className="hover:text-teal-400 transition-colors flex items-center text-left"
-                >
-                  <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
-                  Toothache Symptom Checker
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => setIsCostEstimatorOpen(true)}
-                  className="hover:text-teal-400 transition-colors flex items-center text-left"
-                >
-                  <ChevronRight className="w-3 h-3 mr-1 text-slate-600" />
-                  Treatment Cost & 0% EMI
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => setIsEmergencyModalOpen(true)}
-                  className="hover:text-rose-400 transition-colors flex items-center text-left text-rose-400 font-medium"
-                >
-                  <ChevronRight className="w-3 h-3 mr-1 text-rose-600" />
-                  24/7 Dental Trauma Guide
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => setIsAdminOpen(true)}
-                  className="hover:text-teal-400 transition-colors flex items-center text-left text-slate-500"
-                >
-                  <ChevronRight className="w-3 h-3 mr-1 text-slate-700" />
-                  Hospital Staff Portal
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>Book Online Appointment</span>
                 </button>
               </li>
             </ul>
@@ -222,16 +196,16 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center">
               <span className="w-2 h-2 rounded-full bg-teal-500 mr-2"></span>
-              Clinic Contact
+              Hospital Contact
             </h3>
-            <div className="space-y-3 text-sm text-slate-400">
+            <div className="space-y-3 text-xs sm:text-sm text-slate-400">
               <div className="flex items-start space-x-2.5">
                 <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                 <span>Sadrauna, Near Main Market, Mohan Road, Lucknow, UP 226009</span>
               </div>
               <div className="flex items-center space-x-2.5">
                 <Phone className="w-4 h-4 text-teal-400 shrink-0" />
-                <a href={`tel:${HOSPITAL_INFO.phone}`} className="hover:text-white transition-colors">
+                <a href={`tel:${HOSPITAL_INFO.phone}`} className="hover:text-white transition-colors font-bold text-white">
                   {HOSPITAL_INFO.phone}
                 </a>
               </div>
@@ -252,7 +226,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom copyright & disclaimer */}
+        {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} Hope Dental Hospital & Wellness Centre, Sadrauna, Lucknow. All rights reserved.</p>
           <div className="flex items-center space-x-4">

@@ -6,10 +6,7 @@ import {
   Menu, 
   X, 
   Calendar, 
-  FileText, 
-  AlertCircle, 
-  Type, 
-  UserCheck
+  Type
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { HOSPITAL_INFO } from '../../data/mockData';
@@ -19,15 +16,11 @@ export const Navbar: React.FC = () => {
   const { 
     language, 
     setLanguage, 
-    t, 
     fontSize, 
     setFontSize, 
     highContrast, 
     setHighContrast,
-    setIsBookingOpen, 
-    setIsInvoiceModalOpen,
-    setIsEmergencyModalOpen,
-    setIsAdminOpen,
+    setIsBookingOpen
   } = useApp();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +43,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Top Notification & Hotline Bar */}
+      {/* Top Bar: Location & Social Links */}
       <div className="bg-slate-900 text-slate-200 text-xs py-2 px-4 border-b border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           {/* Left: Location & Timings */}
@@ -61,21 +54,14 @@ export const Navbar: React.FC = () => {
             </div>
             <div className="hidden md:flex items-center text-slate-300">
               <Clock className="w-3.5 h-3.5 mr-1 text-slate-400" />
-              <span>Mon-Sat: 9AM - 8PM | Sun: 10AM - 2PM</span>
+              <span>{HOSPITAL_INFO.timings}</span>
             </div>
-            <button 
-              onClick={() => setIsEmergencyModalOpen(true)}
-              className="flex items-center text-rose-400 hover:text-rose-300 font-semibold animate-pulse"
-            >
-              <AlertCircle className="w-3.5 h-3.5 mr-1" />
-              <span>24/7 Dental Emergency SOS</span>
-            </button>
           </div>
 
-          {/* Right: Social, Language, Accessibility */}
+          {/* Right: Social & Language */}
           <div className="flex items-center space-x-3">
             {/* Social Icons */}
-            <div className="hidden sm:flex items-center space-x-2 border-r border-slate-700 pr-3">
+            <div className="flex items-center space-x-2 border-r border-slate-700 pr-3">
               <a 
                 href={HOSPITAL_INFO.socialLinks.youtube} 
                 target="_blank" 
@@ -101,7 +87,7 @@ export const Navbar: React.FC = () => {
                 className="text-slate-400 hover:text-orange-400 transition-colors text-[10px] font-bold px-1 py-0.5 rounded bg-slate-800"
                 title="JustDial Verified Clinic"
               >
-                JD
+                JD 4.8★
               </a>
               <a 
                 href={HOSPITAL_INFO.socialLinks.google} 
@@ -135,46 +121,13 @@ export const Navbar: React.FC = () => {
               </button>
             </div>
 
-            {/* Accessibility button */}
-            <div className="relative">
-              <button 
-                onClick={() => setShowAccessibilityMenu(!showAccessibilityMenu)}
-                className="p-1 rounded bg-slate-800 text-slate-300 hover:text-white transition-colors"
-                title="Accessibility & Text Size"
-              >
-                <Type className="w-3.5 h-3.5" />
-              </button>
-
-              {showAccessibilityMenu && (
-                <div className="absolute right-0 mt-2 w-48 bg-white text-slate-800 rounded-xl shadow-xl border border-slate-200 p-2 z-50 text-xs">
-                  <div className="font-semibold text-slate-700 px-2 py-1 border-b border-slate-100 mb-1">
-                    Accessibility Options
-                  </div>
-                  <button
-                    onClick={toggleFontSize}
-                    className="w-full text-left px-2 py-1.5 hover:bg-slate-100 rounded flex justify-between items-center"
-                  >
-                    <span>Font Size:</span>
-                    <span className="font-bold text-teal-600 uppercase">{fontSize}</span>
-                  </button>
-                  <button
-                    onClick={() => setHighContrast(!highContrast)}
-                    className="w-full text-left px-2 py-1.5 hover:bg-slate-100 rounded flex justify-between items-center"
-                  >
-                    <span>High Contrast:</span>
-                    <span className="font-bold text-teal-600">{highContrast ? 'ON' : 'OFF'}</span>
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Admin Desk Link */}
-            <button
-              onClick={() => setIsAdminOpen(true)}
-              className="text-slate-400 hover:text-teal-400 text-[11px] font-medium hidden lg:inline-flex items-center"
+            {/* Text size adjuster */}
+            <button 
+              onClick={toggleFontSize}
+              className="p-1 rounded bg-slate-800 text-slate-300 hover:text-white transition-colors"
+              title="Change Text Size"
             >
-              <UserCheck className="w-3 h-3 mr-1" />
-              Reception Desk
+              <Type className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
@@ -211,54 +164,41 @@ export const Navbar: React.FC = () => {
             </div>
           </a>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden xl:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+          {/* Clean Navigation Links */}
+          <div className="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-600">
+            <a href="#about" className="hover:text-teal-600 transition-colors">
+              {language === 'hi' ? 'अस्पताल के बारे में' : 'About Hospital'}
+            </a>
             <a href="#treatments" className="hover:text-teal-600 transition-colors">
-              {t('nav.treatments')}
+              {language === 'hi' ? 'उपचार व सेवाएं' : 'Services & Treatments'}
             </a>
             <a href="#doctors" className="hover:text-teal-600 transition-colors">
-              {t('nav.doctors')}
-            </a>
-            <a href="#facilities" className="hover:text-teal-600 transition-colors">
-              {t('nav.facilities')}
-            </a>
-            <a href="#estimator" className="hover:text-teal-600 transition-colors">
-              {t('nav.pricing')}
-            </a>
-            <a href="#blogs" className="hover:text-teal-600 transition-colors">
-              {t('nav.blogs')}
+              {language === 'hi' ? 'हमारे डॉक्टर्स' : 'Doctors Details'}
             </a>
             <a href="#reviews" className="hover:text-teal-600 transition-colors">
-              {t('nav.reviews')}
+              {language === 'hi' ? 'मरीज समीक्षाएं' : 'Patient Reviews'}
+            </a>
+            <a href="#blogs" className="hover:text-teal-600 transition-colors">
+              {language === 'hi' ? 'डेंटल ब्लॉग्स' : 'Dental Blogs'}
             </a>
             <a href="#contact" className="hover:text-teal-600 transition-colors">
-              {t('nav.contact')}
+              {language === 'hi' ? 'पता व संपर्क' : 'Contact & Location'}
             </a>
           </div>
 
-          {/* Right Action CTAs */}
+          {/* Book CTA */}
           <div className="hidden sm:flex items-center space-x-3">
-            {/* Download Invoice Button */}
-            <button
-              onClick={() => setIsInvoiceModalOpen(true)}
-              className="inline-flex items-center px-3.5 py-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-all border border-slate-200"
-            >
-              <FileText className="w-3.5 h-3.5 mr-1.5 text-teal-600" />
-              <span>{t('nav.invoices')}</span>
-            </button>
-
-            {/* Book Appointment CTA */}
             <button
               onClick={() => setIsBookingOpen(true)}
               className="inline-flex items-center px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 rounded-xl shadow-lg shadow-teal-600/25 hover:shadow-teal-600/40 hover:-translate-y-0.5 active:translate-y-0 transition-all"
             >
               <Calendar className="w-4 h-4 mr-2" />
-              <span>{t('nav.bookBtn')}</span>
+              <span>{language === 'hi' ? 'अपॉइंटमेंट बुक करें' : 'Book Appointment'}</span>
             </button>
           </div>
 
           {/* Mobile Menu Toggle Button */}
-          <div className="flex items-center space-x-2 xl:hidden">
+          <div className="flex items-center space-x-2 lg:hidden">
             <button
               onClick={() => setIsBookingOpen(true)}
               className="sm:hidden px-3 py-1.5 text-xs font-bold text-white bg-teal-600 rounded-lg shadow"
@@ -275,61 +215,30 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Dropdown Drawer */}
+        {/* Mobile Dropdown */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 mt-2 shadow-xl animate-fadeIn">
+          <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 mt-2 shadow-xl animate-fadeIn">
             <div className="flex flex-col space-y-3 font-semibold text-slate-700 text-base">
-              <a 
-                href="#treatments" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-600"
-              >
-                {t('nav.treatments')}
+              <a href="#about" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+                {language === 'hi' ? 'अस्पताल के बारे में' : 'About Hospital'}
               </a>
-              <a 
-                href="#doctors" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-600"
-              >
-                {t('nav.doctors')}
+              <a href="#treatments" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+                {language === 'hi' ? 'उपचार व सेवाएं' : 'Services & Treatments'}
               </a>
-              <a 
-                href="#facilities" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-600"
-              >
-                {t('nav.facilities')}
+              <a href="#doctors" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+                {language === 'hi' ? 'हमारे डॉक्टर्स' : 'Doctors Details'}
               </a>
-              <a 
-                href="#estimator" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-600"
-              >
-                {t('nav.pricing')}
+              <a href="#reviews" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+                {language === 'hi' ? 'मरीज समीक्षाएं' : 'Patient Reviews'}
               </a>
-              <a 
-                href="#blogs" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-600"
-              >
-                {t('nav.blogs')}
+              <a href="#blogs" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+                {language === 'hi' ? 'डेंटल ब्लॉग्स' : 'Dental Blogs'}
               </a>
-              <a 
-                href="#reviews" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-600"
-              >
-                {t('nav.reviews')}
-              </a>
-              <a 
-                href="#contact" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-600"
-              >
-                {t('nav.contact')}
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg hover:bg-slate-50">
+                {language === 'hi' ? 'पता व संपर्क' : 'Contact & Location'}
               </a>
 
-              <div className="pt-3 border-t border-slate-100 flex flex-col space-y-2">
+              <div className="pt-2 border-t border-slate-100">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
@@ -338,40 +247,7 @@ export const Navbar: React.FC = () => {
                   className="w-full py-3 bg-teal-600 text-white rounded-xl font-bold flex items-center justify-center shadow-md"
                 >
                   <Calendar className="w-4 h-4 mr-2" />
-                  {t('nav.bookBtn')}
-                </button>
-
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setIsInvoiceModalOpen(true);
-                  }}
-                  className="w-full py-2.5 bg-slate-100 text-slate-800 rounded-xl font-semibold flex items-center justify-center border border-slate-200"
-                >
-                  <FileText className="w-4 h-4 mr-2 text-teal-600" />
-                  {t('nav.invoices')}
-                </button>
-
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setIsEmergencyModalOpen(true);
-                  }}
-                  className="w-full py-2.5 bg-rose-50 text-rose-700 rounded-xl font-semibold flex items-center justify-center border border-rose-200"
-                >
-                  <AlertCircle className="w-4 h-4 mr-2 text-rose-600" />
-                  Emergency SOS Guide
-                </button>
-
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setIsAdminOpen(true);
-                  }}
-                  className="w-full py-2 text-slate-500 text-xs font-semibold flex items-center justify-center"
-                >
-                  <UserCheck className="w-3.5 h-3.5 mr-1" />
-                  Hospital Reception & Admin Desk
+                  <span>{language === 'hi' ? 'अपॉइंटमेंट बुक करें' : 'Book Appointment'}</span>
                 </button>
               </div>
             </div>

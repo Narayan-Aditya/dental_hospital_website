@@ -1,27 +1,19 @@
 import React, { useState } from 'react';
 import { 
   Sparkles, 
-  Activity, 
-  ShieldCheck, 
-  Cpu, 
   Calendar, 
-  FileText, 
   ArrowRight, 
   CheckCircle2, 
   Star, 
-  Clock, 
   MapPin, 
   Phone, 
   Award, 
-  Scan, 
-  HeartHandshake,
-  Layers,
-  ChevronRight,
-  ExternalLink,
-  Search,
-  Check,
-  Zap,
-  Info
+  Layers, 
+  ChevronRight, 
+  Check, 
+  Building,
+  ShieldCheck,
+  BookOpen
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { HOSPITAL_INFO } from '../../data/mockData';
@@ -30,28 +22,16 @@ import { YoutubeIcon, FacebookIcon, GoogleIcon } from '../common/SocialIcons';
 export const Concept3ProMax: React.FC = () => {
   const { 
     language, 
-    treatments, 
     doctors, 
-    blogs,
-    reviews,
+    blogs, 
+    reviews, 
     setIsBookingOpen, 
     setSelectedTreatmentIdForBooking,
-    setSelectedDoctorIdForBooking,
-    setIsInvoiceModalOpen,
-    setIsEmergencyModalOpen,
-    setIsSymptomCheckerOpen,
-    setIsCostEstimatorOpen
+    setSelectedDoctorIdForBooking 
   } = useApp();
 
   // 3D Dental Arch Anatomy State
   const [selectedToothZone, setSelectedToothZone] = useState<'incisor' | 'canine' | 'premolar' | 'molar' | 'wisdom'>('molar');
-  
-  // AI Scanner Simulator State
-  const [isScanning, setIsScanning] = useState<boolean>(false);
-  const [scanCompleted, setScanCompleted] = useState<boolean>(false);
-
-  // Insurance Search State
-  const [insuranceQuery, setInsuranceQuery] = useState<string>('');
 
   const toothAnatomyData = {
     incisor: {
@@ -62,8 +42,6 @@ export const Concept3ProMax: React.FC = () => {
       recommended: 'E-Max Ceramic Veneers / Invisible Clear Aligners',
       startingPrice: '₹6,999',
       treatmentId: 'cosmetic-veneers-smile-makeover',
-      icon: 'Smile',
-      layerDetails: 'Outer Enamel (0.5mm) over aesthetic translucent dentin.'
     },
     canine: {
       title: 'Canines (Eye Teeth / Cuspid)',
@@ -73,8 +51,6 @@ export const Concept3ProMax: React.FC = () => {
       recommended: 'Orthodontic Arch Expansion & Invisible Aligners',
       startingPrice: '₹34,999',
       treatmentId: 'clear-aligners-braces',
-      icon: 'Shield',
-      layerDetails: 'Longest root in human dentition providing foundational arch support.'
     },
     premolar: {
       title: 'Bicuspids / Premolars',
@@ -84,8 +60,6 @@ export const Concept3ProMax: React.FC = () => {
       recommended: 'Single-Sitting Rotary RCT + CAD/CAM Zirconia Cap',
       startingPrice: '₹2,499',
       treatmentId: 'rct-single-sitting',
-      icon: 'Zap',
-      layerDetails: 'Dual-canal root anatomy treated under microscopic magnification.'
     },
     molar: {
       title: 'First & Second Molars (Chewing Powerhouse)',
@@ -95,8 +69,6 @@ export const Concept3ProMax: React.FC = () => {
       recommended: 'Painless Rotary RCT / Swiss Dental Implants',
       startingPrice: '₹2,499',
       treatmentId: 'rct-single-sitting',
-      icon: 'Award',
-      layerDetails: 'Multi-rooted complex canals sealed with bio-ceramic hermetic filler.'
     },
     wisdom: {
       title: 'Third Molars (Wisdom Teeth)',
@@ -106,26 +78,15 @@ export const Concept3ProMax: React.FC = () => {
       recommended: 'Minimally Invasive Oral Surgery & Keyhole Extraction',
       startingPrice: '₹2,999',
       treatmentId: 'wisdom-tooth-surgery',
-      icon: 'Activity',
-      layerDetails: 'Carefully evaluated with 3D CBCT imaging to protect adjacent nerves.'
     }
   };
 
-  const handleSimulateScan = () => {
-    setIsScanning(true);
-    setScanCompleted(false);
-    setTimeout(() => {
-      setIsScanning(false);
-      setScanCompleted(true);
-    }, 2000);
-  };
+  const activeTooth = toothAnatomyData[selectedToothZone];
 
   const handleBookTooth = (treatmentId: string) => {
     setSelectedTreatmentIdForBooking(treatmentId);
     setIsBookingOpen(true);
   };
-
-  const activeTooth = toothAnatomyData[selectedToothZone];
 
   return (
     <div className="bg-[#FFFFFF] text-[#111111] min-h-screen font-sans antialiased selection:bg-teal-600 selection:text-white">
@@ -155,34 +116,26 @@ export const Concept3ProMax: React.FC = () => {
           </div>
 
           <nav className="hidden lg:flex items-center space-x-8 text-xs font-semibold text-[#6E6E73]">
-            <a href="#pro-anatomy" className="hover:text-teal-700 transition-colors">3D Tooth Explorer</a>
-            <a href="#pro-ai-scan" className="hover:text-teal-700 transition-colors">Smart AI Diagnostic</a>
-            <a href="#pro-specialists" className="hover:text-teal-700 transition-colors">Surgeon Faculty</a>
-            <a href="#pro-insurance" className="hover:text-teal-700 transition-colors">Cashless Coverage</a>
-            <a href="#pro-invoices" className="hover:text-teal-700 transition-colors">GST Invoices</a>
+            <a href="#pro-about" className="hover:text-teal-700 transition-colors">About Hospital</a>
+            <a href="#pro-services" className="hover:text-teal-700 transition-colors">Services & 3D Explorer</a>
+            <a href="#pro-doctors" className="hover:text-teal-700 transition-colors">Surgeon Faculty</a>
+            <a href="#pro-reviews" className="hover:text-teal-700 transition-colors">Customer Reviews</a>
+            <a href="#pro-blogs" className="hover:text-teal-700 transition-colors">Dental Blogs</a>
           </nav>
 
           <div className="flex items-center space-x-3">
-            <button
-              onClick={() => setIsInvoiceModalOpen(true)}
-              className="hidden sm:inline-flex items-center px-3.5 py-2 text-xs font-bold rounded-xl bg-[#F9F9FB] hover:bg-[#F2F2F7] text-[#111111] border border-[#E5E5EA] transition-all"
-            >
-              <FileText className="w-3.5 h-3.5 mr-1.5 text-teal-600" />
-              <span>Tax Invoices</span>
-            </button>
-
             <button
               onClick={() => setIsBookingOpen(true)}
               className="px-5 py-2.5 bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs rounded-xl shadow-lg shadow-teal-700/20 transition-all flex items-center space-x-1.5"
             >
               <Calendar className="w-4 h-4" />
-              <span>Book in 60s</span>
+              <span>Book Appointment</span>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Hero: Editorial Gallery Wall with Verified Credentials */}
+      {/* 1. HERO / LANDING */}
       <section className="pt-12 pb-20 lg:pt-20 lg:pb-28 bg-[#FFFFFF] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -196,9 +149,9 @@ export const Concept3ProMax: React.FC = () => {
               </div>
 
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#111111] leading-[1.12]">
-                Next-Generation Dental Surgery &{' '}
+                Next-Generation Dental Care &{' '}
                 <span className="text-teal-700 italic">
-                  Digital Oral Care.
+                  Gentle Surgery.
                 </span>
               </h1>
 
@@ -231,71 +184,21 @@ export const Concept3ProMax: React.FC = () => {
                   <Calendar className="w-4 h-4" />
                   <span>Reserve Appointment (60s)</span>
                 </button>
-
-                <button
-                  onClick={() => setIsSymptomCheckerOpen(true)}
-                  className="px-5 py-3.5 bg-[#F9F9FB] hover:bg-[#F2F2F7] text-[#111111] font-bold text-sm rounded-2xl border border-[#E5E5EA] transition-all flex items-center space-x-2"
-                >
-                  <Sparkles className="w-4 h-4 text-teal-600" />
-                  <span>Interactive Symptom Checker</span>
-                </button>
-
-                <button
-                  onClick={() => setIsEmergencyModalOpen(true)}
-                  className="px-4 py-3.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs sm:text-sm rounded-2xl border border-rose-200 transition-all flex items-center space-x-1.5"
-                >
-                  <span>24/7 SOS: {HOSPITAL_INFO.emergencyPhone}</span>
-                </button>
               </div>
             </div>
 
             {/* Right Column (5 cols) */}
             <div className="lg:col-span-5 relative">
-              <div className="bg-[#F9F9FB] p-6 rounded-3xl border border-[#E5E5EA] shadow-xl space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-teal-800">
-                    Live Clinic Queue Status
-                  </span>
-                  <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">
-                    OPD ACTIVE
-                  </span>
-                </div>
-
-                <div className="space-y-3 text-xs">
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white border border-[#E5E5EA]">
-                    <div className="flex items-center space-x-2.5">
-                      <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-xs">
-                        AV
-                      </div>
-                      <div>
-                        <div className="font-bold text-[#111111]">Dr. Amit Verma (MDS Surgeon)</div>
-                        <div className="text-[11px] text-[#6E6E73]">Available for Implants & Surgery</div>
-                      </div>
-                    </div>
-                    <span className="text-[11px] font-bold text-emerald-700">Slot Available</span>
-                  </div>
-
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white border border-[#E5E5EA]">
-                    <div className="flex items-center space-x-2.5">
-                      <div className="w-8 h-8 rounded-full bg-cyan-100 text-cyan-800 font-bold flex items-center justify-center text-xs">
-                        NS
-                      </div>
-                      <div>
-                        <div className="font-bold text-[#111111]">Dr. Neha Sharma (MDS RCT)</div>
-                        <div className="text-[11px] text-[#6E6E73]">Single-Sitting Rotary Specialist</div>
-                      </div>
-                    </div>
-                    <span className="text-[11px] font-bold text-emerald-700">Slot Available</span>
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    onClick={() => setIsBookingOpen(true)}
-                    className="w-full py-2.5 bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs rounded-xl shadow transition-all"
-                  >
-                    Quick Slot Lock →
-                  </button>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#F9F9FB] bg-slate-900">
+                <img
+                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80"
+                  alt="Modern Consultation Suite"
+                  className="w-full h-80 sm:h-96 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                  <span className="text-xs font-bold text-teal-400">Sadrauna Clinic</span>
+                  <h3 className="font-serif font-bold text-lg text-white">Hope Dental Hospital & Wellness Centre</h3>
+                  <p className="text-xs text-slate-300">Mohan Road, Lucknow</p>
                 </div>
               </div>
             </div>
@@ -303,19 +206,71 @@ export const Concept3ProMax: React.FC = () => {
         </div>
       </section>
 
-      {/* FEATURE 1: 3D Tooth Anatomy & Dental Arch Navigator */}
-      <section id="pro-anatomy" className="py-20 bg-[#F9F9FB] border-y border-[#E5E5EA]">
+      {/* 2. ABOUT HOSPITAL */}
+      <section id="pro-about" className="py-20 bg-[#F9F9FB] border-y border-[#E5E5EA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6 space-y-4">
+              <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-100 text-teal-800 text-xs font-bold uppercase tracking-wider">
+                <Building className="w-3.5 h-3.5 text-teal-700" />
+                <span>About Hope Dental Hospital</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111] leading-tight">
+                Empathetic Healthcare & European Clinical Standards
+              </h2>
+              <p className="text-[#6E6E73] text-sm leading-relaxed">
+                Hope Dental Hospital & Wellness Centre in Sadrauna, Lucknow is committed to gentle, evidence-based dentistry. Equipped with digital 3D CBCT imaging, rotary endodontic motors, and 4-tier Class-B autoclave sterilization, we ensure zero infection and complete comfort.
+              </p>
+              <div className="grid grid-cols-2 gap-3 pt-2 text-xs font-semibold text-[#111111]">
+                <div className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-teal-700" />
+                  <span>14+ Years Experience</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-teal-700" />
+                  <span>ISO 9001:2015 Certified</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-teal-700" />
+                  <span>100% Sterile Sealed Instruments</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-teal-700" />
+                  <span>Dedicated Kids Operatory</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 bg-white p-6 sm:p-8 rounded-3xl border border-[#E5E5EA] shadow-lg space-y-4">
+              <div className="flex items-center justify-between text-xs font-bold text-teal-800 uppercase">
+                <span>Clinical Standards</span>
+                <span>Sadrauna Branch</span>
+              </div>
+              <p className="text-xs text-[#6E6E73] leading-relaxed">
+                "Our promise is simple: provide world-class dental care where every patient feels completely heard, respected, and treated with gentle precision."
+              </p>
+              <div className="pt-2 border-t border-[#E5E5EA] flex justify-between items-center text-xs">
+                <span className="font-bold text-[#111111]">Dr. Amit Verma & Team</span>
+                <span className="text-teal-700 font-semibold">Chief Dental Surgeons</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. WHAT SERVICES HOSPITAL PROVIDES (With 3D Dental Arch Anatomy Explorer) */}
+      <section id="pro-services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
             <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-100 text-teal-800 text-xs font-bold uppercase tracking-wider">
               <Layers className="w-3.5 h-3.5 text-teal-700" />
-              <span>Interactive Clinical Anatomy</span>
+              <span>Services & 3D Anatomy Navigator</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111]">
-              Interactive 3D Tooth Anatomy Explorer
+              Services & Treatments Provided
             </h2>
             <p className="text-[#6E6E73] text-sm">
-              Click on different tooth zones across the human dental arch to understand layer pathology, pain symptoms, and hospital clinical treatments.
+              Explore hospital procedures categorized by dental arch anatomy. Click any zone to view clinical solutions and book directly.
             </p>
           </div>
 
@@ -336,7 +291,7 @@ export const Concept3ProMax: React.FC = () => {
                     onClick={() => setSelectedToothZone(zoneKey)}
                     className={`w-full p-4 rounded-2xl text-left border transition-all flex items-center justify-between ${
                       isSelected
-                        ? 'border-teal-600 bg-white shadow-md ring-2 ring-teal-600/10'
+                        ? 'border-teal-600 bg-teal-50/50 shadow-md ring-2 ring-teal-600/10'
                         : 'border-[#E5E5EA] bg-[#FFFFFF] hover:bg-[#F2F2F7] text-[#111111]'
                     }`}
                   >
@@ -355,57 +310,46 @@ export const Concept3ProMax: React.FC = () => {
               })}
             </div>
 
-            {/* Right: Dynamic Clinical Pathology Deep-Dive (7 cols) */}
-            <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-[#E5E5EA] shadow-xl space-y-6">
+            {/* Right: Detailed Service Card (7 cols) */}
+            <div className="lg:col-span-7 bg-[#F9F9FB] p-6 sm:p-8 rounded-3xl border border-[#E5E5EA] shadow-xl space-y-6">
               <div className="flex items-center justify-between border-b border-[#E5E5EA] pb-4">
                 <div>
                   <span className="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200">
-                    Clinical Spec Sheet
+                    Clinical Treatment Overview
                   </span>
                   <h3 className="font-serif text-2xl font-bold text-[#111111] mt-1">
                     {activeTooth.title}
                   </h3>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-[#6E6E73]">Procedure Fee</div>
+                  <div className="text-xs text-[#6E6E73]">Starting Fee</div>
                   <div className="font-mono font-bold text-xl text-teal-800">{activeTooth.startingPrice}</div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div className="p-4 rounded-2xl bg-[#F9F9FB] border border-[#E5E5EA] space-y-1">
-                  <span className="font-bold text-[#111111] uppercase tracking-wider block text-[10px]">
-                    Biological Function & Mastication
-                  </span>
+              <div className="space-y-2 text-xs">
+                <div className="p-3 bg-white rounded-xl border border-[#E5E5EA]">
+                  <span className="font-bold text-[#111111] block mb-1">Biological Function:</span>
                   <p className="text-[#6E6E73]">{activeTooth.functions}</p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#F9F9FB] border border-[#E5E5EA] space-y-1">
-                  <span className="font-bold text-[#111111] uppercase tracking-wider block text-[10px]">
-                    Microscopic Anatomy & Enamel Layer
-                  </span>
-                  <p className="text-[#6E6E73]">{activeTooth.layerDetails}</p>
+                <div className="p-3 bg-white rounded-xl border border-[#E5E5EA]">
+                  <span className="font-bold text-[#111111] block mb-1">Common Conditions:</span>
+                  <p className="text-[#6E6E73]">{activeTooth.conditions}</p>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-teal-50/70 border border-teal-200 space-y-1 text-xs">
-                <span className="font-bold text-teal-900 uppercase tracking-wider block text-[10px]">
-                  Common Conditions & Decay Risks
-                </span>
-                <p className="text-teal-800 font-medium">{activeTooth.conditions}</p>
+              <div className="p-4 rounded-2xl bg-teal-50/80 border border-teal-200 text-xs">
+                <span className="font-bold text-teal-900 block mb-1">Recommended Treatment:</span>
+                <p className="text-teal-800 font-semibold">{activeTooth.recommended}</p>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                <div>
-                  <div className="text-xs text-[#6E6E73]">Recommended Treatment at Hope Dental:</div>
-                  <div className="font-bold text-sm text-[#111111]">{activeTooth.recommended}</div>
-                </div>
-
+              <div className="pt-2">
                 <button
                   onClick={() => handleBookTooth(activeTooth.treatmentId)}
-                  className="w-full sm:w-auto px-6 py-3 bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center space-x-1.5 shrink-0"
+                  className="w-full py-3 bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center space-x-1.5"
                 >
-                  <span>Book Consultation for this Tooth</span>
+                  <span>Book Appointment for this Treatment</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -414,159 +358,121 @@ export const Concept3ProMax: React.FC = () => {
         </div>
       </section>
 
-      {/* FEATURE 2: Smart AI Oral Health Scanner Simulator */}
-      <section id="pro-ai-scan" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider">
-              <Scan className="w-3.5 h-3.5 text-sky-700" />
-              <span>AI Computer Vision Triage</span>
-            </div>
+      {/* 4. DOCTORS DETAILS */}
+      <section id="pro-doctors" className="py-20 bg-[#F9F9FB] border-t border-[#E5E5EA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-teal-800">
+              Surgeon Faculty
+            </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111]">
-              Smart AI Oral Health Scanner
+              Meet Our Specialist Doctors
             </h2>
-            <p className="text-[#6E6E73] text-sm">
-              Simulate an AI-powered diagnostic scan of dental alignment, tartar index, and enamel mineralization in seconds.
-            </p>
           </div>
 
-          <div className="max-w-4xl mx-auto bg-[#F9F9FB] rounded-3xl border border-[#E5E5EA] p-6 sm:p-10 shadow-xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              {/* Scan Preview Canvas */}
-              <div className="relative rounded-2xl overflow-hidden bg-slate-900 h-72 flex items-center justify-center border-2 border-teal-500/40">
-                <img
-                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
-                  alt="Oral Scan Target"
-                  className="w-full h-full object-cover opacity-80"
-                />
-
-                {/* Scanning overlay bar animation */}
-                {isScanning && (
-                  <div className="absolute inset-0 bg-teal-500/20 backdrop-blur-[2px] flex flex-col items-center justify-center">
-                    <div className="w-full h-1 bg-cyan-400 shadow-[0_0_15px_#22d3ee] animate-bounce" />
-                    <div className="text-white text-xs font-mono font-bold mt-4 bg-slate-950/80 px-3 py-1 rounded-full">
-                      ANALYZING MICRO-STRUCTURE...
-                    </div>
-                  </div>
-                )}
-
-                {/* AI Target Box indicators */}
-                {!isScanning && (
-                  <div className="absolute inset-0 p-6 flex flex-col justify-between pointer-events-none">
-                    <div className="flex justify-between text-[10px] font-mono text-cyan-300 bg-slate-950/70 p-1.5 rounded">
-                      <span>AI VISION 4.2</span>
-                      <span>FPS: 60</span>
-                    </div>
-                    <div className="border border-dashed border-cyan-400/80 rounded-xl p-4 text-center">
-                      <span className="text-[10px] font-mono font-bold text-white bg-teal-700/80 px-2 py-0.5 rounded">
-                        Target: Upper & Lower Arch
-                      </span>
-                    </div>
-                    <div className="text-[10px] font-mono text-cyan-300 text-center">
-                      {scanCompleted ? 'ANALYSIS COMPLETE ✓' : 'READY TO SCAN'}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Scan Results / Trigger */}
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-serif font-bold text-xl text-[#111111]">
-                    AI Oral Metrics Dashboard
-                  </h4>
-                  <p className="text-xs text-[#6E6E73] mt-0.5">
-                    Real-time clinical simulation powered by dental neural models.
-                  </p>
-                </div>
-
-                {scanCompleted ? (
-                  <div className="space-y-3 text-xs animate-fadeIn">
-                    <div className="p-3 bg-white rounded-xl border border-[#E5E5EA] flex justify-between items-center">
-                      <span className="font-bold text-[#111111]">Plaque & Tartar Calculus Index:</span>
-                      <span className="font-bold text-emerald-600">8% (Optimal / Clean)</span>
-                    </div>
-                    <div className="p-3 bg-white rounded-xl border border-[#E5E5EA] flex justify-between items-center">
-                      <span className="font-bold text-[#111111]">Enamel Mineralization Score:</span>
-                      <span className="font-bold text-teal-700">96 / 100 (Strong)</span>
-                    </div>
-                    <div className="p-3 bg-white rounded-xl border border-[#E5E5EA] flex justify-between items-center">
-                      <span className="font-bold text-[#111111]">Arch Alignment Index:</span>
-                      <span className="font-bold text-sky-700">92% (Good Symmetry)</span>
-                    </div>
-
-                    <div className="pt-2">
-                      <button
-                        onClick={() => setIsBookingOpen(true)}
-                        className="w-full py-3 bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs rounded-xl shadow transition-all"
-                      >
-                        Book In-Clinic Verification Slot →
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="space-y-4">
-                    <p className="text-xs text-[#6E6E73] leading-relaxed">
-                      Click the button below to initiate an AI scan simulator. It checks for early calculus, gum pocket health, and enamel translucency.
-                    </p>
-                    <button
-                      onClick={handleSimulateScan}
-                      disabled={isScanning}
-                      className="w-full py-3.5 bg-gradient-to-r from-teal-700 to-cyan-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2"
-                    >
-                      <Scan className="w-4 h-4" />
-                      <span>{isScanning ? 'Processing AI Neural Scan...' : 'Start AI Oral Scan Simulator'}</span>
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURE 3: Cashless Insurance & Hospital Coverage Lookup */}
-      <section id="pro-insurance" className="py-20 bg-[#F9F9FB] border-t border-[#E5E5EA]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-              <HeartHandshake className="w-3.5 h-3.5 text-emerald-700" />
-              <span>Zero-Hassle Cashless Medical Claims</span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111]">
-              Supported Insurance & 0% EMI Networks
-            </h2>
-            <p className="text-[#6E6E73] text-sm">
-              We partner with India’s leading healthcare insurance TPAs, CGHS, and 0% interest EMI financing providers for smooth billing.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {[
-              { name: 'Star Health', badge: 'Cashless Active', type: 'Insurance' },
-              { name: 'HDFC ERGO', badge: 'Fast Approval', type: 'Insurance' },
-              { name: 'ICICI Lombard', badge: 'Instant TPA', type: 'Insurance' },
-              { name: 'Bajaj Finserv', badge: '0% EMI 12 Mo', type: 'EMI Finance' },
-              { name: 'Max Bupa (Niva)', badge: 'Direct Desk', type: 'Insurance' },
-              { name: 'Care Health', badge: 'Hospital Panel', type: 'Insurance' }
-            ].map((p, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {doctors.map((doc) => (
               <div
-                key={i}
-                className="bg-white p-4 rounded-2xl border border-[#E5E5EA] text-center space-y-2 hover:shadow-md transition-all"
+                key={doc.id}
+                className="bg-white rounded-2xl border border-[#E5E5EA] overflow-hidden hover:shadow-xl transition-all flex flex-col justify-between"
               >
-                <div className="font-bold text-sm text-[#111111]">{p.name}</div>
-                <div className="text-[10px] text-teal-800 font-bold bg-teal-50 px-2 py-0.5 rounded-full">
-                  {p.badge}
+                <div className="relative h-56 overflow-hidden bg-slate-900">
+                  <img src={doc.image} alt={doc.name} className="w-full h-full object-cover object-top" />
+                  <div className="absolute bottom-2.5 left-2.5 bg-teal-700 text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                    {doc.experienceYears}+ Yrs Exp
+                  </div>
                 </div>
-                <div className="text-[10px] text-[#8E8E93]">{p.type}</div>
+
+                <div className="p-5 space-y-2 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h4 className="font-serif font-bold text-lg text-[#111111]">{doc.name}</h4>
+                    <p className="text-xs text-teal-700 font-semibold">{doc.role}</p>
+                    <p className="text-[11px] text-[#6E6E73] mt-1">{doc.qualification}</p>
+                    <p className="text-xs text-[#6E6E73] mt-2 line-clamp-2">{doc.bio}</p>
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      setSelectedDoctorIdForBooking(doc.id);
+                      setIsBookingOpen(true);
+                    }}
+                    className="w-full py-2 bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs rounded-xl shadow transition-all mt-3"
+                  >
+                    Book with {doc.name.split(' ')[1]}
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Social & Contact Strip */}
-      <footer id="pro-invoices" className="py-14 bg-white border-t border-[#E5E5EA] text-xs text-[#6E6E73]">
+      {/* 5. CUSTOMER REVIEWS */}
+      <section id="pro-reviews" className="py-20 bg-white border-t border-[#E5E5EA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-teal-800">
+              Verified Feedback
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111]">
+              Customer Reviews & Experiences
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {reviews.slice(0, 3).map((r) => (
+              <div key={r.id} className="bg-[#F9F9FB] p-6 rounded-2xl border border-[#E5E5EA] space-y-3">
+                <div className="flex items-center space-x-1 text-amber-500">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                  ))}
+                </div>
+                <p className="text-xs text-[#6E6E73] italic">"{r.text}"</p>
+                <div className="pt-2 border-t border-[#E5E5EA] flex justify-between text-[11px]">
+                  <span className="font-bold text-[#111111]">{r.patientName}</span>
+                  <span className="text-teal-700 font-bold">{r.verifiedSource} Verified</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. DENTAL BLOGS */}
+      <section id="pro-blogs" className="py-20 bg-[#F9F9FB] border-t border-[#E5E5EA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-teal-800">
+              Patient Education
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111]">
+              Oral Health & Dental Blogs
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {blogs.slice(0, 3).map((b) => (
+              <div key={b.id} className="bg-white rounded-2xl overflow-hidden border border-[#E5E5EA] flex flex-col justify-between hover:shadow-lg transition-all">
+                <div className="h-44 overflow-hidden">
+                  <img src={b.imageUrl} alt={b.title} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-5 space-y-2">
+                  <div className="text-[10px] font-bold text-teal-700 uppercase">{b.category}</div>
+                  <h4 className="font-serif font-bold text-base text-[#111111] line-clamp-2">{b.title}</h4>
+                  <p className="text-xs text-[#6E6E73] line-clamp-2">{b.summary}</p>
+                </div>
+                <div className="p-5 pt-0 text-xs text-[#6E6E73] border-t border-[#E5E5EA] flex justify-between items-center">
+                  <span>{b.authorDoctor}</span>
+                  <span>{b.readTime}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-14 bg-white border-t border-[#E5E5EA] text-xs text-[#6E6E73]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <div className="font-serif font-bold text-lg text-[#111111]">
@@ -576,14 +482,6 @@ export const Concept3ProMax: React.FC = () => {
           </div>
 
           <div className="flex items-center space-x-3">
-            <button
-              onClick={() => setIsInvoiceModalOpen(true)}
-              className="px-4 py-2 bg-[#F9F9FB] hover:bg-[#F2F2F7] text-[#111111] font-bold rounded-xl border border-[#E5E5EA] flex items-center space-x-1.5"
-            >
-              <FileText className="w-3.5 h-3.5 text-teal-600" />
-              <span>Download Tax Invoice</span>
-            </button>
-
             <a href={HOSPITAL_INFO.socialLinks.youtube} target="_blank" rel="noreferrer" className="p-2 bg-[#F9F9FB] rounded-xl text-red-600 hover:bg-[#F2F2F7]">
               <YoutubeIcon className="w-4 h-4" />
             </a>
