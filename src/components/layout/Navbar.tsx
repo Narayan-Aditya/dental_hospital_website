@@ -134,8 +134,8 @@ export const Navbar: React.FC = () => {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           {/* Brand Logo & Hospital Identity */}
-          <a href="#" className="flex items-center space-x-3.5 group">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-teal-700 via-teal-600 to-teal-500 flex items-center justify-center text-white shadow-lg shadow-teal-600/20 group-hover:scale-105 transition-transform">
+          <a href="#" className="flex items-center space-x-3.5 group shrink-0">
+            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-teal-700 via-teal-600 to-teal-500 flex items-center justify-center text-white shadow-lg shadow-teal-600/20 group-hover:scale-105 transition-transform shrink-0">
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 2C8.5 2 6 4.5 6 8c0 3.5 1.5 6 3 9l3 5 3-5c1.5-3 3-5.5 3-9 0-3.5-2.5-6-6-6z"/>
                 <path d="M10 8c1-1 3-1 4 0"/>
@@ -144,49 +144,49 @@ export const Navbar: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="font-display font-extrabold text-xl text-slate-900 dark:text-white tracking-tight">
+                <span className="font-display font-extrabold text-xl text-slate-900 dark:text-white tracking-tight whitespace-nowrap">
                   HOPE DENTAL
                 </span>
-                <span className="bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                <span className="bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap">
                   Sadrauna
                 </span>
               </div>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-tight">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-tight whitespace-nowrap">
                 {language === 'hi' ? 'हॉस्पिटल एवं वेलनेस सेंटर' : 'Hospital & Wellness Centre'}
               </p>
             </div>
           </a>
 
-          {/* Clean Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-8 text-[13px] font-semibold text-slate-600 dark:text-slate-300">
-            <a href="#about" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+          {/* Clean Navigation Links - Single Line Always */}
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-7 2xl:space-x-8 text-[13px] font-semibold text-slate-600 dark:text-slate-300 shrink-0">
+            <a href="#about" className="whitespace-nowrap hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'अस्पताल परिचय' : 'About Hospital'}
             </a>
-            <a href="#treatments" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+            <a href="#treatments" className="whitespace-nowrap hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'उपचार व सेवाएं' : 'Services & Treatments'}
             </a>
-            <a href="#doctors" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+            <a href="#doctors" className="whitespace-nowrap hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'विशेषज्ञ डॉक्टर्स' : 'Doctor Specialists'}
             </a>
-            <a href="#reviews" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+            <a href="#reviews" className="whitespace-nowrap hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'मरीज समीक्षाएं' : 'Patient Reviews'}
             </a>
-            <a href="#blogs" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+            <a href="#blogs" className="whitespace-nowrap hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'डेंटल ब्लॉग्स' : 'Dental Blogs'}
             </a>
-            <a href="#contact" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+            <a href="#contact" className="whitespace-nowrap hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               {language === 'hi' ? 'पता व संपर्क' : 'Location & Timings'}
             </a>
           </div>
 
-          {/* Book Appointment CTA */}
-          <div className="hidden sm:flex items-center space-x-3">
+          {/* Book Appointment CTA - Single Line */}
+          <div className="hidden sm:flex items-center space-x-3 shrink-0">
             <button
               onClick={() => setIsBookingOpen(true)}
-              className="inline-flex items-center px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 rounded-xl shadow-lg shadow-teal-600/25 hover:shadow-teal-600/35 hover:-translate-y-0.5 active:translate-y-0 transition-all"
+              className="inline-flex items-center whitespace-nowrap shrink-0 px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 rounded-xl shadow-lg shadow-teal-600/25 hover:shadow-teal-600/35 hover:-translate-y-0.5 active:translate-y-0 transition-all"
             >
-              <Calendar className="w-4 h-4 mr-2" />
-              <span>{language === 'hi' ? 'अपॉइंटमेंट बुक करें' : 'Book Appointment'}</span>
+              <Calendar className="w-4 h-4 mr-2 shrink-0" />
+              <span className="whitespace-nowrap">{language === 'hi' ? 'अपॉइंटमेंट बुक करें' : 'Book Appointment'}</span>
             </button>
           </div>
 
