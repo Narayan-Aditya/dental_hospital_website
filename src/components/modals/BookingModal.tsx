@@ -292,7 +292,7 @@ export const BookingModal: React.FC = () => {
                   value={selectedDate}
                   min={new Date().toISOString().split('T')[0]}
                   onChange={(e) => setSelectedDate(e.target.value)}
-                  className="w-full text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
+                  className="w-full text-base sm:text-sm font-semibold bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
                 />
               </div>
 
@@ -337,7 +337,7 @@ export const BookingModal: React.FC = () => {
                     value={patientName}
                     onChange={(e) => setPatientName(e.target.value)}
                     placeholder="e.g. Ramesh Kumar"
-                    className="w-full text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
+                    className="w-full text-base sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
                   />
                 </div>
 
@@ -351,7 +351,7 @@ export const BookingModal: React.FC = () => {
                     value={patientPhone}
                     onChange={(e) => setPatientPhone(e.target.value)}
                     placeholder="e.g. 98390XXXXX"
-                    className="w-full text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
+                    className="w-full text-base sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
                   />
                 </div>
               </div>
@@ -367,7 +367,7 @@ export const BookingModal: React.FC = () => {
                     max="100"
                     value={patientAge}
                     onChange={(e) => setPatientAge(Number(e.target.value))}
-                    className="w-full text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
+                    className="w-full text-base sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
                   />
                 </div>
 
@@ -378,7 +378,7 @@ export const BookingModal: React.FC = () => {
                   <select
                     value={gender}
                     onChange={(e) => setGender(e.target.value as any)}
-                    className="w-full text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
+                    className="w-full text-base sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
                   >
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -393,7 +393,7 @@ export const BookingModal: React.FC = () => {
                   <select
                     value={isNewPatient ? 'new' : 'existing'}
                     onChange={(e) => setIsNewPatient(e.target.value === 'new')}
-                    className="w-full text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
+                    className="w-full text-base sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
                   >
                     <option value="new">New Patient</option>
                     <option value="existing">Existing</option>
@@ -410,7 +410,7 @@ export const BookingModal: React.FC = () => {
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="e.g. Sensitivity in lower molar, pain while eating sweets..."
-                  className="w-full text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
+                  className="w-full text-base sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-teal-500 outline-none shadow-sm"
                 />
               </div>
 
