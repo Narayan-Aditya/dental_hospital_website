@@ -10,59 +10,59 @@ export const AboutSection: React.FC = () => {
     <section id="about" className="py-20 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Hospital Imagery & Trust Badge */}
+          {/* Left Column: Hospital Imagery & Stats Preview */}
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100 dark:border-slate-800 bg-slate-900">
               <img
                 src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80"
-                alt="Hope Dental Hospital Interior"
-                className="w-full h-96 sm:h-[450px] object-cover"
+                alt="Hope Dental Hospital Consultation & O.T."
+                className="w-full h-96 sm:h-[440px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
                 <div className="flex items-center space-x-2">
-                  <span className="bg-teal-500 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+                  <span className="bg-teal-500 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow">
                     ISO 9001:2015 Certified
                   </span>
                   <span className="text-xs text-slate-300">Sadrauna, Lucknow</span>
                 </div>
-                <h3 className="font-display font-bold text-xl sm:text-2xl mt-1 text-white">
+                <h3 className="font-display font-bold text-xl sm:text-2xl mt-1.5 text-white">
                   Hope Dental Hospital & Wellness Centre
                 </h3>
-                <p className="text-xs text-slate-300 mt-1">
-                  Near Main Market, Mohan Road, Sadrauna, Lucknow
+                <p className="text-xs text-slate-300 mt-0.5">
+                  Sadrauna, Near Main Market, Mohan Road, Lucknow, UP 226009
                 </p>
               </div>
             </div>
 
-            {/* Floating Experience Badge */}
-            <div className="absolute -bottom-6 -right-3 sm:-right-6 bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 flex items-center space-x-3.5">
-              <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-900/50 text-teal-600 dark:text-teal-300 flex items-center justify-center font-bold">
-                <Award className="w-6 h-6" />
+            {/* Floating Experience Card */}
+            <div className="absolute -bottom-4 right-4 sm:-right-4 bg-white dark:bg-slate-800 p-3.5 sm:p-4 rounded-2xl shadow-xl border border-slate-200/80 dark:border-slate-700 flex items-center space-x-3">
+              <div className="w-11 h-11 rounded-xl bg-teal-50 dark:bg-teal-900/50 text-teal-600 dark:text-teal-300 flex items-center justify-center font-bold">
+                <Award className="w-5 h-5" />
               </div>
               <div>
-                <div className="font-extrabold text-slate-900 dark:text-white text-base">{HOSPITAL_INFO.stats.experienceYears} Years</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Of Clinical Excellence</div>
+                <div className="font-extrabold text-slate-900 dark:text-white text-base">{HOSPITAL_INFO.stats.experienceYears}+ Years</div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Clinical Excellence</div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: About Content */}
+          {/* Right Column: About Content & Credentials */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-100/80 dark:bg-teal-900/50 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider">
               <Building className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-              <span>About Our Dental Hospital</span>
+              <span>About Hope Dental Hospital</span>
             </div>
 
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white tracking-tight leading-tight">
               {language === 'hi' ? (
                 <>
-                  सदरौना, लखनऊ में आधुनिक, सुरक्षित एवं{' '}
+                  सदरौना, लखनऊ में आधुनिक एवं{' '}
                   <span className="text-teal-600 dark:text-teal-400">दर्द रहित दंत चिकित्सा</span>
                 </>
               ) : (
                 <>
-                  Setting the Highest Benchmark in{' '}
-                  <span className="text-teal-600 dark:text-teal-400">Gentle Dental Healthcare</span>
+                  Empathetic Healthcare &{' '}
+                  <span className="text-teal-600 dark:text-teal-400">European Clinical Standards</span>
                 </>
               )}
             </h2>
@@ -70,48 +70,48 @@ export const AboutSection: React.FC = () => {
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
               {language === 'hi'
                 ? 'होप डेंटल हॉस्पिटल एवं वेलनेस सेंटर सदरौना (मोहन रोड, लखनऊ) का एक प्रमुख दंत चिकित्सालय है। यहाँ वरिष्ठ एमडीएस दंत सर्जनों द्वारा जर्मन रोटरी आरसीटी, यूरोपीय डेंटल इम्प्लांट्स और पारदर्शी क्लियर एलाइनर्स का आधुनिक और सुरक्षित इलाज प्रदान किया जाता है।'
-                : 'Hope Dental Hospital & Wellness Centre is a premier multi-specialty dental hospital located in Sadrauna, Lucknow. We combine empathetic patient care, advanced European Class-B 4-tier sterilization, digital 3D imaging, and computer-assisted painless technology.'}
+                : 'Hope Dental Hospital & Wellness Centre is Sadrauna’s trusted multi-specialty dental centre. Equipped with digital 3D CBCT imaging, rotary endodontic motors, and 4-tier Class-B autoclave sterilization, we ensure zero infection risk and complete patient comfort.'}
             </p>
 
             {/* Core Values Checklist */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-              <div className="flex items-start space-x-2.5">
-                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
-                <div className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="flex items-center space-x-2.5 bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" />
+                <span className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
                   100% Painless Computer Numbing
-                </div>
+                </span>
               </div>
-              <div className="flex items-start space-x-2.5">
-                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
-                <div className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
+              <div className="flex items-center space-x-2.5 bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" />
+                <span className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
                   European Class-B Sterilization
-                </div>
+                </span>
               </div>
-              <div className="flex items-start space-x-2.5">
-                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
-                <div className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
-                  Full MDS Specialist Doctors Team
-                </div>
+              <div className="flex items-center space-x-2.5 bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" />
+                <span className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
+                  Full MDS Specialist Team
+                </span>
               </div>
-              <div className="flex items-start space-x-2.5">
-                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
-                <div className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
-                  Wheelchair Friendly & Ample Parking
-                </div>
+              <div className="flex items-center space-x-2.5 bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" />
+                <span className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
+                  Wheelchair Friendly & Parking
+                </span>
               </div>
             </div>
 
             {/* Bottom Hospital Action */}
-            <div className="pt-4 flex items-center space-x-4">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <button
                 onClick={() => setIsBookingOpen(true)}
-                className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-teal-600/20 transition-all"
+                className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-teal-600/25 transition-all"
               >
-                Book Your Hospital Visit
+                Book Your Consultation
               </button>
               <div className="text-xs text-slate-500 dark:text-slate-400">
                 <span className="font-bold text-slate-900 dark:text-white block">{HOSPITAL_INFO.timings.split('|')[0]}</span>
-                <span>Open for New & Recurring Patients</span>
+                <span>Sadrauna Main Market, Mohan Road, Lucknow</span>
               </div>
             </div>
           </div>

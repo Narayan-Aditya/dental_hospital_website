@@ -70,79 +70,81 @@ export const TreatmentsSection: React.FC = () => {
         </div>
 
         {/* Interactive Before & After Smile Transformation Slider */}
-        <div className="mb-16 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-900/5">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="lg:max-w-md space-y-4">
+        <div className="mb-16 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-900/5">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 space-y-4">
               <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 text-xs font-bold">
                 <Smile className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-                <span>Interactive Smile Transformation</span>
+                <span>Real Patient Case Study</span>
               </div>
-              <h3 className="font-display font-bold text-2xl text-slate-900 dark:text-white">
-                Real Patient Smile Makeover Results
+              <h3 className="font-display font-bold text-2xl sm:text-3xl text-slate-900 dark:text-white leading-tight">
+                Smile Makeover & Aesthetics
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Drag the slider handle to compare before vs after dental restoration at Hope Dental Hospital. From fluorosis discoloration and chipped teeth to a radiant, natural Hollywood smile.
+                Drag the slider handle sideways to compare before vs after dental restoration at Hope Dental Hospital Sadrauna. From fluorosis discoloration and chipped enamel to a radiant Hollywood smile.
               </p>
-              <div className="flex items-center space-x-4 pt-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                <span className="flex items-center text-teal-700 dark:text-teal-300">
-                  <CheckCircle2 className="w-4 h-4 mr-1 text-teal-600 dark:text-teal-400" />
-                  E-Max Porcelain Veneers
+              <div className="flex flex-wrap gap-2 pt-1 text-xs font-semibold">
+                <span className="px-3 py-1 bg-teal-50 dark:bg-teal-950/60 border border-teal-200/60 dark:border-teal-800 text-teal-700 dark:text-teal-300 rounded-lg flex items-center">
+                  <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-teal-600" />
+                  E-Max Veneers
                 </span>
-                <span className="flex items-center text-teal-700 dark:text-teal-300">
-                  <CheckCircle2 className="w-4 h-4 mr-1 text-teal-600 dark:text-teal-400" />
-                  Laser Bleaching
+                <span className="px-3 py-1 bg-teal-50 dark:bg-teal-950/60 border border-teal-200/60 dark:border-teal-800 text-teal-700 dark:text-teal-300 rounded-lg flex items-center">
+                  <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-teal-600" />
+                  Laser Whitening
                 </span>
               </div>
             </div>
 
             {/* Visual Comparison Widget */}
-            <div className="relative w-full max-w-lg h-72 sm:h-80 rounded-2xl overflow-hidden select-none shadow-md border-2 border-teal-100 dark:border-slate-700">
-              {/* After Image */}
-              <img
-                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80"
-                alt="After Dental Smile Restoration"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute bottom-3 right-3 bg-teal-600/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                AFTER Treatment ✨
-              </div>
-
-              {/* Before Image (Clipped) */}
-              <div
-                className="absolute inset-0 overflow-hidden"
-                style={{ width: `${sliderPosition}%` }}
-              >
+            <div className="lg:col-span-7">
+              <div className="relative w-full h-72 sm:h-84 rounded-2xl overflow-hidden select-none shadow-lg border-2 border-slate-200/80 dark:border-slate-700 bg-slate-900">
+                {/* After Image */}
                 <img
-                  src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80"
-                  alt="Before Dental Treatment"
-                  className="absolute inset-0 w-full h-full object-cover max-w-none"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80"
+                  alt="After Dental Smile Restoration"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 left-3 bg-slate-950/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                  BEFORE Treatment
+                <div className="absolute bottom-3.5 right-3.5 bg-teal-600/90 backdrop-blur-md text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md z-10">
+                  AFTER Restoration ✨
                 </div>
-              </div>
 
-              {/* Slider Divider Line */}
-              <div
-                className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl cursor-ew-resize flex items-center justify-center"
-                style={{ left: `calc(${sliderPosition}% - 2px)` }}
-              >
-                <div className="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center shadow-lg border-2 border-white text-[10px] font-bold">
-                  ↔
+                {/* Before Image (Clipped) */}
+                <div
+                  className="absolute inset-0 overflow-hidden"
+                  style={{ width: `${sliderPosition}%` }}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80"
+                    alt="Before Dental Treatment"
+                    className="absolute inset-0 w-full h-full object-cover max-w-none"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div className="absolute bottom-3.5 left-3.5 bg-slate-950/90 backdrop-blur-md text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md z-10">
+                    BEFORE Treatment
+                  </div>
                 </div>
-              </div>
 
-              {/* Range Input Overlay */}
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={sliderPosition}
-                onChange={(e) => setSliderPosition(Number(e.target.value))}
-                className="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full z-20"
-                aria-label="Before and after comparison slider"
-              />
+                {/* Slider Divider Line */}
+                <div
+                  className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl cursor-ew-resize flex items-center justify-center z-20"
+                  style={{ left: `calc(${sliderPosition}% - 2px)` }}
+                >
+                  <div className="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center shadow-2xl border-2 border-white text-xs font-bold ring-4 ring-teal-500/30">
+                    ↔
+                  </div>
+                </div>
+
+                {/* Range Input Overlay */}
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={sliderPosition}
+                  onChange={(e) => setSliderPosition(Number(e.target.value))}
+                  className="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full z-30"
+                  aria-label="Before and after comparison slider"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -155,7 +157,7 @@ export const TreatmentsSection: React.FC = () => {
               onClick={() => setActiveCategory(cat.id)}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
                 activeCategory === cat.id
-                  ? 'bg-teal-600 text-white shadow-md shadow-teal-600/20'
+                  ? 'bg-teal-600 text-white shadow-md shadow-teal-600/25 scale-105'
                   : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
               }`}
             >
@@ -169,17 +171,17 @@ export const TreatmentsSection: React.FC = () => {
           {filteredTreatments.map((treatment) => (
             <div
               key={treatment.id}
-              className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-teal-300 dark:hover:border-teal-500 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-teal-300 dark:hover:border-teal-500 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
             >
-              <div className="p-5 sm:p-6 space-y-4">
+              <div className="p-5 sm:p-6 space-y-3.5">
                 {/* Badges */}
                 <div className="flex items-center justify-between">
-                  <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${
+                  <span className={`text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full ${
                     treatment.painLevel === 'Zero / Painless'
-                      ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300'
+                      ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800'
                       : treatment.painLevel === 'Mild'
-                      ? 'bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300'
-                      : 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300'
+                      ? 'bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border border-blue-200/60 dark:border-blue-800'
+                      : 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800'
                   }`}>
                     {treatment.painLevel}
                   </span>
@@ -202,7 +204,7 @@ export const TreatmentsSection: React.FC = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 line-clamp-3 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-3 leading-relaxed">
                   {language === 'hi' ? treatment.shortDescHi : treatment.shortDesc}
                 </p>
 
@@ -221,7 +223,7 @@ export const TreatmentsSection: React.FC = () => {
               <div className="p-5 sm:p-6 pt-0 mt-auto border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
                 <div className="flex items-baseline justify-between py-3">
                   <div>
-                    <span className="text-[11px] text-slate-400 font-medium">Starting from</span>
+                    <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Starting Fee</span>
                     <div className="font-display font-extrabold text-lg text-slate-900 dark:text-white">
                       ₹{treatment.startingPrice.toLocaleString('en-IN')}
                     </div>
@@ -237,7 +239,7 @@ export const TreatmentsSection: React.FC = () => {
 
                 <button
                   onClick={() => handleBookTreatment(treatment.id)}
-                  className="w-full py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center justify-center space-x-1"
+                  className="w-full py-2.5 bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center space-x-1"
                 >
                   <span>Book This Treatment</span>
                   <ArrowRight className="w-3.5 h-3.5" />

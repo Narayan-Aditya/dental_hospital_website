@@ -85,7 +85,7 @@ export const BlogsSection: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search topics, symptoms, RCT, Implants..."
-              className="w-full text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
+              className="w-full text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
             />
           </div>
 
@@ -96,7 +96,7 @@ export const BlogsSection: React.FC = () => {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
                   activeCategory === cat
-                    ? 'bg-teal-600 text-white shadow-sm'
+                    ? 'bg-teal-600 text-white shadow-md shadow-teal-600/25'
                     : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
                 }`}
               >
@@ -116,17 +116,17 @@ export const BlogsSection: React.FC = () => {
               <div
                 key={blog.id}
                 onClick={() => setSelectedBlog(blog)}
-                className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-2xl hover:border-teal-300 dark:hover:border-teal-500 transition-all duration-300 cursor-pointer flex flex-col justify-between group"
+                className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/90 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1 hover:border-teal-300 dark:hover:border-teal-500 transition-all duration-300 cursor-pointer flex flex-col justify-between group"
               >
                 <div>
                   {/* Thumbnail Image */}
-                  <div className="relative h-48 overflow-hidden bg-slate-800">
+                  <div className="relative h-48 overflow-hidden bg-slate-900">
                     <img
                       src={blog.imageUrl}
                       alt={blog.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                    <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-sm text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border border-white/20">
                       {blog.category}
                     </div>
                   </div>
@@ -134,8 +134,8 @@ export const BlogsSection: React.FC = () => {
                   {/* Body Content */}
                   <div className="p-6 space-y-3">
                     <div className="flex items-center space-x-3 text-xs text-slate-400">
-                      <span className="flex items-center">
-                        <Clock className="w-3.5 h-3.5 mr-1 text-teal-600 dark:text-teal-400" />
+                      <span className="flex items-center font-medium text-teal-600 dark:text-teal-400">
+                        <Clock className="w-3.5 h-3.5 mr-1" />
                         {blog.readTime}
                       </span>
                       <span>•</span>
@@ -154,7 +154,7 @@ export const BlogsSection: React.FC = () => {
 
                 {/* Footer metadata */}
                 <div className="px-6 py-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 flex items-center justify-between text-xs">
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2.5">
                     <div className="w-7 h-7 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-700 dark:text-teal-300 font-bold flex items-center justify-center text-[10px]">
                       Dr
                     </div>
@@ -177,7 +177,7 @@ export const BlogsSection: React.FC = () => {
 
                     <button
                       onClick={(e) => handleShare(blog, e)}
-                      className="text-slate-400 hover:text-teal-600 p-1"
+                      className="text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 p-1"
                       title="Share to WhatsApp"
                     >
                       <Share2 className="w-3.5 h-3.5" />

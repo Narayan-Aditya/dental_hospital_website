@@ -64,20 +64,20 @@ export const ContactAndLocationSection: React.FC = () => {
           {/* Left Contact & Location Cards (6 Cols) */}
           <div className="lg:col-span-6 space-y-6">
             {/* Address Card */}
-            <div className="bg-slate-50 dark:bg-slate-800/80 p-6 rounded-3xl border border-slate-200/90 dark:border-slate-700/80 space-y-4 shadow-sm">
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-6 sm:p-7 rounded-3xl border border-slate-200/90 dark:border-slate-700/80 space-y-4 shadow-sm">
               <div className="flex items-start space-x-3.5">
-                <div className="w-10 h-10 rounded-2xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-11 h-11 rounded-2xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-md">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-white">
                     Hope Dental Hospital & Wellness Centre
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
                     {language === 'hi' ? HOSPITAL_INFO.addressHi : HOSPITAL_INFO.address}
                   </p>
                   <p className="text-xs text-teal-700 dark:text-teal-400 font-semibold mt-1">
-                    Landmark: Near Sadrauna Main Market & Mohan Road Crossing
+                    Landmark: Near Sadrauna Main Market & Mohan Road Crossing, Lucknow
                   </p>
                 </div>
               </div>
@@ -88,7 +88,7 @@ export const ContactAndLocationSection: React.FC = () => {
                   href={HOSPITAL_INFO.socialLinks.google}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-4 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center space-x-1.5"
+                  className="px-4 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center space-x-1.5"
                 >
                   <Navigation className="w-3.5 h-3.5 text-teal-400" />
                   <span>Get Driving Directions (Google Maps)</span>
@@ -98,7 +98,7 @@ export const ContactAndLocationSection: React.FC = () => {
                   href={`https://wa.me/919450000000?text=Hello%20Hope%20Dental%20Hospital,%20I%20need%20assistance%20with%20clinic%20location.`}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center space-x-1.5"
+                  className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center space-x-1.5"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>Chat on WhatsApp</span>
@@ -108,7 +108,7 @@ export const ContactAndLocationSection: React.FC = () => {
 
             {/* Helpline & Timings Details */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
+              <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-200/90 dark:border-slate-700 space-y-2">
                 <div className="flex items-center space-x-2 text-teal-700 dark:text-teal-400 font-bold text-xs uppercase tracking-wider">
                   <Phone className="w-4 h-4" />
                   <span>Phone Numbers</span>
@@ -126,7 +126,7 @@ export const ContactAndLocationSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
+              <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-200/90 dark:border-slate-700 space-y-2">
                 <div className="flex items-center space-x-2 text-teal-700 dark:text-teal-400 font-bold text-xs uppercase tracking-wider">
                   <Clock className="w-4 h-4" />
                   <span>OPD Timings</span>
@@ -136,19 +136,19 @@ export const ContactAndLocationSection: React.FC = () => {
                   <p className="text-slate-600 dark:text-slate-400">Sunday: 10:00 AM – 2:00 PM</p>
                 </div>
                 <div className="text-[11px] text-teal-700 dark:text-teal-400 font-semibold pt-1">
-                  24/7 Dental Trauma Active
+                  24/7 Dental Emergency Active
                 </div>
               </div>
             </div>
 
             {/* Visual Location Preview Card */}
-            <div className="bg-slate-900 dark:bg-slate-950 text-white p-6 rounded-3xl relative overflow-hidden shadow-lg border border-slate-800">
+            <div className="bg-slate-900 dark:bg-slate-950 text-white p-6 rounded-3xl relative overflow-hidden shadow-xl border border-slate-800">
               <div className="space-y-2 relative z-10">
                 <span className="text-[10px] font-extrabold uppercase tracking-wider bg-teal-500/30 text-teal-300 px-2.5 py-0.5 rounded-full border border-teal-400/30">
                   Sadrauna, Mohan Road, Lucknow
                 </span>
-                <h4 className="font-display font-bold text-lg">
-                  Free Patient Parking & Wheelchair Friendly
+                <h4 className="font-display font-bold text-lg text-white">
+                  Free Patient Parking & Wheelchair Accessibility
                 </h4>
                 <p className="text-xs text-slate-300 leading-relaxed">
                   Located right on the main commercial road in Sadrauna with hassle-free ground floor access for senior citizens and pediatric patients.
@@ -158,7 +158,7 @@ export const ContactAndLocationSection: React.FC = () => {
           </div>
 
           {/* Right Fast Inquiry Form (6 Cols) */}
-          <div className="lg:col-span-6 bg-slate-50 dark:bg-slate-800/80 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xl">
+          <div className="lg:col-span-6 bg-slate-50 dark:bg-slate-800/80 p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-700 shadow-xl">
             <div className="space-y-1 mb-6">
               <span className="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
                 Direct Dental Inquiry
