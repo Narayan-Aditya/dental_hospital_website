@@ -1,5 +1,7 @@
 export type Language = 'en' | 'hi';
 
+export type PageId = 'home' | 'about' | 'services' | 'doctors' | 'reviews' | 'blogs' | 'contact';
+
 export interface Treatment {
   id: string;
   title: string;

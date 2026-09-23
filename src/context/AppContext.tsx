@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Appointment, Invoice, Language, Treatment, Doctor, BlogPost, Review } from '../types';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { Appointment, Invoice, Language, Treatment, Doctor, BlogPost, Review, PageId } from '../types';
 import { INITIAL_APPOINTMENTS, INITIAL_INVOICES, TREATMENTS_DATA, DOCTORS_DATA, BLOGS_DATA, REVIEWS_DATA } from '../data/mockData';
 
 export type ConceptTheme = 'clinical' | 'promax';
@@ -30,6 +30,11 @@ interface AppContextType {
   rescheduleAppointment: (id: string, newDate: string, newSlot: string) => boolean;
   findAppointment: (query: string) => Appointment | undefined;
   
+  // Page Routing & Navigation
+  currentPage: PageId;
+  setCurrentPage: (page: PageId) => void;
+  navigateTo: (page: PageId) => void;
+
   // Active Modals & View States
   isBookingOpen: boolean;
   setIsBookingOpen: (open: boolean) => void;
@@ -56,6 +61,16 @@ const DICTIONARY: Record<string, { en: string; hi: string }> = {
   'hero.ctaServices': { en: 'Explore All Treatments', hi: 'सभी उपचार देखें' },
 };
 
+const VALID_PAGES: PageId[] = ['home', 'about', 'services', 'doctors', 'reviews', 'blogs', 'contact'];
+
+const getPageFromHash = (): PageId => {
+  const hash = window.location.hash.replace('#', '').trim().toLowerCase();
+  if (VALID_PAGES.includes(hash as PageId)) {
+    return hash as PageId;
+  }
+  return 'home';
+};
+
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -72,6 +87,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [language, setLanguage] = useState<Language>('en');
   const [fontSize, setFontSize] = useState<'normal' | 'large' | 'xlarge'>('normal');
   
+  // Page Routing
+  const [currentPage, setCurrentPage] = useState<PageId>(() => getPageFromHash());
+
   const [treatments] = useState<Treatment[]>(TREATMENTS_DATA);
   const [doctors] = useState<Doctor[]>(DOCTORS_DATA);
   const [blogs] = useState<BlogPost[]>(BLOGS_DATA);
@@ -91,6 +109,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedTreatmentIdForBooking, setSelectedTreatmentIdForBooking] = useState<string | null>(null);
   const [selectedDoctorIdForBooking, setSelectedDoctorIdForBooking] = useState<string | null>(null);
+
+  // Hash Routing Listener
+  useEffect(() => {
+    const handleHashChange = () => {
+      const newPage = getPageFromHash();
+      setCurrentPage(newPage);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const navigateTo = useCallback((page: PageId) => {
+    setCurrentPage(page);
+    window.location.hash = page === 'home' ? '' : page;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('hdh_concept_theme', concept);
@@ -193,6 +228,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       cancelAppointment,
       rescheduleAppointment,
       findAppointment,
+      currentPage,
+      setCurrentPage,
+      navigateTo,
       isBookingOpen,
       setIsBookingOpen,
       selectedTreatmentIdForBooking,
