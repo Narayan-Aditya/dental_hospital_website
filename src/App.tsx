@@ -4,19 +4,24 @@ import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileBottomDock } from './components/layout/MobileBottomDock';
 import { BookingModal } from './components/modals/BookingModal';
-import { MessageSquare } from 'lucide-react';
+import { CostCalculatorModal } from './components/modals/CostCalculatorModal';
+import { EmergencyModal } from './components/modals/EmergencyModal';
+import { BlogDetailModal } from './components/modals/BlogDetailModal';
+import { MessageSquare, PhoneCall } from 'lucide-react';
 
 // Separate Page Components
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { DoctorsPage } from './pages/DoctorsPage';
+import { ClinicsPage } from './pages/ClinicsPage';
+import { TourismPage } from './pages/TourismPage';
 import { ReviewsPage } from './pages/ReviewsPage';
 import { BlogsPage } from './pages/BlogsPage';
 import { ContactPage } from './pages/ContactPage';
 
 const MainContent: React.FC = () => {
-  const { language, currentPage } = useApp();
+  const { currentPage, setIsEmergencyOpen } = useApp();
 
   const renderActivePage = () => {
     switch (currentPage) {
@@ -26,6 +31,10 @@ const MainContent: React.FC = () => {
         return <ServicesPage />;
       case 'doctors':
         return <DoctorsPage />;
+      case 'clinics':
+        return <ClinicsPage />;
+      case 'tourism':
+        return <TourismPage />;
       case 'reviews':
         return <ReviewsPage />;
       case 'blogs':
@@ -39,7 +48,7 @@ const MainContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-teal-600 selection:text-white transition-colors duration-200 pb-20 sm:pb-0">
+    <div className="min-h-screen flex flex-col relative bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-[#f5900d] selection:text-white transition-colors duration-200 pb-16 sm:pb-0">
       {/* 1. Global Navigation Header */}
       <Navbar />
 
@@ -51,21 +60,39 @@ const MainContent: React.FC = () => {
       {/* 3. Global Footer */}
       <Footer />
 
-      {/* 4. Shared Appointment Booking Modal (Accessible from any page) */}
+      {/* 4. Global Modals & Micro-Processing Engines */}
       <BookingModal />
+      <CostCalculatorModal />
+      <EmergencyModal />
+      <BlogDetailModal />
 
-      {/* 5. Desktop Floating WhatsApp Connect */}
+      {/* 5. Desktop Floating Action Quick Connects */}
       <div className="hidden sm:flex fixed bottom-6 right-6 z-40 flex-col items-end space-y-3">
+        {/* 24/7 Emergency Quick Pill */}
+        <button
+          onClick={() => setIsEmergencyOpen(true)}
+          className="p-3.5 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center group"
+          title="24/7 Dental Emergency Triage"
+        >
+          <PhoneCall className="w-5 h-5" />
+          <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-2 text-xs font-bold transition-all duration-300">
+            24/7 Emergency
+          </span>
+        </button>
+
+        {/* WhatsApp Specialist Connect */}
         <a
-          href="https://wa.me/919450000000?text=Hello%20Hope%20Dental%20Hospital%20Sadrauna,%20I%20would%20like%20to%20inquire%20about%20dental%20treatments."
+          href={`https://wa.me/917905287870?text=${encodeURIComponent(
+            'Hello Hope Dental Hospital & Wellness Centre, I would like to inquire about dental treatments and appointments.'
+          )}`}
           target="_blank"
           rel="noreferrer"
-          className="p-3.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center group"
-          title="Chat with Reception on WhatsApp"
+          className="p-3.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center group"
+          title="Chat with Hope Dental Reception on WhatsApp"
         >
           <MessageSquare className="w-5 h-5 fill-current" />
           <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-2 text-xs font-bold transition-all duration-300">
-            {language === 'hi' ? 'व्हाट्सएप चैट' : 'Chat on WhatsApp'}
+            Chat on WhatsApp
           </span>
         </a>
       </div>

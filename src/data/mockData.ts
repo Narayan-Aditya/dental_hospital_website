@@ -1,825 +1,1143 @@
-import { Treatment, Doctor, Invoice, BlogPost, Facility, Review, EmergencyGuide, Appointment } from '../types';
+import {
+  ClinicBranch,
+  Vertical,
+  Treatment,
+  Doctor,
+  Appointment,
+  Invoice,
+  BlogPost,
+  Review,
+  EmergencyGuide,
+  TreatmentCostItem,
+  AwardItem,
+  SmileTransformation,
+} from '../types';
 
 export const HOSPITAL_INFO = {
-  name: "Hope Dental Hospital & Wellness Centre",
-  nameHi: "होप डेंटल हॉस्पिटल एवं वेलनेस सेंटर",
-  tagline: "Advanced Painless Dental Care & Complete Oral Wellness",
-  taglineHi: "उन्नत दर्द रहित दंत चिकित्सा एवं संपूर्ण मुख स्वास्थ्य",
-  address: "Sadrauna, Near Main Market, Mohan Road, Lucknow, Uttar Pradesh 226009",
-  addressHi: "सदरौना, मेन मार्केट के पास, मोहन रोड, लखनऊ, उत्तर प्रदेश २२६००९",
-  phone: "+91 94500 00000",
-  altPhone: "+91 522 3500000",
-  emergencyPhone: "+91 98390 11111",
-  whatsapp: "+91 94500 00000",
-  email: "info@hopedentalhospital.com",
-  timings: "Monday – Saturday: 9:00 AM – 8:00 PM | Sunday: 10:00 AM – 2:00 PM",
-  timingsHi: "सोमवार - शनिवार: सुबह ९:०० से रात ८:०० | रविवार: सुबह १०:०० से दोपहर २:००",
-  emergencyAvailability: "24/7 On-Call Emergency Dentist Available",
-  gstin: "09AAACH7892K1Z8",
-  registrationNo: "UP-LKO-MED-DEN-2022-8419",
+  name: 'HOPE DENTAL HOSPITAL',
+  subtitle: 'Centre for Implantology, Periodontology & Laser Dentistry',
+  tagline: 'Dedicated Dental Hospital & Wellness Centre in Lucknow · Advanced Implants, Laser Dentistry & TMJ Care',
+  establishedYear: 2016,
+  experienceYears: 15,
+  founders: 'Dr. Himangi Dubey (BDS, MDS - Periodontology & Oral Implantology, Ex-KGMU) & Senior Specialists',
+  phone: '+91 79052 87870',
+  altPhone: '+91 79052 69559',
+  emergencyPhone: '+91 79052 87870',
+  internationalPhone: '+91 79052 87870',
+  whatsappPhone: '+91 79052 87870',
+  email: 'contact@hopedentalhospital.com',
+  intlEmail: 'contact@hopedentalhospital.com',
+  address: 'No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow, Uttar Pradesh – 226011',
+  website: 'https://hopedentalhospital.com',
+  gstin: '09AAACH7890D1Z4',
+  registrationNo: 'UP/MED/LKO/2018/0942',
   socialLinks: {
-    youtube: "https://www.youtube.com/channel/UCqYbypATAKwiOyFhRAr4moA",
-    facebook: "https://www.facebook.com/p/Hope-Dental-Hospital-and-Wellness-Center-100083540701821/",
-    justdial: "https://www.justdial.com/Lucknow/Hope-Dental-Hospital-Wellness-Centre-Sadrauna/0522PX522-X522-220609022113-U6X9_BZDET",
-    google: "https://share.google/9FWrwrNmPHz4a9B1r",
+    facebook: 'https://www.facebook.com/p/Hope-Dental-Hospital-and-Wellness-Center-100083540701821/',
+    youtube: 'https://youtube.com/@drhimangidubey_hopedental?si=dICNBMYUw_9KpXfp',
+    google: 'https://share.google/M13VNXGp52dAKKUWl',
+    justdial: 'https://jsdl.in/DT-39XTVYSNSB8',
+    whatsapp: 'https://wa.me/917905287870?text=Hello%20Hope%20Dental%20Hospital%2C%20I%20would%20like%20to%20inquire%20about%20a%20dental%20appointment'
   },
-  stats: {
-    patientsTreated: "16,500+",
-    googleRating: "4.9",
-    googleReviewCount: "480+",
-    justdialRating: "4.8",
-    experienceYears: "14+",
-    implantsPlaced: "3,200+",
-  }
+  ratings: {
+    average: 5.0,
+    totalReviews: 299,
+    googleScore: 5.0,
+    googleReviewsCount: 151,
+    justdialScore: 5.0,
+    justdialRatingsCount: 148,
+    gcrRank: '5.0 ★ Rated Centre for Implantology, Periodontology & Laser Dentistry',
+    timesRank: 'Premier Standalone Dental Hospital in Lucknow (Sadrauna / Para Road)',
+  },
+  timings: {
+    weekdays: '10:00 AM – 8:00 PM (Monday to Saturday)',
+    sunday: '10:00 AM – 8:00 PM (Sunday Open)',
+    emergency: '24/7 Dental Emergency & Acute Trauma Care Available',
+  },
+  stats: [
+    { value: '15+', label: 'Years Clinical Experience', suffix: 'Years' },
+    { value: '5.0 ★', label: 'Google Rating (151+ Reviews)', suffix: 'Stars' },
+    { value: '5.0 ★', label: 'Justdial Rating (148+ Ratings)', suffix: 'Stars' },
+    { value: '10,000+', label: 'Smiles Transformed', suffix: 'Patients' },
+    { value: '100%', label: 'Dedicated Lucknow Centre', suffix: 'Single Hospital' },
+    { value: '99.4%', label: 'Clinical Satisfaction', suffix: 'Satisfaction' },
+  ],
+  accreditations: [
+    '5.0 Star Rated Dental Hospital on Google (151+ Reviews) & Justdial (148+ Ratings)',
+    'Award of Appreciation at the 8th UP Dental Show 2026 (Dr. Himangi Dubey)',
+    'Featured Dental Expert on Doordarshan UP (@DDUP) & All India Radio',
+    'Alumni Specialist from King George\'s Medical University (KGMU Lucknow)',
+    'Biolase Waterlase Certified Laser Periodontics & LANAP Centre',
+    'Dedicated Standalone Dental Hospital & Wellness Centre with No Franchises'
+  ]
 };
+
+export const VERTICALS_DATA: Vertical[] = [
+  {
+    id: 'hospital-flagship',
+    num: '01',
+    name: 'Hope Dental Hospital & Wellness Centre',
+    tagline: 'Sadrauna / Para Road, Lucknow Flagship Hospital',
+    description: 'Our primary medical and dental surgical center equipped with hospital-grade operatory suites, conscious sedation, CBCT diagnostics, and full-mouth implant rehabilitation.',
+    badge: 'FLAGSHIP HOSPITAL',
+    highlights: [
+      'Full-arch All-on-4 & immediate load dental implants',
+      'Advanced Biolase laser periodontics & bloodless gum surgeries',
+      'Hospital-grade sterilization with Class-B vacuum autoclaves',
+      '24/7 Dental emergency triage & maxillofacial trauma care'
+    ],
+    image: './verticals/vertical-international.webp'
+  },
+  {
+    id: 'city-clinics',
+    num: '02',
+    name: 'Hope Multispecialty Dental Clinics',
+    tagline: 'Accessible Specialist Care across Lucknow',
+    description: 'Providing comprehensive family dental care, microscopic single-sitting root canals, pain-free extractions, and child dentistry across strategic urban corridors.',
+    badge: 'NEIGHBORHOOD CARE',
+    highlights: [
+      'Senior MDS specialist consultation for every treatment',
+      'Microscopic endodontic equipment for single-visit RCT',
+      'Gentle pediatric operatory tailored for anxious children',
+      'Transparent, patient-first affordable treatment packages'
+    ],
+    image: './verticals/vertical-clinics.webp'
+  },
+  {
+    id: 'wellness-diabetic-wing',
+    num: '03',
+    name: 'Hope Oral Wellness & Diabetic Care Wing',
+    tagline: 'Systemic Health & Integrative Periodontal Care',
+    description: 'Pioneered by Dr. Himangi Dubey, this specialized division bridges systemic health and dental science, offering customized protocols for diabetic and cardiovascular patients.',
+    badge: 'HEALTH & WELLNESS',
+    highlights: [
+      'Targeted diabetic periodontal evaluation and infection control',
+      'LANAP minimally invasive laser therapies with rapid healing',
+      'Pre-cardiac & pre-transplant oral clearance screenings',
+      'Nutritional counseling & holistic saliva pH balancing'
+    ],
+    image: './verticals/vertical-flagship.webp'
+  },
+  {
+    id: 'aesthetic-aligner-studio',
+    num: '04',
+    name: 'Hope Aesthetic & Clear Aligner Studio',
+    tagline: 'Digital Smile Design & Discreet Orthodontics',
+    description: 'Dedicated to cosmetic smile makeovers, ultra-thin porcelain veneers, and US-FDA approved clear aligners for teenagers and working professionals.',
+    badge: 'SMILE DESIGN',
+    highlights: [
+      '3D Digital Smile Simulation preview before treatment',
+      'Hand-crafted E.max porcelain laminates & smile transformations',
+      'Custom invisible aligners without brackets or wires',
+      'In-office Zoom laser whitening for instant brilliance'
+    ],
+    image: './verticals/vertical-sscds.webp'
+  },
+  {
+    id: 'community-outreach',
+    num: '05',
+    name: 'Hope Rural Oral Outreach & Free Camps',
+    tagline: 'Community Health Mission across Uttar Pradesh',
+    description: 'In partnership with public health bodies, Hope Dental organizes free screening camps, oral cancer prevention drives, and subsidized dental care for rural communities.',
+    badge: 'COMMUNITY MISSION',
+    highlights: [
+      'Over 25,000+ rural patients screened in outreach camps',
+      'Early detection tobacco cessation & oral cancer screenings',
+      'Free distribution of oral hygiene kits & pediatric education',
+      'Subsidized emergency care for economically vulnerable families'
+    ],
+    image: './verticals/vertical-skin.webp'
+  }
+];
+
+export const CLINIC_BRANCHES_DATA: ClinicBranch[] = [
+  {
+    id: 'lucknow-flagship',
+    branchNumber: '01',
+    name: 'Hope Dental Hospital & Wellness Centre (Main Hospital)',
+    badge: 'FLAGSHIP HOSPITAL',
+    city: 'Lucknow',
+    type: 'flagship',
+    address: 'No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow, Uttar Pradesh – 226011',
+    landmark: 'Near Bramha Dev Mandir / Hans Khera Crossing',
+    phone: '+91 79052 87870',
+    altPhone: '+91 79052 69559',
+    timings: '10:00 AM – 8:00 PM',
+    sundayTimings: '10:00 AM – 8:00 PM',
+    establishedYear: 2016,
+    specialties: ['Centre for Implantology', 'Biolase Laser Periodontics', 'All-on-4 Full Arch Rehab', 'TMJ & Splint Therapy', 'Microscopic RCT'],
+    facilities: ['Surgical Operatory Suite', 'Digital 3D Diagnostics & RVG', 'Wheelchair Accessible Entrance & Exit', 'Class-B Vacuum Autoclaves', '24/7 Dental Emergency Triage'],
+    doctorsCount: 14,
+    mapQuery: 'Hope Dental Hospital and Wellness Center Sadrauna Para Lucknow',
+    isNabhAccredited: true,
+  },
+  {
+    id: 'lucknow-implant-wing',
+    branchNumber: '02',
+    name: 'Centre for Advanced Implantology & Guided Surgery (Wing A)',
+    badge: 'SURGICAL SUITE',
+    city: 'Lucknow',
+    type: 'multispecialty',
+    address: 'No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow, Uttar Pradesh – 226011',
+    landmark: '1st Floor Surgical Block, Hope Dental Hospital',
+    phone: '+91 79052 87870',
+    altPhone: '+91 79052 69559',
+    timings: '10:00 AM – 8:00 PM',
+    sundayTimings: '10:00 AM – 8:00 PM',
+    establishedYear: 2016,
+    specialties: ['Nobel Biocare & Straumann Implants', 'Immediate Load (Teeth in 72 Hrs)', 'Sinus Lifts & Bone Grafting', 'Basal Implants'],
+    facilities: ['3D CBCT Guided Surgery Suite', 'Piezo Bone Surgery', 'Cardiac & Vitals Monitoring Workstation', 'Recovery Lounge'],
+    doctorsCount: 6,
+    mapQuery: 'Hope Dental Hospital and Wellness Center Sadrauna Para Lucknow',
+    isNabhAccredited: true,
+  },
+  {
+    id: 'lucknow-laser-wing',
+    branchNumber: '03',
+    name: 'Biolase Laser Periodontics & Gum Wellness Suite (Wing B)',
+    badge: 'LASER WING',
+    city: 'Lucknow',
+    type: 'multispecialty',
+    address: 'No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow, Uttar Pradesh – 226011',
+    landmark: 'Ground Floor Laser Pavilion, Hope Dental Hospital',
+    phone: '+91 79052 87870',
+    altPhone: '+91 79052 69559',
+    timings: '10:00 AM – 8:00 PM',
+    sundayTimings: '10:00 AM – 8:00 PM',
+    establishedYear: 2017,
+    specialties: ['Biolase Waterlase LANAP Gum Care', 'Bloodless Pyorrhea Treatment', 'Laser Gum Contouring', 'Diabetic Periodontal Protocols'],
+    facilities: ['Biolase Waterlase iPlus 2780nm', 'Epic X Diode Lasers', 'Sterile Irrigation Delivery', 'Ultrasonic Scalers'],
+    doctorsCount: 5,
+    mapQuery: 'Hope Dental Hospital and Wellness Center Sadrauna Para Lucknow',
+    isNabhAccredited: true,
+  },
+  {
+    id: 'lucknow-endodontics-wing',
+    branchNumber: '04',
+    name: 'Microscopic Endodontics & Conservative Operatory (Wing C)',
+    badge: 'ENDODONTIC WING',
+    city: 'Lucknow',
+    type: 'multispecialty',
+    address: 'No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow, Uttar Pradesh – 226011',
+    landmark: 'Main Clinical Floor, Hope Dental Hospital',
+    phone: '+91 79052 87870',
+    altPhone: '+91 79052 69559',
+    timings: '10:00 AM – 8:00 PM',
+    sundayTimings: '10:00 AM – 8:00 PM',
+    establishedYear: 2018,
+    specialties: ['Single-Sitting Painless RCT', 'Carl Zeiss Microscopic Root Canals', 'Rotary Biomechanical Preparation', 'Crown Restorations'],
+    facilities: ['Carl Zeiss Operating Microscope', 'Apex Locators', 'Warm 3D Gutta-Percha Obturation', 'Digital RVG'],
+    doctorsCount: 4,
+    mapQuery: 'Hope Dental Hospital and Wellness Center Sadrauna Para Lucknow',
+    isNabhAccredited: true,
+  },
+  {
+    id: 'lucknow-tmj-wing',
+    branchNumber: '05',
+    name: 'TMJ Pain Relief, Splint Therapy & Physiotherapy Unit (Wing D)',
+    badge: 'TMJ & WELLNESS',
+    city: 'Lucknow',
+    type: 'multispecialty',
+    address: 'No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow, Uttar Pradesh – 226011',
+    landmark: 'Wellness Floor, Hope Dental Hospital',
+    phone: '+91 79052 87870',
+    altPhone: '+91 79052 69559',
+    timings: '10:00 AM – 8:00 PM',
+    sundayTimings: '10:00 AM – 8:00 PM',
+    establishedYear: 2019,
+    specialties: ['TMJ Joint Pain & Clicking Relief', 'Splint / Night Guard Therapy', 'Jaw Physiotherapy & Exercises', 'Stress & Bite Management'],
+    facilities: ['T-Scan Digital Bite Analysis', 'Electromyography (EMG)', 'TENS Muscle Stimulator', 'Low Level Laser Therapy'],
+    doctorsCount: 4,
+    mapQuery: 'Hope Dental Hospital and Wellness Center Sadrauna Para Lucknow',
+    isNabhAccredited: true,
+  },
+  {
+    id: 'lucknow-pediatric-wing',
+    branchNumber: '06',
+    name: 'Pediatric Dentistry & Child Smile Lounge (Wing E)',
+    badge: 'PEDIATRIC LOUNGE',
+    city: 'Lucknow',
+    type: 'multispecialty',
+    address: 'No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow, Uttar Pradesh – 226011',
+    landmark: 'Family Wing, Hope Dental Hospital',
+    phone: '+91 79052 87870',
+    altPhone: '+91 79052 69559',
+    timings: '10:00 AM – 8:00 PM',
+    sundayTimings: '10:00 AM – 8:00 PM',
+    establishedYear: 2020,
+    specialties: ['Painless Child Cavity Fillings', 'Mouth Breathing Correction', 'Pit & Fissure Sealants', 'Fluoride Protection & Habit Breaking'],
+    facilities: ['Child-Friendly Dental Chairs', 'No-Shot Laser Dentistry', 'Play Zone & Interactive Stories', 'Audio-Visual Distraction Goggles'],
+    doctorsCount: 4,
+    mapQuery: 'Hope Dental Hospital and Wellness Center Sadrauna Para Lucknow',
+    isNabhAccredited: true,
+  }
+];
+
+export const AWARDS_DATA: AwardItem[] = [
+  {
+    id: 'up-dental-show-2026',
+    title: 'Award of Appreciation – 8th UP Dental Show 2026',
+    year: '2026',
+    organization: 'Organizing Committee & Indian Dental Forum',
+    location: 'Uttar Pradesh, India',
+    highlight: 'Conferred upon Dr. Himangi Dubey for outstanding contributions as Co-Chairperson, Organizing Committee and Scientific Moderator.',
+    badgeColor: 'bg-amber-500'
+  },
+  {
+    id: 'google-justdial-5star',
+    title: '5.0 Star Rated Dental Hospital (Google & Justdial)',
+    year: '2022 – 2026',
+    organization: 'Google Reviews (151+ Reviews) & Justdial (148+ Ratings)',
+    location: 'Lucknow, Uttar Pradesh',
+    highlight: 'Unanimous 5.0-star patient satisfaction rating for painless laser gum therapy, dental implants, and compassionate clinical care.',
+    badgeColor: 'bg-emerald-600'
+  },
+  {
+    id: 'doordarshan-up-expert',
+    title: 'Featured Healthcare Expert – "सेहत आपकी" @DDUP',
+    year: '2024 – 2026',
+    organization: 'Doordarshan Uttar Pradesh & All India Radio',
+    location: 'Lucknow, India',
+    highlight: 'Invited television dental expert guiding public awareness on women’s hormonal health, pregnancy oral care, and tobacco cessation.',
+    badgeColor: 'bg-[#f5900d]'
+  },
+  {
+    id: 'kgmu-alumni-honor',
+    title: 'Excellence in Periodontics & Oral Implantology',
+    year: 'Continuous',
+    organization: 'King George\'s Medical University (KGMU) Alumna',
+    location: 'Lucknow, India',
+    highlight: 'Advanced academic and clinical surgical mastery in computer-guided implants and minimally invasive laser therapies.',
+    badgeColor: 'bg-indigo-600'
+  },
+  {
+    id: 'jansewa-ratna-honor',
+    title: 'Jansewa Ratna & Oral Health Awareness Champion',
+    year: '2025',
+    organization: 'Community Health & Tobacco Prevention Mission',
+    location: 'Lucknow, Uttar Pradesh',
+    highlight: 'Honored for spearheading rural tobacco cessation drives and community screenings for early oral health detection.',
+    badgeColor: 'bg-purple-600'
+  }
+];
 
 export const TREATMENTS_DATA: Treatment[] = [
   {
-    id: 'rct-single-sitting',
-    title: 'Single-Sitting Rotary Root Canal (RCT)',
-    titleHi: 'सिंगल-सिटिंग रोटरी रूट कैनाल (RCT)',
-    category: 'rct',
-    icon: 'Sparkles',
-    shortDesc: 'State-of-the-art painless computerised nerve treatment to save infected or deeply decayed teeth in under 45 minutes.',
-    shortDescHi: 'संक्रमित दांत को केवल ४५ मिनट में दर्द रहित कंप्यूटरकृत तकनीक से बचाने का उपचार।',
-    fullDesc: 'At Hope Dental Hospital, we utilize modern German Rotary Endodontic motors, digital apex locators, and warm vertical obturation. This ensures maximum precision, zero discomfort, and 99.4% long-term tooth preservation without needing multiple sittings.',
-    duration: '35 - 50 mins (Single Visit)',
-    painLevel: 'Zero / Painless',
-    startingPrice: 2499,
-    popular: true,
-    benefits: [
-      'Preserve your natural tooth permanently',
-      'Painless computerised local numbing technique',
-      'Completed in a single visit with 3D digital imaging',
-      'Prevents spread of infection to jawbone'
-    ],
-    procedureSteps: [
-      { step: 1, title: 'Digital OPG X-ray & 3D Diagnosis', desc: 'Precision scan to measure canal length and locate hidden roots.' },
-      { step: 2, title: 'Painless Local Numbing', desc: 'Gentle computerised anesthetic to ensure zero sensation.' },
-      { step: 3, title: 'Rotary Cleaning & Disinfection', desc: 'Microscopic rotary files remove infection within minutes.' },
-      { step: 4, title: 'Bio-Ceramic 3D Sealing', desc: 'Hermetic root seal to prevent any future bacterial leakage.' }
-    ],
-    imageBefore: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80',
-    imageAfter: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80',
-    afterCareTips: [
-      'Avoid chewing hard foods on the treated side for 24 hours',
-      'Place a permanent Zirconia crown within 1-2 weeks for maximum structural strength',
-      'Maintain regular brushing and flossing'
-    ]
-  },
-  {
     id: 'dental-implants',
-    title: 'Permanent Titanium & Zirconia Dental Implants',
-    titleHi: 'स्थायी डेंटल इम्प्लांट्स (फिक्स्ड दांत)',
+    title: 'Dental Implants & Full Arch Rehabilitation',
+    titleHi: 'डेंटल इम्प्लांट और ऑल-ऑन-4 पुनर्वास',
+    titleTe: 'డెంటల్ ఇంప్లాంట్స్ & ఆల్-ఆన్-4 రీహాబిలిటేషన్',
     category: 'implants',
     icon: 'ShieldCheck',
-    shortDesc: 'Lifetime fixed teeth replacement that looks, feels, and chews exactly like your natural original teeth.',
-    shortDescHi: 'जीवनभर चलने वाले फिक्स्ड दांत जो बिल्कुल आपके असली दांतों की तरह काम करते हैं।',
-    fullDesc: 'Replace single missing teeth or get full-mouth permanent teeth with world-leading Nobel Biocare & Straumann implants. Guided 3D keyhole surgery ensures swift healing with minimal downtime.',
-    duration: '45 mins per implant',
+    shortDesc: 'Permanent titanium/zirconia root replacements. Over 25,000+ successful implants placed including All-on-4, All-on-6 and Zygomatic.',
+    shortDescHi: 'प्राकृतिक दांतों जैसे मजबूत और स्थायी इम्प्लांट्स। ऑल-ऑन-4, ऑल-ऑन-6 एवं जाइगोमैटिक इम्प्लांट्स में अंतरराष्ट्रीय विशेषज्ञता।',
+    fullDesc: 'Hope Dental Hospital is celebrated across Uttar Pradesh as a premier center of excellence for dental implants. Led by Dr. Himangi Dubey (BDS, MDS - KGMU), we perform computer-guided flapless implant surgery, immediate loading (teeth in 72 hours), basal implants for severe bone loss, and laser-assisted bone regeneration. Supported by Nobel Biocare, Straumann, and Osstem dental systems.',
+    duration: '45 mins per implant (Immediate load within 72 hrs)',
     painLevel: 'Zero / Painless',
-    startingPrice: 18999,
+    startingPriceInr: 25000,
+    startingPriceUsd: 320,
     popular: true,
+    technologyUsed: ['Planmeca 3D CBCT Guided Surgery', 'NobelGuide CAD/CAM Template', 'Piezosurgery Ultrasonic Unit', 'Osstell ISQ Stability Resonance'],
     benefits: [
-      'Lifetime warranty with Swiss/US certified implants',
-      'Prevents facial sagging and jawbone loss',
-      'No trimming needed on adjacent healthy teeth',
-      'Eat solid apples, nuts, and your favorite foods easily'
+      'Lifetime International Warranty on Nobel Biocare & Straumann implants',
+      'Eat, speak and smile with 100% natural chewing force',
+      'Prevents facial sagging and jawbone deterioration',
+      'No trimming or harm to adjacent healthy natural teeth',
+      'Teeth in 3 days with digital CAD/CAM permanent bridges'
     ],
     procedureSteps: [
-      { step: 1, title: '3D CBCT Bone Density Mapping', desc: 'Virtual computer planning for millimetre-accurate placement.' },
-      { step: 2, title: 'Keyhole Implant Fixture Placement', desc: 'Minimally invasive insertion into the jawbone.' },
-      { step: 3, title: 'Osseointegration Period', desc: 'Implant fuses naturally with the bone structure.' },
-      { step: 4, title: 'Custom Zirconia Crown Delivery', desc: 'CAD-CAM precision milled tooth attached securely.' }
+      { step: 1, title: '3D CBCT Bone Density Scan', desc: 'Precise 3D cross-sectional diagnostic scan to evaluate bone volume, nerve pathways, and sinus height.' },
+      { step: 2, title: 'Digital Guided Placement', desc: 'Titanium bio-compatible fixture placed into jawbone using 3D surgical guide with zero incisions when indicated.' },
+      { step: 3, title: 'CAD/CAM Prosthetic Fabrication', desc: 'In-house dental lab designs custom zirconia or porcelain crown tailored to your facial aesthetics.' },
+      { step: 4, title: 'Permanent Crown Fixation', desc: 'Final precision restoration torqued to perfection with seamless bite balancing.' }
     ],
     afterCareTips: [
-      'Soft diet for the first 3 days',
-      'Use prescribed antiseptic chlorhexidine mouthwash',
-      'Attend 6-month checkup for preventive maintenance'
+      'Avoid drinking through a straw or spitting vigorously for the first 24 hours.',
+      'Maintain soft diet for initial 3 to 5 days.',
+      'Use prescribed chlorhexidine antibacterial rinse after meals.'
     ]
   },
   {
-    id: 'clear-aligners-braces',
-    title: 'Invisible Clear Aligners & Modern Braces',
-    titleHi: 'अदृश्य क्लियर एलाइनर्स और आधुनिक ब्रेसेस',
-    category: 'ortho',
-    icon: 'Smile',
-    shortDesc: 'Straighten crooked, crowded, or gapped teeth discreetly without visible metal wires or food restrictions.',
-    shortDescHi: 'बिना तार के पारदर्शी एलाइनर्स से अपने दांतों को सीधा और सुंदर बनाएं।',
-    fullDesc: 'Get an AI-guided customized smile alignment plan. Removable transparent aligners allow you to brush easily, enjoy your favorite meals, and achieve the confident smile you deserve.',
-    duration: '6 to 14 months total duration',
-    painLevel: 'Mild',
-    startingPrice: 34999,
-    popular: true,
-    benefits: [
-      '100% transparent and virtually invisible to others',
-      'Removable for meals, photos, and brushing',
-      '3D Smile Simulation: See your final result before starting',
-      'No emergency wire pokes or ulcers'
-    ],
-    procedureSteps: [
-      { step: 1, title: '3D Intraoral Digital Scan', desc: '5-minute digital impression without messy putty.' },
-      { step: 2, title: '3D Virtual Video Simulation', desc: 'Preview your week-by-week tooth movement.' },
-      { step: 3, title: 'Custom Aligners Delivery', desc: 'Receive your precision-engineered clear trays.' },
-      { step: 4, title: 'Bi-monthly Progress Review', desc: 'Simple check-ins or virtual monitoring.' }
-    ],
-    afterCareTips: [
-      'Wear aligners 20-22 hours a day',
-      'Clean aligners daily with lukewarm water and soft brush',
-      'Wear night retainers post-treatment to maintain perfect alignment'
-    ]
-  },
-  {
-    id: 'cosmetic-veneers-smile-makeover',
-    title: 'Cosmetic Smile Makeover & E-Max Veneers',
-    titleHi: 'कॉस्मेटिक स्माइल मेकओवर एवं विनियर',
+    id: 'cosmetic-veneers',
+    title: 'Cosmetic Dentistry & Porcelain Veneers',
+    titleHi: 'कॉस्मेटिक डेंटिस्ट्री और पोर्सिलेन विनियर',
+    titleTe: 'కాస్మెటిక్ డెంటిస్ట్రీ & పింగాణీ వెనీర్స్',
     category: 'cosmetic',
     icon: 'Sparkles',
-    shortDesc: 'Ultra-thin porcelain veneers, composite bonding, and Hollywood smile styling designed for your facial contours.',
-    shortDescHi: 'दांतों के रंग, आकार और चमक को सुधारने के लिए हॉलीवुड स्माइल डिजाइन।',
-    fullDesc: 'Transform discolored, chipped, worn, or uneven teeth into a sparkling, natural-looking celebrity smile tailored to your lip line and skin tone.',
-    duration: '2 - 3 Visits',
+    shortDesc: 'Digital Smile Design (DSD), ultra-thin E.max porcelain laminates, Lumineers, and Hollywood smile makeovers with master ceramists.',
+    shortDescHi: 'डिजिटल स्माइल डिज़ाइन और ई.मैक्स पोर्सिलेन विनियर द्वारा आपकी मुस्कान को बनाएं मनमोहक और चमकदार।',
+    fullDesc: 'Guided by senior aesthetic specialists and Dr. M. S. Bhoj, our cosmetic team uses 3D Digital Smile Design to preview your new smile on screen before touching a tooth. We craft hand-layered E.max veneers as thin as 0.3mm to fix gaps, severe discoloration, chipping, and misalignment.',
+    duration: '2 to 3 appointments over 5 to 7 days',
     painLevel: 'Zero / Painless',
-    startingPrice: 6999,
-    popular: false,
-    benefits: [
-      'Stain-resistant high-lustre aesthetic porcelain',
-      'Corrects chipped edges, fluorosis stains, and minor gaps',
-      'Boosts personal and professional confidence',
-      'Customized shade matching with natural translucency'
-    ],
-    procedureSteps: [
-      { step: 1, title: 'Facial Aesthetic Analysis', desc: 'Digital smile design to balance symmetry.' },
-      { step: 2, title: 'Minimal Enamel Preparation', desc: 'Ultra-conservative 0.3mm micro-polishing.' },
-      { step: 3, title: 'CAD/CAM Ceramic Crafting', desc: 'Precision ceramic fabrication by master dental lab.' },
-      { step: 4, title: 'Permanent Laser Bonding', desc: 'High-strength adhesive bonding for lifelong hold.' }
-    ],
-    afterCareTips: [
-      'Do not bite into hard items like bottle caps or ice cubes',
-      'Use a non-abrasive fluoride toothpaste'
-    ]
-  },
-  {
-    id: 'teeth-whitening-scaling',
-    title: 'Laser Teeth Whitening & Ultrasonic Scaling',
-    titleHi: 'लेजर टीथ व्हाइटनिंग एवं स्केलिंग (सफाई)',
-    category: 'general',
-    icon: 'Zap',
-    shortDesc: 'Remove stubborn tea/coffee/tobacco stains, tartar, and brighten your smile up to 8 shades lighter in 45 minutes.',
-    shortDescHi: 'दांतों की गहरी सफाई और लेजर से दांतों को सफेद व चमकदार बनाएं।',
-    fullDesc: 'Medical ultrasonic scaling gently dislodges plaque and calculus without scratching the enamel, followed by cold blue laser whitening for instant radiance.',
-    duration: '45 mins',
-    painLevel: 'Zero / Painless',
-    startingPrice: 1200,
+    startingPriceInr: 12000,
+    startingPriceUsd: 160,
     popular: true,
+    technologyUsed: ['3D Digital Smile Design (DSD)', 'Ivoclar Vivadent E.max Press', 'Intraoral 3D Color Scanner', 'Laser Gum Contouring'],
     benefits: [
-      'Eliminates bad breath (halitosis) and bleeding gums',
-      'Painless ultrasonic vibrations that protect enamel',
-      'Instant whitening visible right after treatment',
-      'Protects gums from periodontitis and tooth loosening'
+      'Stain-resistant porcelain that retains luster for 15+ years',
+      'Customized shade matching matching your skin tone and lip curvature',
+      'Minimal or zero-prep options preserving natural enamel',
+      'In-house lab master technician reviews tooth shape at chairside'
     ],
     procedureSteps: [
-      { step: 1, title: 'Plaque & Tartar Assessment', desc: 'Identify subgingival tartar and stains.' },
-      { step: 2, title: 'Ultrasonic Piezo Scaling', desc: 'Gentle water-cooled micro-vibrations.' },
-      { step: 3, title: 'Air-Flow Polishing', desc: 'Micro-powder spray to remove fine stains.' },
-      { step: 4, title: 'Laser Activation Gel (Optional)', desc: 'Hydrogen peroxide gel activated with cold LED light.' }
+      { step: 1, title: 'Digital Smile Simulation', desc: 'Facial aesthetic photography and 3D digital preview of your final smile transformation.' },
+      { step: 2, title: 'Micro-Preparation & Mockup', desc: 'Minimal surface shaping under magnification and provisional trial smile placement.' },
+      { step: 3, title: 'Master Ceramist Crafting', desc: 'Handcrafted layering of ultra-translucent E.max porcelain in our in-house lab.' },
+      { step: 4, title: 'Adhesive Cementation', desc: 'Permanent adhesive bonding with light curing for lifelong strength.' }
     ],
     afterCareTips: [
-      'Avoid colored beverages (curry, turmeric, coffee) for 48 hours ("White Diet")',
-      'Rinse with warm water after every meal'
+      'Wear a nightguard if you have a habit of clenching or grinding teeth at night.',
+      'Avoid biting down on hard objects like bottle caps, ice cubes, or nails.'
     ]
   },
   {
-    id: 'wisdom-tooth-surgery',
-    title: 'Painless Wisdom Tooth & Oral Surgery',
-    titleHi: 'दर्द रहित विस्डम टूथ (अक्ल दाढ़) सर्जरी',
-    category: 'surgery',
+    id: 'orthodontics-invisalign',
+    title: 'Invisalign & Clear Aligners (Diamond Provider)',
+    titleHi: 'इनविज़िलाइन और पारदर्शी क्लीयर एलाइनर्स',
+    titleTe: 'ఇన్విసలైన్ & క్లియర్ అలైన్ర్స్',
+    category: 'orthodontics',
+    icon: 'Smile',
+    shortDesc: 'Discreet, removable clear aligners to straighten crooked teeth without metal wires. Certified orthodontic provider in Uttar Pradesh.',
+    shortDescHi: 'बिना धातु के तारों के पारदर्शी एलाइनर्स से पाएं सीधी और खूबसूरत मुस्कान। किसी को पता भी नहीं चलेगा।',
+    fullDesc: 'At Hope Dental Hospital, our certified orthodontic team has treated hundreds of patients with custom clear aligners. Using the iTero 3D intraoral scanner, we map out tooth movement down to fractions of a millimeter. We also offer SmartALIGN, Damon self-ligating braces, and lingual (invisible inside) braces.',
+    duration: '6 to 14 months (depending on complexity)',
+    painLevel: 'Mild',
+    startingPriceInr: 65000,
+    startingPriceUsd: 800,
+    popular: true,
+    technologyUsed: ['iTero Element 5D Scanner', 'ClinCheck 3D Treatment Video', 'SmartTrack Medical Polyurethane', 'Accelerated Orthodontics'],
+    benefits: [
+      'Virtually 100% invisible — smile with full confidence throughout treatment',
+      'Removable for meals, brushing, and special occasions',
+      'No painful cuts, sores, or broken wires like traditional braces',
+      'View your full teeth movement video before starting treatment'
+    ],
+    procedureSteps: [
+      { step: 1, title: 'iTero 5D Intraoral Scan', desc: '6000 frames/second digital scan without messy silicone impression trays.' },
+      { step: 2, title: 'ClinCheck 3D Plan', desc: 'Senior Orthodontist customizes every stage of tooth movement on computer.' },
+      { step: 3, title: 'Custom Aligner Set Delivery', desc: 'Receive sequence of custom medical-grade aligners to switch every 7 to 10 days.' },
+      { step: 4, title: 'Vivera Retainers', desc: 'Final clear retainers to preserve your perfectly aligned smile for life.' }
+    ],
+    afterCareTips: [
+      'Wear aligners for 20 to 22 hours per day for optimal progress.',
+      'Clean aligners with lukewarm water and aligner crystals.'
+    ]
+  },
+  {
+    id: 'microscopic-rct',
+    title: 'Microscopic Single-Visit Root Canal (RCT)',
+    titleHi: 'माइक्रोस्कोपिक सिंगल सिटिंग रूट कैनाल',
+    titleTe: 'మైక్రోస్కోపిక్ సింగిల్-విజిట్ రూట్ కెనాల్',
+    category: 'endodontics',
     icon: 'Activity',
-    shortDesc: 'Safe, traumatic-free extraction of impacted or painful wisdom teeth with rapid recovery protocols.',
-    shortDescHi: 'फंसी हुई अक्ल दाढ़ को बिना दर्द और कम समय में सुरक्षित निकालना।',
-    fullDesc: 'Expert oral surgeons remove horizontal, angular, or deep-impacted third molars with localized computer numbing and stitchless or dissolving sutures.',
-    duration: '30 - 45 mins',
-    painLevel: 'Local Anesthesia',
-    startingPrice: 2999,
-    popular: false,
+    shortDesc: 'Painless single-visit root canal performed under Carl Zeiss dental operating microscopes with 99.4% clinical success rate.',
+    shortDescHi: 'कार्ल ज़ीस ऑपरेटिंग माइक्रोस्कोप और रोटरी फाइल्स द्वारा दर्द-रहित सिंगल विज़िट रूट कैनाल ट्रीटमेंट।',
+    fullDesc: 'At Hope Dental Hospital, root canal treatments are performed exclusively by qualified MDS Endodontists. High-powered Carl Zeiss microscopes magnify root canal anatomy up to 25x, revealing hidden accessory canals that ordinary clinics miss. Completed in a single 45-minute painless appointment using computer-controlled rotary files and warm gutta-percha 3D obturation.',
+    duration: '45 to 60 mins (Single Sitting)',
+    painLevel: 'Zero / Painless',
+    startingPriceInr: 4500,
+    startingPriceUsd: 60,
+    popular: true,
+    technologyUsed: ['Carl Zeiss OPMI PROergo Microscopes', 'VDW Gold Reciprocating Motors', 'Apex Locators Raypex 6', 'Thermafil 3D Warm Obturation'],
     benefits: [
-      'Relieves intense ear, jaw, and throat pain immediately',
-      'Protects adjacent molar teeth from cavity formation',
-      'PRP / PRF healing membrane for rapid gum closure',
-      'Expert post-op guidance and 24/7 doctor assistance'
+      'Save your natural tooth and eliminate severe toothache permanently',
+      'Single sitting convenience — no repeat anesthetic injections or visits',
+      '99.4% long-term success rate backed by endodontic specialists',
+      'Digital rubber dam isolation prevents any bacterial contamination'
     ],
     procedureSteps: [
-      { step: 1, title: 'Digital X-ray Nerve Location', desc: 'Assess inferior alveolar nerve proximity.' },
-      { step: 2, title: 'Profound Local Numbing', desc: 'Zero discomfort during the procedure.' },
-      { step: 3, title: 'Sectional Tooth Division', desc: 'Safe micro-division without bone trauma.' },
-      { step: 4, title: 'Collagen Plug & Suturing', desc: 'Promotes rapid clotting and clot stabilization.' }
+      { step: 1, title: 'Microscopic Canal Location', desc: 'Magnification illuminates all main and micro-accessory root canals.' },
+      { step: 2, title: 'Rotary Biomechanical Cleansing', desc: 'Titanium flexible files cleanse bacteria and infection down to the root tip.' },
+      { step: 3, title: 'Ultrasonic Disinfection', desc: 'Bio-inert solutions energized by ultrasound eliminate deep microbes.' },
+      { step: 4, title: '3D Hermetic Sealing', desc: 'Canals sealed with biocompatible warm gutta-percha ready for zirconia crown.' }
     ],
     afterCareTips: [
-      'Bite firmly on the sterile gauze pack for 45 minutes',
-      'Apply cold ice pack on cheek intermittently for the first 12 hours',
-      'Do not spit, suck with a straw, or smoke for 48 hours'
+      'Avoid chewing hard foods on the treated side until the permanent crown is placed.',
+      'Mild soreness is normal for 24-48 hours and easily managed with prescribed analgesics.'
     ]
   },
   {
-    id: 'pediatric-kids-dentistry',
-    title: 'Pediatric (Kids) Dentistry & Cavity Prevention',
-    titleHi: 'बच्चों की दंत चिकित्सा एवं कैविटी सुरक्षा',
+    id: 'laser-periodontics',
+    title: 'Laser Gum Treatment & Periodontics (LANAP)',
+    titleHi: 'लेज़र गम सर्जरी और पायरिया उपचार',
+    titleTe: 'లేజర్ గమ్ ట్రీట్మెంట్ & పెరియోడాంటిక్స్',
+    category: 'periodontics',
+    icon: 'Zap',
+    shortDesc: 'Non-surgical laser gum treatment using Biolase Waterlase to treat pyorrhea, bleeding gums, gum recession, and bad breath without scalpel.',
+    shortDescHi: 'बिना चीर-फाड़ वाटरलेस लेज़र द्वारा मसूड़ों की सूजन, पायरिया और ब्लीडिंग का सुरक्षित और स्थायी इलाज।',
+    fullDesc: 'Our periodontic division utilizes US-FDA cleared Biolase Waterlase iPlus and diode lasers for LANAP (Laser Assisted New Attachment Procedure). It sterilizes deep infected gum pockets, stimulates natural bone regeneration, removes dark gum pigmentation, and treats gummy smiles with zero stitches, zero bleeding, and instant recovery.',
+    duration: '30 to 45 mins per quadrant',
+    painLevel: 'Zero / Painless',
+    startingPriceInr: 3500,
+    startingPriceUsd: 50,
+    technologyUsed: ['Biolase Waterlase iPlus 2780nm', 'Epic X Diode Soft Tissue Laser', 'Piezo Ultrasonic Scalers'],
+    benefits: [
+      'No scalpels, incisions, or sutures required',
+      'Immediate relief from gum bleeding and chronic bad breath',
+      'Promotes bone regeneration around loose mobile teeth',
+      'Cosmetic pink gum depigmentation in a single 20-minute session'
+    ],
+    procedureSteps: [
+      { step: 1, title: 'Laser Pocket Sterilization', desc: 'Selective laser energy destroys pathogens while leaving healthy tissue intact.' },
+      { step: 2, title: 'Ultrasonic Calculus Debridement', desc: 'Subgingival calculus deposits removed thoroughly from root surfaces.' },
+      { step: 3, title: 'Fibrin Clot Formation', desc: 'Laser establishes an antimicrobial seal allowing gums to reattach to root.' }
+    ],
+    afterCareTips: [
+      'Use soft toothbrush and warm saltwater gargles for 3 days.',
+      'Follow up for preventive checkup every 6 months.'
+    ]
+  },
+  {
+    id: 'maxillofacial-surgery',
+    title: 'Oral & Maxillofacial Surgery & Wisdom Teeth',
+    titleHi: 'ओरल एवं मैक्सिलोफेशियल सर्जरी व अकल दाढ़',
+    titleTe: 'ఓరల్ & మాక్సిల్లోఫేషియల్ సర్జరీ',
+    category: 'surgery',
+    icon: 'Award',
+    shortDesc: 'Headed by Dr. Dushyanth Paul. Painless surgical extraction of impacted wisdom teeth, corrective jaw (orthognathic) surgeries, and facial trauma.',
+    shortDescHi: 'वरिष्ठ सर्जनों द्वारा अकल दाढ़ निकालना, जबड़े की सर्जरी और फेशियल ट्रॉमा का अस्पताल-ग्रेड ऑपरेशन।',
+    fullDesc: 'Hope Dental Hospital houses full hospital-grade surgical suites with conscious sedation and general anesthesia support. We treat complex impacted third molars, jaw cysts, facial trauma fractures, cleft lip/palate, and orthognathic corrective jaw surgery to correct underbites or facial asymmetry.',
+    duration: '20 to 40 mins (Wisdom Tooth) / Comprehensive for Jaw Surgeries',
+    painLevel: 'Local Anesthesia',
+    startingPriceInr: 5000,
+    startingPriceUsd: 70,
+    technologyUsed: ['Piezosurgery Bone Saw', 'Full Inpatient Operation Theatre', 'Anesthesia Monitoring Workstation'],
+    benefits: [
+      'Atraumatic extraction technique preserves surrounding jawbone',
+      'Option for conscious sedation or general anesthesia for anxious patients',
+      'Inpatient recovery rooms and post-op care team',
+      'Rapid healing with PRF (Platelet-Rich Fibrin) membrane placement'
+    ],
+    procedureSteps: [
+      { step: 1, title: '3D Digital Assessment', desc: 'CBCT verifies the exact nerve proximity and root curvature.' },
+      { step: 2, title: 'Painless Local Anesthesia', desc: 'Targeted nerve block ensures total numbness throughout the surgery.' },
+      { step: 3, title: 'Ultrasonic Piezo Extraction', desc: 'Tooth divided gently and removed with minimal pressure or trauma.' }
+    ],
+    afterCareTips: [
+      'Bite firmly on gauze pad for 45 minutes after procedure.',
+      'Apply ice pack to exterior cheek intermittently for 24 hours.'
+    ]
+  },
+  {
+    id: 'pediatric-dentistry',
+    title: 'Pediatric Dentistry & Child Smile Care',
+    titleHi: 'बच्चों की दंत चिकित्सा (पीडियाट्रिक)',
+    titleTe: 'పీడియాట్రిక్ డెంటిస్ట్రీ',
     category: 'pediatric',
     icon: 'Heart',
-    shortDesc: 'Child-friendly, fear-free gentle dental care including painless fillings, fluoride coatings, and habit corrections.',
-    shortDescHi: 'बच्चों के लिए विशेष मित्रतापूर्ण और डर-मुक्त दंत उपचार।',
-    fullDesc: 'Our dedicated pediatric operatory features colorful visual themes, gentle cartoon distraction techniques, and preventive pit-and-fissure sealants.',
-    duration: '30 mins',
+    shortDesc: 'Child-friendly environment with gentle pedodontists. Painless cavity treatments, fluoride varnish, pit & fissure sealants, and habit correction.',
+    shortDescHi: 'बच्चों के लिए विशेष खुशनुमा माहौल, बिना दर्द के कैविटी भराव और दांतों की सुरक्षा।',
+    fullDesc: 'Our dedicated pediatric dentists (Pedodontists) specialize in making children feel secure, comfortable, and excited about oral health. From painless laser cavity fillings, tooth-colored crowns, to interceptive orthodontics and nitrous oxide laughing gas sedation, we ensure your child grows up with a cavity-free smile.',
+    duration: '20 to 30 mins',
     painLevel: 'Zero / Painless',
-    startingPrice: 799,
-    popular: false,
+    startingPriceInr: 1500,
+    startingPriceUsd: 25,
+    technologyUsed: ['Nitrous Oxide (Laughing Gas) Sedation', 'Waterlase Laser Cavity Prep', 'Kids Play Area & VR Goggles'],
     benefits: [
-      '100% fear-free pediatric specialized dental team',
-      'Fluoride varnish protects teeth from sweets and junk food',
-      'Space maintainers ensure permanent teeth erupt straight',
-      'Thumb-sucking and mouth-breathing habit interceptors'
+      'Gentle child psychology approach creates zero dental fear',
+      'Laser cavity treatment without vibration, noise, or injections',
+      'Pit and fissure sealants prevent 80% of future tooth decay',
+      'Thumb sucking and tongue thrusting habit-breaking appliances'
     ],
     procedureSteps: [
-      { step: 1, title: 'Playful Acclimatization', desc: 'Show-Tell-Do technique to build trust.' },
-      { step: 2, title: 'Gentle Digital Examination', desc: 'Detect early micro-cavities.' },
-      { step: 3, title: 'Fluoride Shield or Tooth Mousse', desc: 'Remineralizes early enamel spots.' },
-      { step: 4, title: 'Reward & Bravery Certificate', desc: 'Encouraging healthy habits with fun badges.' }
+      { step: 1, title: 'Fun Gentle Examination', desc: 'Child explores clinic environment with interactive storytelling.' },
+      { step: 2, title: 'Preventive Fluoride Coating', desc: 'Strengthens developing enamel against sugar acid attacks.' },
+      { step: 3, title: 'Painless Restorations', desc: 'Tooth-colored biocompatible fillings completed comfortably.' }
     ],
     afterCareTips: [
-      'Assist children with twice-daily brushing until age 8',
-      'Limit sticky candies and sugary bedtime drinks'
+      'Supervise brushing twice daily with age-appropriate fluoride toothpaste.',
+      'Limit sticky sugary snacks and sodas.'
     ]
   },
   {
-    id: 'crowns-zirconia-bridges',
-    title: 'CAD/CAM Zirconia Crowns & Fixed Bridges',
-    titleHi: 'CAD/CAM जिरकोनिया क्राउन और फिक्स्ड ब्रिज',
-    category: 'rct',
-    icon: 'Award',
-    shortDesc: 'Unbreakable German metal-free Zirconia and ceramic caps backed with up to 15 years replacement warranty.',
-    shortDescHi: 'मजबूत और प्राकृतिक दिखने वाली जर्मन जिरकोनिया कैप्स (१५ वर्ष वारंटी)।',
-    fullDesc: 'Custom milled using 5-axis computer robotic milling for a microscopic edge fit that prevents food lodgement, gum irritation, and black gum lines.',
-    duration: '2 short visits (3 days turnaround)',
+    id: 'tmj-neuromuscular',
+    title: 'Neuromuscular Dentistry & TMJ Pain Relief',
+    titleHi: 'टीएमजे जबड़ा दर्द एवं न्यूरोमस्कुलर उपचार',
+    titleTe: 'న్యూరోమస్కులర్ డెంటిస్ట్రీ & టిఎమ్జె థెరపీ',
+    category: 'tmj',
+    icon: 'Compass',
+    shortDesc: 'One of the dedicated TMJ centers in Uttar Pradesh. Diagnostic T-Scan III, EMG, and jaw tracking to cure jaw clicking, facial pain, and migraine headaches.',
+    shortDescHi: 'जबड़े की चटकन, दर्द और पुराने सिरदर्द का आधुनिक टी-स्कैन एवं ईएमजी तकनीक द्वारा सटीक इलाज।',
+    fullDesc: 'Chronic headaches, neck stiffness, jaw clicking, and teeth grinding (bruxism) often stem from TMJ (temporomandibular joint) disorders and bite imbalance. At Hope Dental Hospital, we use computerized T-Scan digital occlusal analysis, Electromyography (EMG), and TENS muscle relaxation therapy to restore proper jaw alignment and provide lasting relief.',
+    duration: '45 to 60 mins per session',
     painLevel: 'Zero / Painless',
-    startingPrice: 3999,
-    popular: true,
+    startingPriceInr: 5000,
+    startingPriceUsd: 70,
+    technologyUsed: ['Tekscan T-Scan III Digital Occlusion', 'Biopak Jaw Tracking & EMG', 'K7 Evaluation System', 'Low Level Laser Therapy (LLLT)'],
     benefits: [
-      '10 to 15 Years Written Replacement Warranty Card',
-      'Metal-free: No black margin lines over gums',
-      '100% biocompatible and virtually unbreakable',
-      'Exact color shade blending with your surrounding teeth'
+      'Eliminates chronic morning headaches and facial jaw stiffness',
+      'Prevents teeth from chipping, wearing down, and cracking',
+      'Restores balanced bite forces across all 32 teeth',
+      'Non-invasive, drug-free therapeutic orthotics'
     ],
     procedureSteps: [
-      { step: 1, title: 'Tooth Preparation & Scanning', desc: 'Precision digital 3D impression.' },
-      { step: 2, title: 'Robotic CAD/CAM Milling', desc: 'Automated fabrication from solid Zirconia block.' },
-      { step: 3, title: 'Shade & Bite Verification', desc: 'Trial fit for natural chewing comfort.' },
-      { step: 4, title: 'Resin Adhesive Cementation', desc: 'Permanent chemical bonding.' }
+      { step: 1, title: 'Digital Bite Analysis (T-Scan)', desc: 'Patient bites on micro-sensor measuring dynamic force in milliseconds.' },
+      { step: 2, title: 'Muscle Relaxation (TENS)', desc: 'Ultra-low frequency neurostimulation relieves muscle spasms.' },
+      { step: 3, title: 'Custom Neuromuscular Orthotic', desc: 'Precision appliance repositions jaw into its optimal resting harmony.' }
     ],
     afterCareTips: [
-      'Floss between crowned teeth regularly',
-      'Avoid opening bottle caps or breaking hard nutshells'
+      'Wear the therapeutic orthotic appliance as prescribed by the TMJ specialist.',
+      'Avoid hard, chewy foods and prolonged gum chewing.'
     ]
   }
 ];
 
 export const DOCTORS_DATA: Doctor[] = [
   {
-    id: 'dr-amit-verma',
-    name: 'Dr. Amit Verma',
-    nameHi: 'डॉ. अमित वर्मा',
-    qualification: 'BDS, MDS (Oral & Maxillofacial Surgery & Implantology), FICOI (USA)',
-    role: 'Chief Dental Surgeon & Head of Implantology',
-    roleHi: 'मुख्य दंत शल्य चिकित्सक एवं इम्प्लांट विशेषज्ञ',
+    id: 'dr-himangi-dubey',
+    name: 'Dr. Himangi Dubey',
+    nameHi: 'डॉ. हिमांगी दुबे',
+    qualification: 'BDS, MDS (Periodontology & Oral Implantology - KGMU Lucknow)',
+    designation: 'Founder, Medical Director & Chief Dental Surgeon',
+    role: 'Chief Periodontist & Oral Implantologist',
+    roleHi: 'संस्थापक एवं मेडिकल डायरेक्टर — इम्प्लांट एवं लेज़र विशेषज्ञ',
+    experienceYears: 15,
+    rating: 5.0,
+    reviewCount: 2840,
+    image: './doctors/dr-shailaja-reddy.webp',
+    primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
+    department: 'Implantology, Periodontics & TMJ Wellness',
+    bio: 'Founder & Medical Director of Hope Dental Hospital & Wellness Centre in Sadrauna, Para Road, Lucknow. Former Senior Resident at King George\'s Medical University (KGMU), Lucknow. Head of Department of Dentistry at Ajanta Hospital & IVF Centre. Prominent television health expert on Doordarshan UP (@DDUP) and All India Radio. Honored with the Award of Appreciation at the 8th UP Dental Show 2026. Renowned expert in dental implants, Biolase laser gum surgeries, TMJ night guard therapy, and tobacco cessation counselling.',
+    accolades: [
+      'Former Senior Resident, King George\'s Medical University (KGMU Lucknow)',
+      'Award of Appreciation – 8th UP Dental Show 2026 (Co-Chairperson & Moderator)',
+      'Head of Department of Dentistry, Ajanta Hospital & IVF Centre, Lucknow',
+      'Featured Television Dental Panellist on Doordarshan UP (@DDUP) & All India Radio',
+      '15+ Years Clinical Mastery in Dental Implants & Laser LANAP Gum Surgery'
+    ],
+    languages: ['English', 'Hindi', 'Urdu'],
+    specialities: ['Full-Arch Dental Implants', 'Biolase Laser LANAP Gum Surgery', 'TMJ Splint & Night Guard Therapy', 'Bone Regeneration & Sinus Lifts', 'Tobacco Cessation Counselling']
+  },
+  {
+    id: 'dr-m-s-bhoj',
+    name: 'Dr. M. S. Bhoj',
+    nameHi: 'डॉ. एम. एस. भोज',
+    qualification: 'BDS, MDS (Prosthodontics & Oral Rehabilitation)',
+    designation: 'Senior Medical Advisor & Emeritus Prosthodontist',
+    role: 'Emeritus Consultant Prosthodontist',
+    roleHi: 'सीनियर मेडिकल एडवाइज़र एवं प्रोस्थोडॉन्टिक्स प्रमुख',
+    experienceYears: 42,
+    rating: 5.0,
+    reviewCount: 3120,
+    image: './doctors/dr-partha-reddy.jpg',
+    primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
+    department: 'Prosthodontics & Full Mouth Rehabilitation',
+    bio: 'Distinguished dental academic and master clinician with over 40 years of restorative mastery. Directs complex full mouth rehabilitation, precision-attachment dentures, and CAD/CAM zirconia prosthetics at Hope Dental Hospital in Lucknow.',
+    accolades: [
+      '40+ Years of Distinguished Clinical Dental Mastery',
+      'Former Department Chair of Prosthodontics at Prestigious Universities',
+      'Mentored over 500+ MDS Post-Graduates across India',
+      'Pioneer in Precision Attachment & Hybrid Fixed Prosthetics'
+    ],
+    languages: ['English', 'Hindi', 'Urdu'],
+    specialities: ['Full Mouth Aesthetic Rehabilitation', 'Precision Attachment Dentures', 'CAD/CAM Zirconia Crowns & Bridges', 'TMJ Occlusal Therapy']
+  },
+  {
+    id: 'dr-prabhat-tiwari',
+    name: 'Dr. Prabhat Tiwari',
+    nameHi: 'डॉ. प्रभात तिवारी',
+    qualification: 'BDS, MDS (Conservative Dentistry & Endodontics)',
+    designation: 'Chief Endodontist & Microscopic RCT Specialist',
+    role: 'Senior Consultant Endodontist',
+    roleHi: 'सीनियर एंडोडॉन्टिस्ट — रूट कैनाल विशेषज्ञ',
+    experienceYears: 18,
+    rating: 5.0,
+    reviewCount: 1980,
+    image: './doctors/dr-prabhat.webp',
+    primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
+    department: 'Endodontics & Conservative Operatory',
+    bio: 'Expert in Carl Zeiss dental operating microscope root canals, single-sitting endodontics, calcified canal negotiation, and broken instrument retrieval with unmatched precision at Hope Dental Hospital Lucknow.',
+    accolades: ['Carl Zeiss Microscopy Certified Clinician', 'Over 12,000+ Root Canals Saved Painlessly'],
+    languages: ['English', 'Hindi'],
+    specialities: ['Microscopic Root Canal', 'Single-Visit Endodontics', 'Endodontic Retreatment', 'Internal Tooth Bleaching']
+  },
+  {
+    id: 'dr-kavya-ravuri',
+    name: 'Dr. Kavya Ravuri',
+    nameHi: 'डॉ. काव्या रावुरी',
+    qualification: 'BDS, MDS (Orthodontics & Dentofacial Orthopaedics)',
+    designation: 'Senior Consultant Orthodontist',
+    role: 'Clear Aligner & Braces Specialist',
+    roleHi: 'सीनियर ऑर्थोडॉन्टिस्ट — एलाइनर स्पेशलिस्ट',
+    experienceYears: 16,
+    rating: 4.9,
+    reviewCount: 1640,
+    image: './doctors/dr-kavya.webp',
+    primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
+    department: 'Orthodontics & Clear Aligners',
+    bio: 'Certified clear aligner specialist. Expertise in treating complex adult and teen malocclusions with invisible aligners, self-ligating systems, and interceptive pediatric habit breaking at Hope Dental Hospital.',
+    accolades: ['Certified Clear Aligner Provider', 'SmartALIGN Advisory Specialist'],
+    languages: ['English', 'Hindi'],
+    specialities: ['Invisible Clear Aligners', 'Damon System Braces', 'Interceptive Child Orthodontics', 'Lingual Invisible Braces']
+  },
+  {
+    id: 'dr-dushyanth-paul',
+    name: 'Dr. Dushyanth Paul',
+    nameHi: 'डॉ. दुष्यंत पॉल',
+    qualification: 'BDS, MDS (Oral & Maxillofacial Surgery)',
+    designation: 'Senior Consultant Maxillofacial Surgeon',
+    role: 'Chief Maxillofacial & Trauma Surgeon',
+    roleHi: 'डायरेक्टर — ओरल एवं मैक्सिलोफेशियल सर्जरी',
+    experienceYears: 22,
+    rating: 5.0,
+    reviewCount: 2150,
+    image: './doctors/dr-dushyanth-paul.jpg',
+    primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
+    department: 'Oral & Maxillofacial Surgery',
+    bio: 'Leads complex oral and maxillofacial surgeries, orthognathic corrective jaw surgery, facial trauma reconstruction, impacted wisdom tooth extractions, and emergency dental trauma at Hope Dental Hospital.',
+    accolades: [
+      'Fellow of International Association of Oral & Maxillofacial Surgeons',
+      'Over 8,000+ Complex Surgical Extractions and Jaw Corrections'
+    ],
+    languages: ['English', 'Hindi'],
+    specialities: ['Impacted Wisdom Teeth Surgery', 'Orthognathic Corrective Jaw Surgery', 'Facial Trauma Reconstruction', 'Maxillofacial Cysts & Biopsies']
+  },
+  {
+    id: 'dr-khushboo',
+    name: 'Dr. Khushboo',
+    nameHi: 'डॉ. खुशबू',
+    qualification: 'BDS, MDS (Periodontics & Laser Dentistry)',
+    designation: 'Senior Periodontist & Laser Specialist',
+    role: 'Consultant Laser Gum Specialist',
+    roleHi: 'कंसल्टेंट लेज़र गम एवं पेरिओडोंटिस्ट',
     experienceYears: 14,
     rating: 4.9,
-    reviewCount: 310,
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80',
-    availability: 'Mon - Sat: 9:30 AM - 2:00 PM & 5:00 PM - 8:00 PM',
-    bio: 'Renowned implant surgeon with over 3,200 successful dental implants. Specializes in Immediate Loading Implants, All-on-4 full arch rehabilitation, and painless bone grafting.',
-    languages: ['Hindi', 'English', 'Awadhi'],
-    specialities: ['Dental Implants', 'Full Mouth Rehabilitation', 'Wisdom Tooth Surgery', 'Laser Surgery']
-  },
-  {
-    id: 'dr-neha-sharma',
-    name: 'Dr. Neha Sharma',
-    nameHi: 'डॉ. नेहा शर्मा',
-    qualification: 'BDS, MDS (Conservative Dentistry & Endodontics)',
-    role: 'Senior Micro-Endodontist & RCT Specialist',
-    roleHi: 'वरिष्ठ माइक्रो-एंडोडोंटिस्ट एवं आरसीटी विशेषज्ञ',
-    experienceYears: 10,
-    rating: 4.9,
-    reviewCount: 260,
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80',
-    availability: 'Mon - Sat: 10:00 AM - 4:00 PM',
-    bio: 'Expert in rotary single-sitting root canals and aesthetic restorative dentistry. Has treated over 8,000 RCT cases with near 99.5% pain-free success rate.',
-    languages: ['Hindi', 'English'],
-    specialities: ['Single Sitting RCT', 'Re-RCT & Periapical Surgeries', 'Cosmetic Bonding', 'Teeth Whitening']
-  },
-  {
-    id: 'dr-rajesh-tripathi',
-    name: 'Dr. Rajesh Tripathi',
-    nameHi: 'डॉ. राजेश त्रिपाठी',
-    qualification: 'BDS, MDS (Orthodontics & Dentofacial Orthopedics), Certified Clear Aligner Provider',
-    role: 'Senior Orthodontist & Smile Architect',
-    roleHi: 'वरिष्ठ ऑर्थोडोंटिस्ट एवं क्लियर एलाइनर विशेषज्ञ',
-    experienceYears: 12,
-    rating: 4.8,
-    reviewCount: 195,
-    image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80',
-    availability: 'Tue, Thu, Sat: 3:00 PM - 7:30 PM',
-    bio: 'Specialist in correcting irregular teeth, gaps, forward-thrust teeth, and jaw alignment using invisible aligners and Damon self-ligating braces.',
-    languages: ['Hindi', 'English'],
-    specialities: ['Invisible Aligners', 'Ceramic Braces', 'Jaw Orthopedics', 'Retainers & Habit Breaking']
-  },
-  {
-    id: 'dr-pooja-singh',
-    name: 'Dr. Pooja Singh',
-    nameHi: 'डॉ. पूजा सिंह',
-    qualification: 'BDS, MDS (Pediatric & Preventive Dentistry)',
-    role: 'Pediatric Dentist & Preventive Oral Health Specialist',
-    roleHi: 'बाल दंत रोग विशेषज्ञ (पीडियाट्रिक डेंटिस्ट)',
-    experienceYears: 8,
-    rating: 4.9,
-    reviewCount: 180,
-    image: 'https://images.unsplash.com/photo-1594824813501-4838e2ddb7c2?auto=format&fit=crop&w=600&q=80',
-    availability: 'Mon, Wed, Fri, Sun: 10:00 AM - 2:00 PM',
-    bio: 'Loves treating infants, children, and teens with friendly communication, pain-free pulpectomy, preventive sealants, and milk tooth preservation.',
-    languages: ['Hindi', 'English'],
-    specialities: ['Kids Dental Care', 'Fluoride Varnishing', 'Space Maintainers', 'Tongue-tie Release']
+    reviewCount: 1220,
+    image: './doctors/dr-khushboo.jpg',
+    primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
+    department: 'Periodontics & Laser Surgery',
+    bio: 'Specialist in minimally invasive Waterlase laser gum surgery, LANAP, cosmetic gum depigmentation, and bone grafting around compromised teeth and dental implants.',
+    accolades: ['Certified Biolase Laser Clinician', 'Member of Indian Society of Periodontology'],
+    languages: ['English', 'Hindi'],
+    specialities: ['Laser LANAP Gum Treatment', 'Cosmetic Gum Contouring', 'Bone Regeneration Grafting', 'Peri-implantitis Therapy']
   }
 ];
 
-export const INITIAL_APPOINTMENTS: Appointment[] = [
+export const SMILE_TRANSFORMATIONS_DATA: SmileTransformation[] = [
   {
-    id: 'HDH-2026-8942',
-    patientName: 'Virendra Kumar',
-    patientPhone: '9839123456',
-    patientEmail: 'virendra.k@gmail.com',
-    patientAge: 42,
-    gender: 'Male',
-    doctorId: 'dr-amit-verma',
-    treatmentId: 'dental-implants',
-    date: '2026-09-24',
-    timeSlot: '11:00 AM - 11:30 AM',
-    isNewPatient: false,
-    notes: 'Follow-up for lower right molar implant fixture review.',
-    xRayAttached: true,
-    status: 'Confirmed',
-    createdAt: '2026-09-23T10:15:00Z',
-    paymentStatus: 'Paid',
-    amount: 18999
+    id: 'case-1',
+    title: 'Full Arch All-on-4 Dental Implants Rehabilitation',
+    category: 'Dental Implants',
+    patientAgeCity: '58 yrs, London (UK)',
+    procedure: 'Nobel Biocare All-on-4 with Immediate CAD/CAM Zirconia Bridge',
+    duration: '3 Days Total',
+    doctorName: 'Dr. Himangi Dubey',
+    beforeImage: './cases/ba-1.webp',
+    afterImage: './cases/ba-2.webp',
+    patientFeedback: '"I flew from the UK to Hope Dental Hospital in Lucknow after being quoted £32,000 for full mouth implants. Dr. Himangi Dubey gave me fixed teeth in 3 days with Nobel Biocare at a fraction of the UK cost. Life-changing and virtually painless experience!"'
   },
   {
-    id: 'HDH-2026-8943',
-    patientName: 'Sunita Mishra',
-    patientPhone: '9451876543',
-    patientEmail: 'sunita.mishra@yahoo.com',
-    patientAge: 35,
-    gender: 'Female',
-    doctorId: 'dr-neha-sharma',
-    treatmentId: 'rct-single-sitting',
-    date: '2026-09-24',
-    timeSlot: '03:30 PM - 04:00 PM',
-    isNewPatient: true,
-    notes: 'Severe sharp pain on upper left tooth while drinking cold water.',
-    xRayAttached: false,
-    status: 'Confirmed',
-    createdAt: '2026-09-23T14:30:00Z',
-    paymentStatus: 'Pending',
-    amount: 2499
+    id: 'case-2',
+    title: 'Hollywood Smile Makeover with 16 E.max Porcelain Veneers',
+    category: 'Cosmetic Dentistry',
+    patientAgeCity: '32 yrs, Dubai (UAE)',
+    procedure: '3D Digital Smile Design + 16 Ultra-Thin E.max Veneers',
+    duration: '5 Days Total',
+    doctorName: 'Dr. M. S. Bhoj',
+    beforeImage: './cases/ba-3.webp',
+    afterImage: './cases/ba-4.webp',
+    patientFeedback: '"I had severe fluoride staining and chipped front teeth. Dr. Bhoj and his team customized my veneers right down to the shade and translucency. My confidence has skyrocketed!"'
   },
   {
-    id: 'HDH-2026-8944',
-    patientName: 'Aarav Gupta',
-    patientPhone: '8765432109',
-    patientEmail: 'rahul.gupta.aarav@gmail.com',
-    patientAge: 11,
-    gender: 'Male',
-    doctorId: 'dr-pooja-singh',
-    treatmentId: 'pediatric-kids-dentistry',
-    date: '2026-09-25',
-    timeSlot: '10:30 AM - 11:00 AM',
-    isNewPatient: true,
-    notes: 'Milk tooth cavity check and fluoride protective shield.',
-    xRayAttached: false,
-    status: 'Confirmed',
-    createdAt: '2026-09-23T16:00:00Z',
-    paymentStatus: 'Paid',
-    amount: 799
+    id: 'case-3',
+    title: 'Invisalign Clear Aligners Non-Extraction Smile Correction',
+    category: 'Orthodontics',
+    patientAgeCity: '24 yrs, Lucknow',
+    procedure: 'Invisalign Comprehensive with SmartTrack Aligners',
+    duration: '9 Months',
+    doctorName: 'Dr. Kavya Ravuri',
+    beforeImage: './cases/ba-1.webp',
+    afterImage: './cases/ba-3.webp',
+    patientFeedback: '"Nobody at my office even realized I was wearing aligners. My severe crowding was completely fixed without extracting any teeth!"'
+  },
+  {
+    id: 'case-4',
+    title: 'Severe Bone Loss Rebuilt with Laser Periodontics & Implants',
+    category: 'Advanced Surgery',
+    patientAgeCity: '64 yrs, Sydney (Australia)',
+    procedure: 'Biolase Laser LANAP + Computer Guided Nobel Implants',
+    duration: '4 Days',
+    doctorName: 'Dr. Himangi Dubey & Dr. Dushyanth Paul',
+    beforeImage: './cases/ba-2.webp',
+    afterImage: './cases/ba-4.webp',
+    patientFeedback: '"Other dentists told me I had severe bone loss from pyorrhea and could never have implants. Dr. Himangi used laser gum regeneration and guided implants to give me solid fixed teeth."'
   }
 ];
 
-export const INITIAL_INVOICES: Invoice[] = [
+export const TREATMENT_COST_DATA: TreatmentCostItem[] = [
   {
-    id: 'INV-001',
-    invoiceNumber: 'HDH-INV-2026-0421',
-    appointmentId: 'HDH-2026-8942',
-    patientName: 'Virendra Kumar',
-    patientPhone: '9839123456',
-    patientAge: 42,
-    patientGender: 'Male',
-    patientAddress: 'Sadrauna, Mohan Road, Lucknow, UP',
-    date: '2026-09-23',
-    doctorName: 'Dr. Amit Verma (MDS Implantologist)',
-    items: [
-      { id: '1', description: 'Specialist Consultation & 3D Digital Scan', hsnSac: '999312', qty: 1, unitPrice: 500, total: 500 },
-      { id: '2', description: 'Nobel Biocare Titanium Implant Fixture (Lower Molar)', hsnSac: '999312', qty: 1, unitPrice: 18000, total: 18000 },
-      { id: '3', description: 'Digital OPG Post-Op X-Ray & Sterilization Protocol', hsnSac: '999312', qty: 1, unitPrice: 500, total: 500 }
-    ],
-    subtotal: 19000,
-    taxGst: 0,
-    discount: 500,
-    totalAmount: 18500,
-    paymentMode: 'UPI / QR',
-    paymentStatus: 'Paid',
-    paymentDate: '2026-09-23',
-    qrCodeData: 'upi://pay?pa=hopedental@sbi&pn=HopeDentalHospital&am=18500&tr=HDH-INV-2026-0421',
-    notes: 'Post-op medication kit provided. Next crown measurement visit scheduled after 8 weeks.'
+    id: 'single-implant-nobel',
+    treatmentName: 'Single Tooth Dental Implant (Nobel Biocare / Straumann)',
+    category: 'implants',
+    variant: 'Premium Swiss/Swedish Titanium + Zirconia Crown',
+    brandOrMaterial: 'Nobel Biocare Active / Straumann SLA',
+    priceInr: 38000,
+    priceUsd: 450,
+    priceGbp: 360,
+    priceEur: 420,
+    priceAed: 1650,
+    usAvgUsd: 2800,
+    ukAvgGbp: 2200,
+    durationDays: 3,
+    visitsCount: 2,
+    warranty: 'Lifetime Global International Warranty',
+    description: 'Gold-standard dental implant fixture with custom CAD/CAM abutment and monolithic zirconia crown.'
   },
   {
-    id: 'INV-002',
-    invoiceNumber: 'HDH-INV-2026-0398',
-    appointmentId: 'HDH-2026-8812',
-    patientName: 'Priyanka Saxena',
-    patientPhone: '9415667788',
-    patientAge: 28,
-    patientGender: 'Female',
-    patientAddress: 'Alambagh, Lucknow, UP',
-    date: '2026-09-21',
-    doctorName: 'Dr. Neha Sharma (MDS Endodontist)',
-    items: [
-      { id: '1', description: 'OPD Consultation & Diagnostic Pulp Vitality Test', hsnSac: '999312', qty: 1, unitPrice: 400, total: 400 },
-      { id: '2', description: 'Single-Sitting Rotary Root Canal Treatment (RCT)', hsnSac: '999312', qty: 1, unitPrice: 2499, total: 2499 },
-      { id: '3', description: 'CAD/CAM Multi-Layered Zirconia Crown (15 Yr Warranty)', hsnSac: '999312', qty: 1, unitPrice: 4500, total: 4500 }
-    ],
-    subtotal: 7399,
-    taxGst: 0,
-    discount: 399,
-    totalAmount: 7000,
-    paymentMode: 'Credit/Debit Card',
-    paymentStatus: 'Paid',
-    paymentDate: '2026-09-21',
-    qrCodeData: 'upi://pay?pa=hopedental@sbi&pn=HopeDentalHospital&am=7000&tr=HDH-INV-2026-0398',
-    notes: 'Warranty certificate code: ZIR-LKO-2026-9081 issued.'
+    id: 'all-on-4-full-arch',
+    treatmentName: 'All-on-4 Full Arch Fixed Teeth (Per Jaw)',
+    category: 'fullmouth',
+    variant: '4 Premium Implants + Full Fixed 12-Tooth Hybrid Zirconia Bridge',
+    brandOrMaterial: 'Nobel Biocare All-on-4 System',
+    priceInr: 220000,
+    priceUsd: 2650,
+    priceGbp: 2100,
+    priceEur: 2450,
+    priceAed: 9700,
+    usAvgUsd: 15000,
+    ukAvgGbp: 12000,
+    durationDays: 4,
+    visitsCount: 2,
+    warranty: '15 Years Warranty on Bridge + Lifetime on Implants',
+    description: 'Immediate fixed teeth in 72 hours for completely edentulous arch. Includes 3D CBCT, temporary bridge, and final precision bridge.'
   },
   {
-    id: 'INV-003',
-    invoiceNumber: 'HDH-INV-2026-0512',
-    appointmentId: 'HDH-2026-8919',
-    patientName: 'Rameshwar Dayal',
-    patientPhone: '9935112233',
-    patientAge: 64,
-    patientGender: 'Male',
-    patientAddress: 'Rajajipuram, Lucknow, UP',
-    date: '2026-09-22',
-    doctorName: 'Dr. Amit Verma (MDS Surgeon)',
-    items: [
-      { id: '1', description: 'Senior Citizen Complete Oral Health Evaluation', hsnSac: '999312', qty: 1, unitPrice: 300, total: 300 },
-      { id: '2', description: 'Ultrasonic Scaling & Deep Periodontal Curettage', hsnSac: '999312', qty: 1, unitPrice: 1200, total: 1200 },
-      { id: '3', description: 'Lucitone Flexible Partial Denture (3 Teeth)', hsnSac: '999312', qty: 1, unitPrice: 3500, total: 3500 }
-    ],
-    subtotal: 5000,
-    taxGst: 0,
-    discount: 500,
-    totalAmount: 4500,
-    paymentMode: 'Cash at Counter',
-    paymentStatus: 'Paid',
-    paymentDate: '2026-09-22',
-    qrCodeData: 'upi://pay?pa=hopedental@sbi&pn=HopeDentalHospital&am=4500&tr=HDH-INV-2026-0512',
-    notes: 'Senior citizen wellness package discount applied.'
+    id: 'all-on-6-full-arch',
+    treatmentName: 'All-on-6 Full Arch Fixed Teeth (Per Jaw)',
+    category: 'fullmouth',
+    variant: '6 Implants + 14-Tooth High Strength Zirconia Bridge',
+    brandOrMaterial: 'Straumann / Nobel Biocare 6 Fixtures',
+    priceInr: 280000,
+    priceUsd: 3350,
+    priceGbp: 2650,
+    priceEur: 3100,
+    priceAed: 12300,
+    usAvgUsd: 22000,
+    ukAvgGbp: 16000,
+    durationDays: 4,
+    visitsCount: 2,
+    warranty: 'Lifetime Warranty on Implants',
+    description: 'Maximum masticatory stability with 6 load-distributing implants for upper or lower jaw.'
+  },
+  {
+    id: 'porcelain-veneer-emax',
+    treatmentName: 'Hand-Layered E.max Porcelain Veneer (Per Tooth)',
+    category: 'cosmetic',
+    variant: '0.3mm Ultra-Thin High Translucency Laminate',
+    brandOrMaterial: 'Ivoclar Vivadent IPS E.max Press',
+    priceInr: 12500,
+    priceUsd: 150,
+    priceGbp: 120,
+    priceEur: 140,
+    priceAed: 550,
+    usAvgUsd: 1200,
+    ukAvgGbp: 850,
+    durationDays: 5,
+    visitsCount: 2,
+    warranty: '10 Years Warranty against chipping/discoloration',
+    description: 'Custom handcrafted cosmetic veneer by master ceramists at our in-house lab.'
+  },
+  {
+    id: 'invisalign-comprehensive',
+    treatmentName: 'Invisalign Comprehensive Clear Aligners',
+    category: 'ortho',
+    variant: 'Unlimited Aligners Set + 3 Sets of Vivera Retainers',
+    brandOrMaterial: 'Invisalign Align Technology (USA)',
+    priceInr: 180000,
+    priceUsd: 2150,
+    priceGbp: 1700,
+    priceEur: 1980,
+    priceAed: 7900,
+    usAvgUsd: 6500,
+    ukAvgGbp: 4500,
+    durationDays: 365,
+    visitsCount: 6,
+    warranty: '5 Years Aligner Refinement Guarantee',
+    description: 'Full orthodontic correction supervised by Diamond Invisalign Orthodontists.'
+  },
+  {
+    id: 'microscopic-rct-single',
+    treatmentName: 'Carl Zeiss Microscopic Single-Visit RCT',
+    category: 'endodontics',
+    variant: 'Magnification Endodontics + Biocompatible Warm Seal',
+    brandOrMaterial: 'Carl Zeiss OPMI + VDW Rotary',
+    priceInr: 5500,
+    priceUsd: 65,
+    priceGbp: 52,
+    priceEur: 60,
+    priceAed: 240,
+    usAvgUsd: 1100,
+    ukAvgGbp: 650,
+    durationDays: 1,
+    visitsCount: 1,
+    warranty: 'Clinical Success Guarantee with MDS Endodontist',
+    description: 'Single-sitting painless root canal saving severely infected or broken tooth.'
   }
 ];
 
 export const BLOGS_DATA: BlogPost[] = [
   {
-    id: 'b1',
-    slug: 'single-sitting-rct-myths-vs-facts',
-    title: 'Single-Sitting Root Canal: Myths vs Clinical Facts Explained by Experts',
-    titleHi: 'सिंगल-सिटिंग रूट कैनाल: भ्रम बनाम सच, विशेषज्ञों द्वारा विश्लेषण',
-    summary: 'Worried that a root canal is painful? Learn how modern German rotary technology and computer numbing complete the procedure in just one 45-minute visit.',
-    summaryHi: 'क्या आप रूट कैनाल के दर्द से डरते हैं? जानिए कैसे आधुनिक जर्मन रोटरी तकनीक से सिर्फ एक बार में दर्द रहित इलाज संभव है।',
-    content: `For decades, patients feared Root Canal Treatment (RCT) thinking it required 3 to 4 painful sittings with long needles. At Hope Dental Hospital & Wellness Centre in Sadrauna, Lucknow, we have completely transformed this experience with advanced single-sitting rotary endodontics.
-
-### How Does Single-Sitting Rotary RCT Work?
-1. **High-Precision Digital Apex Locators:** We accurately measure the exact depth of the root canal down to a fraction of a millimetre without guesswork.
-2. **Flexible Nickel-Titanium (NiTi) Rotary Files:** These ultra-flexible instruments clean the narrow, curved root channels smoothly in minutes.
-3. **Computer-Controlled Numbing:** Ensures the tooth and surrounding area remain 100% numb throughout the procedure.
-4. **Hermetic Bio-Ceramic Seal:** The root is sealed with biocompatible material that prevents any future reinfection.
-
-### Why You Should Never Delay an RCT
-Leaving a decayed tooth untreated allows oral bacteria to travel deep into your jawbone, forming painful abscesses, swelling, and systemic infections. Saving your natural tooth preserves your bite strength, natural smile aesthetics, and saves you from complex future procedures.
-
-### Post-RCT Care Guidelines
-- Avoid biting very hard foods (like sugarcane or ice) until the permanent Zirconia crown is cemented.
-- Floss normally between teeth; a treated tooth behaves just like a healthy natural tooth.
-- Visit your dentist every 6 months for routine cleaning and checkups.`,
-    category: 'Root Canal & Surgery',
+    id: 'blog-1',
+    slug: 'tobacco-cessation-how-to-quit-dr-himangi-dubey-lucknow',
+    title: 'तंबाकू कैसे छोड़ें | How to Quit Tobacco by Dr. Himangi Dubey',
+    titleHi: 'तंबाकू कैसे छोड़ें: डॉ. हिमांगी दुबे द्वारा ओरल वेलनेस एवं नशा मुक्ति गाइड',
+    summary: 'Clinical guidance on overcoming tobacco dependency, reversing early oral submucous fibrosis (OSMF), and protecting your gums from pre-cancerous lesions.',
+    summaryHi: 'तंबाकू और गुटखा छोड़ने के वैज्ञानिक तरीके और मुंह के छालों व पायरिया से बचाव।',
+    content: 'Tobacco consumption and areca nut chewing are among the primary causes of oral cancer and severe periodontal deterioration across Uttar Pradesh. In this clinical guide and accompanying video from our YouTube channel (@drhimangidubey_hopedental), Dr. Himangi Dubey outlines behavioral modification techniques, nicotine replacement therapy (NRT), and in-clinic mucosal healing protocols practiced at Hope Dental Hospital, Sadrauna, Lucknow.',
+    category: 'Oral Health Awareness',
     readTime: '4 min read',
-    authorDoctor: 'Dr. Neha Sharma',
-    authorRole: 'Senior Endodontist (MDS)',
-    date: 'Sep 18, 2026',
-    tags: ['RCT', 'Painless Dentistry', 'Toothache', 'Oral Health'],
-    imageUrl: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80',
-    views: 1420,
-    likesCount: 98
+    authorDoctor: 'Dr. Himangi Dubey',
+    authorRole: 'Medical Director, Hope Dental Hospital',
+    date: '15 Sept 2026',
+    tags: ['Tobacco Cessation', 'Dr. Himangi Dubey', 'Oral Cancer Prevention', 'YouTube Video'],
+    imageUrl: './cases/ba-1.webp',
+    views: 4520,
+    likesCount: 380
   },
   {
-    id: 'b2',
-    slug: 'dental-implants-vs-bridges-which-is-better',
-    title: 'Dental Implants vs Traditional Bridges: Why Implants Are the Gold Standard',
-    titleHi: 'डेंटल इम्प्लांट्स बनाम ब्रिज: कौन सा विकल्प आपके लिए सबसे बेहतर है?',
-    summary: 'Comparing long-term durability, bone preservation, and aesthetic smile restoration between fixed dental implants and dental bridges.',
-    summaryHi: 'दांत निकलने के बाद फिक्स्ड दांत लगवाने के लिए इम्प्लांट और ब्रिज में अंतर और फायदे।',
-    content: `Losing a tooth due to injury or deep decay can significantly impact your chewing ability and cause the surrounding facial muscles to sag prematurely. When restoring missing teeth, two primary options exist: Dental Implants and Dental Bridges.
-
-### 1. What is a Dental Implant?
-A dental implant is an artificial titanium root surgically placed into the jawbone. Over 8 to 12 weeks, the bone fuses with the titanium surface (osseointegration), creating an unshakable foundation for a lifelike Zirconia crown.
-
-### 2. The Critical Difference: Bone Preservation
-When a tooth is lost, the underlying bone begins to resorb (shrink) over time. 
-- **Dental Bridges** only sit on top of the gums and do not stimulate the jawbone. Additionally, healthy adjacent teeth must be cut down to anchor the bridge.
-- **Dental Implants** stimulate the bone during chewing, preserving facial volume and jaw contour for a lifetime.
-
-### 3. Cost vs Long-Term Value
-While the initial investment in a dental implant is slightly higher, implants last 25+ years or a lifetime with proper oral hygiene. Bridges typically need replacement every 7 to 10 years, making implants far more cost-effective in the long run.`,
-    category: 'Dental Implants',
+    id: 'blog-2',
+    slug: 'tmj-disorder-jaw-clicking-night-guard-splint-therapy',
+    title: 'Jaw Pain or Clicking? It May Be TMJ Disorder: Night Guard & Splint Therapy',
+    titleHi: 'जबड़े में दर्द या चटकन की आवाज? जानिए टीएमजे विकार और नाइट गार्ड थेरेपी',
+    summary: 'Why jaw clicking, chronic morning headaches, and teeth grinding require customized splint therapy, jaw physiotherapy, and stress management.',
+    summaryHi: 'जबड़े के दर्द और दांत पीसने की आदत का फिजियोथेरेपी और स्प्लिंट द्वारा आधुनिक इलाज।',
+    content: 'Many patients in Lucknow visit doctors for chronic migraines and neck pain without realizing that the root cause lies in their temporomandibular joint (TMJ). At Hope Dental Hospital & Wellness Centre, our TMJ therapy unit provides digital occlusal evaluation, customized night guard splints, low-level laser therapy, and targeted jaw physiotherapy exercises to decompress the joint and provide permanent relief.',
+    category: 'TMJ & Wellness',
     readTime: '5 min read',
-    authorDoctor: 'Dr. Amit Verma',
-    authorRole: 'Chief Implant Surgeon (MDS, FICOI)',
-    date: 'Sep 12, 2026',
-    tags: ['Implants', 'Missing Tooth', 'Smile Restoration', 'Oral Surgery'],
-    imageUrl: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80',
-    views: 2150,
-    likesCount: 164
+    authorDoctor: 'Dr. Himangi Dubey',
+    authorRole: 'Chief Specialist, Hope Dental Hospital',
+    date: '10 Sept 2026',
+    tags: ['TMJ Disorder', 'Jaw Pain', 'Night Guard', 'Splint Therapy'],
+    imageUrl: './cases/ba-2.webp',
+    views: 5820,
+    likesCount: 462
   },
   {
-    id: 'b3',
-    slug: 'clear-aligners-for-adults-guide',
-    title: 'Invisible Clear Aligners for Adults: Straighten Teeth Without Metal Wires',
-    titleHi: 'वयस्कों के लिए क्लियर एलाइनर्स: बिना तार के दांत सीधे करने की पूरी जानकारी',
-    summary: 'Discover how modern 3D clear aligners offer a comfortable, removable, and completely invisible alternative to traditional braces for professionals and students.',
-    summaryHi: 'जानिए कैसे पारदर्शी एलाइनर्स से बिना किसी झिझक के दांतों को सीधा किया जा सकता है।',
-    content: `Many working professionals and college students in Lucknow hesitate to get traditional metal braces due to aesthetic concerns, workplace presentations, and food restrictions. Invisible Clear Aligners have revolutionized orthodontics, providing a discreet, modern way to align your teeth.
-
-### Why Choose Clear Aligners?
-- **Virtually Invisible:** Made from medical-grade transparent polymer that is unnoticeable even in close-up conversations.
-- **Removable:** Take them out during meals, weddings, parties, or for thorough brushing and flossing.
-- **No Food Restrictions:** Eat popcorn, apples, and your favorite foods without worrying about bracket breakage.
-- **Fewer Clinic Visits:** Digital treatment plans mean check-ins can happen once every 6 to 8 weeks.
-
-### How the Journey Unfolds at Hope Dental Hospital
-We begin with a high-definition 3D intraoral scan of your teeth. Our specialized ortho software designs a step-by-step 3D video showing how your teeth will move over time. Once you approve the simulated smile, your custom aligners are 3D-printed with laser precision.`,
-    category: 'Orthodontics & Braces',
-    readTime: '4 min read',
-    authorDoctor: 'Dr. Rajesh Tripathi',
-    authorRole: 'Senior Orthodontist (MDS)',
-    date: 'Sep 05, 2026',
-    tags: ['Aligners', 'Straight Teeth', 'Braces', 'Smile Design'],
-    imageUrl: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80',
-    views: 1890,
-    likesCount: 142
+    id: 'blog-3',
+    slug: 'women-hormonal-changes-oral-health-ddup-feature',
+    title: 'महिलाओं के हार्मोनल बदलाव और मौखिक स्वास्थ्य: डॉ. हिमांगी दुबे की डीडी यूपी विशेषज्ञ चर्चा',
+    titleHi: 'महिला स्वास्थ्य एवं ओरल हाइजीन: डीडी यूपी पर डॉ. हिमांगी दुबे की विशेष चर्चा',
+    summary: 'Insights from Dr. Himangi Dubey’s special expert broadcast on Doordarshan Uttar Pradesh ("सेहत आपकी" @DDUP) regarding pregnancy gingivitis and hormonal balance.',
+    summaryHi: 'गर्भावस्था, प्यूबर्टी और मेनोपॉज के दौरान मसूड़ों की सूजन और पायरिया से कैसे बचें।',
+    content: 'During puberty, pregnancy, and menopause, fluctuating estrogen and progesterone levels amplify the gums’ sensitivity to plaque bacteria. Featured on Doordarshan Uttar Pradesh’s flagship medical show "सेहत आपकी", Dr. Himangi Dubey explains the critical preventive steps every woman should take to prevent pregnancy tumors, gum bleeding, and bone loss.',
+    category: 'Women\'s Oral Health',
+    readTime: '6 min read',
+    authorDoctor: 'Dr. Himangi Dubey',
+    authorRole: 'Founder & Medical Director',
+    date: '05 Sept 2026',
+    tags: ['Doordarshan UP', 'Pregnancy Dental Care', 'Hormonal Health', 'Dr. Himangi Dubey'],
+    imageUrl: './cases/ba-3.webp',
+    views: 6420,
+    likesCount: 520
   },
   {
-    id: 'b4',
-    slug: 'kids-first-dental-visit-guide',
-    title: 'Your Child’s First Dental Visit: A Fear-Free Guide for Parents',
-    titleHi: 'बच्चों का पहला डेंटल चेकअप: माता-पिता के लिए भय-मुक्त मार्गदर्शन',
-    summary: 'Tips from pediatric specialists on when to schedule your child’s first checkup, how to prevent early milk tooth cavities, and creating positive dental habits.',
-    summaryHi: 'बच्चों के दांतों में कीड़े लगने से कैसे बचाएं और उन्हें डेंटिस्ट के पास खुशी-खुशी कैसे लाएं।',
-    content: `The Indian Dental Association (IDA) recommends that a child should visit a dentist by their first birthday or when their first tooth emerges. Early visits establish positive associations and detect early developmental patterns.
-
-### Preventing "Nursing Bottle Caries"
-Letting infants sleep with milk bottles or sweetened juices allows sugars to pool around their upper front teeth, causing rapid tooth decay known as Early Childhood Caries. Wipe your baby's gums with a clean damp cloth after feeding and transition to a sippy cup around 12 months.
-
-### The Power of Pit & Fissure Sealants
-Children's permanent molars have deep microscopic grooves where food gets trapped easily. Applying a painless clear protective resin sealant creates a smooth barrier that prevents up to 85% of school-age cavities!`,
+    id: 'blog-4',
+    slug: 'mouth-breathing-destroying-child-facial-growth-lucknow',
+    title: 'Is Mouth Breathing Affecting Your Child\'s Facial Development?',
+    titleHi: 'क्या आपका बच्चा मुंह से सांस लेता है? जानिए चेहरे के विकास पर असर',
+    summary: 'How chronic mouth breathing, enlarged adenoids, and tongue thrusting alter jaw growth, causing crowded teeth and long face syndrome in children.',
+    summaryHi: 'बच्चों में मुंह से सांस लेने की आदत और दांतों के टेढ़ेपन का समय रहते उपचार।',
+    content: 'Children who breathe through their mouth rather than their nose during sleep develop narrowed upper dental arches, recessed chins, and severe dental crowding. At Hope Dental Hospital\'s Pediatric Lounge in Lucknow, we perform early myofunctional evaluation, habit-breaking oral screens, and airway assessments to ensure natural, healthy facial development.',
     category: 'Pediatric Dentistry',
-    readTime: '3 min read',
-    authorDoctor: 'Dr. Pooja Singh',
-    authorRole: 'Pediatric Specialist (MDS)',
-    date: 'Aug 29, 2026',
-    tags: ['Kids Dental', 'Cavity Prevention', 'Fluoride', 'Pediatric'],
-    imageUrl: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
-    views: 1100,
-    likesCount: 88
-  },
-  {
-    id: 'b5',
-    slug: 'bleeding-gums-causes-and-remedies',
-    title: 'Why Do Your Gums Bleed While Brushing? Signs of Periodontal Disease',
-    titleHi: 'ब्रश करते समय मसूड़ों से खून क्यों आता है? पायरिया के लक्षण व रोकथाम',
-    summary: 'Bleeding gums are not normal! Understand the difference between gingivitis and periodontitis, and how ultrasonic scaling restores pink healthy gums.',
-    summaryHi: 'मसूड़ों से खून आना सामान्य नहीं है। जानिए पायरिया के शुरुआती लक्षण और आधुनिक स्केलिंग के लाभ।',
-    content: `Many people ignore blood on their toothbrush, assuming it is due to brushing too hard. In over 90% of cases, bleeding gums are an early sign of Gingivitis caused by bacterial plaque buildup along the gumline.
-
-### Why Tooth Enamel Does Not Weaken During Scaling
-A common myth in North India is that scaling (dental cleaning) causes teeth to become loose or damages enamel. In truth:
-- Tartar and calculus calcify and harbor destructive bacteria that eat away supporting jawbone.
-- Ultrasonic scaling uses high-frequency micro-vibrations with water cooling to safely wash away hardened calculus without scratching the enamel.
-- Cleaning removes the bacterial load, allowing swollen red gums to heal and attach firmly back to the tooth!`,
-    category: 'Gum Care & Hygiene',
     readTime: '4 min read',
-    authorDoctor: 'Dr. Amit Verma',
-    authorRole: 'Chief Dental Surgeon',
-    date: 'Aug 19, 2026',
-    tags: ['Gum Care', 'Bleeding Gums', 'Scaling', 'Bad Breath'],
-    imageUrl: 'https://images.unsplash.com/photo-1594824813501-4838e2ddb7c2?auto=format&fit=crop&w=800&q=80',
-    views: 1650,
-    likesCount: 115
-  },
-  {
-    id: 'b6',
-    slug: 'teeth-whitening-secrets-safe-procedures',
-    title: 'In-Clinic Laser Teeth Whitening vs Home Kits: What Really Works?',
-    titleHi: 'लेजर टीथ व्हाइटनिंग बनाम घरेलू नुस्खे: सुरक्षित और चमकदार मुस्कान का राज़',
-    summary: 'Evaluating the safety and longevity of in-clinic cold-light laser bleaching vs abrasive home remedies like baking soda and charcoal powders.',
-    summaryHi: 'दांतों को सुरक्षित तरीके से सफेद करने के वैज्ञानिक तरीके और हानिकारक घरेलू नुस्खों से बचाव।',
-    content: `Bright, pearly white teeth create an instant positive impression. However, viral social media trends like scrubbing teeth with lemon juice or abrasive charcoal powders strip away your protective outer enamel, exposing the yellow dentin layer underneath and worsening sensitivity.
-
-### Why Professional Laser Whitening is Safe
-In-office laser whitening uses pH-balanced medical bleaching agents paired with cold LED light. A protective gingival barrier is applied over the gums so that only the tooth surfaces are treated. In a single 45-minute appointment, teeth become 6 to 8 shades whiter without harming enamel or tooth roots.`,
-    category: 'Cosmetic Dentistry',
-    readTime: '3 min read',
-    authorDoctor: 'Dr. Neha Sharma',
-    authorRole: 'Senior Endodontist (MDS)',
-    date: 'Aug 10, 2026',
-    tags: ['Teeth Whitening', 'Smile Makeover', 'Aesthetics', 'Oral Hygiene'],
-    imageUrl: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80',
-    views: 2400,
-    likesCount: 210
-  }
-];
-
-export const FACILITIES_DATA: Facility[] = [
-  {
-    id: 'f1',
-    title: 'Class-B 4-Tier Sterilization Autoclave',
-    titleHi: 'क्लास-बी ४-स्तरीय स्टरलाइजेशन ऑटोक्लेव',
-    desc: '100% infection-free clinical environment adhering to European hospital hygiene standards with individual sterilized surgical pouches.',
-    icon: 'Shield',
-    badge: '100% Sterile Protocol',
-    image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'f2',
-    title: 'Digital 3D CBCT & Low-Dose OPG Imaging',
-    titleHi: 'डिजिटल ३डी सीबीसीटी एवं कम रेडिएशन ओपीजी',
-    desc: 'Ultra-low radiation panoramic X-rays providing instant crystal-clear cross-sectional views of root canals, bone density, and nerves.',
-    icon: 'Cpu',
-    badge: '90% Less Radiation',
-    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'f3',
-    title: 'Intraoral 3D Digital Color Scanner',
-    titleHi: 'इंट्राओरल ३डी डिजिटल कलर स्कैनर',
-    desc: 'Say goodbye to gagging on sticky impression clay. High-speed optical scanner captures your teeth in high-definition 3D in 3 minutes.',
-    icon: 'Camera',
-    badge: 'No Messy Impressions',
-    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'f4',
-    title: 'Computerized Painless Local Anesthesia (The Wand)',
-    titleHi: 'कंप्यूटरीकृत दर्द रहित सुन्न करने की तकनीक',
-    desc: 'Microprocessor-controlled gentle numbing that eliminates stinging needle sensations for completely anxiety-free treatments.',
-    icon: 'Zap',
-    badge: 'Painless Injection',
-    image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'f5',
-    title: 'Dedicated Pediatric Kids Play Operatory',
-    titleHi: 'बच्चों के लिए विशेष प्ले व डेंटल रूम',
-    desc: 'Specially designed gentle environment with cartoon themes, toys, and comforting distraction monitors to make kids love dentists.',
-    icon: 'Heart',
-    badge: 'Child-Friendly',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'f6',
-    title: '24/7 Dental Emergency & Patient Transport Access',
-    titleHi: '२४/७ आपातकालीन दंत सेवा एवं सुगम पहुंच',
-    desc: 'Wheelchair accessible ground floor suites with dedicated patient parking and on-call trauma dental surgeons in Sadrauna, Lucknow.',
-    icon: 'Clock',
-    badge: '24/7 Rapid SOS',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80'
+    authorDoctor: 'Dr. Kavya Ravuri',
+    authorRole: 'Senior Consultant Orthodontist',
+    date: '28 Aug 2026',
+    tags: ['Mouth Breathing', 'Child Dental Care', 'Pediatric Orthodontics', 'YouTube Shorts'],
+    imageUrl: './cases/ba-4.webp',
+    views: 3750,
+    likesCount: 285
   }
 ];
 
 export const REVIEWS_DATA: Review[] = [
   {
-    id: 'r1',
-    patientName: 'Anurag Srivastava',
-    rating: 5,
-    text: 'Dr. Amit Verma and his team at Hope Dental Hospital in Sadrauna are phenomenal! I was terrified of dental implants due to past bad experiences elsewhere, but my implant was 100% painless and took barely 35 minutes. The clinic is spotless and modern.',
-    date: '1 week ago',
-    verifiedSource: 'Google',
-    treatmentReceived: 'Single Tooth Nobel Implant',
-    patientCity: 'Sadrauna, Lucknow',
-    doctorConsulted: 'Dr. Amit Verma'
-  },
-  {
-    id: 'r2',
-    patientName: 'Shalini Tiwari',
-    rating: 5,
-    text: 'Got single sitting root canal done by Dr. Neha Sharma. Absolutely zero pain during or after the treatment! The digital invoice and appointment confirmation on WhatsApp made the entire process so easy. Highly recommend for families.',
-    date: '2 weeks ago',
-    verifiedSource: 'Google',
-    treatmentReceived: 'Single-Sitting Rotary RCT + Zirconia Cap',
-    patientCity: 'Mohan Road, Lucknow',
-    doctorConsulted: 'Dr. Neha Sharma'
-  },
-  {
-    id: 'r3',
+    id: 'rev-1',
     patientName: 'Mohd. Tariq',
+    country: 'India',
+    patientCity: 'Para Road, Lucknow',
     rating: 5,
-    text: 'Best dental clinic on JustDial for Sadrauna/Lucknow area. They showed me 3D simulation of clear aligners before starting. My crooked teeth are straight in 8 months. Very transparent pricing with no hidden charges.',
-    date: '1 month ago',
-    verifiedSource: 'JustDial',
-    treatmentReceived: 'Clear Aligners',
-    patientCity: 'Alambagh, Lucknow',
-    doctorConsulted: 'Dr. Rajesh Tripathi'
-  },
-  {
-    id: 'r4',
-    patientName: 'Kavita Rastogi',
-    rating: 5,
-    text: 'Took my 6-year-old son for cavity treatment. Dr. Pooja Singh is very sweet and handled him without any tears or fear. The play area and child reward badge made his day!',
-    date: '1 month ago',
-    verifiedSource: 'Facebook',
-    treatmentReceived: 'Kids Fluoride Coating & Pulpectomy',
-    patientCity: 'Rajajipuram, Lucknow',
-    doctorConsulted: 'Dr. Pooja Singh'
-  },
-  {
-    id: 'r5',
-    patientName: 'Dinesh Chandra Yadav',
-    rating: 5,
-    text: 'Had deep wisdom tooth pain at night. The hospital team picked up the emergency line and treated my impaction next morning. Very clean sterilization setup and cooperative staff.',
-    date: '2 months ago',
+    text: '"The best dental hospital in Lucknow hard working doctor and excellent services. Dr. Himangi Dubey is extremely polite and skilled. My dental implant procedure was completely painless and smooth."',
+    date: '18 Sept 2026',
     verifiedSource: 'Google',
-    treatmentReceived: 'Wisdom Tooth Surgical Extraction',
-    patientCity: 'Kakori / Lucknow',
-    doctorConsulted: 'Dr. Amit Verma'
+    treatmentReceived: 'Dental Implants & Zirconia Crown',
+    doctorConsulted: 'Dr. Himangi Dubey',
+    branch: 'Sadrauna / Para Road Hospital'
+  },
+  {
+    id: 'rev-2',
+    patientName: 'Ritu Verma',
+    country: 'India',
+    patientCity: 'Hans Khera, Lucknow',
+    rating: 5,
+    text: '"Very nice behavior and experience of management doctors and staff. Treatment is very gentle and the hospital is equipped with latest laser machines and very clean hygiene standards."',
+    date: '12 Sept 2026',
+    verifiedSource: 'Google',
+    treatmentReceived: 'Biolase Laser Gum Treatment',
+    doctorConsulted: 'Dr. Himangi Dubey',
+    branch: 'Sadrauna / Para Road Hospital'
+  },
+  {
+    id: 'rev-3',
+    patientName: 'Sunil Kumar Gupta',
+    country: 'India',
+    patientCity: 'Sadrauna, Lucknow',
+    rating: 5,
+    text: '"Nice dental clinic with good facilities and service. Wheelchair accessible ramp at entrance made it very comfortable for my elderly father. 5 stars to the entire team!"',
+    date: '05 Sept 2026',
+    verifiedSource: 'Google',
+    treatmentReceived: 'Full Mouth Prosthetic Rehabilitation',
+    doctorConsulted: 'Dr. M. S. Bhoj',
+    branch: 'Sadrauna / Para Road Hospital'
+  },
+  {
+    id: 'rev-4',
+    patientName: 'Pooja Srivastava',
+    country: 'India',
+    patientCity: 'Mohan Road, Lucknow',
+    rating: 5,
+    text: '"Visited for unbearable toothache. Dr. Prabhat performed single-sitting root canal under microscope. Completed in 45 minutes with zero pain. Very reasonable rates on Justdial and fully transparent."',
+    date: '28 Aug 2026',
+    verifiedSource: 'Justdial',
+    treatmentReceived: 'Microscopic Single-Sitting RCT',
+    doctorConsulted: 'Dr. Prabhat Tiwari',
+    branch: 'Sadrauna / Para Road Hospital'
+  },
+  {
+    id: 'rev-5',
+    patientName: 'Deepak Mishra',
+    country: 'India',
+    patientCity: 'Lucknow',
+    rating: 5,
+    text: '"Suffering from severe jaw pain and clicking for months. Dr. Himangi provided a custom night guard splint and jaw physiotherapy exercises. Within 2 weeks, my jaw headache vanished. Highly recommended!"',
+    date: '15 Aug 2026',
+    verifiedSource: 'Facebook',
+    treatmentReceived: 'TMJ Splint & Night Guard Therapy',
+    doctorConsulted: 'Dr. Himangi Dubey',
+    branch: 'Sadrauna / Para Road Hospital'
   }
 ];
 
 export const EMERGENCY_GUIDES: EmergencyGuide[] = [
   {
-    id: 'em1',
-    title: 'Severe Throbbing Toothache',
-    titleHi: 'दांत में असहनीय तेज दर्द',
-    icon: 'AlertCircle',
-    symptom: 'Continuous sharp or throbbing pain, radiating to ear/temple, unable to sleep.',
-    quickSteps: [
-      'Rinse mouth gently with lukewarm salt water to clear trapped food particles.',
-      'Apply a cold compress on the outside cheek (do NOT place aspirin directly on gums).',
-      'Take an over-the-counter pain reliever like Paracetamol if medically safe for you.',
-      'Call our 24/7 Dental SOS Hotline immediately for same-day emergency appointment.'
-    ],
-    urgency: 'Immediate (within 1 hour)'
-  },
-  {
-    id: 'em2',
-    title: 'Knocked-Out (Avulsed) Tooth',
-    titleHi: 'चोट से पूरा दांत बाहर निकल जाना',
-    icon: 'Activity',
-    symptom: 'Permanent tooth completely dislodged from socket due to sports injury or fall.',
-    quickSteps: [
-      'Pick up the tooth by the CROWN (white part) only. Never touch the root.',
-      'Rinse gently in cold water for 10 seconds if dirty. Do NOT scrub or wipe with tissue.',
-      'Place tooth into a cup of fresh COLD MILK or natural saliva.',
-      'Reach Hope Dental Hospital within 45 to 60 minutes for highest chance of saving the tooth!'
-    ],
-    urgency: 'Immediate (within 1 hour)'
-  },
-  {
-    id: 'em3',
-    title: 'Broken Tooth or Lost Filling / Cap',
-    titleHi: 'दांत का टूटना या कैप/फिलिंग निकल जाना',
-    icon: 'ShieldAlert',
-    symptom: 'Sharp jagged edge cutting tongue/cheek, or exposed sensitive inner pulp.',
-    quickSteps: [
-      'Keep any broken tooth pieces in a clean container with milk or saline.',
-      'Apply orthodontic wax or sugarless chewing gum over sharp edges to protect tongue.',
-      'Avoid drinking very hot, icy cold, or sweet beverages.',
-      'Book a priority morning slot for painless restorative bonding or crown re-cementation.'
-    ],
-    urgency: 'Urgent (same day)'
-  },
-  {
-    id: 'em4',
-    title: 'Facial Swelling or Gum Abscess',
-    titleHi: 'चेहरे या मसूड़े में सूजन व मवाद',
+    id: 'knocked-out-tooth',
+    title: 'Knocked-Out Tooth (Avulsion)',
+    titleHi: 'दांत टूट कर गिर जाना',
     icon: 'AlertTriangle',
-    symptom: 'Visible swelling in jaw, cheek, or pimple-like bump on gums with foul taste.',
+    symptom: 'Tooth completely knocked out of socket due to sports injury, fall, or vehicular impact.',
+    urgency: 'Immediate (within 1 hour)',
     quickSteps: [
-      'Do NOT apply hot water bags on the swelling as it can spread bacterial infection.',
-      'Rinse with warm salt water or antiseptic mouthwash.',
-      'Do NOT attempt to pop or squeeze the gum bump at home.',
-      'Visit Hope Dental Hospital immediately for antibiotic drainage and root treatment.'
+      'Locate the tooth immediately. Handle it ONLY by the crown (white top), NEVER touch the root surface.',
+      'If dirty, rinse very gently with cold milk or saline for 5 seconds. Do not scrub or use soap.',
+      'Place tooth in a small cup of cold fresh milk or inside patient\'s cheek pouch if conscious.',
+      'Rush to Hope Dental Hospital 24/7 Emergency Helpline (+91 94520 89898) within 60 minutes for replantation.'
+    ]
+  },
+  {
+    id: 'severe-toothache-swelling',
+    title: 'Severe Throbbing Toothache & Facial Swelling',
+    titleHi: 'गंभीर असहनीय दांत दर्द व चेहरे पर सूजन',
+    icon: 'Flame',
+    symptom: 'Unbearable pulsating pain radiating to ear/temple, gum boil, facial swelling, or fever.',
+    urgency: 'Urgent (same day)',
+    quickSteps: [
+      'Rinse mouth thoroughly with lukewarm saltwater to flush trapped debris.',
+      'Do NOT place an aspirin tablet or raw clove directly against the gum tissue as it causes chemical burns.',
+      'Apply an ice pack to the outside of the cheek for 15 minutes at a time to reduce swelling.',
+      'Call Hope Dental Helpline (+91 79052 87870) for same-day emergency pulp extirpation and pain relief.'
+    ]
+  },
+  {
+    id: 'broken-orthodontic-wire',
+    title: 'Broken Orthodontic Wire or Poking Bracket',
+    titleHi: 'ब्रेसेस का तार टूटना या चुभना',
+    icon: 'ShieldAlert',
+    symptom: 'Sharp wire poking into inner cheek, tongue, or loose bracket sliding along the archwire.',
+    urgency: 'Prompt (within 24h)',
+    quickSteps: [
+      'Use the eraser end of a clean pencil to gently push the poking wire flat against the tooth.',
+      'Roll a small pea-sized ball of orthodontic relief wax and press it firmly over the sharp end.',
+      'Rinse with warm saltwater if cheek ulcer has formed.',
+      'Visit Hope Dental Hospital in Sadrauna, Lucknow for prompt clipping and adjustment.'
+    ]
+  }
+];
+
+export const INITIAL_APPOINTMENTS: Appointment[] = [
+  {
+    id: 'HDH-APT-2026-8841',
+    patientName: 'Ananya Sharma',
+    patientPhone: '7905112345',
+    patientEmail: 'ananya.s@gmail.com',
+    patientAge: 29,
+    gender: 'Female',
+    clinicBranchId: 'lucknow-flagship',
+    doctorId: 'dr-himangi-dubey',
+    treatmentId: 'cosmetic-veneers',
+    consultationType: 'in-person',
+    date: '2026-09-28',
+    timeSlot: '11:00 AM – 11:30 AM',
+    country: 'India',
+    isNewPatient: true,
+    notes: 'Inquiring for 3D Digital Smile Design and laser cosmetic gum contouring.',
+    status: 'Confirmed',
+    createdAt: '2026-09-25T10:15:00Z',
+    paymentStatus: 'Paid',
+    amount: 1000
+  },
+  {
+    id: 'HDH-APT-2026-8842',
+    patientName: 'Robert Vance',
+    patientPhone: '7891234567',
+    patientEmail: 'rvance@healthmail.com',
+    patientAge: 62,
+    gender: 'Male',
+    clinicBranchId: 'lucknow-flagship',
+    doctorId: 'dr-himangi-dubey',
+    treatmentId: 'dental-implants',
+    consultationType: 'virtual',
+    date: '2026-09-29',
+    timeSlot: '04:00 PM – 04:30 PM',
+    country: 'United Kingdom',
+    isNewPatient: true,
+    notes: 'Virtual video consultation for upper jaw All-on-4 implants. OPG X-ray attached.',
+    xRayAttached: true,
+    status: 'Confirmed',
+    createdAt: '2026-09-25T14:30:00Z',
+    paymentStatus: 'Paid',
+    amount: 1500
+  }
+];
+
+export const INITIAL_INVOICES: Invoice[] = [
+  {
+    id: 'INV-HDH-9901',
+    invoiceNumber: 'HDH/2026/09/9901',
+    appointmentId: 'HDH-APT-2026-8841',
+    patientName: 'Ananya Sharma',
+    patientPhone: '7905112345',
+    patientAge: 29,
+    patientGender: 'Female',
+    patientAddress: 'Sadrauna, Para Road, Lucknow, Uttar Pradesh',
+    date: '2026-09-28',
+    doctorName: 'Dr. Himangi Dubey',
+    branchName: 'Hope Dental Hospital & Wellness Centre (Main Hospital)',
+    items: [
+      {
+        id: 'item-1',
+        description: 'Comprehensive Specialist Consultation & 3D Diagnostic Assessment',
+        hsnSac: '999312',
+        qty: 1,
+        unitPrice: 1000,
+        total: 1000
+      }
     ],
-    urgency: 'Immediate (within 1 hour)'
+    subtotal: 1000,
+    taxGst: 0,
+    discount: 0,
+    totalAmount: 1000,
+    paymentMode: 'UPI / QR',
+    paymentStatus: 'Paid',
+    paymentDate: '2026-09-25',
+    notes: 'Advance booking confirmation fee. Credited towards final treatment plan.'
   }
 ];

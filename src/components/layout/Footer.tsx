@@ -1,170 +1,299 @@
 import React from 'react';
 import { 
-  Building, 
   Phone, 
-  MapPin, 
-  Clock, 
-  Star, 
-  Calendar,
-  ShieldCheck,
-  Heart
+  Clock 
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
-import { HOSPITAL_INFO } from '../../data/mockData';
-import { YoutubeIcon, FacebookIcon, GoogleIcon } from '../common/SocialIcons';
-import { PageId } from '../../types';
 
 export const Footer: React.FC = () => {
-  const { language, navigateTo, setIsBookingOpen } = useApp();
-
-  const pages: { id: PageId; label: string; labelHi: string }[] = [
-    { id: 'home', label: 'Home Page', labelHi: 'होम पेज' },
-    { id: 'about', label: 'About Hospital', labelHi: 'अस्पताल परिचय' },
-    { id: 'services', label: 'Services & 3D Anatomy', labelHi: 'उपचार व सेवाएं' },
-    { id: 'doctors', label: 'Specialist Doctors', labelHi: 'विशेषज्ञ डॉक्टर्स' },
-    { id: 'reviews', label: 'Patient Reviews (4.9★)', labelHi: 'मरीज समीक्षाएं' },
-    { id: 'blogs', label: 'Dental Health Blogs', labelHi: 'दंत स्वास्थ्य ब्लॉग' },
-    { id: 'contact', label: 'Location & Direct Contact', labelHi: 'पता व संपर्क' },
-  ];
+  const { 
+    hospitalInfo, 
+    blogs,
+    navigateTo, 
+    setIsBookingOpen, 
+    setActiveBlogModal
+  } = useApp();
 
   return (
-    <footer className="bg-slate-950 text-slate-400 border-t border-slate-800 text-xs transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Brand & Address (5 cols) */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-teal-700 via-teal-600 to-emerald-500 flex items-center justify-center text-white shadow-lg shadow-teal-600/25 shrink-0">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2C8.5 2 6 4.5 6 8c0 3.5 1.5 6 3 9l3 5 3-5c1.5-3 3-5.5 3-9 0-3.5-2.5-6-6-6z"/>
-                </svg>
-              </div>
-              <div>
-                <span className="font-display font-extrabold text-lg text-white tracking-tight">
-                  HOPE DENTAL HOSPITAL
-                </span>
-                <p className="text-[11px] text-teal-400 font-semibold">
-                  {language === 'hi' ? 'हॉस्पिटल एवं वेलनेस सेंटर • सदरौना, लखनऊ' : 'Hospital & Wellness Centre • Sadrauna, Lucknow'}
-                </p>
-              </div>
+    <footer className="text-slate-400 text-xs transition-colors">
+      
+      {/* 1. TOP STRIP: EXACT FMS 4 WHITE CARDS WITH GOLD TOP BORDER */}
+      <div className="bg-[#f8fafc] dark:bg-[#06101c] py-8 px-4 sm:px-6 lg:px-8 border-t border-slate-200 dark:border-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            {/* Card 1: Flagship Hospital */}
+            <div className="bg-white dark:bg-[#0c1f33] p-5 rounded-b-xl border-x border-b border-slate-200 dark:border-slate-800 border-t-2 border-t-[#f5900d] shadow-sm hover:shadow-md transition-shadow">
+              <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
+                Hope Dental Hospital - Advanced Dental Implant Clinic
+              </h4>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                Door No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow – 226011
+              </p>
             </div>
 
-            <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              {language === 'hi'
-                ? 'सदरौना, मोहन रोड लखनऊ में हॉस्पिटल-ग्रेड सिंगल-सिटिंग रूट कैनाल, स्विस डेंटल इम्प्लांट्स, एवं 3D इनविजिबल अलाइनर्स की आधुनिक सुविधा।'
-                : 'Painless, hospital-grade clinical dentistry with rotary endodontics, Swiss implants, and 3D computer-guided orthodontics.'
-              }
-            </p>
-
-            <div className="pt-2 space-y-1.5 text-xs text-slate-300">
-              <div className="flex items-start space-x-2.5">
-                <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
-                <span>Sadrauna, Near Main Market, Mohan Road, Lucknow, UP 226009</span>
-              </div>
-              <div className="flex items-center space-x-2.5">
-                <Phone className="w-4 h-4 text-teal-400 shrink-0" />
-                <span>Helpline: {HOSPITAL_INFO.phone} / {HOSPITAL_INFO.altPhone}</span>
-              </div>
-              <div className="flex items-center space-x-2.5">
-                <Clock className="w-4 h-4 text-teal-400 shrink-0" />
-                <span>Mon – Sat: 9:00 AM – 8:00 PM | Sun: 10:00 AM – 2:00 PM</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Page Links (4 cols) */}
-          <div className="lg:col-span-4 space-y-3">
-            <h4 className="font-serif font-bold text-white text-sm uppercase tracking-wider">
-              {language === 'hi' ? 'वेबसाइट पृष्ठ (Pages)' : 'Hospital Website Pages'}
-            </h4>
-            <ul className="space-y-2 text-xs">
-              {pages.map((p) => (
-                <li key={p.id}>
-                  <button
-                    onClick={() => navigateTo(p.id)}
-                    className="hover:text-teal-400 transition-colors text-slate-300 flex items-center space-x-1.5 text-left"
-                  >
-                    <span className="text-teal-500">•</span>
-                    <span>{language === 'hi' ? p.labelHi : p.label}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social Proof & Quick CTA (3 cols) */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-serif font-bold text-white text-sm uppercase tracking-wider">
-              {language === 'hi' ? 'प्रमाणित रेटिंग' : 'Verified Reviews'}
-            </h4>
-
-            <div className="space-y-2">
-              <a
-                href={HOSPITAL_INFO.socialLinks.google}
-                target="_blank"
-                rel="noreferrer"
-                className="p-3 bg-slate-900 rounded-2xl border border-slate-800 flex items-center justify-between hover:bg-slate-850 transition-colors"
-              >
-                <div className="flex items-center space-x-2 text-amber-400 font-bold">
-                  <GoogleIcon className="w-4 h-4" />
-                  <span>4.9★ Google</span>
-                </div>
-                <span className="text-[10px] text-slate-400">380+ Reviews</span>
-              </a>
-
-              <a
-                href={HOSPITAL_INFO.socialLinks.justdial}
-                target="_blank"
-                rel="noreferrer"
-                className="p-3 bg-slate-900 rounded-2xl border border-slate-800 flex items-center justify-between hover:bg-slate-850 transition-colors"
-              >
-                <div className="flex items-center space-x-2 text-orange-400 font-bold">
-                  <Star className="w-4 h-4 fill-current" />
-                  <span>4.8★ JustDial</span>
-                </div>
-                <span className="text-[10px] text-slate-400">220+ Votes</span>
-              </a>
+            {/* Card 2: Laser Pavilion */}
+            <div className="bg-white dark:bg-[#0c1f33] p-5 rounded-b-xl border-x border-b border-slate-200 dark:border-slate-800 border-t-2 border-t-[#f5900d] shadow-sm hover:shadow-md transition-shadow">
+              <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
+                Hope Biolase Laser & Periodontics Suite
+              </h4>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                Ground Floor Clinical Pavilion, Sadrauna Road, Lucknow – Scalpel-free hydrokinetic laser therapies.
+              </p>
             </div>
 
-            <div className="flex items-center space-x-2 pt-1">
-              <a
-                href={HOSPITAL_INFO.socialLinks.youtube}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2.5 bg-slate-900 rounded-xl text-red-500 hover:bg-slate-800 border border-slate-800"
-                title="YouTube"
-              >
-                <YoutubeIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={HOSPITAL_INFO.socialLinks.facebook}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2.5 bg-slate-900 rounded-xl text-blue-400 hover:bg-slate-800 border border-slate-800"
-                title="Facebook"
-              >
-                <FacebookIcon className="w-4 h-4" />
-              </a>
+            {/* Card 3: Cosmetic Wing */}
+            <div className="bg-white dark:bg-[#0c1f33] p-5 rounded-b-xl border-x border-b border-slate-200 dark:border-slate-800 border-t-2 border-t-[#f5900d] shadow-sm hover:shadow-md transition-shadow">
+              <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
+                Hope Aesthetic Dentistry & Clear Aligner Studio
+              </h4>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                1st Floor Cosmetic & Smile Design Wing, Sadrauna Road, Lucknow – Porcelain veneers & invisible braces.
+              </p>
             </div>
 
-            <button
-              onClick={() => setIsBookingOpen(true)}
-              className="w-full py-2.5 bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 text-white font-bold text-xs rounded-xl shadow-md transition-all active:scale-95"
-            >
-              {language === 'hi' ? 'ऑनलाइन अपॉइंटमेंट बुक करें' : 'Book Online Slot (60s)'}
-            </button>
+            {/* Card 4: Endodontic & Emergency */}
+            <div className="bg-white dark:bg-[#0c1f33] p-5 rounded-b-xl border-x border-b border-slate-200 dark:border-slate-800 border-t-2 border-t-[#f5900d] shadow-sm hover:shadow-md transition-shadow">
+              <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
+                Hope Microscopic Endodontics & 24/7 Dental Emergency
+              </h4>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                Para Road, Mohan Road, Lucknow – 226011. Single-visit root canal treatments & urgent trauma care.
+              </p>
+            </div>
+
           </div>
         </div>
+      </div>
 
-        <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-3">
-          <div>
-            © {new Date().getFullYear()} Hope Dental Hospital & Wellness Centre, Sadrauna, Lucknow. All rights reserved.
+      {/* 2. MAIN FOOTER BODY (DEEP NAVY #081726) */}
+      <div className="bg-[#081726] text-slate-400 border-t border-slate-800/80 pt-12 pb-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-12">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+            
+            {/* Col 1: Brand Logo & Description (5 cols) */}
+            <div className="lg:col-span-4 space-y-4">
+              <div className="flex items-center space-x-3">
+                {/* Crest SVG */}
+                <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                  <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-sm">
+                    <g fill="#c59b27" opacity="0.85">
+                      <path d="M 22 28 C 16 35, 14 48, 18 60 C 22 72, 32 82, 45 88 C 43 85, 33 78, 28 68 C 24 58, 24 45, 27 34 Z" fill="#c59b27" />
+                      <path d="M 78 28 C 84 35, 86 48, 82 60 C 78 72, 68 82, 55 88 C 57 85, 67 78, 72 68 C 76 58, 76 45, 73 34 Z" fill="#c59b27" />
+                    </g>
+                    <path d="M 36 22 L 42 27 L 50 18 L 58 27 L 64 22 L 62 30 L 38 30 Z" fill="#c59b27" />
+                    <path d="M 28 32 C 28 32, 50 30, 50 30 C 50 30, 72 32, 72 32 C 72 55, 64 74, 50 82 C 36 74, 28 55, 28 32 Z" fill="#040c14" stroke="#c59b27" strokeWidth="2.5" />
+                    <path d="M 42 42 C 42 38, 46 37, 50 37 C 54 37, 58 38, 58 42 C 58 46, 57 52, 57 58 C 57 65, 53 68, 52 70 C 51 68, 50 63, 50 58 C 50 63, 49 68, 48 70 C 47 68, 43 65, 43 58 C 43 52, 42 46, 42 42 Z" fill="#ffffff" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-[#f5900d] tracking-wider uppercase">
+                    HOPE DENTAL
+                  </h3>
+                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                    Face Make Over & Smile Clinics
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
+                Advanced dental care backed by specialist expertise, modern technology and a dedicated standalone dental hospital campus in Sadrauna, Para Road, Lucknow.
+              </p>
+
+              <div className="space-y-1.5 text-xs text-slate-400">
+                <div className="flex items-center space-x-2">
+                  <Phone className="w-3.5 h-3.5 text-[#f5900d]" />
+                  <span className="font-bold text-white">{hospitalInfo.phone}</span>
+                  <span>/</span>
+                  <span>{hospitalInfo.altPhone}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Clock className="w-3.5 h-3.5 text-[#f5900d]" />
+                  <span>Mon–Sun: 10:00 AM–8:00 PM</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Col 2: Book Your Visit (4 cols) matching FMS center column */}
+            <div className="lg:col-span-4 space-y-3">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#f5900d] block">
+                BOOK YOUR VISIT
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-white">
+                Book an appointment
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Speak with the Hope Dental team about your treatment, consultation or dental tourism requirements.
+              </p>
+
+              <div className="pt-2">
+                <button
+                  onClick={() => setIsBookingOpen(true)}
+                  className="px-6 py-2.5 rounded-md bg-[#e8b96a] hover:bg-[#d4a359] text-black font-extrabold text-xs tracking-wider uppercase shadow-md active:scale-98 transition-all"
+                >
+                  BOOK AN APPOINTMENT
+                </button>
+              </div>
+            </div>
+
+            {/* Col 3: Follow Us & Quick Links (4 cols) matching FMS right column */}
+            <div className="lg:col-span-4 space-y-4">
+              {/* Follow Us */}
+              <div>
+                <h4 className="text-sm font-bold text-white mb-2">
+                  Follow Us
+                </h4>
+                <div className="flex items-center space-x-2">
+                  <a
+                    href={hospitalInfo.socialLinks?.facebook || 'https://www.facebook.com/p/Hope-Dental-Hospital-and-Wellness-Center-100083540701821/'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded border border-slate-700 hover:border-[#f5900d] bg-[#0c1f33] text-slate-300 hover:text-white flex items-center justify-center transition-colors"
+                    title="Facebook"
+                  >
+                    <span className="font-bold text-xs">f</span>
+                  </a>
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded border border-slate-700 hover:border-[#f5900d] bg-[#0c1f33] text-slate-300 hover:text-white flex items-center justify-center transition-colors"
+                    title="X / Twitter"
+                  >
+                    <span className="font-bold text-xs">𝕏</span>
+                  </a>
+                  <a
+                    href={hospitalInfo.socialLinks?.youtube || 'https://youtube.com/@drhimangidubey_hopedental?si=dICNBMYUw_9KpXfp'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded border border-slate-700 hover:border-[#f5900d] bg-[#0c1f33] text-slate-300 hover:text-[#FF0000] flex items-center justify-center transition-colors"
+                    title="YouTube"
+                  >
+                    <span className="text-xs">▶</span>
+                  </a>
+                  <a
+                    href={hospitalInfo.socialLinks?.google || 'https://share.google/M13VNXGp52dAKKUWl'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded border border-slate-700 hover:border-[#f5900d] bg-[#0c1f33] text-slate-300 hover:text-[#4285F4] flex items-center justify-center transition-colors"
+                    title="Google 5.0 Star Profile"
+                  >
+                    <span className="font-bold text-xs">G</span>
+                  </a>
+                  <a
+                    href={hospitalInfo.socialLinks?.justdial || 'https://jsdl.in/DT-39XTVYSNSB8'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded border border-slate-700 hover:border-[#f5900d] bg-[#0c1f33] text-slate-300 hover:text-[#ff6a00] flex items-center justify-center transition-colors"
+                    title="Justdial 5.0 Star"
+                  >
+                    <span className="font-black text-[10px] text-[#ff6a00]">JD</span>
+                  </a>
+                  <a
+                    href={hospitalInfo.socialLinks?.whatsapp || 'https://wa.me/917905287870'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded border border-slate-700 hover:border-[#f5900d] bg-[#0c1f33] text-slate-300 hover:text-[#25D366] flex items-center justify-center transition-colors"
+                    title="WhatsApp"
+                  >
+                    <span className="font-bold text-xs">💬</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Quick Links in 2 Columns */}
+              <div>
+                <h4 className="text-sm font-bold text-white mb-2">
+                  Quick Links
+                </h4>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-slate-400">
+                  <button onClick={() => navigateTo('about')} className="text-left hover:text-[#f5900d] transition-colors">
+                    Why Hope?
+                  </button>
+                  <button onClick={() => navigateTo('about')} className="text-left hover:text-[#f5900d] transition-colors">
+                    FAQs
+                  </button>
+                  <button onClick={() => navigateTo('about')} className="text-left hover:text-[#f5900d] transition-colors">
+                    Awards
+                  </button>
+                  <button onClick={() => navigateTo('tourism')} className="text-left hover:text-[#f5900d] transition-colors">
+                    Dental Tourism
+                  </button>
+                  <button onClick={() => navigateTo('about')} className="text-left hover:text-[#f5900d] transition-colors">
+                    In-House Dental Lab
+                  </button>
+                  <button onClick={() => navigateTo('reviews')} className="text-left hover:text-[#f5900d] transition-colors">
+                    Testimonials
+                  </button>
+                  <button onClick={() => navigateTo('services')} className="text-left hover:text-[#f5900d] transition-colors">
+                    Photo Gallery
+                  </button>
+                  <button onClick={() => navigateTo('contact')} className="text-left hover:text-[#f5900d] transition-colors">
+                    Contact Us
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
           </div>
-          <div className="flex items-center space-x-4">
-            <span>ISO 9001:2015 Certified</span>
-            <span>•</span>
-            <span>Class-B Sterilization</span>
+
+          {/* 3. LATEST BLOGS CAROUSEL / GRID STRIP IN FOOTER */}
+          <div className="pt-8 border-t border-slate-800/80">
+            <div className="flex items-center justify-between mb-4">
+              <h4 className="text-sm font-black text-white tracking-wider uppercase">
+                LATEST BLOGS
+              </h4>
+              <button 
+                onClick={() => navigateTo('blogs')}
+                className="text-xs font-bold text-[#f5900d] hover:underline flex items-center space-x-1"
+              >
+                <span>READ MORE</span>
+                <span>→</span>
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {blogs.slice(0, 4).map((b, idx) => (
+                <div 
+                  key={b.id || idx}
+                  onClick={() => setActiveBlogModal(b)}
+                  className="bg-[#0c1f33] hover:bg-[#122b46] border border-slate-800 rounded-lg p-3 cursor-pointer transition-all flex items-start space-x-3 group"
+                >
+                  <div className="w-16 h-14 rounded overflow-hidden bg-slate-800 shrink-0">
+                    <img 
+                      src={b.imageUrl || '/images/hope/real_clinic_7_.jpg'} 
+                      alt={b.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-bold text-[#f5900d] block">
+                      {b.date || '10 SEPT 2026'}
+                    </span>
+                    <h5 className="text-xs font-bold text-white group-hover:text-[#f5900d] transition-colors line-clamp-2 leading-tight">
+                      {b.title}
+                    </h5>
+                    <span className="text-[10px] text-slate-400 group-hover:text-white transition-colors block">
+                      Read More
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* 4. COPYRIGHT BAR */}
+          <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
+            <div>
+              Copyright {new Date().getFullYear()} © All rights Reserved.
+            </div>
+            <div>
+              Design by <span className="text-slate-300 font-semibold">Team Hope</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </footer>

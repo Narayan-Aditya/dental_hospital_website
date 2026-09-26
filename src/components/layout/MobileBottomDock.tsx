@@ -1,11 +1,10 @@
 import React from 'react';
-import { Home, Layers, Calendar, Stethoscope, Phone } from 'lucide-react';
+import { Home, MapPin, Calendar, Calculator, Phone } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
-import { HOSPITAL_INFO } from '../../data/mockData';
 import { PageId } from '../../types';
 
 export const MobileBottomDock: React.FC = () => {
-  const { language, currentPage, navigateTo, setIsBookingOpen } = useApp();
+  const { currentPage, navigateTo, setIsBookingOpen, setIsCostCalculatorOpen, hospitalInfo } = useApp();
 
   const handleTabClick = (pageId: PageId) => {
     navigateTo(pageId);
@@ -18,56 +17,52 @@ export const MobileBottomDock: React.FC = () => {
         onClick={() => handleTabClick('home')}
         className={`flex flex-col items-center justify-center text-[10px] font-semibold py-1 px-2 rounded-xl transition-all active:scale-95 ${
           currentPage === 'home'
-            ? 'text-teal-600 dark:text-teal-400 font-bold'
-            : 'text-slate-600 dark:text-slate-400 hover:text-teal-600'
+            ? 'text-[#f5900d] font-bold'
+            : 'text-slate-600 dark:text-slate-400 hover:text-[#f5900d]'
         }`}
       >
         <Home className="w-4 h-4 mb-0.5" />
-        <span>{language === 'hi' ? 'होम' : 'Home'}</span>
+        <span>Home</span>
       </button>
 
-      {/* Services Tab */}
+      {/* Hospital Tab */}
       <button
-        onClick={() => handleTabClick('services')}
+        onClick={() => handleTabClick('clinics')}
         className={`flex flex-col items-center justify-center text-[10px] font-semibold py-1 px-2 rounded-xl transition-all active:scale-95 ${
-          currentPage === 'services'
-            ? 'text-teal-600 dark:text-teal-400 font-bold'
-            : 'text-slate-600 dark:text-slate-400 hover:text-teal-600'
+          currentPage === 'clinics'
+            ? 'text-[#f5900d] font-bold'
+            : 'text-slate-600 dark:text-slate-400 hover:text-[#f5900d]'
         }`}
       >
-        <Layers className="w-4 h-4 mb-0.5" />
-        <span>{language === 'hi' ? 'उपचार' : 'Services'}</span>
+        <MapPin className="w-4 h-4 mb-0.5" />
+        <span>Hospital</span>
       </button>
 
       {/* Floating Highlighted Center Action: Book Slot */}
       <button
         onClick={() => setIsBookingOpen(true)}
-        className="-mt-5 px-3.5 py-2.5 bg-gradient-to-tr from-teal-700 via-teal-600 to-emerald-500 text-white rounded-2xl font-bold text-[11px] shadow-lg shadow-teal-600/35 flex flex-col items-center justify-center active:scale-90 transition-transform ring-4 ring-white dark:ring-slate-950"
+        className="-mt-5 px-4 py-2.5 bg-[#f5900d] hover:bg-[#e08208] text-white rounded-full font-bold text-[11px] shadow-lg shadow-[#f5900d]/40 flex flex-col items-center justify-center active:scale-90 transition-transform ring-4 ring-white dark:ring-slate-950"
       >
-        <Calendar className="w-4 h-4 mb-0.5" />
-        <span>{language === 'hi' ? 'बुक स्लॉट' : 'Book'}</span>
+        <Calendar className="w-4 h-4 mb-0.5 text-white" />
+        <span className="text-white">Book Slot</span>
       </button>
 
-      {/* Doctors Tab */}
+      {/* Cost Estimator */}
       <button
-        onClick={() => handleTabClick('doctors')}
-        className={`flex flex-col items-center justify-center text-[10px] font-semibold py-1 px-2 rounded-xl transition-all active:scale-95 ${
-          currentPage === 'doctors'
-            ? 'text-teal-600 dark:text-teal-400 font-bold'
-            : 'text-slate-600 dark:text-slate-400 hover:text-teal-600'
-        }`}
+        onClick={() => setIsCostCalculatorOpen(true)}
+        className="flex flex-col items-center justify-center text-[10px] font-semibold py-1 px-2 rounded-xl transition-all active:scale-95 text-slate-600 dark:text-slate-400 hover:text-[#f5900d]"
       >
-        <Stethoscope className="w-4 h-4 mb-0.5" />
-        <span>{language === 'hi' ? 'डॉक्टर्स' : 'Doctors'}</span>
+        <Calculator className="w-4 h-4 mb-0.5" />
+        <span>Estimator</span>
       </button>
 
-      {/* Direct Helpline Call */}
+      {/* Direct Call Tab */}
       <a
-        href={`tel:${HOSPITAL_INFO.phone}`}
-        className="flex flex-col items-center justify-center text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 text-[10px] font-semibold py-1 px-2 rounded-xl transition-colors active:scale-95"
+        href={`tel:${hospitalInfo.phone.replace(/\s+/g, '')}`}
+        className="flex flex-col items-center justify-center text-[10px] font-semibold py-1 px-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-[#f5900d] active:scale-95"
       >
-        <Phone className="w-4 h-4 mb-0.5 text-teal-600 dark:text-teal-400" />
-        <span>{language === 'hi' ? 'कॉल' : 'Call'}</span>
+        <Phone className="w-4 h-4 mb-0.5" />
+        <span>Call</span>
       </a>
     </div>
   );

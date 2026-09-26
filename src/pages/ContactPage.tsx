@@ -2,238 +2,279 @@ import React, { useState } from 'react';
 import { 
   MapPin, 
   Phone, 
-  Clock, 
   Send, 
-  MessageSquare, 
-  Navigation, 
   CheckCircle2, 
-  Calendar,
-  ShieldCheck,
-  Building
+  Calendar, 
+  Building2,
+  Globe
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import { HOSPITAL_INFO } from '../data/mockData';
 
 export const ContactPage: React.FC = () => {
-  const { language, setIsBookingOpen } = useApp();
+  const { hospitalInfo, clinicBranches, setIsBookingOpen, setSelectedBranchForBooking } = useApp();
 
-  // Direct Inquiry Form State
   const [formName, setFormName] = useState('');
   const [formPhone, setFormPhone] = useState('');
+  const [formEmail, setFormEmail] = useState('');
+  const [formBranch, setFormBranch] = useState(clinicBranches[0]?.id || 'lucknow-flagship');
   const [formQuery, setFormQuery] = useState('');
-  const [formType, setFormType] = useState('General Consultation');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formName || !formPhone) return;
     setIsSubmitted(true);
     setTimeout(() => {
       setFormName('');
       setFormPhone('');
+      setFormEmail('');
       setFormQuery('');
-    }, 2500);
+      setIsSubmitted(false);
+    }, 4000);
   };
 
   return (
     <div className="space-y-16 sm:space-y-20 animate-fadeIn py-6 sm:py-10">
-      {/* 1. CONTACT PAGE HEADER */}
+      
+      {/* 1. HEADER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-tr from-slate-900 via-slate-900 to-teal-950 text-white rounded-3xl p-6 sm:p-12 border border-slate-800 shadow-2xl space-y-4">
-          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-bold uppercase tracking-wider">
-            <MapPin className="w-3.5 h-3.5 text-teal-400" />
-            <span>Sadrauna, Mohan Road, Lucknow</span>
+        <div className="bg-gradient-to-r from-[#06131f] via-[#081726] to-[#0b1f3a] text-white rounded-3xl p-6 sm:p-12 border border-slate-800 shadow-2xl relative overflow-hidden">
+          <div className="relative z-10 max-w-3xl space-y-4">
+            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#f5900d]/20 text-[#f5900d] border border-[#f5900d]/40 text-xs font-bold uppercase tracking-wider">
+              <MapPin className="w-3.5 h-3.5 text-[#f5900d]" />
+              <span>CENTRAL HELPLINE & HOSPITAL CAMPUS</span>
+            </div>
+
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              Contact Hope Dental Hospital
+            </h1>
+
+            <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
+              Reach our patient care coordination team, schedule priority OPD appointments, or access urgent dental care at our standalone hospital campus in Sadrauna, Lucknow (Uttar Pradesh).
+            </p>
           </div>
-
-          <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
-            {language === 'hi'
-              ? 'अस्पताल का पता, समय एवं सीधा संपर्क'
-              : 'Hospital Location, OPD Timings & Contact'
-            }
-          </h1>
-
-          <p className="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
-            {language === 'hi'
-              ? 'सदरौना मुख्य बाजार के निकट, मोहन रोड लखनऊ में स्थित। आसान पार्किंग, व्हीलचेयर एक्सेस, और त्वरित परामर्श सेवा उपलब्ध है।'
-              : 'Conveniently accessible in Sadrauna, Lucknow with ample parking, wheelchair accessibility, and direct doctor consultations.'
-            }
-          </p>
         </div>
       </section>
 
-      {/* 2. CONTACT DETAILS & DIRECT INQUIRY FORM */}
+      {/* 2. CONTACT CHANNELS CARDS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Cards (6 Cols) */}
-          <div className="lg:col-span-6 space-y-6">
-            {/* Address & Landmark */}
-            <div className="bg-slate-50 dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-5 shadow-xs">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-2xl bg-teal-700 text-white flex items-center justify-center shrink-0 shadow-md">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-serif font-bold text-lg sm:text-xl text-slate-900 dark:text-white">
-                    Hope Dental Hospital & Wellness Centre
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                    {language === 'hi' ? HOSPITAL_INFO.addressHi : HOSPITAL_INFO.address}
-                  </p>
-                  <p className="text-xs text-teal-700 dark:text-teal-400 font-semibold mt-2">
-                    Landmark: Near Sadrauna Main Market & Mohan Road Crossing, Lucknow
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <a
-                  href={HOSPITAL_INFO.socialLinks.google}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full sm:w-auto px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center justify-center space-x-2"
-                >
-                  <Navigation className="w-4 h-4 text-teal-400" />
-                  <span>Get Directions (Google Maps)</span>
-                </a>
-
-                <a
-                  href={`https://wa.me/919450000000?text=Hello%20Hope%20Dental%20Hospital,%20I%20need%20assistance%20with%20clinic%20location.`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center justify-center space-x-2"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>WhatsApp Help</span>
-                </a>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+            <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-[#f5900d] flex items-center justify-center">
+              <Phone className="w-6 h-6" />
             </div>
-
-            {/* Helpline & Timings */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-slate-50 dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2 shadow-xs">
-                <div className="flex items-center space-x-2 text-teal-700 dark:text-teal-400 font-bold text-xs uppercase tracking-wider">
-                  <Phone className="w-4 h-4" />
-                  <span>Emergency Helpline</span>
-                </div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white">
-                  <a href={`tel:${HOSPITAL_INFO.phone}`} className="hover:text-teal-600 dark:hover:text-teal-400 block">
-                    {HOSPITAL_INFO.phone}
-                  </a>
-                  <a href={`tel:${HOSPITAL_INFO.altPhone}`} className="hover:text-teal-600 dark:hover:text-teal-400 block text-xs text-slate-500 font-medium mt-0.5">
-                    {HOSPITAL_INFO.altPhone}
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-slate-50 dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2 shadow-xs">
-                <div className="flex items-center space-x-2 text-teal-700 dark:text-teal-400 font-bold text-xs uppercase tracking-wider">
-                  <Clock className="w-4 h-4" />
-                  <span>OPD Consultation Hours</span>
-                </div>
-                <div className="text-xs text-slate-800 dark:text-slate-200 space-y-0.5">
-                  <p className="font-bold">Mon – Sat: 9:00 AM – 8:00 PM</p>
-                  <p className="text-slate-600 dark:text-slate-400">Sunday: 10:00 AM – 2:00 PM</p>
-                </div>
-              </div>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white">
+              Appointments & Inquiries
+            </h3>
+            <div className="text-sm font-bold text-[#f5900d]">
+              <a href={`tel:${hospitalInfo.phone.replace(/\s+/g, '')}`} className="hover:underline">
+                {hospitalInfo.phone}
+              </a>
             </div>
+            <p className="text-xs text-slate-500">
+              Monday – Sunday: 10:00 AM – 8:00 PM<br />
+              All 7 Days Open
+            </p>
           </div>
 
-          {/* Right Direct Inquiry Form (6 Cols) */}
-          <div className="lg:col-span-6 bg-slate-50 dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
-            <div className="space-y-1 mb-6">
-              <span className="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
-                Direct Dental Inquiry
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-red-200 dark:border-red-950/60 shadow-sm space-y-3">
+            <div className="w-12 h-12 rounded-2xl bg-red-50 dark:bg-red-950 text-red-600 flex items-center justify-center">
+              <Building2 className="w-6 h-6" />
+            </div>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center space-x-1.5">
+              <span>Urgent Dental Helpline</span>
+              <span className="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
+            </h3>
+            <div className="text-sm font-bold text-red-600">
+              <a href={`tel:${hospitalInfo.emergencyPhone.replace(/\s+/g, '')}`} className="hover:underline">
+                {hospitalInfo.emergencyPhone}
+              </a>
+            </div>
+            <p className="text-xs text-slate-500">
+              Sadrauna Hospital Campus: Laser suites, implant surgery & acute dental pain relief.
+            </p>
+          </div>
+
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+            <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-[#f5900d] flex items-center justify-center">
+              <Globe className="w-6 h-6" />
+            </div>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white">
+              International Patient Desk
+            </h3>
+            <div className="text-sm font-bold text-[#f5900d]">
+              <a href={`tel:${hospitalInfo.internationalPhone.replace(/\s+/g, '')}`} className="hover:underline">
+                {hospitalInfo.internationalPhone}
+              </a>
+            </div>
+            <p className="text-xs text-slate-500">
+              Email: {hospitalInfo.intlEmail}<br />
+              Concierge, Visa support & Airport pickups
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. INQUIRY FORM & FLAGSHIP VENUE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          
+          {/* Form (7 cols) */}
+          <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <div>
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#f5900d]">
+                GET IN TOUCH
               </span>
-              <h3 className="font-serif font-bold text-xl sm:text-2xl text-slate-900 dark:text-white">
-                {language === 'hi' ? 'अस्पताल से प्रश्न पूछें' : 'Ask a Question to Our Specialists'}
-              </h3>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-1">
+                Send a Message or Request Call-Back
+              </h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Our care coordinators respond within 30 minutes during OPD hours.
+              </p>
             </div>
 
             {isSubmitted ? (
-              <div className="bg-teal-100 dark:bg-teal-950/60 border border-teal-300 dark:border-teal-700 text-teal-900 dark:text-teal-200 p-6 rounded-2xl text-center space-y-2 animate-fadeIn">
-                <CheckCircle2 className="w-10 h-10 text-teal-600 dark:text-teal-400 mx-auto" />
-                <h4 className="font-bold text-base">{language === 'hi' ? 'पूछताछ सफलतापूर्वक दर्ज की गई!' : 'Inquiry Submitted Successfully!'}</h4>
-                <p className="text-xs text-teal-800 dark:text-teal-300">
-                  {language === 'hi' 
-                    ? 'हमारा स्टाफ जल्द ही आपसे संपर्क करेगा।' 
-                    : `Our front desk at Sadrauna will contact you shortly at ${formPhone}.`
-                  }
+              <div className="p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-center space-y-2 animate-fadeIn">
+                <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
+                <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                  Message Dispatched Successfully!
+                </h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400">
+                  Thank you, {formName}. Our clinical desk will contact your WhatsApp/Phone shortly.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
-                    {language === 'hi' ? 'पूरा नाम *' : 'Full Name *'}
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formName}
-                    onChange={(e) => setFormName(e.target.value)}
-                    placeholder="e.g. Rahul Sharma"
-                    className="w-full text-base sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
-                  />
-                </div>
-
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
-                      {language === 'hi' ? 'फ़ोन नंबर *' : 'Phone / WhatsApp *'}
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+                      Your Full Name *
                     </label>
                     <input
-                      type="tel"
+                      type="text"
                       required
-                      value={formPhone}
-                      onChange={(e) => setFormPhone(e.target.value)}
-                      placeholder="e.g. 98390XXXXX"
-                      className="w-full text-base sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
+                      placeholder="e.g. John Doe"
+                      value={formName}
+                      onChange={(e) => setFormName(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
-                      {language === 'hi' ? 'उपचार श्रेणी' : 'Inquiry Category'}
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+                      Phone / WhatsApp Number *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="e.g. +91 79052..."
+                      value={formPhone}
+                      onChange={(e) => setFormPhone(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="patient@email.com"
+                      value={formEmail}
+                      onChange={(e) => setFormEmail(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+                      Preferred Clinical Department / Wing
                     </label>
                     <select
-                      value={formType}
-                      onChange={(e) => setFormType(e.target.value)}
-                      className="w-full text-base sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-3 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
+                      value={formBranch}
+                      onChange={(e) => setFormBranch(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
                     >
-                      <option value="General Consultation">General Consultation</option>
-                      <option value="Root Canal Treatment">Root Canal Treatment (RCT)</option>
-                      <option value="Dental Implants">Dental Implants</option>
-                      <option value="Invisible Aligners">Invisible Aligners / Braces</option>
-                      <option value="Wisdom Tooth Pain">Wisdom Tooth Pain</option>
+                      {clinicBranches.map(b => (
+                        <option key={b.id} value={b.id}>{b.name}</option>
+                      ))}
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
-                    {language === 'hi' ? 'अपनी समस्या या प्रश्न लिखें' : 'Describe your dental question'}
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+                    Describe Your Concern / Treatment Needed
                   </label>
                   <textarea
                     rows={3}
+                    placeholder="e.g. Inquiring for full-arch dental implants or smile makeover..."
                     value={formQuery}
                     onChange={(e) => setFormQuery(e.target.value)}
-                    placeholder="Tell us about the issue..."
-                    className="w-full text-base sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm resize-none"
+                    className="w-full p-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 hover:from-teal-700 hover:to-emerald-600 text-white font-bold text-sm rounded-xl shadow-lg shadow-teal-600/25 transition-all flex items-center justify-center space-x-2 active:scale-95"
+                  className="w-full py-3.5 rounded-2xl bg-[#f5900d] hover:bg-[#e08208] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center space-x-2"
                 >
                   <Send className="w-4 h-4" />
-                  <span>{language === 'hi' ? 'पूछताछ भेजें' : 'Send Inquiry to Hospital Desk'}</span>
+                  <span>Send Inquiry to Care Team</span>
                 </button>
               </form>
             )}
           </div>
+
+          {/* Flagship Center Venue Info (5 cols) */}
+          <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#f5900d] block">
+              STANDALONE HOSPITAL CAMPUS (LUCKNOW)
+            </span>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+              Hope Dental Hospital & Wellness Centre
+            </h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+              No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow, Uttar Pradesh – 226011
+            </p>
+
+            <div className="pt-2 space-y-2 text-xs text-slate-600 dark:text-slate-400">
+              <div className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-[#f5900d]" />
+                <span>Complimentary Patient Parking & Valet</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-[#f5900d]" />
+                <span>Wheelchair & Stretcher Accessible Entrance</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-[#f5900d]" />
+                <span>Centre for Implantology, Biolase Laser Suite & Digital OPG</span>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+              <button
+                onClick={() => {
+                  setSelectedBranchForBooking('lucknow-flagship');
+                  setIsBookingOpen(true);
+                }}
+                className="w-full py-3.5 rounded-2xl bg-[#f5900d] hover:bg-[#e08208] text-white font-bold text-xs sm:text-sm shadow-md transition-colors flex items-center justify-center space-x-2"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Book Appointment at Sadrauna Lucknow Campus</span>
+              </button>
+            </div>
+          </div>
+
         </div>
       </section>
+
     </div>
   );
 };

@@ -1,0 +1,360 @@
+{
+  "topBar": {
+    "text": "\ud83d\udcde +91 40 2222 1111 Locations Book Appointment About Us Specialties Our Clinics Team FMS Dental Tourism Others Blog",
+    "bg": "rgb(0, 0, 0)",
+    "color": "rgb(0, 0, 0)",
+    "height": 176
+  },
+  "btnStyle": {
+    "text": "Book Appointment",
+    "bg": "rgb(245, 144, 13)",
+    "color": "rgba(247, 251, 255, 0.66)",
+    "borderRadius": "999px",
+    "padding": "6px 16px",
+    "fontSize": "12px"
+  },
+  "navItems": [],
+  "sections": [
+    {
+      "id": "",
+      "className": "fms-hero-curved",
+      "headings": [
+        "Best Dental Clinic in Hyderabad, India - FMS DENTAL",
+        "Book Your Appointment",
+        "Talk to a Specialist",
+        "Find a Dentist",
+        "Dental Tourism"
+      ],
+      "snippet": "FMS DENTAL HOSPITALS Best Dental Clinic in Hyderabad, India - FMS DENTAL Where Top Dental Specialists for Dental Implants & Cosmetic Dentistry are ava",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bgImg": "radial-gradient(circle at 80% 15%, rgba(232, 185, 106, 0.13) 0px, rgba(232, 185, 106, 0) 30%), linea"
+    },
+    {
+      "id": "",
+      "className": "fms-international-center-section",
+      "headings": [
+        "FMS INTERNATIONAL DENTAL CENTER - Advanced Dental Implant Clinic",
+        "Best Dental Implant Clinic in Hyderabad, India"
+      ],
+      "snippet": "FMS INTERNATIONAL DENTAL CENTER FMS INTERNATIONAL DENTAL CENTER FMS INTERNATIONAL DENTAL CENTER - Advanced Dental Implant Clinic Best Dental Implant C",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "",
+      "className": "fms-cosmetic-experienced-dentists",
+      "headings": [
+        "Are you searching for the most experienced & best dentists in Hyderabad, India? Find them at FMS DENTAL.",
+        "Led by Senior Dentists with Decades of Experience",
+        "A Team of Highly Experienced Specialists",
+        "Decades of Expertise Across Every Dental Specialty"
+      ],
+      "snippet": "FMS DENTAL \u00b7 EXPERTISE & EXPERIENCE Are you searching for the most experienced & best dentists in Hyderabad, India? Find them at FMS DENTAL. 30+ YEARS",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "",
+      "className": "fms-senior-dentists-section",
+      "headings": [
+        "Senior most Dentists at FMS DENTAL"
+      ],
+      "snippet": "DIRECTION \u00b7 GOVERNANCE \u00b7 COMPLEX CASE REVIEW Senior most Dentists at FMS DENTAL The two clinicians who started FMS DENTAL in 1993 still review the ho",
+      "bg": "rgb(8, 23, 38)",
+      "bgImg": ""
+    },
+    {
+      "id": "book",
+      "className": "fms-premium-section",
+      "headings": [
+        "India's Most Awarded Dental Hospital. 30+ Years. 13 Clinics. Different Verticals.",
+        "Book Your Consultation"
+      ],
+      "snippet": "HYDERABAD SECUNDERABAD KOCHI EST. 1993 India's Most Awarded Dental Hospital. 30+ Years. 13 Clinics. Different Verticals. Different verticals, high-qu",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bgImg": "radial-gradient(circle at 8% 15%, rgba(232, 185, 106, 0.1) 0%, rgba(232, 185, 106, 0) 30%), radial-g"
+    },
+    {
+      "id": "about-fms-dental",
+      "className": "fms-about-entity",
+      "headings": [
+        "One Group, Five Verticals, Twelve Specialties \u2014 A Complete Ecosystem of Dental Care"
+      ],
+      "snippet": "ABOUT FMS DENTAL \u2014 ENTITY SUMMARY One Group, Five Verticals, Twelve Specialties \u2014 A Complete Ecosystem of Dental Care FMS DENTAL operates across five",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "",
+      "className": "fms-five-verticals",
+      "headings": [
+        "THE FIVE FMS DENTAL GROUPS OF VERTICALS",
+        "How One Dental Group Serves Every Segment of People \u2014 Without Diluting Specialty Practice",
+        "FMS INTERNATIONAL DENTAL CENTER - Hyderabad & Kochi India",
+        "Premium Dental Care for International Patients",
+        "FMS DENTAL Clinics",
+        "Multispecialty Dental Care, Within Everyone's Reach",
+        "FMS DENTAL Hospital at Koti",
+        "Hospital-Grade Dentistry for Complex Cases",
+        "Sri Sai College of Dental Surgery",
+        "Serving Rural India Today & Educating Tomorrow's Dentists",
+        "FMS SKIN & HAIR - FMS Sculpt",
+        "The Complete Aesthetic Care... Skin, Hair and Beyond"
+      ],
+      "snippet": "THE FIVE FMS DENTAL GROUPS OF VERTICALS How One Dental Group Serves Every Segment of People \u2014 Without Diluting Specialty Practice Premium does not me",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "",
+      "className": "fms-entity-section",
+      "headings": [
+        "FMS DENTAL - Twelve Dental Specialties",
+        "At a Glance"
+      ],
+      "snippet": "FMS DENTAL - Twelve Dental Specialties The organisation covers twelve dental specialties: dental implantology (25,000+ implants placed, including All",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "fms-awards",
+      "className": "fms-awards-section",
+      "headings": [
+        "AWARDS & ACCREDITATIONS OF FMS DENTAL",
+        "70+ Awards, Nine Consecutive Years as Hyderabad's Best Dental Clinic",
+        "Best Dental Clinic in Hyderabad",
+        "Best Dental Hospital in Hyderabad",
+        "Best Dental Hospital in South India",
+        "Hall of Fame in Dentistry \u2014 Dr. P. Parthasaradhi Reddy",
+        "Hall of Fame in Dentistry \u2014 Dr. Shailaja Reddy",
+        "International Dental Clinic of the Year",
+        "Excellence in Cosmetic & Aesthetic Dentistry",
+        "Best Corporate Dental Clinic Chain in India",
+        "Best Dental Practice of the Year",
+        "World's Greatest Brands & Leaders",
+        "India's Greatest Brands",
+        "Indywood Medical Excellence Award",
+        "Best Website of the Year",
+        "Ranked #1 Dental Clinic in India"
+      ],
+      "snippet": "AWARDS & ACCREDITATIONS OF FMS DENTAL 70+ Awards, Nine Consecutive Years as Hyderabad's Best Dental Clinic Awards are not why patients come to FMS ",
+      "bg": "rgb(8, 23, 38)",
+      "bgImg": ""
+    },
+    {
+      "id": "fms-accreditations",
+      "className": "fms-accreditations-section",
+      "headings": [
+        "ACCREDITATIONS & CERTIFICATIONS OF FMS DENTAL",
+        "The Standards FMS DENTAL Is Audited Against \u2014 And What Each One Actually Guarantees You",
+        "NABH Accredited Hospital",
+        "ISO 9001:2015 Certified",
+        "ISO 45001:2018 Certified",
+        "Ranked #1 Dental Clinic in India",
+        "OSHA-Compliant Infection Control"
+      ],
+      "snippet": "ACCREDITATIONS & CERTIFICATIONS OF FMS DENTAL The Standards FMS DENTAL Is Audited Against \u2014 And What Each One Actually Guarantees You Any clinic can ",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "",
+      "className": "fms-client-logos-section",
+      "headings": [
+        "FMS DENTAL: The Preferred Choice of Leading PR Institutions"
+      ],
+      "snippet": "A NETWORK BUILT ON TRUST FMS DENTAL: The Preferred Choice of Leading PR Institutions",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "inside-fms-dental",
+      "className": "fms-inside-section",
+      "headings": [
+        "What a World-Class Indian Dental Hospital Actually Looks Like"
+      ],
+      "snippet": "INSIDE FMS DENTAL What a World-Class Indian Dental Hospital Actually Looks Like Not a clinic with a chair and a cabinet. A hospital-grade environment",
+      "bg": "rgb(8, 23, 38)",
+      "bgImg": ""
+    },
+    {
+      "id": "specialties",
+      "className": "fms-specialties-section",
+      "headings": [
+        "Every Dental Specialty, Under One Roof, With a Specialist in Every Chair",
+        "Dental Implants & Implantology",
+        "Cosmetic & Aesthetic Dentistry",
+        "Neuromuscular Dentistry & TMJ",
+        "Orthodontics & Clear Aligners",
+        "Endodontics \u2014 Root Canal Treatment",
+        "Periodontics \u2014 Gums & Foundations",
+        "Pedodontics \u2014 Children's Dentistry",
+        "Oral & Maxillofacial Surgery",
+        "Prosthodontics & Full-Mouth Rehab",
+        "Laser Dentistry",
+        "Oral Diagnosis & Radiology",
+        "Preventive & General Dentistry"
+      ],
+      "snippet": "TWELVE SPECIALTY DIVISIONS Every Dental Specialty, Under One Roof, With a Specialist in Every Chair At FMS DENTAL, a general dentist does not attempt",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "",
+      "className": "fms-cosmetic-grid-section",
+      "headings": [
+        "What are the Advanced Popular Dental Procedures at FMS DENTAL?.",
+        "Advanced Dental Implant Treatment",
+        "Align Your Teeth Invisibly",
+        "with Invisible Braces from FMS DENTAL - Hyderabad's Top Invisalign Provider",
+        "Smile Designing with Porcelain Dental Veneers",
+        "from expert cosmetic dentist with 30+ years of experience.",
+        "Neuromuscular Dentistry & TMD Clinic"
+      ],
+      "snippet": "FMS DENTAL \u00b7 ADVANCED DENTAL CARE What are the Advanced Popular Dental Procedures at FMS DENTAL?. Team FMS DENTAL USP\u2026. an integrated multi-specialty",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "",
+      "className": "fms-facilities-section",
+      "headings": [
+        "General Anesthesia Facility At FMS DENTAL",
+        "Conscious Sedation Facility At FMS",
+        "Sterilization at FMS"
+      ],
+      "snippet": "01 General Anesthesia Facility At FMS DENTAL FMS INTERNATIONAL DENTAL CENTER is also an exclusive facility in Maxillofacial Surgery, Dental Implant",
+      "bg": "rgb(8, 23, 38)",
+      "bgImg": ""
+    },
+    {
+      "id": "",
+      "className": "fmsx9-doctors-section",
+      "headings": [
+        "Meet our Some of the Best Dentist in Hyderabad India"
+      ],
+      "snippet": "SPECIALISTS \u2014 ORGANISED BY EXPERTISE Meet our Some of the Best Dentist in Hyderabad India know their Credentials That Inspire Confidence... Qualified",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "team",
+      "className": "fmsx9-doctors-section fmsx9-pin-section",
+      "headings": [
+        "Senior Specialists in Dental Implantology\nMISSING TEETH \u00b7 ALL-ON-4 \u00b7 ZYGOMATIC \u00b7 FULL-ARCH",
+        "Dr. Shailaja Reddy",
+        "Dr. Dushyanth Paul",
+        "Dr. Sasank",
+        "Dr. Kavya Ravuri",
+        "Dr. Prabhat Tiwari",
+        "Dr. Divya Dubey",
+        "Top Dentists in Cosmetic (Aesthetic) Dentistry\n            Smile Design \u00b7 Veneers \u00b7 Whitening \u00b7 Bonding",
+        "Dr. P. Parthasaradhi Reddy",
+        "Dr. Khushboo",
+        "Dr. Abhinav",
+        "Cosmetic Team"
+      ],
+      "snippet": "Senior Specialists in Dental Implantology MISSING TEETH \u00b7 ALL-ON-4 \u00b7 ZYGOMATIC \u00b7 FULL-ARCH Our implant team places single implants, full-arch All-on-",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "team1",
+      "className": "fmsx9-doctors-section fmsx9-pin-section",
+      "headings": [
+        "Orthodontics & Dentofacial Orthopaedics\nBRACES \u00b7 INVISALIGN \u00b7 SMARTALIGN \u00b7 CHILD GROWTH",
+        "Dr. Deepti Reddy",
+        "Dr. Vijay Reddy",
+        "Dr. Sateesh Reddy",
+        "Orthodontist Team",
+        "Endodontics \u2014 Root Canal & Microsurgery\n\n        \n          Microscopic RCT \u00b7 Re-treatment \u00b7 Apicoectomy",
+        "Dr. Shekar",
+        "Dr. Priyendu",
+        "Dr. Ravi Chandra",
+        "Endodontists Team",
+        "Neuromuscular Dentistry & TMJ Disorders\n\n        \n          Jaw Pain \u00b7 Clicking \u00b7 Bruxism \u00b7 Headaches",
+        "Dr. Faisal",
+        "Dr. Brajesh",
+        "Dr. Shailaja Reddy"
+      ],
+      "snippet": "Orthodontics & Dentofacial Orthopaedics BRACES \u00b7 INVISALIGN \u00b7 SMARTALIGN \u00b7 CHILD GROWTH Four MDS orthodontists covering adult aligner therapy, cerami",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "team-specialists-3",
+      "className": "fmsx9-doctors-section fmsx9-pin-section",
+      "headings": [
+        "Periodontics \u2014 Gums & Bone Support\nGUM DISEASE \u00b7 LANAP \u00b7 GRAFTING \u00b7 DEPIGMENTATION",
+        "Dr. Murali Krishna",
+        "Dr. Aravinda",
+        "Dr. Preeti",
+        "Periodontists Team",
+        "Prosthodontics & Full-Mouth Rehabilitation\n        \n          Crowns \u00b7 Dentures \u00b7 Full-Arch \u00b7 CAD-CAM",
+        "Dr. Aditya",
+        "Dr. Kavya Ravuri",
+        "Dr. Aoujashwie Sahi",
+        "Prosthodontists Team",
+        "Oral & Maxillofacial Surgery\n        \n          Wisdom Teeth \u00b7 Trauma \u00b7 Jaw Correction \u00b7 Facial Aesthetics",
+        "Dr. Dushyanth Paul",
+        "Dr. Prabhat Tiwari",
+        "Maxillofacial Surgeons"
+      ],
+      "snippet": "Periodontics \u2014 Gums & Bone Support GUM DISEASE \u00b7 LANAP \u00b7 GRAFTING \u00b7 DEPIGMENTATION Gum specialists managing everything from routine deep cleaning to ",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    },
+    {
+      "id": "koti-hospital",
+      "className": "fms-koti-section",
+      "headings": [
+        "True Hospital Dentistry for Complex Cases",
+        "FMS DENTAL Hospital, Koti \u2014 Empanelled With",
+        "Hospital-Grade Infrastructure",
+        "Operation Theatre",
+        "In-Patient Ward",
+        "Emergency",
+        "Timings"
+      ],
+      "snippet": "FMS DENTAL HOSPITAL, KOTI \u00b7 EST. 1993 True Hospital Dentistry for Complex Cases FMS DENTAL was started in 1993 as a multi-specialty dental clinic at ",
+      "bg": "rgb(255, 255, 255)",
+      "bgImg": ""
+    }
+  ],
+  "footerBg": "rgba(0, 0, 0, 0)",
+  "footerHeadings": [
+    "For those searching for \"dental clinic near me\"...\n13 FMS Dental Clinics Across Hyderabad & Kochi",
+    "\ud83c\udfc6 Jubilee Hills",
+    "\ud83c\udf34 Kochi",
+    "Kondapur",
+    "Kukatpally",
+    "Dilsukhnagar",
+    "Koti",
+    "Madinaguda",
+    "Kompally",
+    "A.S. Rao Nagar",
+    "Secunderabad",
+    "Langar House",
+    "Vanasthalipuram",
+    "Punjagutta",
+    "FMS International Dental Center - Advanced Dental Implant Clinic",
+    "FMS DENTAL CLINICS - Best Dental Clinic in Kondapur",
+    "FMS DENTAL CLINICS - Kukatpally | KPHB Colony",
+    "FMS International Dental Center - Dental Clinic in Kochi | Kerala",
+    "FMS DENTAL",
+    "Book an appointment",
+    "Follow Us",
+    "Quick Links",
+    "LATEST BLOGS",
+    "FMS Dental Clinics: Specialist Dental Care, Closer to You",
+    "FMS International Dental Center: Where Premium Dental Care Is Defined by Expertise, Not Interiors",
+    "BEST DENTAL IMPLANT CENTER NEAR ME! HOW TO CHOOSE?",
+    "How important is having an in-house lab and master technician for making natural looking porcelain veneers",
+    "FMS Dental Clinics: Specialist Dental Care, Closer to You",
+    "FMS International Dental Center: Where Premium Dental Care Is Defined by Expertise, Not Interiors",
+    "BEST DENTAL IMPLANT CENTER NEAR ME! HOW TO CHOOSE?",
+    "How important is having an in-house lab and master technician for making natural looking porcelain veneers",
+    "Team FMS"
+  ],
+  "footerTextSnippet": "FMS DENTAL NETWORK For those searching for \"dental clinic near me\"... 13 FMS Dental Clinics Across Hyderabad & Kochi Single and multiple implants at all branches. Complex procedures \u2014 All-on-4, Zygomatic, Pterygoid, full-mouth rehabilitation and implants under general anaesthesia \u2014 at the Jubilee Hills International Center. 01 FLAGSHIP \ud83c\udfc6 Jubilee Hills FMS International Dental Center All-on-4 \u00b7 Zygomatic \u00b7 NABH +91 8885060770 02 INTERNATIONAL \ud83c\udf34 Kochi FMS International Dental Center Opp. Oberon "
+}
