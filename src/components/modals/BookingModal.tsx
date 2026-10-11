@@ -161,7 +161,7 @@ export const BookingModal: React.FC = () => {
       <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-2xl overflow-hidden my-auto transition-all flex flex-col max-h-[92vh]">
         
         {/* Header Bar */}
-        <div className="bg-gradient-to-r from-[#0b1f3a] via-[#163864] to-[#0d9488] p-5 sm:p-6 text-white relative">
+        <div className="bg-gradient-to-r from-[#091e34] via-[#0c2b4c] to-[#0d9488] p-5 sm:p-6 text-white relative">
           <button
             onClick={handleClose}
             className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
@@ -197,9 +197,9 @@ export const BookingModal: React.FC = () => {
                 <div key={item.s} className="flex items-center space-x-2">
                   <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
                     step === item.s 
-                      ? 'bg-[#f5900d] text-white shadow-md ring-2 ring-white/40' 
+                      ? 'bg-teal-500 text-white shadow-md ring-2 ring-white/40' 
                       : step > item.s 
-                        ? 'bg-[#f5900d] text-white' 
+                        ? 'bg-teal-600 text-white' 
                         : 'bg-white/20 text-white/70'
                   }`}>
                     {step > item.s ? <Check className="w-4 h-4" /> : item.s}
@@ -229,11 +229,11 @@ export const BookingModal: React.FC = () => {
                     onClick={() => setConsultationType('in-person')}
                     className={`p-3.5 rounded-2xl border text-left flex items-start space-x-3 transition-all ${
                       consultationType === 'in-person'
-                        ? 'border-[#f5900d] bg-amber-50/60 dark:bg-amber-950/30 text-[#0b1f3a] dark:text-white ring-2 ring-[#f5900d]'
+                        ? 'border-teal-500 bg-teal-50/70 dark:bg-teal-950/30 text-[#091e34] dark:text-white ring-2 ring-teal-500'
                         : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
                     }`}
                   >
-                    <Building2 className="w-5 h-5 text-[#f5900d] mt-0.5 shrink-0" />
+                    <Building2 className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
                     <div>
                       <div className="text-sm font-bold">In-Clinic Visit</div>
                       <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">At our Sadrauna, Lucknow hospital campus</div>
@@ -245,11 +245,11 @@ export const BookingModal: React.FC = () => {
                     onClick={() => setConsultationType('virtual')}
                     className={`p-3.5 rounded-2xl border text-left flex items-start space-x-3 transition-all ${
                       consultationType === 'virtual'
-                        ? 'border-[#f5900d] bg-amber-50/60 dark:bg-amber-950/30 text-[#0b1f3a] dark:text-white ring-2 ring-[#f5900d]'
+                        ? 'border-teal-500 bg-teal-50/70 dark:bg-teal-950/30 text-[#091e34] dark:text-white ring-2 ring-teal-500'
                         : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
                     }`}
                   >
-                    <Video className="w-5 h-5 text-[#f5900d] mt-0.5 shrink-0" />
+                    <Video className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
                     <div>
                       <div className="text-sm font-bold">Virtual Video E-Consult</div>
                       <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">For overseas / outstation patients</div>
@@ -270,7 +270,7 @@ export const BookingModal: React.FC = () => {
                       onClick={() => setSelectedBranch(b.id)}
                       className={`p-3 rounded-xl border text-left cursor-pointer transition-all ${
                         selectedBranch === b.id
-                          ? 'border-[#f5900d] bg-amber-50/70 dark:bg-amber-950/30 ring-1 ring-[#f5900d]'
+                          ? 'border-teal-500 bg-teal-50/70 dark:bg-teal-950/30 ring-1 ring-teal-500'
                           : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                       }`}
                     >
@@ -279,7 +279,7 @@ export const BookingModal: React.FC = () => {
                           {b.name}
                         </span>
                         {b.badge && (
-                          <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-[#f5900d]/10 text-[#f5900d] border border-[#f5900d]/20">
+                          <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
                             {b.badge}
                           </span>
                         )}
@@ -305,7 +305,7 @@ export const BookingModal: React.FC = () => {
                       onClick={() => setSelectedTreatment(t.id)}
                       className={`p-3 rounded-xl border text-left cursor-pointer transition-all ${
                         selectedTreatment === t.id
-                          ? 'border-[#f5900d] bg-amber-50/70 dark:bg-amber-950/30 ring-1 ring-[#f5900d]'
+                          ? 'border-teal-500 bg-teal-50/70 dark:bg-teal-950/30 ring-1 ring-teal-500'
                           : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                       }`}
                     >
@@ -314,7 +314,7 @@ export const BookingModal: React.FC = () => {
                           {t.title}
                         </span>
                         {t.popular && (
-                          <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#f5900d]/10 text-[#f5900d] border border-[#f5900d]/20">
+                          <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
                             Popular
                           </span>
                         )}
@@ -331,7 +331,7 @@ export const BookingModal: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setStep(2)}
-                  className="px-6 py-3 rounded-2xl bg-[#f5900d] hover:bg-[#e08208] text-white font-bold text-sm flex items-center space-x-2 shadow-lg transition-all"
+                  className="px-6 py-3 rounded-2xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-sm flex items-center space-x-2 shadow-lg shadow-teal-500/25 transition-all"
                 >
                   <span>Select Doctor & Date</span>
                   <ArrowRight className="w-4 h-4" />
@@ -355,25 +355,31 @@ export const BookingModal: React.FC = () => {
                       onClick={() => setSelectedDoctor(d.id)}
                       className={`p-3 rounded-2xl border text-left cursor-pointer flex items-center space-x-3 transition-all ${
                         selectedDoctor === d.id
-                          ? 'border-[#f5900d] bg-amber-50/70 dark:bg-amber-950/30 ring-1 ring-[#f5900d]'
+                          ? 'border-teal-500 bg-teal-50/70 dark:bg-teal-950/30 ring-1 ring-teal-500'
                           : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                       }`}
                     >
                       <img 
                         src={d.image} 
                         alt={d.name} 
-                        className="w-11 h-11 rounded-full object-cover border-2 border-[#f5900d] shrink-0"
+                        className="w-11 h-11 rounded-full object-cover border-2 border-teal-500 shrink-0"
                         onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                       />
-                      <div className="min-w-0">
-                        <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
-                          {d.name}
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-slate-900 dark:text-white truncate">
+                            {d.name}
+                          </span>
+                          <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800 shrink-0">
+                            ₹{consultationType === 'virtual' ? (d.virtualFee || 300) : (d.consultationFee || 500)}
+                          </span>
                         </div>
-                        <div className="text-[11px] text-[#f5900d] truncate">
+                        <div className="text-[11px] text-teal-600 dark:text-teal-400 font-semibold truncate">
                           {d.designation || d.role}
                         </div>
-                        <div className="text-[10px] text-slate-500 dark:text-slate-400">
-                          {d.experienceYears}+ Yrs Exp · ★ {d.rating}
+                        <div className="text-[10px] text-slate-500 dark:text-slate-400 flex items-center justify-between mt-0.5">
+                          <span>{d.experienceYears}+ Yrs Exp · ★ {d.rating}</span>
+                          <span className="text-[9px] text-teal-600 dark:text-teal-400 truncate max-w-[110px]">{d.availableDays?.split('(')[0] || 'Mon–Sat'}</span>
                         </div>
                       </div>
                     </div>
@@ -393,7 +399,7 @@ export const BookingModal: React.FC = () => {
                       value={selectedDate}
                       min={new Date().toISOString().split('T')[0]}
                       onChange={(e) => setSelectedDate(e.target.value)}
-                      className="w-full px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                      className="w-full px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                 </div>
@@ -426,8 +432,8 @@ export const BookingModal: React.FC = () => {
                         !t.available
                           ? 'bg-slate-100 dark:bg-slate-800/40 text-slate-400 border-dashed border-slate-200 dark:border-slate-800 cursor-not-allowed line-through'
                           : selectedSlot === t.slot
-                            ? 'bg-[#f5900d] text-white border-[#f5900d] shadow-md ring-1 ring-[#f5900d]'
-                            : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/80 hover:border-[#f5900d] text-slate-700 dark:text-slate-200'
+                            ? 'bg-teal-600 text-white border-teal-600 shadow-md ring-1 ring-teal-500'
+                            : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/80 hover:border-teal-500 text-slate-700 dark:text-slate-200'
                       }`}
                     >
                       {t.slot}
@@ -449,7 +455,7 @@ export const BookingModal: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setStep(3)}
-                  className="px-6 py-3 rounded-2xl bg-[#f5900d] hover:bg-[#e08208] text-white font-bold text-sm flex items-center space-x-2 shadow-lg transition-all"
+                  className="px-6 py-3 rounded-2xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-sm flex items-center space-x-2 shadow-lg shadow-teal-500/25 transition-all"
                 >
                   <span>Patient Info</span>
                   <ArrowRight className="w-4 h-4" />
@@ -474,7 +480,7 @@ export const BookingModal: React.FC = () => {
                       placeholder="e.g. David Miller"
                       value={patientName}
                       onChange={(e) => setPatientName(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                 </div>
@@ -491,7 +497,7 @@ export const BookingModal: React.FC = () => {
                       placeholder="e.g. 7905287870 or +91..."
                       value={patientPhone}
                       onChange={(e) => setPatientPhone(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                 </div>
@@ -509,7 +515,7 @@ export const BookingModal: React.FC = () => {
                       placeholder="patient@email.com"
                       value={patientEmail}
                       onChange={(e) => setPatientEmail(e.target.value)}
-                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                 </div>
@@ -550,7 +556,7 @@ export const BookingModal: React.FC = () => {
                       placeholder="e.g. India, USA, UK, UAE"
                       value={country}
                       onChange={(e) => setCountry(e.target.value)}
-                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                 </div>
@@ -561,14 +567,14 @@ export const BookingModal: React.FC = () => {
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
                   Attach OPG / X-Ray / Smile Photo (Optional for preliminary estimate)
                 </label>
-                <div className="border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl p-4 text-center hover:border-[#f5900d] cursor-pointer transition-colors relative">
+                <div className="border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl p-4 text-center hover:border-teal-500 cursor-pointer transition-colors relative">
                   <input
                     type="file"
                     accept="image/*,.pdf"
                     onChange={handleFileChange}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                   />
-                  <Upload className="w-6 h-6 mx-auto text-[#f5900d] mb-1" />
+                  <Upload className="w-6 h-6 mx-auto text-teal-600 dark:text-teal-400 mb-1" />
                   <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
                     {fileName ? `Uploaded: ${fileName}` : 'Click or drag OPG panoramic scan / smile photo'}
                   </div>
@@ -586,23 +592,32 @@ export const BookingModal: React.FC = () => {
                   placeholder="e.g. Seeking quotation for full upper All-on-4 implants, diabetic, allergic to penicillin..."
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  className="w-full p-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                  className="w-full p-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
 
               {/* Booking Summary Box */}
-              <div className="p-3.5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/40 text-xs space-y-1">
+              <div className="p-3.5 rounded-2xl bg-teal-50/70 dark:bg-teal-950/30 border border-teal-200/80 dark:border-teal-900/40 text-xs space-y-1.5">
                 <div className="flex justify-between">
                   <span className="text-slate-600 dark:text-slate-400">Venue Center:</span>
                   <span className="font-bold text-slate-900 dark:text-white">{currentBranchObj.name}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-600 dark:text-slate-400">Doctor Specialist:</span>
-                  <span className="font-bold text-[#f5900d]">{currentDoctorObj.name}</span>
+                  <span className="font-bold text-teal-700 dark:text-teal-300">
+                    {currentDoctorObj.name} {currentDoctorObj.registrationNo ? `(${currentDoctorObj.registrationNo})` : ''}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-600 dark:text-slate-400">Date & Slot:</span>
                   <span className="font-bold text-slate-900 dark:text-white">{selectedDate} ({selectedSlot})</span>
+                </div>
+                <div className="flex justify-between pt-1 border-t border-teal-200/60 dark:border-teal-800/60">
+                  <span className="text-slate-600 dark:text-slate-400 font-medium">Consultation Fee:</span>
+                  <span className="font-bold text-emerald-700 dark:text-emerald-400">
+                    ₹{consultationType === 'virtual' ? (currentDoctorObj.virtualFee || 300) : (currentDoctorObj.consultationFee || 500)}
+                    <span className="text-[10px] font-normal text-slate-500 ml-1">(Payable at clinic / UPI)</span>
+                  </span>
                 </div>
               </div>
 
@@ -618,7 +633,7 @@ export const BookingModal: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="px-7 py-3 rounded-2xl bg-[#f5900d] hover:bg-[#e08208] text-white font-bold text-sm flex items-center space-x-2 shadow-xl transition-all"
+                  className="px-7 py-3 rounded-2xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-sm flex items-center space-x-2 shadow-xl shadow-teal-500/25 transition-all"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>Confirm Appointment</span>
@@ -654,7 +669,7 @@ export const BookingModal: React.FC = () => {
                     <div className="text-[10px] text-slate-500">Token ID: {confirmedAppointment.id}</div>
                   </div>
                   <div className="text-right">
-                    <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-bold text-[10px]">
+                    <span className="px-2 py-0.5 rounded bg-teal-100 text-teal-900 font-bold text-[10px]">
                       {confirmedAppointment.consultationType === 'virtual' ? 'VIRTUAL E-CONSULT' : 'IN-CLINIC VISIT'}
                     </span>
                   </div>
@@ -667,13 +682,21 @@ export const BookingModal: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-slate-400 block text-[10px] uppercase font-bold">Specialist</span>
-                    <span className="font-bold text-[#f5900d]">{currentDoctorObj.name}</span>
+                    <span className="font-bold text-teal-600 dark:text-teal-400">
+                      {currentDoctorObj.name} {currentDoctorObj.registrationNo ? `(${currentDoctorObj.registrationNo})` : ''}
+                    </span>
                   </div>
                   <div>
                     <span className="text-slate-400 block text-[10px] uppercase font-bold">Date & Time</span>
                     <span className="font-bold text-slate-900 dark:text-white">{confirmedAppointment.date} at {confirmedAppointment.timeSlot}</span>
                   </div>
                   <div>
+                    <span className="text-slate-400 block text-[10px] uppercase font-bold">Consultation Fee</span>
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                      ₹{confirmedAppointment.consultationType === 'virtual' ? (currentDoctorObj.virtualFee || 300) : (currentDoctorObj.consultationFee || 500)} (Payable at clinic)
+                    </span>
+                  </div>
+                  <div className="col-span-2">
                     <span className="text-slate-400 block text-[10px] uppercase font-bold">Venue Center</span>
                     <span className="font-bold text-slate-900 dark:text-white">{currentBranchObj.name}</span>
                   </div>
@@ -685,7 +708,7 @@ export const BookingModal: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => generateAppointmentPDF(confirmedAppointment)}
-                  className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-[#f5900d] hover:bg-[#e08208] text-white font-bold text-sm flex items-center justify-center space-x-2 shadow-lg transition-all"
+                  className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-sm flex items-center justify-center space-x-2 shadow-lg shadow-teal-500/25 transition-all"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Appointment Pass (PDF)</span>

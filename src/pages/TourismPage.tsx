@@ -17,10 +17,10 @@ export const TourismPage: React.FC = () => {
       
       {/* 1. HEADER BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-[#06131f] via-[#081726] to-[#0b1f3a] text-white rounded-3xl p-6 sm:p-12 border border-slate-800 shadow-2xl relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#07192b] via-[#091e34] to-[#0c2b4c] text-white rounded-3xl p-6 sm:p-12 border border-teal-900/40 shadow-2xl relative overflow-hidden">
           <div className="relative z-10 max-w-3xl space-y-4">
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#f5900d]/20 text-[#f5900d] border border-[#f5900d]/40 text-xs font-bold uppercase tracking-wider">
-              <Globe className="w-3.5 h-3.5 text-[#f5900d]" />
+            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-xs font-bold uppercase tracking-wider">
+              <Globe className="w-3.5 h-3.5 text-teal-400" />
               <span>DENTAL TOURISM INDIA · LUCKNOW</span>
             </div>
 
@@ -35,7 +35,7 @@ export const TourismPage: React.FC = () => {
             <div className="flex flex-wrap gap-3 pt-2">
               <button
                 onClick={() => setIsBookingOpen(true)}
-                className="px-6 py-3.5 bg-[#f5900d] hover:bg-[#e08208] text-white font-extrabold text-xs sm:text-sm rounded-2xl shadow-xl transition-all flex items-center space-x-2"
+                className="px-6 py-3.5 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-extrabold text-xs sm:text-sm rounded-2xl shadow-xl transition-all flex items-center space-x-2"
               >
                 <Video className="w-4 h-4 text-white" />
                 <span>Book Virtual Video Consultation</span>
@@ -45,7 +45,7 @@ export const TourismPage: React.FC = () => {
                 onClick={() => setIsCostCalculatorOpen(true)}
                 className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm rounded-2xl border border-white/20 transition-all flex items-center space-x-2"
               >
-                <DollarSign className="w-4 h-4 text-[#f5900d]" />
+                <DollarSign className="w-4 h-4 text-teal-400" />
                 <span>Calculate Your Savings</span>
               </button>
             </div>
@@ -56,10 +56,10 @@ export const TourismPage: React.FC = () => {
       {/* 2. THE 4 CONCIERGE PILLARS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#f5900d]">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-teal-600 dark:text-teal-400">
             INTERNATIONAL & OUTSTATION PATIENT CARE
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0b1f3a] dark:text-white">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#091e34] dark:text-white">
             End-to-End Seamless Concierge Service
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
@@ -68,8 +68,8 @@ export const TourismPage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-[#f5900d] flex items-center justify-center">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-teal-500/40 shadow-sm space-y-3 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
               <Video className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
@@ -80,8 +80,8 @@ export const TourismPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-[#f5900d] flex items-center justify-center">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-teal-500/40 shadow-sm space-y-3 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
               <Plane className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
@@ -92,8 +92,8 @@ export const TourismPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-[#f5900d] flex items-center justify-center">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-teal-500/40 shadow-sm space-y-3 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
               <Hotel className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
@@ -104,8 +104,8 @@ export const TourismPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-[#f5900d] flex items-center justify-center">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-teal-500/40 shadow-sm space-y-3 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
@@ -121,10 +121,10 @@ export const TourismPage: React.FC = () => {
       {/* 3. COST COMPARISON TABLE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#f5900d]">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-teal-600 dark:text-teal-400">
             PRICE TRANSPARENCY
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0b1f3a] dark:text-white">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#091e34] dark:text-white">
             Cost Comparison: Hope Dental Hospital vs USA, UK & Australia
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
@@ -135,10 +135,10 @@ export const TourismPage: React.FC = () => {
         <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-md">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#081726] text-white">
+              <thead className="bg-[#07192b] text-white">
                 <tr>
                   <th className="py-4 px-6 font-bold">Treatment Procedure</th>
-                  <th className="py-4 px-6 font-bold text-[#f5900d]">Hope Dental Hospital (India)</th>
+                  <th className="py-4 px-6 font-bold text-teal-300">Hope Dental Hospital (India)</th>
                   <th className="py-4 px-6 font-bold text-slate-300">USA Average</th>
                   <th className="py-4 px-6 font-bold text-slate-300">UK Average</th>
                   <th className="py-4 px-6 font-bold text-emerald-400">Your Savings</th>
@@ -154,7 +154,7 @@ export const TourismPage: React.FC = () => {
                         <div className="font-bold text-slate-900 dark:text-white">{c.treatmentName}</div>
                         <div className="text-xs text-slate-400">{c.brandOrMaterial}</div>
                       </td>
-                      <td className="py-4 px-6 font-extrabold text-[#f5900d]">
+                      <td className="py-4 px-6 font-extrabold text-teal-600 dark:text-teal-400">
                         {currencySymbol()}{convertPrice(c.priceInr).toLocaleString()} (${c.priceUsd})
                       </td>
                       <td className="py-4 px-6 text-slate-500 line-through">

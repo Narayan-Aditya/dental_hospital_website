@@ -64,6 +64,11 @@ export interface Doctor {
   accolades: string[];
   languages: string[];
   specialities: string[];
+  consultationFee?: number;
+  virtualFee?: number;
+  availableDays?: string;
+  opdTimings?: string;
+  registrationNo?: string;
 }
 
 export interface ClinicBranch {

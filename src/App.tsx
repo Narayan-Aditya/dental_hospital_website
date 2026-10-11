@@ -48,7 +48,7 @@ const MainContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-[#f5900d] selection:text-white transition-colors duration-200 pb-16 sm:pb-0">
+    <div className="min-h-screen flex flex-col relative bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-teal-600 selection:text-white transition-colors duration-200 pb-16 sm:pb-0">
       {/* 1. Global Navigation Header */}
       <Navbar />
 

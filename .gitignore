@@ -26,3 +26,6 @@ dist-ssr
 # Scratch dev artifacts
 scratch/
 oxlint_output.txt
+
+# Self directory
+Self_Requirements/

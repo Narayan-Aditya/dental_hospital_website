@@ -16,10 +16,10 @@ export const ReviewsPage: React.FC = () => {
       
       {/* 1. HEADER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-[#06131f] via-[#081726] to-[#0b1f3a] text-white rounded-3xl p-6 sm:p-12 border border-slate-800 shadow-2xl relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#07192b] via-[#091e34] to-[#0c2b4c] text-white rounded-3xl p-6 sm:p-12 border border-teal-900/40 shadow-2xl relative overflow-hidden">
           <div className="relative z-10 max-w-3xl space-y-4">
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#f5900d]/20 text-[#f5900d] border border-[#f5900d]/40 text-xs font-bold uppercase tracking-wider">
-              <Star className="w-3.5 h-3.5 fill-current text-[#f5900d]" />
+            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-xs font-bold uppercase tracking-wider">
+              <Star className="w-3.5 h-3.5 fill-current text-amber-400" />
               <span>OVER 300+ VERIFIED PATIENT REVIEWS · PERFECT 5.0★</span>
             </div>
 
@@ -34,7 +34,7 @@ export const ReviewsPage: React.FC = () => {
             <div className="flex flex-wrap gap-3 pt-2">
               <button
                 onClick={() => setIsBookingOpen(true)}
-                className="px-6 py-3.5 bg-[#f5900d] hover:bg-[#e08208] text-white font-extrabold text-xs sm:text-sm rounded-2xl shadow-xl transition-all flex items-center space-x-2"
+                className="px-6 py-3.5 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-extrabold text-xs sm:text-sm rounded-2xl shadow-xl transition-all flex items-center space-x-2"
               >
                 <Calendar className="w-4 h-4 text-white" />
                 <span>Book Your Consultation</span>
@@ -54,7 +54,7 @@ export const ReviewsPage: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-            <span className="text-3xl sm:text-4xl font-black text-[#f5900d] block">5.0 ★</span>
+            <span className="text-3xl sm:text-4xl font-black text-amber-500 block">5.0 ★</span>
             <span className="text-xs font-bold text-slate-900 dark:text-white block mt-1">Justdial Rating</span>
             <span className="text-[11px] text-slate-400 block mt-0.5">148+ Verified Ratings</span>
           </div>
@@ -66,7 +66,7 @@ export const ReviewsPage: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-            <span className="text-3xl sm:text-4xl font-black text-[#0b1f3a] dark:text-white block">Lucknow</span>
+            <span className="text-3xl sm:text-4xl font-black text-[#091e34] dark:text-white block">Lucknow</span>
             <span className="text-xs font-bold text-slate-900 dark:text-white block mt-1">Single Flagship Campus</span>
             <span className="text-[11px] text-slate-400 block mt-0.5">Sadrauna, Para Rd (No Franchises)</span>
           </div>
@@ -82,8 +82,8 @@ export const ReviewsPage: React.FC = () => {
               onClick={() => setFilter(s as any)}
               className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all ${
                 filter === s
-                  ? 'bg-[#f5900d] text-white shadow-md'
-                  : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-[#f5900d]'
+                  ? 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-md'
+                  : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400'
               }`}
             >
               {s === 'all' ? 'All Verified Reviews' : s}
@@ -95,7 +95,7 @@ export const ReviewsPage: React.FC = () => {
           {filtered.map(r => (
             <div 
               key={r.id}
-              className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
+              className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-teal-500/40 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -117,7 +117,7 @@ export const ReviewsPage: React.FC = () => {
                   <div className="font-bold text-slate-900 dark:text-white">
                     {r.patientName}
                   </div>
-                  <div className="text-[11px] text-[#f5900d] font-semibold">
+                  <div className="text-[11px] text-teal-600 dark:text-teal-400 font-semibold">
                     {r.patientCity}
                   </div>
                   <div className="text-[10px] text-slate-400 mt-1">

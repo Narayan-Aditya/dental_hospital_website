@@ -8,14 +8,29 @@ export default {
   theme: {
     extend: {
       colors: {
+        dental: {
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6',
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
+          navy: '#091e34',
+          marine: '#0c2b4c',
+          dark: '#07192b',
+        },
         fms: {
-          navy: '#0b1f3a',
-          blue: '#163864',
+          navy: '#091e34',
+          blue: '#0c2b4c',
           teal: '#0d9488',
           cyan: '#06b6d4',
-          gold: '#c5a059',
-          goldLight: '#fbf7ee',
-          slate: '#101826',
+          gold: '#eab308',
+          goldLight: '#f0fdfa',
+          slate: '#07192b',
         },
         teal: {
           50: '#f0fdfa',
@@ -40,7 +55,8 @@ export default {
         brand: {
           cyan: '#06b6d4',
           teal: '#0d9488',
-          navy: '#0b1f3a',
+          navy: '#091e34',
+          marine: '#0c2b4c',
           emerald: '#059669',
           amber: '#f59e0b',
           rose: '#e11d48',

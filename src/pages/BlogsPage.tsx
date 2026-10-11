@@ -33,10 +33,10 @@ export const BlogsPage: React.FC = () => {
       
       {/* 1. HEADER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-[#06131f] via-[#081726] to-[#0b1f3a] text-white rounded-3xl p-6 sm:p-12 border border-slate-800 shadow-2xl relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#07192b] via-[#091e34] to-[#0c2b4c] text-white rounded-3xl p-6 sm:p-12 border border-teal-900/40 shadow-2xl relative overflow-hidden">
           <div className="relative z-10 max-w-3xl space-y-4">
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#f5900d]/20 text-[#f5900d] border border-[#f5900d]/40 text-xs font-bold uppercase tracking-wider">
-              <BookOpen className="w-3.5 h-3.5 text-[#f5900d]" />
+            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-xs font-bold uppercase tracking-wider">
+              <BookOpen className="w-3.5 h-3.5 text-teal-400" />
               <span>HOPE DENTAL CLINICAL BLOG & INSIGHTS</span>
             </div>
 
@@ -61,7 +61,7 @@ export const BlogsPage: React.FC = () => {
               placeholder="Search articles by topic..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+              className="w-full pl-10 pr-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
 
@@ -72,8 +72,8 @@ export const BlogsPage: React.FC = () => {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
                   selectedCategory === cat.id
-                    ? 'bg-[#f5900d] text-white shadow-md'
-                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-[#f5900d]'
+                    ? 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-md'
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400'
                 }`}
               >
                 {cat.label}
@@ -88,11 +88,11 @@ export const BlogsPage: React.FC = () => {
             <div
               key={post.id}
               onClick={() => setActiveBlogModal(post)}
-              className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl cursor-pointer transition-all flex flex-col justify-between group"
+              className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-teal-500/40 shadow-sm hover:shadow-xl cursor-pointer transition-all flex flex-col justify-between group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/30 text-[#f5900d] border border-[#f5900d]/20">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60">
                     {post.category}
                   </span>
                   <span className="text-xs text-slate-400 flex items-center">
@@ -101,7 +101,7 @@ export const BlogsPage: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-[#f5900d] transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
                   {post.title}
                 </h3>
 
@@ -111,19 +111,19 @@ export const BlogsPage: React.FC = () => {
 
                 {/* Author row */}
                 <div className="flex items-center space-x-3 pt-2">
-                  <div className="w-8 h-8 rounded-full bg-[#081726] text-[#f5900d] border border-[#f5900d]/40 flex items-center justify-center font-bold text-xs">
+                  <div className="w-8 h-8 rounded-full bg-[#091e34] text-teal-400 border border-teal-500/40 flex items-center justify-center font-bold text-xs">
                     {post.authorDoctor.split(' ').map(n => n[0]).join('').slice(0, 2)}
                   </div>
                   <div>
                     <div className="text-xs font-bold text-slate-900 dark:text-white">{post.authorDoctor}</div>
-                    <div className="text-[10px] text-[#f5900d] font-semibold">{post.authorRole}</div>
+                    <div className="text-[10px] text-teal-600 dark:text-teal-400 font-semibold">{post.authorRole}</div>
                   </div>
                 </div>
               </div>
 
               <div className="pt-5 border-t border-slate-100 dark:border-slate-800 mt-4 flex items-center justify-between text-xs text-slate-500">
                 <span>{post.date}</span>
-                <span className="font-bold text-[#f5900d] flex items-center group-hover:translate-x-1 transition-transform">
+                <span className="font-bold text-teal-600 dark:text-teal-400 flex items-center group-hover:translate-x-1 transition-transform">
                   <span>Read Full Article</span>
                   <ArrowRight className="w-3.5 h-3.5 ml-1" />
                 </span>

@@ -53,7 +53,7 @@ export const CostCalculatorModal: React.FC = () => {
       <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-2xl overflow-hidden my-auto transition-all flex flex-col max-h-[92vh]">
         
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#0b1f3a] via-[#163864] to-[#0d9488] p-5 sm:p-6 text-white relative">
+        <div className="bg-gradient-to-r from-[#091e34] via-[#0c2b4c] to-[#0d9488] p-5 sm:p-6 text-white relative">
           <button
             onClick={() => setIsCostCalculatorOpen(false)}
             className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
@@ -61,7 +61,7 @@ export const CostCalculatorModal: React.FC = () => {
             <X className="w-5 h-5" />
           </button>
 
-          <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#c5a059] mb-1">
+          <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-teal-300 mb-1">
             <Calculator className="w-4 h-4" />
             <span>Interactive Cost & Dental Tourism Estimator</span>
           </div>
@@ -170,7 +170,7 @@ export const CostCalculatorModal: React.FC = () => {
                 <span className="text-[11px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 block">
                   HOPE DENTAL ESTIMATE ({quantity} {quantity > 1 ? 'Units' : 'Unit'})
                 </span>
-                <div className="text-3xl font-extrabold text-[#0b1f3a] dark:text-white mt-1">
+                <div className="text-3xl font-extrabold text-[#091e34] dark:text-white mt-1">
                   {currencySymbol()}{priceInTargetCurr.toLocaleString()}
                 </div>
                 <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">

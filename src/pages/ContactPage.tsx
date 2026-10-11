@@ -38,10 +38,10 @@ export const ContactPage: React.FC = () => {
       
       {/* 1. HEADER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-[#06131f] via-[#081726] to-[#0b1f3a] text-white rounded-3xl p-6 sm:p-12 border border-slate-800 shadow-2xl relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#07192b] via-[#091e34] to-[#0c2b4c] text-white rounded-3xl p-6 sm:p-12 border border-teal-900/40 shadow-2xl relative overflow-hidden">
           <div className="relative z-10 max-w-3xl space-y-4">
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#f5900d]/20 text-[#f5900d] border border-[#f5900d]/40 text-xs font-bold uppercase tracking-wider">
-              <MapPin className="w-3.5 h-3.5 text-[#f5900d]" />
+            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-xs font-bold uppercase tracking-wider">
+              <MapPin className="w-3.5 h-3.5 text-teal-400" />
               <span>CENTRAL HELPLINE & HOSPITAL CAMPUS</span>
             </div>
 
@@ -60,14 +60,14 @@ export const ContactPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-[#f5900d] flex items-center justify-center">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-teal-500/40 shadow-sm space-y-3 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
               <Phone className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
               Appointments & Inquiries
             </h3>
-            <div className="text-sm font-bold text-[#f5900d]">
+            <div className="text-sm font-bold text-teal-600 dark:text-teal-400">
               <a href={`tel:${hospitalInfo.phone.replace(/\s+/g, '')}`} className="hover:underline">
                 {hospitalInfo.phone}
               </a>
@@ -96,14 +96,14 @@ export const ContactPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-[#f5900d] flex items-center justify-center">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-teal-500/40 shadow-sm space-y-3 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 flex items-center justify-center">
               <Globe className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
               International Patient Desk
             </h3>
-            <div className="text-sm font-bold text-[#f5900d]">
+            <div className="text-sm font-bold text-teal-600 dark:text-teal-400">
               <a href={`tel:${hospitalInfo.internationalPhone.replace(/\s+/g, '')}`} className="hover:underline">
                 {hospitalInfo.internationalPhone}
               </a>
@@ -124,7 +124,7 @@ export const ContactPage: React.FC = () => {
           {/* Form (7 cols) */}
           <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#f5900d]">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-teal-600 dark:text-teal-400">
                 GET IN TOUCH
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-1">
@@ -158,7 +158,7 @@ export const ContactPage: React.FC = () => {
                       placeholder="e.g. John Doe"
                       value={formName}
                       onChange={(e) => setFormName(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
 
@@ -172,7 +172,7 @@ export const ContactPage: React.FC = () => {
                       placeholder="e.g. +91 79052..."
                       value={formPhone}
                       onChange={(e) => setFormPhone(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export const ContactPage: React.FC = () => {
                       placeholder="patient@email.com"
                       value={formEmail}
                       onChange={(e) => setFormEmail(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
 
@@ -198,7 +198,7 @@ export const ContactPage: React.FC = () => {
                     <select
                       value={formBranch}
                       onChange={(e) => setFormBranch(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                      className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     >
                       {clinicBranches.map(b => (
                         <option key={b.id} value={b.id}>{b.name}</option>
@@ -216,13 +216,13 @@ export const ContactPage: React.FC = () => {
                     placeholder="e.g. Inquiring for full-arch dental implants or smile makeover..."
                     value={formQuery}
                     onChange={(e) => setFormQuery(e.target.value)}
-                    className="w-full p-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#f5900d]"
+                    className="w-full p-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-2xl bg-[#f5900d] hover:bg-[#e08208] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center space-x-2"
+                  className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center space-x-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Inquiry to Care Team</span>
@@ -233,7 +233,7 @@ export const ContactPage: React.FC = () => {
 
           {/* Flagship Center Venue Info (5 cols) */}
           <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#f5900d] block">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 block">
               STANDALONE HOSPITAL CAMPUS (LUCKNOW)
             </span>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -245,15 +245,15 @@ export const ContactPage: React.FC = () => {
 
             <div className="pt-2 space-y-2 text-xs text-slate-600 dark:text-slate-400">
               <div className="flex items-center space-x-2">
-                <CheckCircle2 className="w-4 h-4 text-[#f5900d]" />
+                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400" />
                 <span>Complimentary Patient Parking & Valet</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle2 className="w-4 h-4 text-[#f5900d]" />
+                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400" />
                 <span>Wheelchair & Stretcher Accessible Entrance</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle2 className="w-4 h-4 text-[#f5900d]" />
+                <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400" />
                 <span>Centre for Implantology, Biolase Laser Suite & Digital OPG</span>
               </div>
             </div>
@@ -264,7 +264,7 @@ export const ContactPage: React.FC = () => {
                   setSelectedBranchForBooking('lucknow-flagship');
                   setIsBookingOpen(true);
                 }}
-                className="w-full py-3.5 rounded-2xl bg-[#f5900d] hover:bg-[#e08208] text-white font-bold text-xs sm:text-sm shadow-md transition-colors flex items-center justify-center space-x-2"
+                className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-xs sm:text-sm shadow-md transition-colors flex items-center justify-center space-x-2"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book Appointment at Sadrauna Lucknow Campus</span>

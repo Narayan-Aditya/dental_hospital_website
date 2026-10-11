@@ -279,16 +279,34 @@ export const AWARDS_DATA: AwardItem[] = [
     year: '2026',
     organization: 'Organizing Committee & Indian Dental Forum',
     location: 'Uttar Pradesh, India',
-    highlight: 'Conferred upon Dr. Himangi Dubey for outstanding contributions as Co-Chairperson, Organizing Committee and Scientific Moderator.',
+    highlight: 'Conferred upon Dr. Himangi Dubey for outstanding leadership as Co-Chairperson, Organizing Committee and Scientific Moderator.',
     badgeColor: 'bg-amber-500'
   },
   {
+    id: 'durga-swaroopa-samman',
+    title: 'Durga Swaroopa Samman & Women Excellence Award',
+    year: '2025',
+    organization: 'State Healthcare & Social Leadership Forum',
+    location: 'Lucknow, Uttar Pradesh',
+    highlight: 'Awarded to Dr. Himangi Dubey for exemplary clinical contributions to community dental health, painless laser dentistry, and women empowerment.',
+    badgeColor: 'bg-rose-600'
+  },
+  {
+    id: 'bharat-bhushan-samman',
+    title: 'Bharat Bhushan Samman',
+    year: '2024',
+    organization: 'National Medical & Social Welfare Council',
+    location: 'New Delhi / Lucknow',
+    highlight: 'Honoring clinical dedication towards tobacco de-addiction campaigns and rural preventive oral health across Uttar Pradesh.',
+    badgeColor: 'bg-amber-600'
+  },
+  {
     id: 'google-justdial-5star',
-    title: '5.0 Star Rated Dental Hospital (Google & Justdial)',
+    title: '5.0 Star Rated Standalone Dental Hospital',
     year: '2022 – 2026',
     organization: 'Google Reviews (151+ Reviews) & Justdial (148+ Ratings)',
-    location: 'Lucknow, Uttar Pradesh',
-    highlight: 'Unanimous 5.0-star patient satisfaction rating for painless laser gum therapy, dental implants, and compassionate clinical care.',
+    location: 'Sadrauna / Para Road, Lucknow',
+    highlight: 'Flawless 5.0-star patient satisfaction rating for implants, microscopic RCT, laser gum therapies, and compassionate patient care.',
     badgeColor: 'bg-emerald-600'
   },
   {
@@ -297,26 +315,17 @@ export const AWARDS_DATA: AwardItem[] = [
     year: '2024 – 2026',
     organization: 'Doordarshan Uttar Pradesh & All India Radio',
     location: 'Lucknow, India',
-    highlight: 'Invited television dental expert guiding public awareness on women’s hormonal health, pregnancy oral care, and tobacco cessation.',
-    badgeColor: 'bg-[#f5900d]'
+    highlight: 'Invited television dental expert educating the state on women’s oral wellness, pregnancy gingivitis, and tobacco cessation.',
+    badgeColor: 'bg-teal-600'
   },
   {
     id: 'kgmu-alumni-honor',
-    title: 'Excellence in Periodontics & Oral Implantology',
+    title: 'Excellence in Periodontics & Oral Implantology (Ex-SR KGMU)',
     year: 'Continuous',
     organization: 'King George\'s Medical University (KGMU) Alumna',
     location: 'Lucknow, India',
-    highlight: 'Advanced academic and clinical surgical mastery in computer-guided implants and minimally invasive laser therapies.',
+    highlight: 'Rigorous surgical mastery from KGMU and Fellowship in Medical Cosmetology (FMC Germany) in guided implants and laser dentistry.',
     badgeColor: 'bg-indigo-600'
-  },
-  {
-    id: 'jansewa-ratna-honor',
-    title: 'Jansewa Ratna & Oral Health Awareness Champion',
-    year: '2025',
-    organization: 'Community Health & Tobacco Prevention Mission',
-    location: 'Lucknow, Uttar Pradesh',
-    highlight: 'Honored for spearheading rural tobacco cessation drives and community screenings for early oral health detection.',
-    badgeColor: 'bg-purple-600'
   }
 ];
 
@@ -586,9 +595,9 @@ export const DOCTORS_DATA: Doctor[] = [
     id: 'dr-himangi-dubey',
     name: 'Dr. Himangi Dubey',
     nameHi: 'डॉ. हिमांगी दुबे',
-    qualification: 'BDS, MDS (Periodontology & Oral Implantology - KGMU Lucknow)',
+    qualification: 'BDS, MDS (Periodontology & Oral Implantology - KGMU Lucknow), FMC Germany',
     designation: 'Founder, Medical Director & Chief Dental Surgeon',
-    role: 'Chief Periodontist & Oral Implantologist',
+    role: 'Chief Periodontist, Implantologist & Facial Aesthetician',
     roleHi: 'संस्थापक एवं मेडिकल डायरेक्टर — इम्प्लांट एवं लेज़र विशेषज्ञ',
     experienceYears: 15,
     rating: 5.0,
@@ -596,16 +605,23 @@ export const DOCTORS_DATA: Doctor[] = [
     image: './doctors/dr-shailaja-reddy.webp',
     primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
     department: 'Implantology, Periodontics & TMJ Wellness',
-    bio: 'Founder & Medical Director of Hope Dental Hospital & Wellness Centre in Sadrauna, Para Road, Lucknow. Former Senior Resident at King George\'s Medical University (KGMU), Lucknow. Head of Department of Dentistry at Ajanta Hospital & IVF Centre. Prominent television health expert on Doordarshan UP (@DDUP) and All India Radio. Honored with the Award of Appreciation at the 8th UP Dental Show 2026. Renowned expert in dental implants, Biolase laser gum surgeries, TMJ night guard therapy, and tobacco cessation counselling.',
+    bio: 'Founder & Medical Director of Hope Dental Hospital & Wellness Centre in Sadrauna, Para Road, Lucknow. Former Senior Resident at King George\'s Medical University (KGMU), Lucknow. Head of Department of Dentistry at Ajanta Hospital & IVF Centre. Fellowship in Medical Cosmetology (FMC Germany). Honored with the Award of Appreciation at the 8th UP Dental Show 2026, Durga Swaroopa Samman, and Bharat Bhushan Samman. Prominent television health expert on Doordarshan UP (@DDUP "सेहत आपकी") and All India Radio. Master specialist in dental implants, Biolase laser gum surgeries, TMJ night guards, and tobacco de-addiction counselling.',
     accolades: [
       'Former Senior Resident, King George\'s Medical University (KGMU Lucknow)',
-      'Award of Appreciation – 8th UP Dental Show 2026 (Co-Chairperson & Moderator)',
-      'Head of Department of Dentistry, Ajanta Hospital & IVF Centre, Lucknow',
-      'Featured Television Dental Panellist on Doordarshan UP (@DDUP) & All India Radio',
-      '15+ Years Clinical Mastery in Dental Implants & Laser LANAP Gum Surgery'
+      'Award of Appreciation – 8th UP Dental Show 2026 (Co-Chairperson & Scientific Moderator)',
+      'Honored with Durga Swaroopa Samman, Bharat Bhushan Samman & Women Excellence Award',
+      'Head of Department of Dentistry, Ajanta Hospital & IVF Centre, Alambagh, Lucknow',
+      'Fellowship in Medical Cosmetology & Facial Aesthetics (FMC Germany)',
+      'Featured Television Dental Panellist on Doordarshan UP (@DDUP "सेहत आपकी") & All India Radio',
+      '15+ Years Clinical Mastery in Dental Implants & Biolase Waterlase LANAP Gum Surgery'
     ],
     languages: ['English', 'Hindi', 'Urdu'],
-    specialities: ['Full-Arch Dental Implants', 'Biolase Laser LANAP Gum Surgery', 'TMJ Splint & Night Guard Therapy', 'Bone Regeneration & Sinus Lifts', 'Tobacco Cessation Counselling']
+    specialities: ['Full-Arch Dental Implants', 'Biolase Laser LANAP Gum Surgery', 'TMJ Splint & Night Guard Therapy', 'Bone Regeneration & Sinus Lifts', 'Tobacco Cessation Counselling'],
+    consultationFee: 500,
+    virtualFee: 300,
+    availableDays: 'Mon – Sat (10:00 AM – 8:00 PM), Sunday (By Appointment)',
+    opdTimings: 'Morning: 10:00 AM – 2:00 PM | Evening: 4:30 PM – 8:00 PM',
+    registrationNo: 'UP-DCI-14820'
   },
   {
     id: 'dr-m-s-bhoj',
@@ -629,7 +645,12 @@ export const DOCTORS_DATA: Doctor[] = [
       'Pioneer in Precision Attachment & Hybrid Fixed Prosthetics'
     ],
     languages: ['English', 'Hindi', 'Urdu'],
-    specialities: ['Full Mouth Aesthetic Rehabilitation', 'Precision Attachment Dentures', 'CAD/CAM Zirconia Crowns & Bridges', 'TMJ Occlusal Therapy']
+    specialities: ['Full Mouth Aesthetic Rehabilitation', 'Precision Attachment Dentures', 'CAD/CAM Zirconia Crowns & Bridges', 'TMJ Occlusal Therapy'],
+    consultationFee: 800,
+    virtualFee: 500,
+    availableDays: 'Mon, Wed, Fri (11:00 AM – 4:00 PM)',
+    opdTimings: '11:00 AM – 4:00 PM (By Appointment)',
+    registrationNo: 'UP-DCI-02194'
   },
   {
     id: 'dr-prabhat-tiwari',
@@ -648,7 +669,12 @@ export const DOCTORS_DATA: Doctor[] = [
     bio: 'Expert in Carl Zeiss dental operating microscope root canals, single-sitting endodontics, calcified canal negotiation, and broken instrument retrieval with unmatched precision at Hope Dental Hospital Lucknow.',
     accolades: ['Carl Zeiss Microscopy Certified Clinician', 'Over 12,000+ Root Canals Saved Painlessly'],
     languages: ['English', 'Hindi'],
-    specialities: ['Microscopic Root Canal', 'Single-Visit Endodontics', 'Endodontic Retreatment', 'Internal Tooth Bleaching']
+    specialities: ['Microscopic Root Canal', 'Single-Visit Endodontics', 'Endodontic Retreatment', 'Internal Tooth Bleaching'],
+    consultationFee: 400,
+    virtualFee: 300,
+    availableDays: 'Mon – Sat (10:00 AM – 7:00 PM)',
+    opdTimings: '10:00 AM – 2:00 PM & 4:00 PM – 7:00 PM',
+    registrationNo: 'UP-DCI-09653'
   },
   {
     id: 'dr-kavya-ravuri',
@@ -667,7 +693,12 @@ export const DOCTORS_DATA: Doctor[] = [
     bio: 'Certified clear aligner specialist. Expertise in treating complex adult and teen malocclusions with invisible aligners, self-ligating systems, and interceptive pediatric habit breaking at Hope Dental Hospital.',
     accolades: ['Certified Clear Aligner Provider', 'SmartALIGN Advisory Specialist'],
     languages: ['English', 'Hindi'],
-    specialities: ['Invisible Clear Aligners', 'Damon System Braces', 'Interceptive Child Orthodontics', 'Lingual Invisible Braces']
+    specialities: ['Invisible Clear Aligners', 'Damon System Braces', 'Interceptive Child Orthodontics', 'Lingual Invisible Braces'],
+    consultationFee: 500,
+    virtualFee: 300,
+    availableDays: 'Tue, Thu, Sat (11:00 AM – 6:30 PM)',
+    opdTimings: '11:00 AM – 6:30 PM',
+    registrationNo: 'UP-DCI-11488'
   },
   {
     id: 'dr-dushyanth-paul',
@@ -689,7 +720,12 @@ export const DOCTORS_DATA: Doctor[] = [
       'Over 8,000+ Complex Surgical Extractions and Jaw Corrections'
     ],
     languages: ['English', 'Hindi'],
-    specialities: ['Impacted Wisdom Teeth Surgery', 'Orthognathic Corrective Jaw Surgery', 'Facial Trauma Reconstruction', 'Maxillofacial Cysts & Biopsies']
+    specialities: ['Impacted Wisdom Teeth Surgery', 'Orthognathic Corrective Jaw Surgery', 'Facial Trauma Reconstruction', 'Maxillofacial Cysts & Biopsies'],
+    consultationFee: 600,
+    virtualFee: 400,
+    availableDays: 'Mon, Wed, Fri, Sat (2:00 PM – 7:30 PM)',
+    opdTimings: '2:00 PM – 7:30 PM',
+    registrationNo: 'UP-DCI-07821'
   },
   {
     id: 'dr-khushboo',
@@ -708,7 +744,12 @@ export const DOCTORS_DATA: Doctor[] = [
     bio: 'Specialist in minimally invasive Waterlase laser gum surgery, LANAP, cosmetic gum depigmentation, and bone grafting around compromised teeth and dental implants.',
     accolades: ['Certified Biolase Laser Clinician', 'Member of Indian Society of Periodontology'],
     languages: ['English', 'Hindi'],
-    specialities: ['Laser LANAP Gum Treatment', 'Cosmetic Gum Contouring', 'Bone Regeneration Grafting', 'Peri-implantitis Therapy']
+    specialities: ['Laser LANAP Gum Treatment', 'Cosmetic Gum Contouring', 'Bone Regeneration Grafting', 'Peri-implantitis Therapy'],
+    consultationFee: 400,
+    virtualFee: 250,
+    availableDays: 'Mon – Sat (10:30 AM – 6:00 PM)',
+    opdTimings: '10:30 AM – 6:00 PM',
+    registrationNo: 'UP-DCI-13592'
   }
 ];
 
@@ -877,42 +918,96 @@ export const TREATMENT_COST_DATA: TreatmentCostItem[] = [
 export const BLOGS_DATA: BlogPost[] = [
   {
     id: 'blog-1',
-    slug: 'tobacco-cessation-how-to-quit-dr-himangi-dubey-lucknow',
-    title: 'तंबाकू कैसे छोड़ें | How to Quit Tobacco by Dr. Himangi Dubey',
-    titleHi: 'तंबाकू कैसे छोड़ें: डॉ. हिमांगी दुबे द्वारा ओरल वेलनेस एवं नशा मुक्ति गाइड',
-    summary: 'Clinical guidance on overcoming tobacco dependency, reversing early oral submucous fibrosis (OSMF), and protecting your gums from pre-cancerous lesions.',
-    summaryHi: 'तंबाकू और गुटखा छोड़ने के वैज्ञानिक तरीके और मुंह के छालों व पायरिया से बचाव।',
-    content: 'Tobacco consumption and areca nut chewing are among the primary causes of oral cancer and severe periodontal deterioration across Uttar Pradesh. In this clinical guide and accompanying video from our YouTube channel (@drhimangidubey_hopedental), Dr. Himangi Dubey outlines behavioral modification techniques, nicotine replacement therapy (NRT), and in-clinic mucosal healing protocols practiced at Hope Dental Hospital, Sadrauna, Lucknow.',
-    category: 'Oral Health Awareness',
+    slug: 'mouth-breathing-destroying-child-facial-growth-lucknow',
+    title: 'Mouth Breathing in Children: How It Alters Facial Growth & Causes Cavities',
+    titleHi: 'क्या आपका बच्चा मुंह से सांस लेता है? जानिए चेहरे की बनावट और दांतों पर गहरा असर',
+    summary: 'Clinical analysis by Dr. Himangi Dubey on how chronic mouth breathing decreases saliva by ~40%, causes adenoid facies, crooked teeth, and chronic halitosis.',
+    summaryHi: 'बच्चों में मुंह से सांस लेने की आदत, जबड़े का संकुचित होना और समय रहते मायोफंक्शनल व ऑर्थोडॉन्टिक समाधान।',
+    content: 'Dr. Himangi Dubey highlights in her clinical awareness video that nasal breathing filters, warms, and humidifies the air while producing nitric oxide that enhances oxygen absorption. Chronic mouth breathing in sleeping children dries out oral mucosal tissues, dropping protective salivary flow by nearly 40%. This drastic saliva reduction triggers aggressive bacterial decay, swollen inflamed gums, chronic morning bad breath, and structural airway narrowing known as "long face syndrome" (adenoid facies). At Hope Dental Hospital & Wellness Centre, we screen young children for airway obstruction, tongue posture, and provide painless myofunctional habit correctors.',
+    category: 'Pediatric & Airway Health',
     readTime: '4 min read',
     authorDoctor: 'Dr. Himangi Dubey',
-    authorRole: 'Medical Director, Hope Dental Hospital',
-    date: '15 Sept 2026',
-    tags: ['Tobacco Cessation', 'Dr. Himangi Dubey', 'Oral Cancer Prevention', 'YouTube Video'],
-    imageUrl: './cases/ba-1.webp',
-    views: 4520,
-    likesCount: 380
+    authorRole: 'Founder & Medical Director, Hope Dental Hospital',
+    date: '24 Sept 2026',
+    tags: ['Mouth Breathing', 'Child Oral Health', 'Dr. Himangi Dubey', 'Facebook Video Series', 'Airway Dentistry'],
+    imageUrl: './cases/ba-4.webp',
+    views: 7840,
+    likesCount: 640
   },
   {
     id: 'blog-2',
-    slug: 'tmj-disorder-jaw-clicking-night-guard-splint-therapy',
-    title: 'Jaw Pain or Clicking? It May Be TMJ Disorder: Night Guard & Splint Therapy',
-    titleHi: 'जबड़े में दर्द या चटकन की आवाज? जानिए टीएमजे विकार और नाइट गार्ड थेरेपी',
-    summary: 'Why jaw clicking, chronic morning headaches, and teeth grinding require customized splint therapy, jaw physiotherapy, and stress management.',
-    summaryHi: 'जबड़े के दर्द और दांत पीसने की आदत का फिजियोथेरेपी और स्प्लिंट द्वारा आधुनिक इलाज।',
-    content: 'Many patients in Lucknow visit doctors for chronic migraines and neck pain without realizing that the root cause lies in their temporomandibular joint (TMJ). At Hope Dental Hospital & Wellness Centre, our TMJ therapy unit provides digital occlusal evaluation, customized night guard splints, low-level laser therapy, and targeted jaw physiotherapy exercises to decompress the joint and provide permanent relief.',
-    category: 'TMJ & Wellness',
+    slug: 'diabetes-and-gum-disease-periodontal-connection',
+    title: 'The Two-Way Link: How Uncontrolled Diabetes Destroys Gums & Bone Support',
+    titleHi: 'डायबिटीज और पायरिया का गहरा संबंध: जानिए ब्लड शुगर दांतों को कैसे नुकसान पहुंचाता है',
+    summary: 'Why diabetic patients experience 3x higher risk of pyorrhea, loose teeth, delayed healing, and how Biolase laser periodontal therapy helps balance HbA1c.',
+    summaryHi: 'मधुमेह के मरीजों में मसूड़ों से खून आना, हड्डियों का गलना और वाटरलेस लेज़र द्वारा दर्द-रहित उपचार।',
+    content: 'During Dr. Himangi Dubey’s live clinical symposium featured on Hope Dental\'s social media channels, she detailed the dangerous bidirectional connection between diabetes and periodontal disease. Elevated blood glucose alters blood microcirculation and increases collagenase enzymes that break down gum fibers and supporting alveolar bone. Conversely, chronic bacterial infection in deep gum pockets releases inflammatory cytokines (TNF-alpha, IL-6) into the bloodstream, worsening insulin resistance. Utilizing Biolase Waterlase iPlus laser therapy, Hope Dental eliminates pathogenic pocket bacteria without surgical cutting or sutures, promoting rapid post-op tissue recovery for diabetic patients.',
+    category: 'Periodontics & Diabetic Wellness',
     readTime: '5 min read',
     authorDoctor: 'Dr. Himangi Dubey',
-    authorRole: 'Chief Specialist, Hope Dental Hospital',
-    date: '10 Sept 2026',
-    tags: ['TMJ Disorder', 'Jaw Pain', 'Night Guard', 'Splint Therapy'],
-    imageUrl: './cases/ba-2.webp',
-    views: 5820,
-    likesCount: 462
+    authorRole: 'Chief Periodontist & Implantologist',
+    date: '18 Sept 2026',
+    tags: ['Diabetes & Teeth', 'Pyorrhea Treatment', 'Biolase Laser LANAP', 'Dr. Himangi Dubey', 'Oral Wellness'],
+    imageUrl: './cases/ba-1.webp',
+    views: 6590,
+    likesCount: 512
   },
   {
     id: 'blog-3',
+    slug: 'why-brushing-leaves-40-percent-plaque-flossing-guide',
+    title: 'Why Brushing Alone Cleans Only 60% of Your Teeth: The Power of Flossing',
+    titleHi: 'सिर्फ ब्रश करने से दांत पूरे साफ क्यों नहीं होते? जानिए फ्लॉसिंग और वाटर फ्लॉसर का महत्व',
+    summary: 'Dr. Himangi Dubey explains why toothbrushes miss the interproximal spaces where 80% of adult cavities start, and how water flossers prevent gum bleeding.',
+    summaryHi: 'दांतों के बीच फंसे बैक्टीरिया और पायरिया से बचने के लिए इंटरडेंटल ब्रश एवं वाटर फ्लॉसिंग की सही तकनीक।',
+    content: 'A standard toothbrush only cleans three out of five exposed surfaces of a tooth: the front, back, and chewing top. The two tight contact surfaces between adjacent teeth (interproximal zones) remain completely untouched by conventional bristles, accumulating destructive anaerobic plaque. In this video guide from our Facebook wellness series, Dr. Himangi Dubey demonstrates correct C-shape dental flossing and the modern alternative — pulsating Water Flossers (oral irrigators). Regular interdental cleansing stops bleeding gums within 7 to 10 days and prevents hidden cavities between molars.',
+    category: 'Preventive Oral Hygiene',
+    readTime: '4 min read',
+    authorDoctor: 'Dr. Himangi Dubey',
+    authorRole: 'Founder & Medical Director',
+    date: '12 Sept 2026',
+    tags: ['Flossing Tips', 'Water Flosser', 'Bleeding Gums', 'Dr. Himangi Dubey', 'Facebook Wellness'],
+    imageUrl: './cases/ba-2.webp',
+    views: 5210,
+    likesCount: 435
+  },
+  {
+    id: 'blog-4',
+    slug: 'professional-teeth-whitening-vs-diy-social-media-hacks',
+    title: 'Professional Teeth Whitening vs Viral Social Media DIY Hacks (Charcoal & Lemon)',
+    titleHi: 'प्रोफेशनल टीथ व्हाइटनिंग बनाम सोशल मीडिया के खतरनाक देसी नुस्खे (चारकोल, बेकिंग सोडा)',
+    summary: 'A strong clinical advisory from Dr. Himangi Dubey cautioning patients against abrasive charcoal and citric acid hacks that permanently erode tooth enamel.',
+    summaryHi: 'नींबू और चारकोल से दांतों का इनेमल घिसने का खतरा और आधुनिक क्लिनिकल लेज़र व्हाइटनिंग की वैज्ञानिक सच्चाई।',
+    content: 'Viral social media trends often encourage scrubbing teeth with activated charcoal powders, baking soda, and freshly squeezed lemon juice. Dr. Himangi Dubey warns that charcoal particles are intensely abrasive, scraping off microscopic layers of protective enamel and exposing the naturally yellow dentin underneath, leading to severe cold sensitivity and permanent enamel loss. In contrast, in-office laser whitening at Hope Dental Hospital uses pH-balanced hydrogen peroxide gels activated by specialized wavelengths to safely oxidize deep internal stains without wearing down enamel thickness.',
+    category: 'Aesthetic Dentistry',
+    readTime: '4 min read',
+    authorDoctor: 'Dr. Himangi Dubey',
+    authorRole: 'Chief Specialist & Facial Aesthetician',
+    date: '08 Sept 2026',
+    tags: ['Teeth Whitening', 'Myth Busting', 'Enamel Protection', 'Dr. Himangi Dubey', 'Facebook Warning'],
+    imageUrl: './cases/ba-3.webp',
+    views: 8930,
+    likesCount: 790
+  },
+  {
+    id: 'blog-5',
+    slug: 'tobacco-cessation-how-to-quit-dr-himangi-dubey-lucknow',
+    title: 'तंबाकू और गुटखा कैसे छोड़ें | Tobacco De-Addiction Guide by Dr. Himangi Dubey',
+    titleHi: 'तंबाकू और गुटखा छोड़ने के वैज्ञानिक तरीके: डॉ. हिमांगी दुबे द्वारा नशा मुक्ति एवं ओरल कैंसर रोकथाम',
+    summary: 'Clinical guidance on overcoming tobacco dependency, reversing early oral submucous fibrosis (OSMF), and protecting your gums from pre-cancerous lesions.',
+    summaryHi: 'तंबाकू और गुटखा छोड़ने के वैज्ञानिक तरीके और मुंह के छालों व पायरिया से बचाव।',
+    content: 'Tobacco consumption and areca nut chewing are among the primary causes of oral submucous fibrosis (OSMF) and oral malignancies across Uttar Pradesh. In this clinical guide and accompanying video from our YouTube channel (@drhimangidubey_hopedental), Dr. Himangi Dubey outlines behavioral modification techniques, nicotine replacement therapy (NRT), and in-clinic mucosal healing protocols practiced at Hope Dental Hospital in Sadrauna, Lucknow.',
+    category: 'Oral Health Awareness',
+    readTime: '5 min read',
+    authorDoctor: 'Dr. Himangi Dubey',
+    authorRole: 'Founder & Medical Director',
+    date: '02 Sept 2026',
+    tags: ['Tobacco Cessation', 'Dr. Himangi Dubey', 'Oral Cancer Prevention', 'YouTube Video'],
+    imageUrl: './cases/ba-1.webp',
+    views: 9420,
+    likesCount: 820
+  },
+  {
+    id: 'blog-6',
     slug: 'women-hormonal-changes-oral-health-ddup-feature',
     title: 'महिलाओं के हार्मोनल बदलाव और मौखिक स्वास्थ्य: डॉ. हिमांगी दुबे की डीडी यूपी विशेषज्ञ चर्चा',
     titleHi: 'महिला स्वास्थ्य एवं ओरल हाइजीन: डीडी यूपी पर डॉ. हिमांगी दुबे की विशेष चर्चा',
@@ -923,29 +1018,11 @@ export const BLOGS_DATA: BlogPost[] = [
     readTime: '6 min read',
     authorDoctor: 'Dr. Himangi Dubey',
     authorRole: 'Founder & Medical Director',
-    date: '05 Sept 2026',
+    date: '25 Aug 2026',
     tags: ['Doordarshan UP', 'Pregnancy Dental Care', 'Hormonal Health', 'Dr. Himangi Dubey'],
-    imageUrl: './cases/ba-3.webp',
+    imageUrl: './cases/ba-2.webp',
     views: 6420,
     likesCount: 520
-  },
-  {
-    id: 'blog-4',
-    slug: 'mouth-breathing-destroying-child-facial-growth-lucknow',
-    title: 'Is Mouth Breathing Affecting Your Child\'s Facial Development?',
-    titleHi: 'क्या आपका बच्चा मुंह से सांस लेता है? जानिए चेहरे के विकास पर असर',
-    summary: 'How chronic mouth breathing, enlarged adenoids, and tongue thrusting alter jaw growth, causing crowded teeth and long face syndrome in children.',
-    summaryHi: 'बच्चों में मुंह से सांस लेने की आदत और दांतों के टेढ़ेपन का समय रहते उपचार।',
-    content: 'Children who breathe through their mouth rather than their nose during sleep develop narrowed upper dental arches, recessed chins, and severe dental crowding. At Hope Dental Hospital\'s Pediatric Lounge in Lucknow, we perform early myofunctional evaluation, habit-breaking oral screens, and airway assessments to ensure natural, healthy facial development.',
-    category: 'Pediatric Dentistry',
-    readTime: '4 min read',
-    authorDoctor: 'Dr. Kavya Ravuri',
-    authorRole: 'Senior Consultant Orthodontist',
-    date: '28 Aug 2026',
-    tags: ['Mouth Breathing', 'Child Dental Care', 'Pediatric Orthodontics', 'YouTube Shorts'],
-    imageUrl: './cases/ba-4.webp',
-    views: 3750,
-    likesCount: 285
   }
 ];
 

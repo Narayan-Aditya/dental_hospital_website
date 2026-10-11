@@ -18,7 +18,7 @@ export const BlogDetailModal: React.FC = () => {
       <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-2xl overflow-hidden my-auto transition-all flex flex-col max-h-[92vh]">
         
         {/* Header Image / Bar */}
-        <div className="relative h-48 sm:h-56 bg-gradient-to-br from-[#0b1f3a] via-[#163864] to-[#0d9488] overflow-hidden">
+        <div className="relative h-48 sm:h-56 bg-gradient-to-br from-[#091e34] via-[#0c2b4c] to-[#0d9488] overflow-hidden">
           {activeBlogModal.imageUrl && (
             <img 
               src={activeBlogModal.imageUrl} 
