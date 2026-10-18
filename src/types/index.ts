@@ -11,7 +11,8 @@ export type PageId =
   | 'tourism' 
   | 'reviews' 
   | 'blogs' 
-  | 'contact';
+  | 'contact'
+  | 'admin';
 
 export interface Treatment {
   id: string;
@@ -167,6 +168,21 @@ export interface Appointment {
   createdAt: string;
   paymentStatus: 'Paid' | 'Pending' | 'Partial';
   amount?: number;
+  // Step wizard additions
+  patientType?: 'new' | 'old';
+  patientLocation?: string;
+  serviceName?: string;
+  servicePrice?: number;
+  estimatedTokenTime?: string;
+}
+
+export interface HospitalStatusConfig {
+  isOpenToday: boolean;
+  operatingHours: string;
+  bannerNotice: string;
+  isCustomBannerActive: boolean;
+  holidays: string[];
+  dailySlotCap: number;
 }
 
 export interface InvoiceItem {
@@ -218,6 +234,9 @@ export interface BlogPost {
   imageUrl: string;
   views: number;
   likesCount: number;
+  metaTitle?: string;
+  metaDescription?: string;
+  focusKeywords?: string[];
 }
 
 export interface Review {

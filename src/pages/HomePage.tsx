@@ -9,13 +9,12 @@ import {
   ShieldCheck, 
   Stethoscope, 
   Award,
-  Globe,
   Clock,
   Zap,
   ChevronDown,
   ChevronUp,
-  ExternalLink,
-  ArrowUpRight
+  ArrowUpRight,
+  Quote
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { BeforeAfterSlider } from '../components/common/BeforeAfterSlider';
@@ -26,6 +25,8 @@ export const HomePage: React.FC = () => {
     verticals,
     treatments, 
     transformations,
+    reviews,
+    hospitalStatus,
     convertPrice,
     currencySymbol,
     setIsBookingOpen, 
@@ -99,14 +100,16 @@ export const HomePage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 1. SECTION 1: HERO SECTION WITH SOOTHING DENTAL OCEAN DEPTHS             */}
       {/* ========================================================================= */}
+      {/* 1. SECTION 1: CENTERED HERO SECTION (DIRECT BOOKING FOCUS)               */}
+      {/* ========================================================================= */}
       <section 
-        className="relative overflow-hidden text-white pt-8 pb-16 sm:pb-20"
+        className="relative overflow-hidden text-white pt-10 pb-16 sm:pb-24"
         style={{
-          background: 'radial-gradient(circle at 80% 15%, rgba(13, 148, 136, 0.22) 0px, transparent 40%), radial-gradient(circle at 15% 85%, rgba(6, 182, 212, 0.18) 0px, transparent 40%), linear-gradient(135deg, #07192b 0%, #0a243e 50%, #0d3455 100%)'
+          background: 'radial-gradient(circle at 50% 20%, rgba(13, 148, 136, 0.22) 0px, transparent 50%), radial-gradient(circle at 15% 85%, rgba(6, 182, 212, 0.15) 0px, transparent 40%), linear-gradient(135deg, #07192b 0%, #0a243e 50%, #0d3455 100%)'
         }}
       >
         {/* Subtle hospital facade banner at top */}
-        <div className="absolute top-0 left-0 right-0 h-40 sm:h-52 opacity-15 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 right-0 h-40 sm:h-56 opacity-10 overflow-hidden pointer-events-none">
           <img 
             src="./images/hope/real_clinic_7_.jpg" 
             alt="Hope Dental Hospital Lucknow" 
@@ -115,249 +118,127 @@ export const HomePage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#07192b]/80 to-[#07192b]" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* Left 7 Columns: Eyebrow, Giant Title, Paragraph & Verified Profiles */}
-            <div className="lg:col-span-7 space-y-5">
-              
-              {/* Eyebrow: — HOPE DENTAL HOSPITAL — */}
-              <div className="flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-teal-400">
-                <span>—</span>
-                <span>HOPE DENTAL HOSPITAL</span>
-                <span>—</span>
+          {/* Eyebrow: — HOPE DENTAL HOSPITAL — */}
+          <div className="inline-flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-teal-400 bg-teal-950/60 border border-teal-500/30 px-4 py-1.5 rounded-full shadow-sm">
+            <span>—</span>
+            <span>HOPE DENTAL HOSPITAL & WELLNESS CENTRE · LUCKNOW</span>
+            <span>—</span>
+          </div>
+
+          {/* Giant Centered Title */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.14] max-w-4xl mx-auto">
+            Best Dental Clinic in Lucknow, India - <span className="bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-200 bg-clip-text text-transparent">HOPE DENTAL</span>
+          </h1>
+
+          {/* Subhead */}
+          <p className="text-base sm:text-lg font-semibold text-slate-200 max-w-2xl mx-auto">
+            Advanced Dental Implants, Laser Dentistry & Cosmetic Smile Makeovers
+          </p>
+
+          {/* Hospital Overview */}
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl mx-auto">
+            HOPE DENTAL is Lucknow's apex standalone dental hospital in Sadrauna, Para Road with 5 specialized clinical suites, digital intraoral imaging, 24-hour emergency dental care, and 7-step Class-B autoclave hospital sterilization. Led by <strong className="text-white">Dr. Himangi Dubey</strong> (BDS, MDS – KGMU Lucknow, ex-Senior Resident KGMU) and <strong className="text-white">Dr. M. S. Bhoj</strong> (Senior Consultant Oral & Maxillofacial Surgeon).
+          </p>
+
+          {/* Centered Direct Booking Section */}
+          <div className="pt-4 max-w-xl mx-auto">
+            <div className="bg-[#0c2742]/95 border border-teal-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md space-y-5 text-center">
+              <div>
+                <span className="text-[11px] font-extrabold uppercase tracking-widest text-teal-400 block">
+                  PRIORITY SLOTS AVAILABLE
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
+                  Booking Specialist Appointment
+                </h3>
+                <p className="text-xs text-slate-400 mt-1">
+                  Book direct in-clinic consultation or online video appointment in 60 seconds.
+                </p>
               </div>
 
-              {/* Giant Title */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12]">
-                Best Dental Clinic in Lucknow, India - <span className="bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-200 bg-clip-text text-transparent">HOPE DENTAL</span>
-              </h1>
-
-              {/* Subhead */}
-              <p className="text-sm sm:text-base font-semibold text-slate-200">
-                Where Top Dental Specialists for Dental Implants & Cosmetic Dentistry are available
-              </p>
-
-              {/* Description with authentic Hope Dental Lucknow facts */}
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2.5 max-w-2xl">
-                <p>
-                  HOPE DENTAL... the best dental clinic in Lucknow, established in Sadrauna and creating miles of smiles across Uttar Pradesh.
-                </p>
-                <p>
-                  <strong className="text-white">HOPE DENTAL is rated 5.0 ★ on Google (151+ reviews) & Justdial (148+ ratings)</strong> and recognized as one of the top dental hospitals in Lucknow, with 5 specialized clinical suites, digital intraoral imaging, 24-hour emergency dental care, and a dedicated 7-step Class-B autoclave sterilization protocol. Led by <strong className="text-white">Dr. Himangi Dubey</strong> (BDS, MDS – KGMU Lucknow, ex-Senior Resident KGMU) and <strong className="text-white">Dr. M. S. Bhoj</strong> (Senior Consultant Oral & Maxillofacial Surgeon).
-                </p>
-                <p>
-                  <strong className="text-white">Awarded Appreciation at the 8th UP Dental Show 2026</strong> and renowned for advanced Biolase laser treatments, cosmetic veneers, invisible aligners, and dental tourism packages for domestic & overseas patients.
-                </p>
-              </div>
-
-              {/* 4 Authentic Public Verification Cards */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                <a 
-                  href={hospitalInfo.socialLinks?.google || 'https://share.google/M13VNXGp52dAKKUWl'} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="p-3 rounded-2xl bg-[#0c2742]/80 hover:bg-[#0f3356] border border-teal-900/40 hover:border-teal-400/60 transition-all group"
-                >
-                  <div className="text-amber-400 font-black text-lg">5.0 ★</div>
-                  <div className="text-white text-xs font-bold flex items-center space-x-1">
-                    <span>Google Reviews</span>
-                    <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-teal-400" />
-                  </div>
-                  <div className="text-[10px] text-slate-400">151+ Verified</div>
-                </a>
-
-                <a 
-                  href={hospitalInfo.socialLinks?.justdial || 'https://jsdl.in/DT-39XTVYSNSB8'} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="p-3 rounded-2xl bg-[#0c2742]/80 hover:bg-[#0f3356] border border-teal-900/40 hover:border-teal-400/60 transition-all group"
-                >
-                  <div className="text-[#ff6a00] font-black text-lg">5.0 ★</div>
-                  <div className="text-white text-xs font-bold flex items-center space-x-1">
-                    <span>Justdial Rating</span>
-                    <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#ff6a00]" />
-                  </div>
-                  <div className="text-[10px] text-slate-400">148+ Ratings</div>
-                </a>
-
-                <a 
-                  href={hospitalInfo.socialLinks?.youtube || 'https://youtube.com/@drhimangidubey_hopedental?si=dICNBMYUw_9KpXfp'} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="p-3 rounded-2xl bg-[#0c2742]/80 hover:bg-[#0f3356] border border-teal-900/40 hover:border-red-400 transition-all group"
-                >
-                  <div className="text-red-400 font-black text-lg">YouTube</div>
-                  <div className="text-white text-xs font-bold flex items-center space-x-1">
-                    <span>Dr. Himangi Dubey</span>
-                    <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-red-400" />
-                  </div>
-                  <div className="text-[10px] text-slate-400">Official Channel</div>
-                </a>
-
-                <a 
-                  href={hospitalInfo.socialLinks?.facebook || 'https://www.facebook.com/p/Hope-Dental-Hospital-and-Wellness-Center-100083540701821/'} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="p-3 rounded-2xl bg-[#0c2742]/80 hover:bg-[#0f3356] border border-teal-900/40 hover:border-blue-400 transition-all group"
-                >
-                  <div className="text-blue-400 font-black text-lg">Facebook</div>
-                  <div className="text-white text-xs font-bold flex items-center space-x-1">
-                    <span>Hope Wellness</span>
-                    <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-blue-400" />
-                  </div>
-                  <div className="text-[10px] text-slate-400">Official Page</div>
-                </a>
-              </div>
-
-            </div>
-
-            {/* Right 5 Columns: 4 CURVED QUICK-ACTION CARDS (2x2 Grid) */}
-            <div className="lg:col-span-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
-                {/* Card 1: FOR APPOINTMENTS */}
-                <div 
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button
                   onClick={() => setIsBookingOpen(true)}
-                  className="bg-[#0c2742]/90 hover:bg-[#0f3356] border border-teal-900/40 hover:border-teal-400/60 p-6 rounded-3xl cursor-pointer transition-all shadow-xl flex flex-col justify-between group"
+                  className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-teal-500 via-teal-600 to-cyan-600 hover:from-teal-400 hover:to-cyan-500 text-white font-extrabold text-sm sm:text-base tracking-wide shadow-xl shadow-teal-500/25 active:scale-95 transition-all flex items-center justify-center space-x-2.5"
                 >
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/30 text-teal-400 flex items-center justify-center mb-4">
-                      <Calendar className="w-5 h-5" />
-                    </div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-teal-400 block">
-                      FOR APPOINTMENTS
-                    </span>
-                    <h3 className="text-base font-bold text-white mt-1 group-hover:text-teal-300 transition-colors">
-                      Book Your Appointment
-                    </h3>
-                    <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                      Call +91 79052 87870 or fill the 60-second online form.
-                    </p>
-                  </div>
-                  <div className="mt-5 pt-3 border-t border-slate-700/60 flex items-center text-xs font-bold text-teal-400 group-hover:translate-x-1 transition-transform">
-                    <span>KNOW MORE</span>
-                    <span className="ml-1">→</span>
-                  </div>
-                </div>
+                  <Calendar className="w-5 h-5" />
+                  <span>Book Appointment Now (60s)</span>
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </button>
+              </div>
 
-                {/* Card 2: E-CONSULTATION */}
-                <div 
-                  onClick={() => navigateTo('contact')}
-                  className="bg-[#0c2742]/90 hover:bg-[#0f3356] border border-teal-900/40 hover:border-teal-400/60 p-6 rounded-3xl cursor-pointer transition-all shadow-xl flex flex-col justify-between group"
+              <div className="pt-3 border-t border-slate-700/60 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-300">
+                <a 
+                  href={`tel:${hospitalInfo.phone.replace(/\s+/g, '')}`}
+                  className="flex items-center hover:text-teal-300 transition-colors"
                 >
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/30 text-teal-400 flex items-center justify-center mb-4">
-                      <Stethoscope className="w-5 h-5" />
-                    </div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-teal-400 block">
-                      E-CONSULTATION
-                    </span>
-                    <h3 className="text-base font-bold text-white mt-1 group-hover:text-teal-300 transition-colors">
-                      Talk to a Specialist
-                    </h3>
-                    <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                      Consult with Dr. Himangi Dubey and senior implant faculty.
-                    </p>
-                  </div>
-                  <div className="mt-5 pt-3 border-t border-slate-700/60 flex items-center text-xs font-bold text-teal-400 group-hover:translate-x-1 transition-transform">
-                    <span>KNOW MORE</span>
-                    <span className="ml-1">→</span>
-                  </div>
+                  <Phone className="w-3.5 h-3.5 mr-1.5 text-teal-400" />
+                  <span>{hospitalInfo.phone}</span>
+                </a>
+                <span className="text-slate-600 hidden sm:inline">•</span>
+                <div className="flex items-center text-slate-400">
+                  <MapPin className="w-3.5 h-3.5 mr-1.5 text-teal-400" />
+                  <span>Sadrauna, Para Rd, Lucknow</span>
                 </div>
-
-                {/* Card 3: FIND A DOCTOR */}
-                <div 
-                  onClick={() => navigateTo('doctors')}
-                  className="bg-[#0c2742]/90 hover:bg-[#0f3356] border border-teal-900/40 hover:border-teal-400/60 p-6 rounded-3xl cursor-pointer transition-all shadow-xl flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/30 text-teal-400 flex items-center justify-center mb-4">
-                      <Award className="w-5 h-5" />
-                    </div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-teal-400 block">
-                      FIND A DOCTOR
-                    </span>
-                    <h3 className="text-base font-bold text-white mt-1 group-hover:text-teal-300 transition-colors">
-                      Find a Specialist
-                    </h3>
-                    <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                      MDS Periodontists, Implantologists & Surgeons.
-                    </p>
-                  </div>
-                  <div className="mt-5 pt-3 border-t border-slate-700/60 flex items-center text-xs font-bold text-teal-400 group-hover:translate-x-1 transition-transform">
-                    <span>KNOW MORE</span>
-                    <span className="ml-1">→</span>
-                  </div>
-                </div>
-
-                {/* Card 4: VIRTUAL HELP DESK */}
-                <div 
-                  onClick={() => navigateTo('tourism')}
-                  className="bg-[#0c2742]/90 hover:bg-[#0f3356] border border-teal-900/40 hover:border-teal-400/60 p-6 rounded-3xl cursor-pointer transition-all shadow-xl flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/30 text-teal-400 flex items-center justify-center mb-4">
-                      <Globe className="w-5 h-5" />
-                    </div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-teal-400 block">
-                      VIRTUAL HELP DESK
-                    </span>
-                    <h3 className="text-base font-bold text-white mt-1 group-hover:text-teal-300 transition-colors">
-                      Dental Tourism
-                    </h3>
-                    <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                      Concierge care for outstation, domestic & NRI patients.
-                    </p>
-                  </div>
-                  <div className="mt-5 pt-3 border-t border-slate-700/60 flex items-center text-xs font-bold text-teal-400 group-hover:translate-x-1 transition-transform">
-                    <span>KNOW MORE</span>
-                    <span className="ml-1">→</span>
-                  </div>
-                </div>
-
               </div>
             </div>
-
           </div>
 
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. SECTION 2: ACCREDITATION RIBBON STRIP                                  */}
+      {/* 2. SECTION 2: LIVE HOSPITAL STATUS & OPERATIONAL UPDATE BANNER            */}
       {/* ========================================================================= */}
-      <div className="bg-[#07192b] text-white py-3.5 px-4 overflow-x-auto border-y border-[#0f2d4a] shadow-md">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-6 text-[11px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap">
-          <div className="flex items-center space-x-2 text-amber-400">
-            <Star className="w-4 h-4 fill-current" />
-            <span>5.0 ★ GOOGLE & JUSTDIAL RATED</span>
+      <div className="bg-[#051525] text-white py-3.5 px-4 border-y border-[#0f2d4a] shadow-inner relative z-20">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+          
+          {/* Status Indicator & Live Hours */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
+            <span className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider ${
+              hospitalStatus.isOpenToday 
+                ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-500/40 shadow-sm shadow-emerald-500/20' 
+                : 'bg-rose-950/80 text-rose-400 border border-rose-500/40 shadow-sm shadow-rose-500/20'
+            }`}>
+              <span className={`w-2 h-2 rounded-full mr-1.5 ${
+                hospitalStatus.isOpenToday ? 'bg-emerald-400 animate-ping' : 'bg-rose-400'
+              }`} />
+              {hospitalStatus.isOpenToday ? 'Hospital Open Today' : 'Closed Today'}
+            </span>
+
+            <span className="text-slate-200 font-semibold flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5 text-teal-400" />
+              <span>{hospitalStatus.operatingHours}</span>
+            </span>
+
+            {hospitalStatus.bannerNotice && (
+              <span className="text-teal-300 font-medium hidden lg:inline border-l border-slate-700 pl-3">
+                {hospitalStatus.bannerNotice}
+              </span>
+            )}
           </div>
-          <span className="text-teal-500/60">✦</span>
-          <div className="flex items-center space-x-2 text-slate-200">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>7-STEP CLASS B AUTOCLAVE STERILIZATION</span>
-          </div>
-          <span className="text-teal-500/60">✦</span>
-          <div className="flex items-center space-x-2 text-teal-400">
-            <Award className="w-4 h-4" />
-            <span>8TH UP DENTAL SHOW 2026 AWARDEE</span>
-          </div>
-          <span className="text-teal-500/60">✦</span>
-          <div className="flex items-center space-x-2 text-slate-200">
-            <span>NABH COMPLIANT HOSPITAL PROTOCOLS</span>
-          </div>
-          <span className="text-teal-500/60">✦</span>
-          <div className="flex items-center space-x-2 text-rose-400">
-            <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping" />
-            <span>24/7 DENTAL EMERGENCY HELPLINE</span>
+
+          {/* Right: Slot Cap & Live CTA */}
+          <div className="flex items-center gap-4">
+            {hospitalStatus.holidays && hospitalStatus.holidays.length > 0 && (
+              <span className="text-[11px] text-amber-300 font-medium hidden sm:inline">
+                Upcoming Closure/Holiday: {hospitalStatus.holidays[0]}
+              </span>
+            )}
+
+            <button
+              onClick={() => setIsBookingOpen(true)}
+              className="text-[11px] font-bold text-teal-300 hover:text-white underline decoration-teal-400/50 hover:decoration-white transition-colors"
+            >
+              Online Slots Open (~{hospitalStatus.dailySlotCap} Remaining) →
+            </button>
           </div>
         </div>
       </div>
 
       {/* ========================================================================= */}
-      {/* 3. SECTION 3: EXACT FMS INTERNATIONAL DENTAL CENTER LANDMARK SECTION       */}
+      {/* 3. SECTION 3: HOPE DENTAL HOSPITAL LANDMARK SECTION                         */}
       {/* ========================================================================= */}
       <section className="bg-white dark:bg-slate-950 py-16 sm:py-24 border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -407,14 +288,6 @@ export const HomePage: React.FC = () => {
                     Best Dental Implant Clinic in Lucknow, India
                   </p>
                 </div>
-
-                <button
-                  onClick={() => navigateTo('clinics')}
-                  className="hidden sm:inline-flex items-center space-x-1.5 px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 hover:border-teal-500 text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 shrink-0 transition-colors"
-                >
-                  <span>Learn More</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </button>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -467,32 +340,26 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Row of 3 buttons matching FMS */}
-              <div className="flex flex-wrap gap-2.5 pt-2">
+              {/* Single Clean CTA Pair */}
+              <div className="flex flex-wrap gap-3 pt-2">
                 <a
                   href="https://maps.google.com/?q=Hope+Dental+Hospital+Sadrauna+Lucknow"
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-xs shadow-md transition-all flex items-center space-x-1.5"
+                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-xs shadow-md shadow-teal-500/20 active:scale-95 transition-all flex items-center space-x-1.5"
                 >
+                  <MapPin className="w-3.5 h-3.5" />
                   <span>Get Directions</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-
-                <a
-                  href={`tel:${hospitalInfo.phone.replace(/\s+/g, '')}`}
-                  className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-teal-500 text-slate-800 dark:text-white font-bold text-xs shadow-sm transition-all flex items-center space-x-1.5"
-                >
-                  <span>Call</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
 
                 <button
                   onClick={() => setIsBookingOpen(true)}
-                  className="px-5 py-2.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-500/50 hover:bg-teal-600 hover:text-white text-teal-700 dark:text-teal-300 font-bold text-xs shadow-sm transition-all flex items-center space-x-1.5"
+                  className="px-6 py-3 rounded-xl bg-[#091e34] hover:bg-teal-700 text-white font-bold text-xs shadow-md active:scale-95 transition-all flex items-center space-x-1.5"
                 >
+                  <Calendar className="w-3.5 h-3.5 text-teal-400" />
                   <span>Book Appointment</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
 
@@ -690,7 +557,7 @@ export const HomePage: React.FC = () => {
 
                 <div className="relative overflow-hidden rounded-2xl aspect-square border border-teal-500/30 bg-slate-800">
                   <img 
-                    src="./doctors/dr-shailaja-reddy.webp" 
+                    src="./doctors/dr-himangi.jpg" 
                     alt="Dr. Himangi Dubey" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -721,7 +588,7 @@ export const HomePage: React.FC = () => {
                   <span>CLINICAL LEADERSHIP</span>
                   <span>↗</span>
                 </button>
-                <span className="text-[10px] text-slate-500">10+ Yrs Exp</span>
+                <span className="text-[10px] text-slate-500">15+ Yrs Exp</span>
               </div>
             </div>
 
@@ -733,7 +600,7 @@ export const HomePage: React.FC = () => {
 
                 <div className="relative overflow-hidden rounded-2xl aspect-square border border-teal-500/30 bg-slate-800">
                   <img 
-                    src="./doctors/dr-partha-reddy.jpg" 
+                    src="./doctors/dr-bhoj.jpg" 
                     alt="Dr. M. S. Bhoj" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -744,10 +611,10 @@ export const HomePage: React.FC = () => {
                     Dr. M. S. Bhoj
                   </h3>
                   <div className="text-[11px] font-extrabold uppercase tracking-wider text-teal-400 mt-1">
-                    SENIOR CONSULTANT SURGEON
+                    SENIOR MEDICAL ADVISOR & PROSTHODONTIST
                   </div>
                   <div className="text-xs text-slate-400 mt-1">
-                    BDS, MDS · Oral & Maxillofacial Surgery
+                    BDS, MDS · Prosthodontics & Oral Rehabilitation
                   </div>
                 </div>
 
@@ -758,7 +625,7 @@ export const HomePage: React.FC = () => {
 
               <div className="pt-6 border-t border-slate-800/80 mt-4 flex items-center justify-between">
                 <button
-                  onClick={() => handleBookDoctor('dr-ms-bhoj')}
+                  onClick={() => handleBookDoctor('dr-m-s-bhoj')}
                   className="text-xs font-bold text-teal-400 hover:underline flex items-center space-x-1"
                 >
                   <span>CLINICAL LEADERSHIP</span>
@@ -768,7 +635,7 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Dr. Paul D. / Senior Specialist Panel */}
+            {/* Dr. Saurabh Singh / Maxillofacial Surgery */}
             <div className="bg-[#0c2742] rounded-3xl p-6 border border-teal-900/40 hover:border-teal-400/60 shadow-xl transition-all flex flex-col justify-between group">
               <div className="space-y-4">
                 {/* Teal horizontal accent bar on top */}
@@ -776,41 +643,38 @@ export const HomePage: React.FC = () => {
 
                 <div className="relative overflow-hidden rounded-2xl aspect-square border border-teal-500/30 bg-slate-800">
                   <img 
-                    src="./doctors/dr-dushyanth-paul.jpg" 
-                    alt="Senior Specialist Panel" 
+                    src="./doctors/dr-saurabh.jpg" 
+                    alt="Dr. Saurabh Singh" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600';
-                    }}
                   />
                 </div>
 
                 <div>
                   <h3 className="text-xl font-bold text-white group-hover:text-teal-300 transition-colors">
-                    Dr. D. Paul & Specialists
+                    Dr. Saurabh Singh
                   </h3>
                   <div className="text-[11px] font-extrabold uppercase tracking-wider text-teal-400 mt-1">
-                    MAXILLOFACIAL & PROSTHODONTICS
+                    CHIEF MAXILLOFACIAL SURGEON
                   </div>
                   <div className="text-xs text-slate-400 mt-1">
-                    MDS OMFS & Prosthodontic Rehabilitation
+                    BDS, MDS · Oral & Maxillofacial Surgery
                   </div>
                 </div>
 
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Spearheads surgical operatory protocols, TMJ neuromuscular rehabilitation, and All-on-4 fixed prosthesis fabrication.
+                  Spearheads surgical operatory protocols, complex impacted third molar extractions, TMJ neuromuscular rehabilitation, and emergency trauma.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-slate-800/80 mt-4 flex items-center justify-between">
                 <button
-                  onClick={() => navigateTo('doctors')}
+                  onClick={() => handleBookDoctor('dr-saurabh-singh')}
                   className="text-xs font-bold text-teal-400 hover:underline flex items-center space-x-1"
                 >
-                  <span>SPECIALIST PANEL</span>
+                  <span>BOOK SURGEON</span>
                   <span>↗</span>
                 </button>
-                <span className="text-[10px] text-slate-500">MDS Faculty</span>
+                <span className="text-[10px] text-slate-500">MDS OMFS</span>
               </div>
             </div>
 
@@ -820,7 +684,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. SECTION 6: EXACT FMS PREMIUM SECTION (fms-premium-section with Form)   */}
+      {/* 6. SECTION 6: HOPE DENTAL HOSPITAL PREMIUM CONSULTATION SECTION             */}
       {/* ========================================================================= */}
       <section 
         className="py-16 sm:py-24 text-white relative overflow-hidden"
@@ -866,7 +730,7 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right 5 Columns: Exact FMS Consultation Booking Card */}
+            {/* Right 5 Columns: Consultation Booking Card */}
             <div className="lg:col-span-5">
               <div className="bg-[#0c2742] rounded-3xl p-6 sm:p-8 border border-teal-800/40 shadow-2xl space-y-4">
                 <div>
@@ -952,7 +816,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 7. SECTION 7: EXACT FMS FIVE VERTICALS (fms-five-verticals)               */}
+      {/* 7. SECTION 7: HOPE DENTAL FIVE VERTICALS                                    */}
       {/* ========================================================================= */}
       <section className="bg-white dark:bg-slate-950 py-16 sm:py-24 border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -1032,7 +896,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 8. SECTION 8: EXACT FMS 12 SPECIALTIES GRID (fms-specialties-section)     */}
+      {/* 8. SECTION 8: 12 SPECIALTIES GRID                                           */}
       {/* ========================================================================= */}
       <section className="bg-slate-50 dark:bg-slate-900 py-16 sm:py-24 border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -1174,7 +1038,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 10. SECTION 10: EXACT FMS AWARDS SECTION (fms-awards-section) in #07192b  */}
+      {/* 10. SECTION 10: HOPE DENTAL AWARDS & CITATIONS SECTION                      */}
       {/* ========================================================================= */}
       <section className="bg-[#07192b] text-white py-16 sm:py-24 border-b border-teal-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
@@ -1247,6 +1111,69 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
+      {/* 10B. VERIFIED PATIENT REVIEWS (GOOGLE & JUSTDIAL QUOTES)                  */}
+      {/* ========================================================================= */}
+      <section className="bg-white dark:bg-slate-950 py-16 sm:py-24 border-b border-slate-200 dark:border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <span className="text-xs font-extrabold uppercase tracking-widest text-teal-600 dark:text-teal-400">
+                GENUINE PATIENT VOICES · 5.0 ★ RATED
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#091e34] dark:text-white mt-1">
+                Verified Patient Reviews
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-xl">
+                Unedited reviews and treatment feedback directly from patients verified on Google and Justdial.
+              </p>
+            </div>
+
+            <button
+              onClick={() => navigateTo('reviews')}
+              className="px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-teal-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs transition-colors self-start sm:self-auto flex items-center space-x-1.5"
+            >
+              <span>View All 300+ Reviews</span>
+              <ArrowRight className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {reviews.slice(0, 3).map((r) => (
+              <div 
+                key={r.id}
+                className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-amber-400">
+                      {[...Array(r.rating || 5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-teal-100/70 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 border border-teal-300/40">
+                      {r.verifiedSource} Verified
+                    </span>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed italic">
+                    "{r.text.replace(/^"|"$/g, '')}"
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between text-xs">
+                  <div>
+                    <div className="font-bold text-slate-900 dark:text-white">{r.patientName}</div>
+                    <div className="text-[10px] text-slate-400">{r.patientCity}</div>
+                  </div>
+                  <span className="text-[10px] text-slate-400 font-medium">{r.date}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
       {/* 11. SECTION 11: PATIENT REVIEWS & ACCORDION FAQS                          */}
       {/* ========================================================================= */}
       <section className="bg-slate-50 dark:bg-slate-900 py-16 sm:py-24 border-b border-slate-200 dark:border-slate-800">
@@ -1296,7 +1223,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 12. SECTION 12: EXACT FMS PRE-FOOTER CTA BANNER                           */}
+      {/* 12. SECTION 12: HOPE DENTAL PRE-FOOTER CTA BANNER                           */}
       {/* ========================================================================= */}
       <section className="bg-white dark:bg-slate-950 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

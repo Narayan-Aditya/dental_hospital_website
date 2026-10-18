@@ -10,7 +10,7 @@ import {
   ChevronDown, 
   ChevronRight,
   Calculator,
-  ArrowUpRight
+  ShieldCheck
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { PageId, Currency, Language } from '../../types';
@@ -469,17 +469,7 @@ export const Navbar: React.FC = () => {
                 )}
               </div>
 
-              {/* 5. Dental Tourism */}
-              <button
-                onClick={() => handleNavClick('tourism')}
-                className={`px-3 py-2 rounded-lg transition-colors hover:text-teal-600 dark:hover:text-teal-400 ${
-                  currentPage === 'tourism' ? 'text-teal-600 dark:text-teal-400 font-bold' : ''
-                }`}
-              >
-                Dental Tourism
-              </button>
-
-              {/* 6. Others Dropdown (Cost Estimator, Reviews, Emergency) */}
+              {/* 5. Others Dropdown (Cost Estimator, Reviews, Emergency) */}
               <div 
                 className="relative"
                 onMouseEnter={() => setOthersDropdownOpen(true)}
@@ -528,7 +518,7 @@ export const Navbar: React.FC = () => {
                 )}
               </div>
 
-              {/* 7. Blog */}
+              {/* 6. Blog */}
               <button
                 onClick={() => handleNavClick('blogs')}
                 className={`px-3 py-2 rounded-lg transition-colors font-bold hover:text-teal-600 dark:hover:text-teal-400 ${
@@ -539,14 +529,26 @@ export const Navbar: React.FC = () => {
               </button>
             </nav>
 
-            {/* Header Right Consultation CTA */}
-            <div className="hidden sm:flex items-center space-x-3">
+            {/* Header Right: Focused Direct Booking CTA & Admin Access */}
+            <div className="hidden sm:flex items-center space-x-2.5">
+              <button
+                onClick={() => handleNavClick('admin')}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 ${
+                  currentPage === 'admin'
+                    ? 'bg-teal-600 text-white shadow-sm'
+                    : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+                title="Clinic Administrator Portal"
+              >
+                <ShieldCheck className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+                <span>Admin</span>
+              </button>
+
               <button
                 onClick={() => setIsBookingOpen(true)}
-                className="px-4 py-2 rounded-full border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white dark:border-teal-400 dark:text-teal-400 dark:hover:bg-teal-500 dark:hover:text-white font-bold text-xs shadow-sm transition-all flex items-center space-x-1.5"
+                className="px-5 py-2.5 rounded-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-xs shadow-md shadow-teal-500/20 active:scale-95 transition-all flex items-center space-x-1.5"
               >
-                <span>Consultation</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>Book Appointment</span>
               </button>
             </div>
 
@@ -604,10 +606,10 @@ export const Navbar: React.FC = () => {
                 Team Hope
               </button>
               <button
-                onClick={() => handleNavClick('tourism')}
-                className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-left font-bold"
+                onClick={() => handleNavClick('admin')}
+                className="p-2.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 text-left font-bold border border-teal-200/60 dark:border-teal-800/60"
               >
-                Dental Tourism
+                Admin Portal
               </button>
               <button
                 onClick={() => { setIsCostCalculatorOpen(true); setMobileMenuOpen(false); }}

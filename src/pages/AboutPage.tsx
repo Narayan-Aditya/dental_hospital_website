@@ -124,7 +124,7 @@ export const AboutPage: React.FC = () => {
               </blockquote>
               <div className="flex items-center space-x-3 pt-2">
                 <img 
-                  src="./doctors/dr-shailaja-reddy.webp" 
+                  src="./doctors/dr-himangi.jpg" 
                   alt="Dr. Himangi Dubey" 
                   className="w-12 h-12 rounded-full object-cover border-2 border-teal-500"
                 />

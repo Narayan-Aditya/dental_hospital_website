@@ -13,7 +13,7 @@ export const DoctorsPage: React.FC = () => {
   const [selectedDept, setSelectedDept] = useState<string>('all');
 
   const departments = [
-    { id: 'all', label: 'All Specialists (150+)' },
+    { id: 'all', label: 'All Specialists' },
     { id: 'Cosmetic Dentistry & Smile Makeover', label: 'Cosmetic & Restorative' },
     { id: 'Dental Implantology & Full-Arch Rehab', label: 'Implantology' },
     { id: 'Oral & Maxillofacial Surgery', label: 'Maxillofacial Surgery' },

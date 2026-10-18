@@ -137,7 +137,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            {/* Col 3: Follow Us & Quick Links (4 cols) matching FMS right column */}
+            {/* Col 3: Follow Us & Quick Links (4 cols) */}
             <div className="lg:col-span-4 space-y-4">
               {/* Follow Us */}
               <div>
@@ -286,8 +286,15 @@ export const Footer: React.FC = () => {
 
           {/* 4. COPYRIGHT BAR */}
           <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
-            <div>
-              Copyright {new Date().getFullYear()} © All rights Reserved.
+            <div className="flex items-center space-x-2">
+              <span>Copyright {new Date().getFullYear()} © All rights Reserved.</span>
+              <span>·</span>
+              <button 
+                onClick={() => navigateTo('admin')}
+                className="text-teal-500 hover:text-teal-300 hover:underline transition-colors font-semibold"
+              >
+                Staff Admin Portal
+              </button>
             </div>
             <div>
               Design by <span className="text-slate-300 font-semibold">Team Hope</span>

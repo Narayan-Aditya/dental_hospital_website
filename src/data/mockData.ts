@@ -85,7 +85,7 @@ export const VERTICALS_DATA: Vertical[] = [
       'Hospital-grade sterilization with Class-B vacuum autoclaves',
       '24/7 Dental emergency triage & maxillofacial trauma care'
     ],
-    image: './verticals/vertical-international.webp'
+    image: './verticals/vertical-flagship.jpg'
   },
   {
     id: 'city-clinics',
@@ -100,7 +100,7 @@ export const VERTICALS_DATA: Vertical[] = [
       'Gentle pediatric operatory tailored for anxious children',
       'Transparent, patient-first affordable treatment packages'
     ],
-    image: './verticals/vertical-clinics.webp'
+    image: './verticals/vertical-clinics.jpg'
   },
   {
     id: 'wellness-diabetic-wing',
@@ -115,7 +115,7 @@ export const VERTICALS_DATA: Vertical[] = [
       'Pre-cardiac & pre-transplant oral clearance screenings',
       'Nutritional counseling & holistic saliva pH balancing'
     ],
-    image: './verticals/vertical-flagship.webp'
+    image: './verticals/vertical-wellness.jpg'
   },
   {
     id: 'aesthetic-aligner-studio',
@@ -130,7 +130,7 @@ export const VERTICALS_DATA: Vertical[] = [
       'Custom invisible aligners without brackets or wires',
       'In-office Zoom laser whitening for instant brilliance'
     ],
-    image: './verticals/vertical-sscds.webp'
+    image: './verticals/vertical-studio.jpg'
   },
   {
     id: 'community-outreach',
@@ -145,7 +145,7 @@ export const VERTICALS_DATA: Vertical[] = [
       'Free distribution of oral hygiene kits & pediatric education',
       'Subsidized emergency care for economically vulnerable families'
     ],
-    image: './verticals/vertical-skin.webp'
+    image: './verticals/vertical-outreach.jpg'
   }
 ];
 
@@ -502,7 +502,7 @@ export const TREATMENTS_DATA: Treatment[] = [
     titleTe: 'ఓరల్ & మాక్సిల్లోఫేషియల్ సర్జరీ',
     category: 'surgery',
     icon: 'Award',
-    shortDesc: 'Headed by Dr. Dushyanth Paul. Painless surgical extraction of impacted wisdom teeth, corrective jaw (orthognathic) surgeries, and facial trauma.',
+    shortDesc: 'Headed by Dr. Saurabh Singh & Senior OMFS Team. Painless surgical extraction of impacted wisdom teeth, corrective jaw (orthognathic) surgeries, and facial trauma.',
     shortDescHi: 'वरिष्ठ सर्जनों द्वारा अकल दाढ़ निकालना, जबड़े की सर्जरी और फेशियल ट्रॉमा का अस्पताल-ग्रेड ऑपरेशन।',
     fullDesc: 'Hope Dental Hospital houses full hospital-grade surgical suites with conscious sedation and general anesthesia support. We treat complex impacted third molars, jaw cysts, facial trauma fractures, cleft lip/palate, and orthognathic corrective jaw surgery to correct underbites or facial asymmetry.',
     duration: '20 to 40 mins (Wisdom Tooth) / Comprehensive for Jaw Surgeries',
@@ -602,7 +602,7 @@ export const DOCTORS_DATA: Doctor[] = [
     experienceYears: 15,
     rating: 5.0,
     reviewCount: 2840,
-    image: './doctors/dr-shailaja-reddy.webp',
+    image: './doctors/dr-himangi.jpg',
     primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
     department: 'Implantology, Periodontics & TMJ Wellness',
     bio: 'Founder & Medical Director of Hope Dental Hospital & Wellness Centre in Sadrauna, Para Road, Lucknow. Former Senior Resident at King George\'s Medical University (KGMU), Lucknow. Head of Department of Dentistry at Ajanta Hospital & IVF Centre. Fellowship in Medical Cosmetology (FMC Germany). Honored with the Award of Appreciation at the 8th UP Dental Show 2026, Durga Swaroopa Samman, and Bharat Bhushan Samman. Prominent television health expert on Doordarshan UP (@DDUP "सेहत आपकी") and All India Radio. Master specialist in dental implants, Biolase laser gum surgeries, TMJ night guards, and tobacco de-addiction counselling.',
@@ -634,7 +634,7 @@ export const DOCTORS_DATA: Doctor[] = [
     experienceYears: 42,
     rating: 5.0,
     reviewCount: 3120,
-    image: './doctors/dr-partha-reddy.jpg',
+    image: './doctors/dr-bhoj.jpg',
     primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
     department: 'Prosthodontics & Full Mouth Rehabilitation',
     bio: 'Distinguished dental academic and master clinician with over 40 years of restorative mastery. Directs complex full mouth rehabilitation, precision-attachment dentures, and CAD/CAM zirconia prosthetics at Hope Dental Hospital in Lucknow.',
@@ -663,7 +663,7 @@ export const DOCTORS_DATA: Doctor[] = [
     experienceYears: 18,
     rating: 5.0,
     reviewCount: 1980,
-    image: './doctors/dr-prabhat.webp',
+    image: './doctors/dr-prabhat.jpg',
     primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
     department: 'Endodontics & Conservative Operatory',
     bio: 'Expert in Carl Zeiss dental operating microscope root canals, single-sitting endodontics, calcified canal negotiation, and broken instrument retrieval with unmatched precision at Hope Dental Hospital Lucknow.',
@@ -687,7 +687,7 @@ export const DOCTORS_DATA: Doctor[] = [
     experienceYears: 16,
     rating: 4.9,
     reviewCount: 1640,
-    image: './doctors/dr-kavya.webp',
+    image: './doctors/dr-kavya.jpg',
     primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
     department: 'Orthodontics & Clear Aligners',
     bio: 'Certified clear aligner specialist. Expertise in treating complex adult and teen malocclusions with invisible aligners, self-ligating systems, and interceptive pediatric habit breaking at Hope Dental Hospital.',
@@ -701,17 +701,17 @@ export const DOCTORS_DATA: Doctor[] = [
     registrationNo: 'UP-DCI-11488'
   },
   {
-    id: 'dr-dushyanth-paul',
-    name: 'Dr. Dushyanth Paul',
-    nameHi: 'डॉ. दुष्यंत पॉल',
+    id: 'dr-saurabh-singh',
+    name: 'Dr. Saurabh Singh',
+    nameHi: 'डॉ. सौरभ सिंह',
     qualification: 'BDS, MDS (Oral & Maxillofacial Surgery)',
     designation: 'Senior Consultant Maxillofacial Surgeon',
     role: 'Chief Maxillofacial & Trauma Surgeon',
     roleHi: 'डायरेक्टर — ओरल एवं मैक्सिलोफेशियल सर्जरी',
-    experienceYears: 22,
+    experienceYears: 18,
     rating: 5.0,
     reviewCount: 2150,
-    image: './doctors/dr-dushyanth-paul.jpg',
+    image: './doctors/dr-saurabh.jpg',
     primaryBranch: 'Hope Dental Hospital & Wellness Centre (Sadrauna, Lucknow)',
     department: 'Oral & Maxillofacial Surgery',
     bio: 'Leads complex oral and maxillofacial surgeries, orthognathic corrective jaw surgery, facial trauma reconstruction, impacted wisdom tooth extractions, and emergency dental trauma at Hope Dental Hospital.',
@@ -797,7 +797,7 @@ export const SMILE_TRANSFORMATIONS_DATA: SmileTransformation[] = [
     patientAgeCity: '64 yrs, Sydney (Australia)',
     procedure: 'Biolase Laser LANAP + Computer Guided Nobel Implants',
     duration: '4 Days',
-    doctorName: 'Dr. Himangi Dubey & Dr. Dushyanth Paul',
+    doctorName: 'Dr. Himangi Dubey & Dr. Saurabh Singh',
     beforeImage: './cases/ba-2.webp',
     afterImage: './cases/ba-4.webp',
     patientFeedback: '"Other dentists told me I had severe bone loss from pyorrhea and could never have implants. Dr. Himangi used laser gum regeneration and guided implants to give me solid fixed teeth."'

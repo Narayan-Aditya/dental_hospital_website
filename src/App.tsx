@@ -19,6 +19,7 @@ import { TourismPage } from './pages/TourismPage';
 import { ReviewsPage } from './pages/ReviewsPage';
 import { BlogsPage } from './pages/BlogsPage';
 import { ContactPage } from './pages/ContactPage';
+import { AdminPage } from './pages/AdminPage';
 
 const MainContent: React.FC = () => {
   const { currentPage, setIsEmergencyOpen } = useApp();
@@ -41,6 +42,8 @@ const MainContent: React.FC = () => {
         return <BlogsPage />;
       case 'contact':
         return <ContactPage />;
+      case 'admin':
+        return <AdminPage />;
       case 'home':
       default:
         return <HomePage />;

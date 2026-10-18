@@ -14,7 +14,8 @@ import {
   BlogPost,
   Review,
   EmergencyGuide,
-  PageId
+  PageId,
+  HospitalStatusConfig
 } from '../types';
 import {
   HOSPITAL_INFO,
@@ -70,6 +71,19 @@ interface AppContextType {
   cancelAppointment: (id: string) => boolean;
   rescheduleAppointment: (id: string, newDate: string, newSlot: string) => boolean;
   findAppointment: (query: string) => Appointment | undefined;
+  updateAppointmentStatus: (id: string, status: Appointment['status']) => void;
+
+  // Hospital Status
+  hospitalStatus: HospitalStatusConfig;
+  updateHospitalStatus: (updates: Partial<HospitalStatusConfig>) => void;
+
+  // Catalog & CMS Management
+  addTreatment: (treatment: Treatment) => void;
+  updateTreatment: (treatment: Treatment) => void;
+  deleteTreatment: (id: string) => void;
+  addBlogPost: (post: BlogPost) => void;
+  updateBlogPost: (post: BlogPost) => void;
+  deleteBlogPost: (id: string) => void;
   
   // Page Routing & Navigation
   currentPage: PageId;
@@ -138,8 +152,18 @@ const VALID_PAGES: PageId[] = [
   'tourism',
   'reviews',
   'blogs',
-  'contact'
+  'contact',
+  'admin'
 ];
+
+const DEFAULT_HOSPITAL_STATUS: HospitalStatusConfig = {
+  isOpenToday: true,
+  operatingHours: '10:00 AM – 8:00 PM (Monday – Sunday)',
+  bannerNotice: '🟢 Hospital Open Today · 10:00 AM – 8:00 PM · Walk-ins & Priority Online Slots Active',
+  isCustomBannerActive: true,
+  holidays: ['2026-10-24 (Diwali Festival)', '2026-11-15 (Guru Nanak Jayanti)'],
+  dailySlotCap: 35
+};
 
 const getPageFromHash = (): PageId => {
   const hash = window.location.hash.replace('#', '').trim().toLowerCase();
@@ -185,6 +209,24 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [invoices, setInvoices] = useState<Invoice[]>(() => {
     const saved = localStorage.getItem('hdh_invoices');
     return saved ? JSON.parse(saved) : INITIAL_INVOICES;
+  });
+
+  // Dynamic Treatments & Pricing
+  const [treatments, setTreatments] = useState<Treatment[]>(() => {
+    const saved = localStorage.getItem('hdh_treatments');
+    return saved ? JSON.parse(saved) : TREATMENTS_DATA;
+  });
+
+  // Dynamic Blogs & Articles
+  const [blogs, setBlogs] = useState<BlogPost[]>(() => {
+    const saved = localStorage.getItem('hdh_blogs');
+    return saved ? JSON.parse(saved) : BLOGS_DATA;
+  });
+
+  // Live Hospital Operational Status
+  const [hospitalStatus, setHospitalStatus] = useState<HospitalStatusConfig>(() => {
+    const saved = localStorage.getItem('hdh_hospital_status');
+    return saved ? JSON.parse(saved) : DEFAULT_HOSPITAL_STATUS;
   });
 
   // Modal states
@@ -253,16 +295,76 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return entry[language] || entry.en || key;
   }, [language]);
 
+  // Hospital Status updater
+  const updateHospitalStatus = useCallback((updates: Partial<HospitalStatusConfig>) => {
+    setHospitalStatus(prev => {
+      const updated = { ...prev, ...updates };
+      localStorage.setItem('hdh_hospital_status', JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
+
+  // Treatment Catalog Management
+  const addTreatment = useCallback((treatment: Treatment) => {
+    setTreatments(prev => {
+      const updated = [treatment, ...prev];
+      localStorage.setItem('hdh_treatments', JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
+
+  const updateTreatment = useCallback((updatedTreatment: Treatment) => {
+    setTreatments(prev => {
+      const updated = prev.map(t => t.id === updatedTreatment.id ? updatedTreatment : t);
+      localStorage.setItem('hdh_treatments', JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
+
+  const deleteTreatment = useCallback((id: string) => {
+    setTreatments(prev => {
+      const updated = prev.filter(t => t.id !== id);
+      localStorage.setItem('hdh_treatments', JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
+
+  // Blog CMS Management
+  const addBlogPost = useCallback((post: BlogPost) => {
+    setBlogs(prev => {
+      const updated = [post, ...prev];
+      localStorage.setItem('hdh_blogs', JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
+
+  const updateBlogPost = useCallback((updatedPost: BlogPost) => {
+    setBlogs(prev => {
+      const updated = prev.map(b => b.id === updatedPost.id ? updatedPost : b);
+      localStorage.setItem('hdh_blogs', JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
+
+  const deleteBlogPost = useCallback((id: string) => {
+    setBlogs(prev => {
+      const updated = prev.filter(b => b.id !== id);
+      localStorage.setItem('hdh_blogs', JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
+
   // Add Appointment Action
   const addAppointment = (apptData: Omit<Appointment, 'id' | 'createdAt' | 'status' | 'paymentStatus'>): Appointment => {
     const newId = `HDH-APT-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    const calcFee = apptData.servicePrice ?? (apptData.consultationType === 'virtual' ? 1500 : 1000);
     const newAppointment: Appointment = {
       ...apptData,
       id: newId,
       status: 'Confirmed',
       createdAt: new Date().toISOString(),
       paymentStatus: 'Paid',
-      amount: apptData.consultationType === 'virtual' ? 1500 : 1000,
+      amount: calcFee,
     };
 
     const updated = [newAppointment, ...appointments];
@@ -272,7 +374,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     // Also auto-generate tax invoice
     const branch = CLINIC_BRANCHES_DATA.find(b => b.id === apptData.clinicBranchId);
     const doctor = DOCTORS_DATA.find(d => d.id === apptData.doctorId);
-    const treatment = TREATMENTS_DATA.find(t => t.id === apptData.treatmentId);
+    const treatment = treatments.find(t => t.id === apptData.treatmentId);
 
     const newInvoice: Invoice = {
       id: `INV-${newId}`,
@@ -282,28 +384,28 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       patientPhone: apptData.patientPhone,
       patientAge: apptData.patientAge,
       patientGender: apptData.gender,
-      patientAddress: `${apptData.country || 'India'}`,
+      patientAddress: `${apptData.patientLocation || apptData.country || 'India'}`,
       date: apptData.date,
       doctorName: doctor ? doctor.name : 'Senior Consultant Specialist',
       branchName: branch ? branch.name : HOSPITAL_INFO.name,
       items: [
         {
           id: `item-${Date.now()}`,
-          description: `${treatment ? treatment.title : 'Comprehensive Dental Consultation'} (${apptData.consultationType === 'virtual' ? 'Virtual Video E-Consultation' : 'In-Clinic'})`,
+          description: `${apptData.serviceName || (treatment ? treatment.title : 'Comprehensive Dental Consultation')} (${apptData.consultationType === 'virtual' ? 'Virtual Video E-Consultation' : 'In-Clinic'})`,
           hsnSac: '999312',
           qty: 1,
-          unitPrice: newAppointment.amount || 1000,
-          total: newAppointment.amount || 1000,
+          unitPrice: calcFee,
+          total: calcFee,
         }
       ],
-      subtotal: newAppointment.amount || 1000,
+      subtotal: calcFee,
       taxGst: 0,
       discount: 0,
-      totalAmount: newAppointment.amount || 1000,
+      totalAmount: calcFee,
       paymentMode: 'UPI / QR',
       paymentStatus: 'Paid',
       paymentDate: new Date().toISOString().split('T')[0],
-      notes: `Appointment token confirmed for ${apptData.timeSlot} on ${apptData.date}. Please arrive 10 minutes prior.`
+      notes: `Appointment token confirmed for ${apptData.timeSlot} on ${apptData.date}. Please arrive 10-15 minutes prior.`
     };
 
     const updatedInvoices = [newInvoice, ...invoices];
@@ -312,6 +414,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     return newAppointment;
   };
+
+  const updateAppointmentStatus = useCallback((id: string, status: Appointment['status']) => {
+    setAppointments(prev => {
+      const updated = prev.map(a => a.id === id ? { ...a, status } : a);
+      localStorage.setItem('hdh_appointments', JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
 
   const cancelAppointment = (id: string): boolean => {
     const updated = appointments.map(a => a.id === id ? { ...a, status: 'Cancelled' as const } : a);
@@ -356,22 +466,31 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         fontSize,
         setFontSize,
         hospitalInfo: HOSPITAL_INFO,
-        treatments: TREATMENTS_DATA,
+        treatments,
+        addTreatment,
+        updateTreatment,
+        deleteTreatment,
         doctors: DOCTORS_DATA,
         clinicBranches: CLINIC_BRANCHES_DATA,
         verticals: VERTICALS_DATA,
         awards: AWARDS_DATA,
         transformations: SMILE_TRANSFORMATIONS_DATA,
         costItems: TREATMENT_COST_DATA,
-        blogs: BLOGS_DATA,
+        blogs,
+        addBlogPost,
+        updateBlogPost,
+        deleteBlogPost,
         reviews: REVIEWS_DATA,
         emergencyGuides: EMERGENCY_GUIDES,
         appointments,
         invoices,
         addAppointment,
+        updateAppointmentStatus,
         cancelAppointment,
         rescheduleAppointment,
         findAppointment,
+        hospitalStatus,
+        updateHospitalStatus,
         currentPage,
         setCurrentPage,
         navigateTo,
