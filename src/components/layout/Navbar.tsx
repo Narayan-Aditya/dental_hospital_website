@@ -13,14 +13,12 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
-import { PageId, Currency, Language } from '../../types';
+import { PageId, Language } from '../../types';
 
 export const Navbar: React.FC = () => {
   const { 
     language, 
     setLanguage, 
-    currency, 
-    setCurrency, 
     darkMode, 
     toggleDarkMode, 
     currentPage, 
@@ -153,22 +151,6 @@ export const Navbar: React.FC = () => {
               <span>24/7 Emergency</span>
             </button>
 
-            {/* Currency Selector */}
-            <div className="hidden sm:flex items-center bg-[#061423] rounded-lg p-0.5 border border-[#0f2d4a] text-[11px]">
-              {(['INR', 'USD', 'GBP', 'EUR'] as Currency[]).map((c) => (
-                <button
-                  key={c}
-                  onClick={() => setCurrency(c)}
-                  className={`px-1.5 py-0.5 rounded text-[10px] font-bold transition-all ${
-                    currency === c 
-                      ? 'bg-teal-600 text-white' 
-                      : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
 
             {/* Language Selector */}
             <div className="flex items-center bg-[#061423] rounded-lg p-0.5 border border-[#0f2d4a] text-[11px]">
