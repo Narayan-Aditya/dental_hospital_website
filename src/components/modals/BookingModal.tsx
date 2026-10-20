@@ -50,6 +50,8 @@ const TIME_SLOTS = [
 
 export const BookingModal: React.FC = () => {
   const { 
+    t,
+    language,
     isBookingOpen, 
     setIsBookingOpen, 
     treatments, 
@@ -238,24 +240,22 @@ export const BookingModal: React.FC = () => {
           </button>
 
           <div className="flex items-center space-x-2 text-[11px] font-black uppercase tracking-widest text-teal-400 mb-1">
-            <span>HOPE DENTAL HOSPITAL</span>
-            <span>·</span>
-            <span>SADRAUNA LUCKNOW</span>
+            <span>{t('bookingModal.campusEyebrow')}</span>
           </div>
 
           <h2 className="text-xl sm:text-2xl font-black text-white">
-            Booking Specialist Appointment
+            {t('bookingModal.modalTitle')}
           </h2>
           <p className="text-xs text-slate-300 mt-0.5">
-            Quick 3-step appointment wizard for verified OPD tokens & treatment slots.
+            {t('bookingModal.modalSubtitle')}
           </p>
 
           {/* 3-Step Wizard Indicator */}
           <div className="flex items-center justify-between mt-5 pt-4 border-t border-slate-700/60 max-w-md">
             {[
-              { num: 1, label: 'Select Services' },
-              { num: 2, label: 'Patient & Slot' },
-              { num: 3, label: 'Confirmation' },
+              { num: 1, label: t('bookingModal.step1') },
+              { num: 2, label: t('bookingModal.step2') },
+              { num: 3, label: t('bookingModal.step3') },
             ].map(s => {
               const isActive = step === s.num;
               const isDone = step > s.num;
@@ -290,8 +290,8 @@ export const BookingModal: React.FC = () => {
             {/* 1. Patient Type: Radio selection between Old Patient and New Patient */}
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center justify-between">
-                <span>Patient Type</span>
-                <span className="text-[10px] text-teal-600 dark:text-teal-400 font-semibold">Single Choice</span>
+                <span>{t('bookingModal.patientTypeLabel')}</span>
+                <span className="text-[10px] text-teal-600 dark:text-teal-400 font-semibold">{t('bookingModal.singleChoice')}</span>
               </label>
 
               <div className="grid grid-cols-2 gap-3">
@@ -311,8 +311,8 @@ export const BookingModal: React.FC = () => {
                     className="text-teal-600 focus:ring-teal-500"
                   />
                   <div>
-                    <div className="text-xs font-bold">New Patient</div>
-                    <div className="text-[10px] text-slate-500 dark:text-slate-400">First time visiting Hope Dental</div>
+                    <div className="text-xs font-bold">{t('bookingModal.newPatient')}</div>
+                    <div className="text-[10px] text-slate-500 dark:text-slate-400">{t('bookingModal.newPatientDesc')}</div>
                   </div>
                 </label>
 
@@ -332,8 +332,8 @@ export const BookingModal: React.FC = () => {
                     className="text-teal-600 focus:ring-teal-500"
                   />
                   <div>
-                    <div className="text-xs font-bold">Old Patient</div>
-                    <div className="text-[10px] text-slate-500 dark:text-slate-400">Follow-up or continuing care</div>
+                    <div className="text-xs font-bold">{t('bookingModal.oldPatient')}</div>
+                    <div className="text-[10px] text-slate-500 dark:text-slate-400">{t('bookingModal.oldPatientDesc')}</div>
                   </div>
                 </label>
               </div>
@@ -342,7 +342,7 @@ export const BookingModal: React.FC = () => {
             {/* Consultation Mode Toggle */}
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 block">
-                Consultation Mode
+                {t('bookingModal.consultationMode')}
               </label>
               <div className="grid grid-cols-2 gap-3">
                 <button
@@ -359,9 +359,9 @@ export const BookingModal: React.FC = () => {
                 >
                   <div className="flex items-center space-x-1.5">
                     <Building2 className="w-4 h-4 text-teal-600" />
-                    <span>In-Clinic Hospital Visit</span>
+                    <span>{t('bookingModal.inClinic')}</span>
                   </div>
-                  <div className="text-[10px] text-slate-500 mt-0.5">Sadrauna Hospital Campus (Fee: ₹1,000)</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">{t('bookingModal.inClinicDesc')}</div>
                 </button>
 
                 <button
@@ -378,9 +378,9 @@ export const BookingModal: React.FC = () => {
                 >
                   <div className="flex items-center space-x-1.5">
                     <Stethoscope className="w-4 h-4 text-teal-600" />
-                    <span>Virtual Video Consultation</span>
+                    <span>{t('bookingModal.virtual')}</span>
                   </div>
-                  <div className="text-[10px] text-slate-500 mt-0.5">Online Zoom / WhatsApp (Fee: ₹1,500)</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">{t('bookingModal.virtualDesc')}</div>
                 </button>
               </div>
             </div>
@@ -389,9 +389,9 @@ export const BookingModal: React.FC = () => {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-                  Select Specific Dental Treatment (Optional)
+                  {t('bookingModal.treatmentLabel')}
                 </label>
-                <span className="text-[10px] text-slate-400">Can be skipped for general consultation</span>
+                <span className="text-[10px] text-slate-400">{t('bookingModal.treatmentSub')}</span>
               </div>
 
               <div className="max-h-56 overflow-y-auto space-y-2 pr-1 rounded-2xl border border-slate-200 dark:border-slate-800 p-2">
@@ -410,10 +410,10 @@ export const BookingModal: React.FC = () => {
                 >
                   <div>
                     <div className="text-xs font-bold text-slate-900 dark:text-white">
-                      Standard Dental Consultation & Checkup
+                      {t('bookingModal.standardConsult')}
                     </div>
                     <div className="text-[10px] text-slate-500 dark:text-slate-400">
-                      Comprehensive clinical oral examination & digital intraoral scan preview
+                      {t('bookingModal.standardConsultDesc')}
                     </div>
                   </div>
                   <span className="text-xs font-bold text-teal-600 dark:text-teal-400">
@@ -422,12 +422,12 @@ export const BookingModal: React.FC = () => {
                 </div>
 
                 {/* Procedures from treatments */}
-                {treatments.map(t => {
-                  const isSelected = selectedServiceId === t.id;
+                {treatments.map(tItem => {
+                  const isSelected = selectedServiceId === tItem.id;
                   return (
                     <div 
-                      key={t.id}
-                      onClick={() => handleSelectService(t.id, t.title, t.startingPriceInr)}
+                      key={tItem.id}
+                      onClick={() => handleSelectService(tItem.id, tItem.title, tItem.startingPriceInr)}
                       className={`p-3 rounded-xl cursor-pointer border transition-all flex items-center justify-between ${
                         isSelected
                           ? 'bg-teal-50/70 dark:bg-teal-950/50 border-teal-500 text-teal-900 dark:text-teal-200 font-bold'
@@ -436,14 +436,14 @@ export const BookingModal: React.FC = () => {
                     >
                       <div className="pr-3">
                         <div className="text-xs font-bold text-slate-900 dark:text-white">
-                          {t.title}
+                          {tItem.title}
                         </div>
                         <div className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1">
-                          {t.shortDesc}
+                          {tItem.shortDesc}
                         </div>
                       </div>
                       <span className="text-xs font-bold text-teal-600 dark:text-teal-400 whitespace-nowrap">
-                        From {currencySymbol()}{convertPrice(t.startingPriceInr).toLocaleString()}
+                        {language === 'hi' ? 'शुरुआती ' : 'From '}{currencySymbol()}{convertPrice(tItem.startingPriceInr).toLocaleString()}
                       </span>
                     </div>
                   );
@@ -458,7 +458,7 @@ export const BookingModal: React.FC = () => {
                 onClick={handleStep1Next}
                 className="text-xs font-bold text-slate-500 hover:text-slate-900 dark:hover:text-white underline transition-colors"
               >
-                Skip & Proceed with General Consultation →
+                {t('bookingModal.skipAndProceed')}
               </button>
 
               <button
@@ -466,7 +466,7 @@ export const BookingModal: React.FC = () => {
                 onClick={handleStep1Next}
                 className="px-6 py-3 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-xs shadow-md shadow-teal-500/20 active:scale-95 transition-all flex items-center space-x-1.5"
               >
-                <span>Next: Patient Details & Slots</span>
+                <span>{t('bookingModal.nextBtn')}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -486,11 +486,11 @@ export const BookingModal: React.FC = () => {
               <div className="space-y-1">
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center space-x-1">
                   <User className="w-3.5 h-3.5 text-teal-600" />
-                  <span>Full Name *</span>
+                  <span>{t('bookingModal.fullName')}</span>
                 </label>
                 <input 
                   type="text"
-                  placeholder="Himanshu"
+                  placeholder={t('bookingModal.fullNamePlaceholder')}
                   value={patientName}
                   onChange={(e) => setPatientName(e.target.value)}
                   required
@@ -502,11 +502,11 @@ export const BookingModal: React.FC = () => {
               <div className="space-y-1">
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center space-x-1">
                   <Phone className="w-3.5 h-3.5 text-teal-600" />
-                  <span>Phone Number *</span>
+                  <span>{t('bookingModal.phone')}</span>
                 </label>
                 <input 
                   type="tel"
-                  placeholder="99XXXXXXXX – 10 digits"
+                  placeholder={t('bookingModal.phonePlaceholder')}
                   value={patientPhone}
                   onChange={(e) => setPatientPhone(e.target.value)}
                   required
@@ -519,11 +519,11 @@ export const BookingModal: React.FC = () => {
               <div className="space-y-1">
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center space-x-1">
                   <MapPin className="w-3.5 h-3.5 text-teal-600" />
-                  <span>Location / City</span>
+                  <span>{t('bookingModal.location')}</span>
                 </label>
                 <input 
                   type="text"
-                  placeholder="Sitapur"
+                  placeholder={t('bookingModal.locationPlaceholder')}
                   value={patientLocation}
                   onChange={(e) => setPatientLocation(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-teal-500"
@@ -536,22 +536,22 @@ export const BookingModal: React.FC = () => {
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center space-x-1.5">
                   <CalendarDays className="w-4 h-4 text-teal-600" />
-                  <span>Select Date (Next 10 Days Window)</span>
+                  <span>{t('bookingModal.selectDate')}</span>
                 </label>
 
                 {/* Legend: Green, Red, Grey */}
                 <div className="flex items-center space-x-3 text-[10px] text-slate-500">
                   <span className="flex items-center space-x-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span>Available</span>
+                    <span>{t('bookingModal.legendAvailable')}</span>
                   </span>
                   <span className="flex items-center space-x-1">
                     <span className="w-2 h-2 rounded-full bg-rose-500" />
-                    <span>2–3 left</span>
+                    <span>{t('bookingModal.legendLimited')}</span>
                   </span>
                   <span className="flex items-center space-x-1">
                     <span className="w-2 h-2 rounded-full bg-slate-400" />
-                    <span>Full</span>
+                    <span>{t('bookingModal.legendFull')}</span>
                   </span>
                 </div>
               </div>
@@ -602,22 +602,22 @@ export const BookingModal: React.FC = () => {
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center space-x-1.5">
                 <Clock className="w-3.5 h-3.5 text-teal-600" />
-                <span>Select Appointment Time Slot</span>
+                <span>{t('bookingModal.selectSlot')}</span>
               </label>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {TIME_SLOTS.map((t) => (
+                {TIME_SLOTS.map((tSlot) => (
                   <button
-                    key={t.slot}
+                    key={tSlot.slot}
                     type="button"
-                    onClick={() => setSelectedSlot(t.slot)}
+                    onClick={() => setSelectedSlot(tSlot.slot)}
                     className={`py-2 px-2.5 rounded-xl text-xs font-semibold border transition-all text-center ${
-                      selectedSlot === t.slot
+                      selectedSlot === tSlot.slot
                         ? 'bg-teal-600 text-white border-teal-600 shadow-sm'
                         : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-teal-500'
                     }`}
                   >
-                    {t.slot.split('–')[0]?.trim()}
+                    {tSlot.slot.split('–')[0]?.trim()}
                   </button>
                 ))}
               </div>
@@ -627,10 +627,10 @@ export const BookingModal: React.FC = () => {
             <div className="p-3 rounded-2xl bg-teal-50/60 dark:bg-teal-950/30 border border-teal-200/60 dark:border-teal-900/60 flex items-center justify-between text-xs">
               <div className="space-y-0.5">
                 <span className="font-bold text-teal-900 dark:text-teal-200">
-                  {patientType === 'new' ? 'New Patient' : 'Old Patient'} · {selectedServiceName}
+                  {patientType === 'new' ? t('bookingModal.newPatient') : t('bookingModal.oldPatient')} · {selectedServiceName}
                 </span>
                 <div className="text-[10px] text-slate-500 dark:text-slate-400">
-                  Selected Date: {selectedDate} · Slot: {selectedSlot}
+                  {language === 'hi' ? 'चुनी गई तारीख:' : 'Selected Date:'} {selectedDate} · {language === 'hi' ? 'स्लॉट:' : 'Slot:'} {selectedSlot}
                 </div>
               </div>
               <span className="text-sm font-black text-teal-700 dark:text-teal-300">
@@ -646,14 +646,14 @@ export const BookingModal: React.FC = () => {
                 className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center space-x-1"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
-                <span>Back</span>
+                <span>{t('bookingModal.backBtn')}</span>
               </button>
 
               <button
                 type="submit"
                 className="px-8 py-3 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-teal-500/25 active:scale-95 transition-all flex items-center space-x-1.5"
               >
-                <span>Confirm Specialist Booking</span>
+                <span>{t('bookingModal.confirmBtn')}</span>
                 <Check className="w-4 h-4 ml-1" />
               </button>
             </div>
@@ -673,10 +673,10 @@ export const BookingModal: React.FC = () => {
                 <CheckCircle2 className="w-7 h-7" />
               </div>
               <h3 className="text-xl sm:text-2xl font-black text-[#091e34] dark:text-white">
-                Your booking has been confirmed
+                {t('bookingModal.confirmedHeadline')}
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Hospital appointment token & queue time recorded in live OPD system.
+                {t('bookingModal.confirmedSubhead')}
               </p>
             </div>
 
@@ -692,7 +692,7 @@ export const BookingModal: React.FC = () => {
                     HOPE DENTAL HOSPITAL & WELLNESS CENTRE
                   </div>
                   <h4 className="text-lg font-black text-white mt-0.5">
-                    Official Appointment Token Slip
+                    {t('bookingModal.slipTitle')}
                   </h4>
                   <p className="text-[10px] text-slate-400">
                     Sadrauna Road, Para Rd, Lucknow – 226011
@@ -704,7 +704,7 @@ export const BookingModal: React.FC = () => {
                     {confirmedAppointment.id}
                   </div>
                   <span className="inline-block mt-1 px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
-                    CONFIRMED
+                    {t('bookingModal.statusConfirmed')}
                   </span>
                 </div>
               </div>
@@ -712,7 +712,7 @@ export const BookingModal: React.FC = () => {
               {/* Patient & Booking Details Grid */}
               <div className="grid grid-cols-2 gap-4 text-xs">
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Patient Name</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block">{t('bookingModal.patientNameLabel')}</span>
                   <div className="font-bold text-white text-sm">{confirmedAppointment.patientName}</div>
                   <div className="text-[11px] text-slate-300">
                     {confirmedAppointment.patientPhone} · {confirmedAppointment.patientLocation || 'Sitapur'}
@@ -720,24 +720,24 @@ export const BookingModal: React.FC = () => {
                 </div>
 
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Patient Type</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block">{t('bookingModal.patientTypeSummary')}</span>
                   <div className="font-bold text-white capitalize">
-                    {confirmedAppointment.patientType === 'old' ? 'Old Patient (Follow-up)' : 'New Patient'}
+                    {confirmedAppointment.patientType === 'old' ? (language === 'hi' ? 'पुराने मरीज़ (फॉलो-अप)' : 'Old Patient (Follow-up)') : (language === 'hi' ? 'नए मरीज़' : 'New Patient')}
                   </div>
                   <div className="text-[11px] text-teal-300 capitalize">{confirmedAppointment.consultationType} Consultation</div>
                 </div>
 
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Appointment Date & Slot</span>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block">{t('bookingModal.dateSlotLabel')}</span>
                   <div className="font-bold text-white">{confirmedAppointment.date}</div>
                   <div className="text-[11px] text-teal-300">{confirmedAppointment.timeSlot}</div>
                 </div>
 
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Treatment / Consultation</span>
-                  <div className="font-bold text-white">{confirmedAppointment.serviceName || 'Standard Consultation'}</div>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block">{t('bookingModal.treatmentLabelSummary')}</span>
+                  <div className="font-bold text-white">{confirmedAppointment.serviceName || (language === 'hi' ? 'मानक दंत परामर्श' : 'Standard Consultation')}</div>
                   <div className="text-[11px] text-emerald-400 font-bold">
-                    Fee: ₹{confirmedAppointment.servicePrice || confirmedAppointment.amount || 1000}
+                    {t('bookingModal.feeLabel')} ₹{confirmedAppointment.servicePrice || confirmedAppointment.amount || 1000}
                   </div>
                 </div>
               </div>
@@ -746,7 +746,7 @@ export const BookingModal: React.FC = () => {
               <div className="pt-4 border-t border-slate-700/80 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div className="p-3 rounded-2xl bg-[#0c2742] border border-teal-900/60">
                   <span className="text-[10px] font-bold text-teal-400 uppercase tracking-wider block">
-                    ESTIMATED QUEUE / TOKEN TIME
+                    {t('bookingModal.estimatedQueue')}
                   </span>
                   <div className="text-xs font-bold text-white mt-0.5">
                     {confirmedAppointment.estimatedTokenTime || 'Token #14 · Est. 10:45 AM'}
@@ -755,7 +755,7 @@ export const BookingModal: React.FC = () => {
 
                 <div className="p-3 rounded-2xl bg-[#0c2742] border border-teal-900/60">
                   <span className="text-[10px] font-bold text-teal-400 uppercase tracking-wider block">
-                    HOSPITAL OPENING HOURS
+                    {t('bookingModal.hospitalHours')}
                   </span>
                   <div className="text-xs font-bold text-white mt-0.5">
                     {hospitalStatus.operatingHours}
@@ -767,7 +767,7 @@ export const BookingModal: React.FC = () => {
               <div className="p-3 rounded-2xl bg-amber-950/40 border border-amber-500/30 flex items-start space-x-2 text-xs text-amber-200">
                 <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <p className="leading-relaxed text-[11px]">
-                  <strong>Patient Advisory:</strong> Please arrive at the Sadrauna clinic <strong>10–15 minutes early</strong> prior to your allocated slot for vitals recording and digital registration.
+                  <strong>{t('bookingModal.patientAdvisoryTitle')}</strong> {t('bookingModal.patientAdvisoryText')}
                 </p>
               </div>
             </div>
@@ -781,7 +781,7 @@ export const BookingModal: React.FC = () => {
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-extrabold text-xs shadow-md shadow-teal-500/20 active:scale-95 transition-all flex items-center justify-center space-x-2"
               >
                 <Download className="w-4 h-4" />
-                <span>{isExporting ? 'Generating Image Slip...' : 'Download / Save Confirmation (JPG)'}</span>
+                <span>{isExporting ? t('bookingModal.generatingJpg') : t('bookingModal.downloadJpg')}</span>
               </button>
 
               <button
@@ -789,7 +789,7 @@ export const BookingModal: React.FC = () => {
                 onClick={handleClose}
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-xs transition-colors"
               >
-                Done / Return to Website
+                {t('bookingModal.doneBtn')}
               </button>
             </div>
 

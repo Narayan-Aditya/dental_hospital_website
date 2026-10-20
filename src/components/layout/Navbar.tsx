@@ -17,6 +17,7 @@ import { PageId, Language } from '../../types';
 
 export const Navbar: React.FC = () => {
   const { 
+    t,
     language, 
     setLanguage, 
     darkMode, 
@@ -77,7 +78,7 @@ export const Navbar: React.FC = () => {
               className="flex items-center text-slate-300 hover:text-white transition-colors group"
             >
               <span className="text-teal-400 mr-1 text-sm group-hover:scale-110 transition-transform">📍</span>
-              <span className="font-medium">Locations</span>
+              <span className="font-medium">{t('nav.clinics')}</span>
               <span className="ml-1 text-[10px] text-slate-400 hidden md:inline">(Sadrauna, Lucknow)</span>
             </button>
           </div>
@@ -90,7 +91,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setIsBookingOpen(true)}
               className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white text-[11px] sm:text-xs font-bold px-4 sm:px-5 py-1 sm:py-1.5 rounded-full shadow-md shadow-teal-500/25 active:scale-95 transition-all flex items-center space-x-1"
             >
-              <span>Book Appointment</span>
+              <span>{t('nav.bookAppointment')}</span>
             </button>
 
             {/* Social Media & Verified Profiles */}
@@ -148,7 +149,7 @@ export const Navbar: React.FC = () => {
               className="px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-rose-600 hover:bg-rose-700 text-white flex items-center space-x-1 shadow-sm transition-all"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
-              <span>24/7 Emergency</span>
+              <span>{t('nav.emergency')}</span>
             </button>
 
 
@@ -276,7 +277,7 @@ export const Navbar: React.FC = () => {
                     currentPage === 'about' ? 'text-teal-600 dark:text-teal-400 font-bold' : ''
                   }`}
                 >
-                  <span>About Us</span>
+                  <span>{t('nav.about')}</span>
                   <ChevronDown className="w-3.5 h-3.5" />
                 </button>
 
@@ -326,7 +327,7 @@ export const Navbar: React.FC = () => {
                     currentPage === 'services' ? 'text-teal-600 dark:text-teal-400 font-bold' : ''
                   }`}
                 >
-                  <span>Specialties</span>
+                  <span>{t('nav.services')}</span>
                   <ChevronDown className="w-3.5 h-3.5" />
                 </button>
 
@@ -370,7 +371,7 @@ export const Navbar: React.FC = () => {
                     currentPage === 'clinics' ? 'text-teal-600 dark:text-teal-400 font-bold' : ''
                   }`}
                 >
-                  <span>Our Hospital</span>
+                  <span>{t('nav.clinics')}</span>
                   <ChevronDown className="w-3.5 h-3.5" />
                 </button>
 
@@ -420,7 +421,7 @@ export const Navbar: React.FC = () => {
                     currentPage === 'doctors' ? 'text-teal-600 dark:text-teal-400 font-bold' : ''
                   }`}
                 >
-                  <span>Team Hope</span>
+                  <span>{t('nav.doctors')}</span>
                   <ChevronDown className="w-3.5 h-3.5" />
                 </button>
 
@@ -460,7 +461,7 @@ export const Navbar: React.FC = () => {
                 <button
                   className="px-3 py-2 rounded-lg transition-colors flex items-center space-x-1 hover:text-teal-600 dark:hover:text-teal-400"
                 >
-                  <span>Others</span>
+                  <span>{t('nav.others')}</span>
                   <ChevronDown className="w-3.5 h-3.5" />
                 </button>
 
@@ -472,8 +473,8 @@ export const Navbar: React.FC = () => {
                     >
                       <Calculator className="w-4 h-4 text-teal-600" />
                       <div>
-                        <div className="text-xs font-bold text-slate-900 dark:text-white">Cost Estimator</div>
-                        <div className="text-[10px] text-slate-500">Transparent dental fees & savings</div>
+                        <div className="text-xs font-bold text-slate-900 dark:text-white">{t('nav.costEstimator')}</div>
+                        <div className="text-[10px] text-slate-500">{t('nav.costEstimatorSub')}</div>
                       </div>
                     </div>
                     <div 
@@ -482,8 +483,8 @@ export const Navbar: React.FC = () => {
                     >
                       <Star className="w-4 h-4 text-amber-500" />
                       <div>
-                        <div className="text-xs font-bold text-slate-900 dark:text-white">Patient Reviews</div>
-                        <div className="text-[10px] text-slate-500">5.0 ★ Google & Justdial rated</div>
+                        <div className="text-xs font-bold text-slate-900 dark:text-white">{t('nav.patientReviews')}</div>
+                        <div className="text-[10px] text-slate-500">{t('nav.patientReviewsSub')}</div>
                       </div>
                     </div>
                     <div 
@@ -492,8 +493,8 @@ export const Navbar: React.FC = () => {
                     >
                       <MapPin className="w-4 h-4 text-teal-600" />
                       <div>
-                        <div className="text-xs font-bold text-slate-900 dark:text-white">Contact & Helplines</div>
-                        <div className="text-[10px] text-slate-500">Hospital map, route & hours</div>
+                        <div className="text-xs font-bold text-slate-900 dark:text-white">{t('nav.contactHelplines')}</div>
+                        <div className="text-[10px] text-slate-500">{t('nav.contactHelplinesSub')}</div>
                       </div>
                     </div>
                   </div>
@@ -507,7 +508,7 @@ export const Navbar: React.FC = () => {
                   currentPage === 'blogs' ? 'text-teal-600 dark:text-teal-400' : 'text-slate-900 dark:text-white'
                 }`}
               >
-                Blog
+                {t('nav.blogs')}
               </button>
             </nav>
 
@@ -523,14 +524,14 @@ export const Navbar: React.FC = () => {
                 title="Clinic Administrator Portal"
               >
                 <ShieldCheck className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                <span>Admin</span>
+                <span>{t('nav.admin')}</span>
               </button>
 
               <button
                 onClick={() => setIsBookingOpen(true)}
                 className="px-5 py-2.5 rounded-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-xs shadow-md shadow-teal-500/20 active:scale-95 transition-all flex items-center space-x-1.5"
               >
-                <span>Book Appointment</span>
+                <span>{t('nav.bookAppointment')}</span>
               </button>
             </div>
 
@@ -561,49 +562,49 @@ export const Navbar: React.FC = () => {
                 onClick={() => handleNavClick('home')}
                 className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-left font-bold"
               >
-                Home
+                {t('nav.home')}
               </button>
               <button
                 onClick={() => handleNavClick('about')}
                 className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-left font-bold"
               >
-                About Us
+                {t('nav.about')}
               </button>
               <button
                 onClick={() => handleNavClick('services')}
                 className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-left font-bold"
               >
-                Specialties
+                {t('nav.services')}
               </button>
               <button
                 onClick={() => handleNavClick('clinics')}
                 className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-left font-bold"
               >
-                Our Hospital
+                {t('nav.clinics')}
               </button>
               <button
                 onClick={() => handleNavClick('doctors')}
                 className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-left font-bold"
               >
-                Team Hope
+                {t('nav.doctors')}
               </button>
               <button
                 onClick={() => handleNavClick('admin')}
                 className="p-2.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 text-left font-bold border border-teal-200/60 dark:border-teal-800/60"
               >
-                Admin Portal
+                {t('nav.admin')}
               </button>
               <button
                 onClick={() => { setIsCostCalculatorOpen(true); setMobileMenuOpen(false); }}
                 className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-left font-bold text-teal-600 dark:text-teal-400"
               >
-                Cost Calculator
+                {t('nav.costEstimator')}
               </button>
               <button
                 onClick={() => handleNavClick('blogs')}
                 className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-left font-bold"
               >
-                Blog
+                {t('nav.blogs')}
               </button>
             </div>
 
@@ -620,7 +621,7 @@ export const Navbar: React.FC = () => {
                 onClick={() => { setIsEmergencyOpen(true); setMobileMenuOpen(false); }}
                 className="px-3 py-1 rounded-full bg-rose-600 text-white text-[11px] font-bold"
               >
-                24/7 Emergency
+                {t('nav.emergency')}
               </button>
             </div>
           </div>

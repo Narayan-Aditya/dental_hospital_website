@@ -11,7 +11,8 @@ export const Footer: React.FC = () => {
     blogs,
     navigateTo, 
     setIsBookingOpen, 
-    setActiveBlogModal
+    setActiveBlogModal,
+    t
   } = useApp();
 
   return (
@@ -25,40 +26,40 @@ export const Footer: React.FC = () => {
             {/* Card 1: Flagship Hospital */}
             <div className="bg-white dark:bg-[#0c2742] p-5 rounded-b-xl border-x border-b border-slate-200 dark:border-slate-800 border-t-2 border-t-teal-600 shadow-sm hover:shadow-md transition-shadow">
               <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
-                Hope Dental Hospital - Advanced Dental Implant Clinic
+                {t('footer.campus1Title')}
               </h4>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
-                Door No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow – 226011
+                {t('footer.campus1Desc')}
               </p>
             </div>
 
             {/* Card 2: Laser Pavilion */}
             <div className="bg-white dark:bg-[#0c2742] p-5 rounded-b-xl border-x border-b border-slate-200 dark:border-slate-800 border-t-2 border-t-teal-600 shadow-sm hover:shadow-md transition-shadow">
               <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
-                Hope Biolase Laser & Periodontics Suite
+                {t('footer.campus2Title')}
               </h4>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
-                Ground Floor Clinical Pavilion, Sadrauna Road, Lucknow – Scalpel-free hydrokinetic laser therapies.
+                {t('footer.campus2Desc')}
               </p>
             </div>
 
             {/* Card 3: Cosmetic Wing */}
             <div className="bg-white dark:bg-[#0c2742] p-5 rounded-b-xl border-x border-b border-slate-200 dark:border-slate-800 border-t-2 border-t-teal-600 shadow-sm hover:shadow-md transition-shadow">
               <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
-                Hope Aesthetic Dentistry & Clear Aligner Studio
+                {t('footer.campus3Title')}
               </h4>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
-                1st Floor Cosmetic & Smile Design Wing, Sadrauna Road, Lucknow – Porcelain veneers & invisible braces.
+                {t('footer.campus3Desc')}
               </p>
             </div>
 
             {/* Card 4: Endodontic & Emergency */}
             <div className="bg-white dark:bg-[#0c2742] p-5 rounded-b-xl border-x border-b border-slate-200 dark:border-slate-800 border-t-2 border-t-teal-600 shadow-sm hover:shadow-md transition-shadow">
               <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white leading-snug">
-                Hope Microscopic Endodontics & 24/7 Dental Emergency
+                {t('footer.campus4Title')}
               </h4>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
-                Para Road, Mohan Road, Lucknow – 226011. Single-visit root canal treatments & urgent trauma care.
+                {t('footer.campus4Desc')}
               </p>
             </div>
 
@@ -98,7 +99,7 @@ export const Footer: React.FC = () => {
               </div>
 
               <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
-                Advanced dental care backed by specialist expertise, modern technology and a dedicated standalone dental hospital campus in Sadrauna, Para Road, Lucknow.
+                {t('footer.brandDesc')}
               </p>
 
               <div className="space-y-1.5 text-xs text-slate-400">
@@ -110,7 +111,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="w-3.5 h-3.5 text-teal-400" />
-                  <span>Mon–Sun: 10:00 AM–8:00 PM</span>
+                  <span>{t('footer.monSun')}</span>
                 </div>
               </div>
             </div>
@@ -118,13 +119,13 @@ export const Footer: React.FC = () => {
             {/* Col 2: Book Your Visit (4 cols) */}
             <div className="lg:col-span-4 space-y-3">
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-teal-400 block">
-                BOOK YOUR VISIT
+                {t('footer.bookVisitEyebrow')}
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-white">
-                Book an appointment
+                {t('footer.bookVisitHeading')}
               </h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Speak with the Hope Dental team about your treatment, consultation or dental tourism requirements.
+                {t('footer.bookVisitDesc')}
               </p>
 
               <div className="pt-2">
@@ -132,7 +133,7 @@ export const Footer: React.FC = () => {
                   onClick={() => setIsBookingOpen(true)}
                   className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-extrabold text-xs tracking-wider uppercase shadow-md active:scale-98 transition-all"
                 >
-                  BOOK AN APPOINTMENT
+                  {t('footer.bookVisitBtn')}
                 </button>
               </div>
             </div>
@@ -142,7 +143,7 @@ export const Footer: React.FC = () => {
               {/* Follow Us */}
               <div>
                 <h4 className="text-sm font-bold text-white mb-2">
-                  Follow Us
+                  {t('footer.followUs')}
                 </h4>
                 <div className="flex items-center space-x-2">
                   <a
@@ -205,32 +206,32 @@ export const Footer: React.FC = () => {
               {/* Quick Links in 2 Columns */}
               <div>
                 <h4 className="text-sm font-bold text-white mb-2">
-                  Quick Links
+                  {t('footer.quickLinks')}
                 </h4>
                 <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-slate-400">
                   <button onClick={() => navigateTo('about')} className="text-left hover:text-teal-400 transition-colors">
-                    Why Hope?
+                    {t('footer.whyHope')}
                   </button>
                   <button onClick={() => navigateTo('about')} className="text-left hover:text-teal-400 transition-colors">
-                    FAQs
+                    {t('footer.faqs')}
                   </button>
                   <button onClick={() => navigateTo('about')} className="text-left hover:text-teal-400 transition-colors">
-                    Awards
+                    {t('footer.awards')}
                   </button>
                   <button onClick={() => navigateTo('tourism')} className="text-left hover:text-teal-400 transition-colors">
-                    Dental Tourism
+                    {t('footer.dentalTourism')}
                   </button>
                   <button onClick={() => navigateTo('about')} className="text-left hover:text-teal-400 transition-colors">
-                    In-House Dental Lab
+                    {t('footer.inHouseLab')}
                   </button>
                   <button onClick={() => navigateTo('reviews')} className="text-left hover:text-teal-400 transition-colors">
-                    Testimonials
+                    {t('footer.testimonials')}
                   </button>
                   <button onClick={() => navigateTo('services')} className="text-left hover:text-teal-400 transition-colors">
-                    Photo Gallery
+                    {t('footer.photoGallery')}
                   </button>
                   <button onClick={() => navigateTo('contact')} className="text-left hover:text-teal-400 transition-colors">
-                    Contact Us
+                    {t('footer.contactUs')}
                   </button>
                 </div>
               </div>
@@ -243,13 +244,13 @@ export const Footer: React.FC = () => {
           <div className="pt-8 border-t border-slate-800/80">
             <div className="flex items-center justify-between mb-4">
               <h4 className="text-sm font-black text-white tracking-wider uppercase">
-                LATEST BLOGS
+                {t('footer.latestBlogs')}
               </h4>
               <button 
                 onClick={() => navigateTo('blogs')}
                 className="text-xs font-bold text-teal-400 hover:underline flex items-center space-x-1"
               >
-                <span>READ MORE</span>
+                <span>{t('footer.readMore')}</span>
                 <span>→</span>
               </button>
             </div>
@@ -276,7 +277,7 @@ export const Footer: React.FC = () => {
                       {b.title}
                     </h5>
                     <span className="text-[10px] text-slate-400 group-hover:text-white transition-colors block">
-                      Read More
+                      {t('footer.readMore')}
                     </span>
                   </div>
                 </div>
@@ -287,17 +288,17 @@ export const Footer: React.FC = () => {
           {/* 4. COPYRIGHT BAR */}
           <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
             <div className="flex items-center space-x-2">
-              <span>Copyright {new Date().getFullYear()} © All rights Reserved.</span>
+              <span>Copyright {new Date().getFullYear()} © {t('footer.copyright')}</span>
               <span>·</span>
               <button 
                 onClick={() => navigateTo('admin')}
                 className="text-teal-500 hover:text-teal-300 hover:underline transition-colors font-semibold"
               >
-                Staff Admin Portal
+                {t('footer.staffAdmin')}
               </button>
             </div>
             <div>
-              Design by <span className="text-slate-300 font-semibold">Team Hope</span>
+              <span className="text-slate-400">{t('footer.designBy')}</span>
             </div>
           </div>
 

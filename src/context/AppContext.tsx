@@ -32,6 +32,7 @@ import {
   REVIEWS_DATA,
   EMERGENCY_GUIDES
 } from '../data/mockData';
+import i18n from '../i18n';
 
 export type ConceptTheme = 'clinical' | 'promax';
 
@@ -47,7 +48,7 @@ interface AppContextType {
   setCurrency: (c: Currency) => void;
   convertPrice: (inrAmount: number, targetCurrency?: Currency) => number;
   currencySymbol: (targetCurrency?: Currency) => string;
-  t: (key: string) => string;
+  t: (key: string, options?: Record<string, any>) => string;
   fontSize: 'normal' | 'large' | 'xlarge';
   setFontSize: (size: 'normal' | 'large' | 'xlarge') => void;
   
@@ -194,7 +195,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return saved ? JSON.parse(saved) : false;
   });
 
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguageState] = useState<Language>(() => {
+    const saved = localStorage.getItem('hdh_language');
+    return (saved === 'hi' || saved === 'en') ? saved : 'en';
+  });
+
+  const setLanguage = useCallback((lang: Language) => {
+    setLanguageState(lang);
+    localStorage.setItem('hdh_language', lang);
+    i18n.changeLanguage(lang);
+  }, []);
+
   const [currency, setCurrency] = useState<Currency>('INR');
   const [fontSize, setFontSize] = useState<'normal' | 'large' | 'xlarge'>('normal');
   
@@ -288,11 +299,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return CURRENCY_RATES[curr]?.symbol || '₹';
   }, [currency]);
 
-  // Multilingual dictionary lookup
-  const t = useCallback((key: string): string => {
+  // Multilingual dictionary lookup powered by i18next
+  const t = useCallback((key: string, options?: Record<string, any>): string => {
+    const translated = i18n.t(key, options);
+    if (translated && translated !== key) return translated;
     const entry = DICTIONARY[key];
-    if (!entry) return key;
-    return entry[language] || entry.en || key;
+    if (entry) return entry[language] || entry.en || key;
+    return key;
   }, [language]);
 
   // Hospital Status updater

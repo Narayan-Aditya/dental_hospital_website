@@ -21,6 +21,8 @@ import { BeforeAfterSlider } from '../components/common/BeforeAfterSlider';
 
 export const HomePage: React.FC = () => {
   const { 
+    t,
+    language,
     hospitalInfo,
     verticals,
     treatments, 
@@ -71,7 +73,28 @@ export const HomePage: React.FC = () => {
     }, 1500);
   };
 
-  const faqs = [
+  const faqs = language === 'hi' ? [
+    {
+      q: "क्या होप डेंटल हॉस्पिटल की अन्य शाखाएं या फ्रेंचाइजी हैं?",
+      a: "नहीं। होप डेंटल हॉस्पिटल एंड वेलनेस सेंटर साद्रौना, पारा रोड, मोहन रोड, लखनऊ (पिन 226011) में स्थित एक एकल, स्टैंडअलोन सुपर-स्पेशियलिटी अस्पताल परिसर है। हम किसी भी तीसरे पक्ष की फ्रेंचाइजी का संचालन नहीं करते, जिससे हर प्रक्रिया हमारे वरिष्ठ संकाय और संस्थापकों की प्रत्यक्ष निगरानी में संपन्न होती है।"
+    },
+    {
+      q: "फुल-माउथ डेंटल इम्प्लांट्स (All-on-4) के लिए कितने दिन आवश्यक हैं?",
+      a: "हमारे 3D सीबीसीटी गाइडेड सर्जिकल वर्कफ़्लो और उच्च-सटीक डिजिटल लैब की बदौलत, अधिकांश All-on-4 और All-on-6 प्रक्रियाओं में मात्र 3 से 5 दिनों के भीतर पक्के दांत लगा दिए जाते हैं। बाहरी राज्यों या विदेशी मरीज़ों के लिए 7 से 10 दिन का प्रवास अनुशंसित है।"
+    },
+    {
+      q: "अमेरिका/यूके की तुलना में होप डेंटल में इम्प्लांट्स इतने किफायती क्यों हैं?",
+      a: "हम अमेरिका और यूरोप के शीर्ष क्लिनिकों वाले समान प्रामाणिक, अंतरराष्ट्रीय वारंटी प्राप्त इम्प्लांट्स (नोबेल बायोकेयर स्वीडन, स्ट्रॉमन स्विट्जरलैंड, ऑस्टेम) का उपयोग करते हैं। लागत में भारी बचत भारत में कम अस्पताल परिचालन व्यय और अनुकूल मुद्रा विनिमय दर के कारण होती है — स्टरलाइज़ेशन या टाइटेनियम शुद्धता में कभी कोई समझौता नहीं किया जाता।"
+    },
+    {
+      q: "होप डेंटल सामान्य डेंटल क्लिनिक से किस प्रकार भिन्न है?",
+      a: "होप डेंटल हॉस्पिटल एक पूर्ण मान्यता प्राप्त संस्थान है जिसमें समर्पित सर्जिकल ऑपरेशन थिएटर, बायोलैज़ वॉटरलैज़ लेज़र यूनिट, इन-हाउस डिजिटल सीएडी/सीएएम लैब और 7-चरणीय क्लास-बी ऑटोक्लेव प्रणाली है। यहाँ कोई जनरल डेंटिस्ट जटिल सर्जरी नहीं करता — हर चेयर पर योग्य एमडीएस विशेषज्ञ बैठते हैं।"
+    },
+    {
+      q: "बाहरी राज्यों और एनआरआई मरीज़ों के लिए क्या सुविधाएं हैं?",
+      a: "हमारा पेशेंट कंसीयर्ज यात्रा से पहले आपके एक्स-रे या सीबीसीटी के आधार पर अग्रिम उपचार योजना, लखनऊ एयरपोर्ट पिकअप, स्थानीय प्रवास समन्वय और बहुभाषी सहायता प्रदान करता है।"
+    }
+  ] : [
     {
       q: "Does Hope Dental Hospital have other branches or franchises?",
       a: "No. Hope Dental Hospital & Wellness Centre is strictly a single, standalone specialized hospital campus located in Sadrauna, Para Road, Mohan Road, Lucknow (Pin 226011). We do not operate external third-party franchises, ensuring every procedure is strictly supervised by our senior faculty and founders."
@@ -123,23 +146,24 @@ export const HomePage: React.FC = () => {
           {/* Eyebrow: — HOPE DENTAL HOSPITAL — */}
           <div className="inline-flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-teal-400 bg-teal-950/60 border border-teal-500/30 px-4 py-1.5 rounded-full shadow-sm">
             <span>—</span>
-            <span>HOPE DENTAL HOSPITAL & WELLNESS CENTRE · LUCKNOW</span>
+            <span>{t('hero.badge')}</span>
             <span>—</span>
           </div>
 
           {/* Giant Centered Title */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.14] max-w-4xl mx-auto">
-            Best Dental Clinic in Lucknow, India - <span className="bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-200 bg-clip-text text-transparent">HOPE DENTAL</span>
+            {language === 'hi' ? 'लखनऊ का सर्वश्रेष्ठ डेंटल हॉस्पिटल — ' : 'Best Dental Clinic in Lucknow, India — '}
+            <span className="bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-200 bg-clip-text text-transparent">HOPE DENTAL</span>
           </h1>
 
           {/* Subhead */}
           <p className="text-base sm:text-lg font-semibold text-slate-200 max-w-2xl mx-auto">
-            Advanced Dental Implants, Laser Dentistry & Cosmetic Smile Makeovers
+            {t('hero.headline')}
           </p>
 
           {/* Hospital Overview */}
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl mx-auto">
-            HOPE DENTAL is Lucknow's apex standalone dental hospital in Sadrauna, Para Road with 5 specialized clinical suites, digital intraoral imaging, 24-hour emergency dental care, and 7-step Class-B autoclave hospital sterilization. Led by <strong className="text-white">Dr. Himangi Dubey</strong> (BDS, MDS – KGMU Lucknow, ex-Senior Resident KGMU) and <strong className="text-white">Dr. M. S. Bhoj</strong> (Senior Consultant Oral & Maxillofacial Surgeon).
+            {t('hero.subtext')}
           </p>
 
           {/* Centered Direct Booking Section */}
@@ -147,13 +171,13 @@ export const HomePage: React.FC = () => {
             <div className="bg-[#0c2742]/95 border border-teal-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md space-y-5 text-center">
               <div>
                 <span className="text-[11px] font-extrabold uppercase tracking-widest text-teal-400 block">
-                  PRIORITY SLOTS AVAILABLE
+                  {t('hero.prioritySlots')}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
-                  Booking Specialist Appointment
+                  {t('hero.bookingCardTitle')}
                 </h3>
                 <p className="text-xs text-slate-400 mt-1">
-                  Book direct in-clinic consultation or online video appointment in 60 seconds.
+                  {t('hero.bookingCardSubtitle')}
                 </p>
               </div>
 
@@ -163,7 +187,7 @@ export const HomePage: React.FC = () => {
                   className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-teal-500 via-teal-600 to-cyan-600 hover:from-teal-400 hover:to-cyan-500 text-white font-extrabold text-sm sm:text-base tracking-wide shadow-xl shadow-teal-500/25 active:scale-95 transition-all flex items-center justify-center space-x-2.5"
                 >
                   <Calendar className="w-5 h-5" />
-                  <span>Book Appointment Now (60s)</span>
+                  <span>{t('hero.bookNow60s')}</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </button>
               </div>
@@ -179,7 +203,7 @@ export const HomePage: React.FC = () => {
                 <span className="text-slate-600 hidden sm:inline">•</span>
                 <div className="flex items-center text-slate-400">
                   <MapPin className="w-3.5 h-3.5 mr-1.5 text-teal-400" />
-                  <span>Sadrauna, Para Rd, Lucknow</span>
+                  <span>{t('hero.location')}</span>
                 </div>
               </div>
             </div>
@@ -204,7 +228,7 @@ export const HomePage: React.FC = () => {
               <span className={`w-2 h-2 rounded-full mr-1.5 ${
                 hospitalStatus.isOpenToday ? 'bg-emerald-400 animate-ping' : 'bg-rose-400'
               }`} />
-              {hospitalStatus.isOpenToday ? 'Hospital Open Today' : 'Closed Today'}
+              {hospitalStatus.isOpenToday ? t('statusBanner.openToday') : t('statusBanner.closedToday')}
             </span>
 
             <span className="text-slate-200 font-semibold flex items-center gap-1.5">
@@ -223,7 +247,7 @@ export const HomePage: React.FC = () => {
           <div className="flex items-center gap-4">
             {hospitalStatus.holidays && hospitalStatus.holidays.length > 0 && (
               <span className="text-[11px] text-amber-300 font-medium hidden sm:inline">
-                Upcoming Closure/Holiday: {hospitalStatus.holidays[0]}
+                {t('statusBanner.upcomingHoliday', { date: hospitalStatus.holidays[0] })}
               </span>
             )}
 
@@ -231,7 +255,7 @@ export const HomePage: React.FC = () => {
               onClick={() => setIsBookingOpen(true)}
               className="text-[11px] font-bold text-teal-300 hover:text-white underline decoration-teal-400/50 hover:decoration-white transition-colors"
             >
-              Online Slots Open (~{hospitalStatus.dailySlotCap} Remaining) →
+              {t('statusBanner.slotsRemaining', { count: hospitalStatus.dailySlotCap })}
             </button>
           </div>
         </div>
@@ -275,23 +299,23 @@ export const HomePage: React.FC = () => {
               
               <div className="flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-teal-600 dark:text-teal-400">
                 <span>—</span>
-                <span>HOPE DENTAL HOSPITAL</span>
+                <span>{t('landmark.eyebrow')}</span>
                 <span>—</span>
               </div>
 
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h2 className="text-2xl sm:text-4xl font-extrabold text-[#091e34] dark:text-white tracking-tight leading-tight">
-                    HOPE DENTAL HOSPITAL - Advanced Dental Implant Clinic
+                    {t('landmark.heading')}
                   </h2>
                   <p className="text-sm sm:text-base font-bold text-teal-600 dark:text-teal-400 mt-1">
-                    Best Dental Implant Clinic in Lucknow, India
+                    {t('landmark.subheading')}
                   </p>
                 </div>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Today, HOPE DENTAL operates an international-standard dental hospital that provides <strong>global-quality dental care for both Indian and international patients</strong>, using advanced technology, Class-B autoclave sterilization systems from some of the senior dental specialists in Lucknow, India.
+                {t('landmark.desc')}
               </p>
 
               {/* Box 1: VISIT OUR HOSPITAL, Lucknow */}
@@ -301,10 +325,10 @@ export const HomePage: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-teal-600 dark:text-teal-400 block">
-                    VISIT OUR HOSPITAL, Lucknow
+                    {t('landmark.visitHospital')}
                   </span>
                   <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 mt-0.5">
-                    Door No. 1779 Near Bramha Dev Mandir, Sadrauna Road, Para Rd, Munnu Khera, Lucknow – 226011
+                    {t('landmark.address')}
                   </p>
                 </div>
               </div>
@@ -317,7 +341,7 @@ export const HomePage: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
-                      CALL US
+                      {t('landmark.callUs')}
                     </span>
                     <a href={`tel:${hospitalInfo.phone.replace(/\s+/g, '')}`} className="text-xs font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
                       {hospitalInfo.phone}
@@ -331,10 +355,10 @@ export const HomePage: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
-                      OPENING HOURS
+                      {t('landmark.openingHours')}
                     </span>
                     <div className="text-xs font-bold text-slate-900 dark:text-white">
-                      Monday–Sunday: 10:00 AM–8:00 PM
+                      {t('landmark.hoursValue')}
                     </div>
                   </div>
                 </div>
@@ -349,7 +373,7 @@ export const HomePage: React.FC = () => {
                   className="px-6 py-3 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-xs shadow-md shadow-teal-500/20 active:scale-95 transition-all flex items-center space-x-1.5"
                 >
                   <MapPin className="w-3.5 h-3.5" />
-                  <span>Get Directions</span>
+                  <span>{t('landmark.directionsBtn')}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
 
@@ -358,7 +382,7 @@ export const HomePage: React.FC = () => {
                   className="px-6 py-3 rounded-xl bg-[#091e34] hover:bg-teal-700 text-white font-bold text-xs shadow-md active:scale-95 transition-all flex items-center space-x-1.5"
                 >
                   <Calendar className="w-3.5 h-3.5 text-teal-400" />
-                  <span>Book Appointment</span>
+                  <span>{t('landmark.bookBtn')}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -371,37 +395,37 @@ export const HomePage: React.FC = () => {
           <div className="pt-8 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="space-y-1">
               <h4 className="text-xs font-black text-[#091e34] dark:text-white uppercase tracking-wider">
-                GLOBAL STANDARDS
+                {t('landmark.globalStandards')}
               </h4>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                International-quality dental care with strict sterilization protocols.
+                {t('landmark.globalStandardsDesc')}
               </p>
             </div>
 
             <div className="space-y-1 border-t sm:border-t-0 sm:border-l border-slate-200 dark:border-slate-800 sm:pl-6 pt-4 sm:pt-0">
               <h4 className="text-xs font-black text-[#091e34] dark:text-white uppercase tracking-wider">
-                ADVANCED TECHNOLOGY
+                {t('landmark.advancedTech')}
               </h4>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Biolase Waterlase laser, digital intraoral 3D scans & CBCT.
+                {t('landmark.advancedTechDesc')}
               </p>
             </div>
 
             <div className="space-y-1 border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-slate-800 lg:pl-6 pt-4 lg:pt-0">
               <h4 className="text-xs font-black text-[#091e34] dark:text-white uppercase tracking-wider">
-                PREMIUM EXPERIENCE
+                {t('landmark.premiumExp')}
               </h4>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Personalized patient care and private clinical suites.
+                {t('landmark.premiumExpDesc')}
               </p>
             </div>
 
             <div className="space-y-1 border-t sm:border-t-0 lg:border-l border-slate-200 dark:border-slate-800 lg:pl-6 pt-4 lg:pt-0">
               <h4 className="text-xs font-black text-[#091e34] dark:text-white uppercase tracking-wider">
-                DENTAL TOURISM
+                {t('landmark.dentalTourism')}
               </h4>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Concierge dental care for domestic, outstation & international patients.
+                {t('landmark.dentalTourismDesc')}
               </p>
             </div>
           </div>
@@ -419,23 +443,23 @@ export const HomePage: React.FC = () => {
             <div className="space-y-3 max-w-3xl">
               <div className="flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-teal-600 dark:text-teal-400">
                 <span>—</span>
-                <span>HOPE DENTAL · EXPERTISE & EXPERIENCE</span>
+                <span>{t('expertise.eyebrow')}</span>
                 <span>—</span>
               </div>
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#091e34] dark:text-white tracking-tight leading-tight">
-                Are you searching for the most experienced & best dentists in Lucknow, India? <span className="text-teal-600 dark:text-teal-400">Find them at HOPE DENTAL.</span>
+                {t('expertise.heading')} <span className="text-teal-600 dark:text-teal-400">{t('expertise.headingHighlight')}</span>
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Yes. One of the strongest pillars behind the reputation of <strong>HOPE DENTAL</strong> as one of the leading dental hospitals in Lucknow is the <strong>exceptional depth of experience within its team of specialists</strong>.
+                {t('expertise.desc')}
               </p>
             </div>
 
             {/* Circular badge on top right */}
             <div className="shrink-0 flex items-center justify-center">
               <div className="w-36 h-36 rounded-full border-2 border-dashed border-teal-500/50 flex flex-col items-center justify-center text-center p-3 bg-white dark:bg-slate-800 shadow-lg">
-                <span className="text-3xl font-black text-[#091e34] dark:text-white">10+</span>
+                <span className="text-3xl font-black text-[#091e34] dark:text-white">{t('expertise.yearsValue')}</span>
                 <span className="text-[10px] font-extrabold text-teal-600 dark:text-teal-400 uppercase tracking-wider mt-0.5">
-                  YEARS OF CLINICAL EXPERTISE
+                  {t('expertise.yearsLabel')}
                 </span>
               </div>
             </div>
@@ -450,11 +474,11 @@ export const HomePage: React.FC = () => {
             </div>
 
             <h3 className="text-xl sm:text-2xl font-bold text-[#091e34] dark:text-white">
-              Led by Senior Dentists with Decades of Experience
+              {t('expertise.card1Title')}
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
-              HOPE DENTAL is guided by renowned Top Dentists in Lucknow, <strong>Dr. Himangi Dubey</strong> (BDS, MDS – KGMU Lucknow, Periodontist & Implantologist) and <strong>Dr. M. S. Bhoj</strong> (Senior Consultant Oral & Maxillofacial Surgeon), each bringing extensive clinical expertise and leadership in advanced dentistry. Besides their expertise in their respective specialties, particularly <strong>cosmetic dentistry and dental implants</strong>, they lead a multidisciplinary team managing complex dental rehabilitations.
+              {t('expertise.card1Desc')}
             </p>
 
             <div className="pt-3 flex flex-wrap gap-3">
@@ -487,16 +511,16 @@ export const HomePage: React.FC = () => {
                   <Stethoscope className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl font-bold text-[#091e34] dark:text-white">
-                  A Team of Highly Experienced Specialists
+                  {t('expertise.card2Title')}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  The institution brings together <strong>12+ dental specialists</strong>, many with extensive postgraduate experience from King George's Medical University across all major branches of dentistry.
+                  {t('expertise.card2Desc')}
                 </p>
               </div>
 
               <div className="pt-4 border-t border-slate-100 dark:border-slate-700 flex items-baseline space-x-2">
                 <span className="text-3xl font-black text-[#091e34] dark:text-white">12+</span>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">DENTAL SPECIALISTS</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">{t('expertise.card2Badge')}</span>
               </div>
             </div>
 
@@ -508,15 +532,24 @@ export const HomePage: React.FC = () => {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl font-bold text-[#091e34] dark:text-white">
-                  Decades of Expertise Across Every Dental Specialty
+                  {t('expertise.card3Title')}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Comprehensive care is provided through specialists in <strong>implantology, cosmetic dentistry, orthodontics, endodontics, periodontics, prosthodontics, oral and maxillofacial surgery, pediatric dentistry, TMJ therapy, and laser dentistry</strong>.
+                  {t('expertise.card3Desc')}
                 </p>
               </div>
 
               <div className="pt-4 border-t border-slate-100 dark:border-slate-700 flex flex-wrap gap-1.5">
-                {['Implantology', 'Cosmetic Dentistry', 'Laser Periodontics', 'Orthodontics', 'Microscopic RCT', 'Maxillofacial', 'Pedodontics', 'TMJ Therapy'].map((s, idx) => (
+                {[
+                  language === 'hi' ? 'इम्प्लांटोलॉजी' : 'Implantology',
+                  language === 'hi' ? 'कॉस्मेटिक डेंटिस्ट्री' : 'Cosmetic Dentistry',
+                  language === 'hi' ? 'लेज़र पेरिओडोंटिक्स' : 'Laser Periodontics',
+                  language === 'hi' ? 'ऑर्थोडॉन्टिक्स' : 'Orthodontics',
+                  language === 'hi' ? 'माइक्रोस्कोपिक RCT' : 'Microscopic RCT',
+                  language === 'hi' ? 'मैक्सिलोफेशियल' : 'Maxillofacial',
+                  language === 'hi' ? 'पीडोडॉन्टिक्स' : 'Pedodontics',
+                  language === 'hi' ? 'टीएमजे थैरेपी' : 'TMJ Therapy'
+                ].map((s, idx) => (
                   <span key={idx} className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-teal-50 dark:bg-slate-700 text-teal-800 dark:text-teal-200">
                     {s}
                   </span>
@@ -537,13 +570,13 @@ export const HomePage: React.FC = () => {
           
           <div className="space-y-3 max-w-3xl">
             <span className="text-xs font-extrabold uppercase tracking-widest text-teal-400 block">
-              DIRECTION · GOVERNANCE · COMPLEX CASE REVIEW
+              {t('seniorDoctors.sectionTag')}
             </span>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-              Senior most Dentists at HOPE DENTAL
+              {t('seniorDoctors.heading')}
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              The senior clinicians at HOPE DENTAL review the hospital's most complex full-mouth and aesthetic cases personally. Every complex case is planned with academic precision and multidimensional surgical expertise.
+              {t('seniorDoctors.desc')}
             </p>
           </div>
 
@@ -568,15 +601,15 @@ export const HomePage: React.FC = () => {
                     Dr. Himangi Dubey
                   </h3>
                   <div className="text-[11px] font-extrabold uppercase tracking-wider text-teal-400 mt-1">
-                    FOUNDER & CHIEF DENTAL SURGEON
+                    {t('seniorDoctors.founderRole')}
                   </div>
                   <div className="text-xs text-slate-400 mt-1">
-                    BDS, MDS (KGMU Lucknow) · Periodontics & Implantology
+                    {t('seniorDoctors.founderEdu')}
                   </div>
                 </div>
 
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Ex-Senior Resident at King George's Medical University, HOD Dentistry at Ajanta Hospital & IVF Centre, and Awardee of Appreciation at 8th UP Dental Show 2026.
+                  {t('seniorDoctors.founderBio')}
                 </p>
               </div>
 
@@ -585,10 +618,10 @@ export const HomePage: React.FC = () => {
                   onClick={() => handleBookDoctor('dr-himangi-dubey')}
                   className="text-xs font-bold text-teal-400 hover:underline flex items-center space-x-1"
                 >
-                  <span>CLINICAL LEADERSHIP</span>
+                  <span>{t('seniorDoctors.leadershipBtn')}</span>
                   <span>↗</span>
                 </button>
-                <span className="text-[10px] text-slate-500">15+ Yrs Exp</span>
+                <span className="text-[10px] text-slate-500">{t('seniorDoctors.exp15Years')}</span>
               </div>
             </div>
 
@@ -611,15 +644,15 @@ export const HomePage: React.FC = () => {
                     Dr. M. S. Bhoj
                   </h3>
                   <div className="text-[11px] font-extrabold uppercase tracking-wider text-teal-400 mt-1">
-                    SENIOR MEDICAL ADVISOR & PROSTHODONTIST
+                    {t('seniorDoctors.advisorRole')}
                   </div>
                   <div className="text-xs text-slate-400 mt-1">
-                    BDS, MDS · Prosthodontics & Oral Rehabilitation
+                    {t('seniorDoctors.advisorEdu')}
                   </div>
                 </div>
 
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Decades of leadership in surgical maxillofacial corrections, complex bone grafting, sinus lifts, and full-mouth implant rehabilitations.
+                  {t('seniorDoctors.advisorBio')}
                 </p>
               </div>
 
@@ -628,10 +661,10 @@ export const HomePage: React.FC = () => {
                   onClick={() => handleBookDoctor('dr-m-s-bhoj')}
                   className="text-xs font-bold text-teal-400 hover:underline flex items-center space-x-1"
                 >
-                  <span>CLINICAL LEADERSHIP</span>
+                  <span>{t('seniorDoctors.leadershipBtn')}</span>
                   <span>↗</span>
                 </button>
-                <span className="text-[10px] text-slate-500">Master Surgeon</span>
+                <span className="text-[10px] text-slate-500">{t('seniorDoctors.masterSurgeon')}</span>
               </div>
             </div>
 
@@ -654,15 +687,15 @@ export const HomePage: React.FC = () => {
                     Dr. Saurabh Singh
                   </h3>
                   <div className="text-[11px] font-extrabold uppercase tracking-wider text-teal-400 mt-1">
-                    CHIEF MAXILLOFACIAL SURGEON
+                    {t('seniorDoctors.omfsRole')}
                   </div>
                   <div className="text-xs text-slate-400 mt-1">
-                    BDS, MDS · Oral & Maxillofacial Surgery
+                    {t('seniorDoctors.omfsEdu')}
                   </div>
                 </div>
 
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Spearheads surgical operatory protocols, complex impacted third molar extractions, TMJ neuromuscular rehabilitation, and emergency trauma.
+                  {t('seniorDoctors.omfsBio')}
                 </p>
               </div>
 
@@ -671,10 +704,10 @@ export const HomePage: React.FC = () => {
                   onClick={() => handleBookDoctor('dr-saurabh-singh')}
                   className="text-xs font-bold text-teal-400 hover:underline flex items-center space-x-1"
                 >
-                  <span>BOOK SURGEON</span>
+                  <span>{t('seniorDoctors.bookSurgeonBtn')}</span>
                   <span>↗</span>
                 </button>
-                <span className="text-[10px] text-slate-500">MDS OMFS</span>
+                <span className="text-[10px] text-slate-500">{t('seniorDoctors.mdsOmfs')}</span>
               </div>
             </div>
 
@@ -698,34 +731,34 @@ export const HomePage: React.FC = () => {
             {/* Left 7 Columns: Entity Credential Headline */}
             <div className="lg:col-span-7 space-y-6">
               <span className="text-xs font-extrabold uppercase tracking-widest text-teal-400">
-                LUCKNOW · SADRAUNA · PARA ROAD · EST. 2016
+                {t('consultation.eyebrow')}
               </span>
               
               <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
-                Lucknow's Highest Rated Standalone Dental Hospital. <span className="text-teal-300">5.0 ★ Rated. 5 Clinical Suites.</span>
+                {t('consultation.heading')} <span className="text-teal-300">{t('consultation.headingHighlight')}</span>
               </h2>
 
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-                Different clinical suites, high-quality dental services — to serve patients with <strong className="text-white">different clinical needs and different expectations</strong>.
+                {t('consultation.desc')}
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
                 <div className="bg-[#0c2742]/80 p-4 rounded-2xl border border-teal-900/40">
                   <div className="text-2xl font-black text-amber-400">5.0 ★</div>
-                  <div className="text-xs font-bold text-white mt-1">Google & Justdial</div>
-                  <div className="text-[10px] text-slate-400">300+ Verified Patient Reviews</div>
+                  <div className="text-xs font-bold text-white mt-1">{t('consultation.ratingText')}</div>
+                  <div className="text-[10px] text-slate-400">{t('consultation.ratingSub')}</div>
                 </div>
 
                 <div className="bg-[#0c2742]/80 p-4 rounded-2xl border border-teal-900/40">
                   <div className="text-2xl font-black text-white">5 Suites</div>
-                  <div className="text-xs font-bold text-white mt-1">Under One Roof</div>
-                  <div className="text-[10px] text-slate-400">Sadrauna Hospital Campus</div>
+                  <div className="text-xs font-bold text-white mt-1">{t('consultation.suitesText')}</div>
+                  <div className="text-[10px] text-slate-400">{t('consultation.suitesSub')}</div>
                 </div>
 
                 <div className="bg-[#0c2742]/80 p-4 rounded-2xl border border-teal-900/40 col-span-2 sm:col-span-1">
                   <div className="text-2xl font-black text-emerald-400">0</div>
-                  <div className="text-xs font-bold text-white mt-1">Franchises</div>
-                  <div className="text-[10px] text-slate-400">100% Direct Medical Oversight</div>
+                  <div className="text-xs font-bold text-white mt-1">{t('consultation.franchisesText')}</div>
+                  <div className="text-[10px] text-slate-400">{t('consultation.franchisesSub')}</div>
                 </div>
               </div>
             </div>
@@ -735,28 +768,28 @@ export const HomePage: React.FC = () => {
               <div className="bg-[#0c2742] rounded-3xl p-6 sm:p-8 border border-teal-800/40 shadow-2xl space-y-4">
                 <div>
                   <span className="text-[10px] font-extrabold uppercase tracking-widest text-teal-400 block">
-                    SAME-DAY SLOTS AVAILABLE AT SADRAUNA
+                    {t('consultation.cardEyebrow')}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
-                    Book Your Consultation
+                    {t('consultation.cardTitle')}
                   </h3>
                   <p className="text-xs text-slate-400 mt-1">
-                    Speak with our dental care team and take the first step toward personalized treatment at HOPE DENTAL.
+                    {t('consultation.cardSub')}
                   </p>
                 </div>
 
                 {formSubmitted ? (
                   <div className="p-6 rounded-2xl bg-emerald-950/60 border border-emerald-500/50 text-center space-y-2">
                     <CheckCircle2 className="w-8 h-8 text-emerald-400 mx-auto" />
-                    <h4 className="text-sm font-bold text-white">Request Received!</h4>
-                    <p className="text-xs text-emerald-200">Opening full booking confirmation...</p>
+                    <h4 className="text-sm font-bold text-white">{t('consultation.requestReceived')}</h4>
+                    <p className="text-xs text-emerald-200">{t('consultation.openingConfirmation')}</p>
                   </div>
                 ) : (
                   <form onSubmit={handleConsultationSubmit} className="space-y-3.5">
                     <div>
                       <input 
                         type="text" 
-                        placeholder="Your Name" 
+                        placeholder={t('consultation.namePlaceholder')} 
                         value={formName}
                         onChange={(e) => setFormName(e.target.value)}
                         required
@@ -767,7 +800,7 @@ export const HomePage: React.FC = () => {
                     <div>
                       <input 
                         type="tel" 
-                        placeholder="Mobile Number (+91)" 
+                        placeholder={t('consultation.phonePlaceholder')} 
                         value={formPhone}
                         onChange={(e) => setFormPhone(e.target.value)}
                         required
@@ -777,18 +810,18 @@ export const HomePage: React.FC = () => {
 
                     <div>
                       <label className="text-[10px] uppercase font-bold text-slate-400 block mb-1">
-                        PREFERRED CLINICAL SUITE
+                        {t('consultation.suiteLabel')}
                       </label>
                       <select 
                         value={formClinic}
                         onChange={(e) => setFormClinic(e.target.value)}
                         className="w-full px-4 py-3 rounded-xl bg-[#07192b] border border-teal-900/60 text-white text-xs focus:outline-none focus:border-teal-500"
                       >
-                        <option value="Sadrauna Hospital Campus">Sadrauna Flagship Hospital Campus</option>
-                        <option value="Implantology Suite">Centre for Advanced Implantology</option>
-                        <option value="Laser Suite">Biolase Laser & Periodontics Suite</option>
-                        <option value="Cosmetic Studio">Aesthetic & Clear Aligner Studio</option>
-                        <option value="Emergency Suite">24/7 Dental Emergency & RCT Wing</option>
+                        <option value="Sadrauna Hospital Campus">{language === 'hi' ? 'साद्रौना मुख्य हॉस्पिटल कैंपस' : 'Sadrauna Flagship Hospital Campus'}</option>
+                        <option value="Implantology Suite">{language === 'hi' ? 'सेंटर फॉर एडवांस्ड इम्प्लांटोलॉजी' : 'Centre for Advanced Implantology'}</option>
+                        <option value="Laser Suite">{language === 'hi' ? 'बायोलैज़ लेज़र एवं पेरिओडोंटिक्स सुइट' : 'Biolase Laser & Periodontics Suite'}</option>
+                        <option value="Cosmetic Studio">{language === 'hi' ? 'एस्थेटिक व क्लियर एलाइनर स्टूडियो' : 'Aesthetic & Clear Aligner Studio'}</option>
+                        <option value="Emergency Suite">{language === 'hi' ? '24/7 डेंटल इमरजेंसी व आरसीटी विंग' : '24/7 Dental Emergency & RCT Wing'}</option>
                       </select>
                     </div>
 
@@ -796,11 +829,11 @@ export const HomePage: React.FC = () => {
                       type="submit"
                       className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg active:scale-98 transition-all"
                     >
-                      BOOK YOUR CONSULTATION →
+                      {t('consultation.submitBtn')}
                     </button>
 
                     <div className="pt-2 text-[10px] text-slate-400 text-center flex items-center justify-center space-x-1">
-                      <span>✓ Confidential clinical consultation</span>
+                      <span>✓ {t('consultation.confidentialNote')}</span>
                       <span>·</span>
                       <a href={`tel:${hospitalInfo.phone.replace(/\s+/g, '')}`} className="text-teal-400 hover:underline font-bold">
                         Call {hospitalInfo.phone}
@@ -824,17 +857,17 @@ export const HomePage: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center space-x-2 text-xs font-black uppercase tracking-widest text-teal-600 dark:text-teal-400">
               <span>—</span>
-              <span>ABOUT HOPE DENTAL — ENTITY SUMMARY</span>
+              <span>{t('verticals.eyebrow')}</span>
               <span>—</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#091e34] dark:text-white">
-              THE FIVE HOPE DENTAL GROUPS OF VERTICALS
+              {t('verticals.heading')}
             </h2>
             <p className="text-sm font-bold text-teal-600 dark:text-teal-400">
-              How One Dental Hospital Serves Every Segment of People — Without Diluting Specialty Practice
+              {t('verticals.tagline')}
             </p>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Premium does not mean inaccessible. Hope Dental Hospital operates across five distinct clinical suites under one roof in Sadrauna, Lucknow, ensuring world-class hospital rigor for every clinical requirement.
+              {t('verticals.desc')}
             </p>
           </div>
 
@@ -884,7 +917,7 @@ export const HomePage: React.FC = () => {
                     onClick={() => navigateTo('clinics')}
                     className="w-full py-2.5 rounded-xl bg-teal-50 dark:bg-slate-800 hover:bg-gradient-to-r hover:from-teal-600 hover:to-cyan-600 hover:text-white text-xs font-bold text-teal-800 dark:text-slate-200 transition-all flex items-center justify-center space-x-1.5"
                   >
-                    <span>Explore Suite</span>
+                    <span>{t('verticals.exploreSuite')}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -904,13 +937,13 @@ export const HomePage: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <span className="text-xs font-extrabold uppercase tracking-widest text-teal-600 dark:text-teal-400">
-                TWELVE SPECIALTY DIVISIONS
+                {t('specialties.eyebrow')}
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#091e34] dark:text-white mt-1">
-                Every Dental Specialty, Under One Roof, With a Specialist in Every Chair
+                {t('specialties.heading')}
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl">
-                At HOPE DENTAL, a general dentist does not attempt complex surgical implants or root canals. Every division is headed by certified MDS specialists.
+                {t('specialties.desc')}
               </p>
             </div>
 
@@ -918,7 +951,7 @@ export const HomePage: React.FC = () => {
               onClick={() => navigateTo('services')}
               className="px-5 py-2.5 rounded-2xl bg-[#091e34] text-white hover:bg-teal-700 font-bold text-xs sm:text-sm self-start md:self-auto transition-all flex items-center space-x-1.5 shadow-sm"
             >
-              <span>View All 12 Specialties</span>
+              <span>{t('specialties.viewAll')}</span>
               <ArrowRight className="w-4 h-4 text-teal-400" />
             </button>
           </div>
@@ -926,13 +959,13 @@ export const HomePage: React.FC = () => {
           {/* Specialties Category Filter */}
           <div className="flex items-center space-x-2 overflow-x-auto pb-2">
             {[
-              { id: 'all', label: 'All Specialties' },
-              { id: 'implants', label: 'Dental Implants' },
-              { id: 'cosmetic', label: 'Cosmetic Dentistry' },
-              { id: 'orthodontics', label: 'Invisible Braces' },
-              { id: 'endodontics', label: 'Root Canal' },
-              { id: 'surgery', label: 'Maxillofacial Surgery' },
-              { id: 'periodontics', label: 'Laser Gum Care' }
+              { id: 'all', label: t('specialties.tabAll') },
+              { id: 'implants', label: t('specialties.tabImplants') },
+              { id: 'cosmetic', label: t('specialties.tabCosmetic') },
+              { id: 'orthodontics', label: t('specialties.tabOrtho') },
+              { id: 'endodontics', label: t('specialties.tabEndo') },
+              { id: 'surgery', label: t('specialties.tabSurgery') },
+              { id: 'periodontics', label: t('specialties.tabPerio') }
             ].map(tab => (
               <button
                 key={tab.id}
@@ -950,30 +983,30 @@ export const HomePage: React.FC = () => {
 
           {/* 12 Specialties Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredTreatments.slice(0, 6).map(t => (
+            {filteredTreatments.slice(0, 6).map(tItem => (
               <div 
-                key={t.id}
+                key={tItem.id}
                 className="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-teal-500/40 transition-all flex flex-col justify-between group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200/50 dark:border-teal-800/50">
-                      {t.category}
+                      {tItem.category}
                     </span>
                     <span className="text-xs font-bold text-slate-900 dark:text-white">
-                      From {currencySymbol()}{convertPrice(t.startingPriceInr).toLocaleString()}
+                      {t('specialties.from')} {currencySymbol()}{convertPrice(tItem.startingPriceInr).toLocaleString()}
                     </span>
                   </div>
 
                   <h3 className="text-base sm:text-lg font-bold text-[#091e34] dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                    {t.title}
+                    {tItem.title}
                   </h3>
                   <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
-                    {t.shortDesc}
+                    {tItem.shortDesc}
                   </p>
 
                   <div className="pt-1 flex flex-wrap gap-1">
-                    {t.technologyUsed.slice(0, 2).map((tech, i) => (
+                    {tItem.technologyUsed.slice(0, 2).map((tech, i) => (
                       <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
                         {tech}
                       </span>
@@ -984,14 +1017,14 @@ export const HomePage: React.FC = () => {
                 <div className="pt-5 border-t border-slate-100 dark:border-slate-700 mt-4 flex items-center justify-between">
                   <span className="text-xs text-slate-400 flex items-center">
                     <Clock className="w-3.5 h-3.5 mr-1 text-teal-500" />
-                    {t.duration.slice(0, 16)}
+                    {tItem.duration.slice(0, 16)}
                   </span>
 
                   <button
-                    onClick={() => handleBookTreatment(t.id)}
+                    onClick={() => handleBookTreatment(tItem.id)}
                     className="px-4 py-2 rounded-xl bg-[#091e34] hover:bg-teal-600 text-white font-bold text-xs shadow-md transition-colors flex items-center space-x-1"
                   >
-                    <span>Book Slot</span>
+                    <span>{t('specialties.bookSlot')}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -1010,13 +1043,13 @@ export const HomePage: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <span className="text-xs font-extrabold uppercase tracking-widest text-teal-600 dark:text-teal-400">
-                VERIFIED CLINICAL RESULTS
+                {t('transformations.eyebrow')}
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#091e34] dark:text-white mt-1">
-                Real Patient Smile Transformations
+                {t('transformations.heading')}
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl">
-                Drag the interactive slider below to see before and after cases handled by our senior cosmetic dentists and implant surgeons at Hope Dental.
+                {t('transformations.desc')}
               </p>
             </div>
 
@@ -1024,7 +1057,7 @@ export const HomePage: React.FC = () => {
               onClick={() => setIsBookingOpen(true)}
               className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-xs sm:text-sm shadow-md self-start sm:self-auto flex items-center space-x-1.5"
             >
-              <span>Get Smile Assessment</span>
+              <span>{t('transformations.getAssessment')}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -1045,13 +1078,13 @@ export const HomePage: React.FC = () => {
           
           <div className="space-y-3 max-w-3xl">
             <span className="text-xs font-extrabold uppercase tracking-widest text-teal-400 block">
-              AWARDS & ACCREDITATIONS OF HOPE DENTAL
+              {t('awards.eyebrow')}
             </span>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-              Citations & Recognition for Lucknow's Top Dental Hospital
+              {t('awards.heading')}
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Awards are not why patients come to HOPE DENTAL. But when state healthcare forums, medical bodies and verified patient metrics consistently validate clinical outcomes, it proves an unwavering commitment to sterile protocols and surgical perfection.
+              {t('awards.desc')}
             </p>
           </div>
 
@@ -1062,10 +1095,10 @@ export const HomePage: React.FC = () => {
                 <Award className="w-5 h-5" />
               </div>
               <h4 className="text-base font-bold text-white">
-                8th UP Dental Show 2026
+                {t('awards.upDentalShow')}
               </h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Award of Appreciation conferred to Dr. Himangi Dubey for breakthrough contributions in laser periodontics.
+                {t('awards.upDentalShowDesc')}
               </p>
             </div>
 
@@ -1074,10 +1107,10 @@ export const HomePage: React.FC = () => {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <h4 className="text-base font-bold text-white">
-                NABH Protocol Adherence
+                {t('awards.nabh')}
               </h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Audited against apex hospital quality benchmarks for infection control, documentation, and patient safety.
+                {t('awards.nabhDesc')}
               </p>
             </div>
 
@@ -1086,10 +1119,10 @@ export const HomePage: React.FC = () => {
                 <Star className="w-5 h-5 fill-current" />
               </div>
               <h4 className="text-base font-bold text-white">
-                5.0 ★ Google & Justdial
+                {t('awards.googleRating')}
               </h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                300+ combined genuine patient ratings praising painless procedures, transparent pricing, and gentle care.
+                {t('awards.googleRatingDesc')}
               </p>
             </div>
 
@@ -1098,10 +1131,10 @@ export const HomePage: React.FC = () => {
                 <Zap className="w-5 h-5" />
               </div>
               <h4 className="text-base font-bold text-white">
-                Biolase Laser Certified
+                {t('awards.biolase')}
               </h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Advanced hydrokinetic Waterlase facility ensuring scalpel-free, suture-free gum surgeries.
+                {t('awards.biolaseDesc')}
               </p>
             </div>
 
@@ -1118,13 +1151,13 @@ export const HomePage: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <span className="text-xs font-extrabold uppercase tracking-widest text-teal-600 dark:text-teal-400">
-                GENUINE PATIENT VOICES · 5.0 ★ RATED
+                {t('reviews.eyebrow')}
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#091e34] dark:text-white mt-1">
-                Verified Patient Reviews
+                {t('reviews.heading')}
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-xl">
-                Unedited reviews and treatment feedback directly from patients verified on Google and Justdial.
+                {t('reviews.desc')}
               </p>
             </div>
 
@@ -1132,7 +1165,7 @@ export const HomePage: React.FC = () => {
               onClick={() => navigateTo('reviews')}
               className="px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-teal-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs transition-colors self-start sm:self-auto flex items-center space-x-1.5"
             >
-              <span>View All 300+ Reviews</span>
+              <span>{t('reviews.viewAll')}</span>
               <ArrowRight className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
             </button>
           </div>
@@ -1151,7 +1184,7 @@ export const HomePage: React.FC = () => {
                       ))}
                     </div>
                     <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-teal-100/70 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 border border-teal-300/40">
-                      {r.verifiedSource} Verified
+                      {r.verifiedSource} {t('reviews.verified')}
                     </span>
                   </div>
 
@@ -1181,13 +1214,13 @@ export const HomePage: React.FC = () => {
           
           <div className="text-center space-y-2">
             <span className="text-xs font-extrabold uppercase tracking-widest text-teal-600 dark:text-teal-400">
-              HOPE DENTAL HOSPITAL · ANSWERS TO COMMON QUESTIONS
+              {t('faqs.eyebrow')}
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#091e34] dark:text-white">
-              Frequently Asked Questions
+              {t('faqs.heading')}
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              Clear answers regarding our single standalone campus, treatments, All-on-4 timelines, and appointment booking.
+              {t('faqs.desc')}
             </p>
           </div>
 
@@ -1230,13 +1263,13 @@ export const HomePage: React.FC = () => {
           <div className="bg-gradient-to-br from-[#091e34] via-[#0c2b4c] to-[#07192b] rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-teal-800/40">
             <div className="space-y-2 text-center md:text-left">
               <span className="text-[10px] font-black uppercase tracking-widest text-teal-400 block">
-                STILL HAVE QUESTIONS?
+                {t('preFooter.eyebrow')}
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-white">
-                Talk to a Hope Dental Specialist
+                {t('preFooter.heading')}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
-                Get a personalized consultation, treatment plan and transparent cost estimate based on your clinical requirements.
+                {t('preFooter.desc')}
               </p>
             </div>
 
@@ -1244,7 +1277,7 @@ export const HomePage: React.FC = () => {
               onClick={() => setIsBookingOpen(true)}
               className="px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-xl shrink-0 active:scale-95 transition-all flex items-center space-x-2"
             >
-              <span>Book Your Consultation</span>
+              <span>{t('preFooter.bookConsultation')}</span>
               <span>→</span>
             </button>
           </div>
